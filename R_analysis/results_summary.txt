@@ -1,0 +1,58 @@
+=== DATA VALIDATION ===
+Rows: 736  Columns: 33
+Missing values per column (only columns with missing):
+Age                            1
+Primary streaming service      1
+While working                  3
+Instrumentalist                4
+Composer                       1
+Foreign languages              4
+BPM                          107
+Music effects                  8
+
+Rows after cleaning: 735 (removed 1)
+
+=== DESCRIPTIVE STATISTICS ===
+               count    mean  median      var     std   min   max
+Age            735.0  25.207    21.0  145.322  12.055  10.0  89.0
+Hours per day  735.0   3.574     3.0    9.182   3.030   0.0  24.0
+Anxiety        735.0   5.833     6.0    7.798   2.793   0.0  10.0
+Depression     735.0   4.799     5.0    9.182   3.030   0.0  10.0
+Insomnia       735.0   3.741     3.0    9.549   3.090   0.0  10.0
+OCD            735.0   2.631     2.0    8.062   2.839   0.0  10.0
+
+Anxiety by top-6 favourite genres:
+                  count   mean  median    std
+Fav genre                                    
+Classical            53  4.887     6.0  2.867
+EDM                  37  5.486     6.0  3.396
+Metal                88  5.761     6.0  2.979
+Pop                 114  6.075     6.0  2.392
+Rock                188  6.122     7.0  2.875
+Video game music     44  5.886     6.0  2.452
+
+=== PROBABILITY ===
+P(high anxiety) = 0.490
+       Fav genre   n  P(high anxiety | genre)
+            Rock 188                    0.564
+             Pop 114                    0.474
+           Metal  88                    0.466
+       Classical  53                    0.415
+Video game music  44                    0.409
+             EDM  37                    0.432
+Bayes: P(Rock | high anxiety) = 0.294
+Bayes: P(Pop | high anxiety) = 0.150
+Bayes: P(Metal | high anxiety) = 0.114
+
+=== 95% CONFIDENCE INTERVALS (by listens-while-working) ===
+While working   Variable   n  mean  lower_95  upper_95
+           No    Anxiety 157 5.662     5.201     6.124
+           No Depression 157 4.478     3.986     4.970
+           No   Insomnia 157 3.589     3.128     4.050
+           No        OCD 157 2.213     1.770     2.657
+          Yes    Anxiety 578 5.880     5.655     6.105
+          Yes Depression 578 4.886     4.641     5.131
+          Yes   Insomnia 578 3.782     3.526     4.038
+          Yes        OCD 578 2.745     2.513     2.977
+
+Preview (for Review 2): Pearson r(hours, anxiety) = 0.050 (p=0.179); Spearman rho = 0.094 (p=0.011)

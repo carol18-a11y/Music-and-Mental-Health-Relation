@@ -1,0 +1,140 @@
+
+# Music Listening and Mental Health
+# Additional analysis for Review 1
+
+# 1. Load the dataset
+df <- read.csv(
+  "data/mxmh_survey_results.csv",
+  stringsAsFactors = FALSE
+)
+
+# Create output folders
+dir.create("outputs/r_figures", recursive = TRUE,
+           showWarnings = FALSE)
+
+# Convert important columns to numeric
+df$Anxiety <- as.numeric(df$Anxiety)
+df$`Hours per day` <- as.numeric(df$`Hours per day`)
+
+# Use the same high-anxiety definition as Python:
+# high anxiety = Anxiety score >= 6
+df$AnxietyGroup <- ifelse(
+  is.na(df$Anxiety), NA,
+  ifelse(df$Anxiety >= 6, "High", "Not high")
+)
+
+# 2. Descriptive statistics
+cat("=== R DESCRIPTIVE STATISTICS ===\n")
+cat("Mean anxiety:", mean(df$Anxiety, na.rm = TRUE), "\n")
+cat("Variance of anxiety:", var(df$Anxiety, na.rm = TRUE), "\n")
+cat("SD of anxiety:", sd(df$Anxiety, na.rm = TRUE), "\n\n")
+
+# 3. Welch's two-sample t-test
+cat("=== WELCH TWO-SAMPLE T-TEST ===\n")
+
+test_data <- df[
+  !is.na(df$Anxiety) &
+  !is.na(df$`While working`) &
+  df$`While working` %in% c("Yes", "No"),
+]
+
+test_data$`While working` <- factor(
+  test_data$`While working`,
+  levels = c("No", "Yes")
+)
+
+print(t.test(
+  Anxiety ~ `While working`,
+  data = test_data,
+  alternative = "two.sided",
+  var.equal = FALSE
+))
+
+# 4. Chi-square test of independence
+cat("\n=== CHI-SQUARE TEST ===\n")
+
+genre_counts <- sort(
+  table(df$`Fav genre`),
+  decreasing = TRUE
+)
+
+top_genres <- names(head(genre_counts, 6))
+
+chi_data <- df[
+  !is.na(df$`Fav genre`) &
+  !is.na(df$AnxietyGroup),
+]
+
+chi_data$GenreGroup <- ifelse(
+  chi_data$`Fav genre` %in% top_genres,
+  chi_data$`Fav genre`,
+  "Other"
+)
+
+contingency_table <- table(
+  chi_data$GenreGroup,
+  chi_data$AnxietyGroup
+)
+
+print(contingency_table)
+
+chi_result <- chisq.test(contingency_table)
+
+cat("\nExpected counts:\n")
+print(round(chi_result$expected, 2))
+
+cat("\nTest result:\n")
+print(chi_result)
+
+if (any(chi_result$expected < 5)) {
+  cat(
+    "\nWarning: Some expected counts are below 5.",
+    "Review category grouping before interpreting the test.\n"
+  )
+}
+
+# 5. Graph 1: Distribution of anxiety scores
+png(
+  "outputs/r_figures/anxiety_distribution.png",
+  width = 900, height = 600
+)
+
+hist(
+  df$Anxiety,
+  breaks = seq(-0.5, 10.5, by = 1),
+  main = "Distribution of Anxiety Scores",
+  xlab = "Self-reported anxiety score (0-10)",
+  ylab = "Number of respondents",
+  col = "lightblue",
+  border = "white"
+)
+
+dev.off()
+
+# 6. Graph 2: Binomial probability distribution
+# Illustration: number of high-anxiety respondents
+# in a hypothetical random sample of 10.
+p <- mean(df$AnxietyGroup == "High", na.rm = TRUE)
+n <- 10
+x <- 0:n
+probabilities <- dbinom(x, size = n, prob = p)
+
+png(
+  "outputs/r_figures/binomial_distribution.png",
+  width = 900, height = 600
+)
+
+plot(
+  x, probabilities,
+  type = "h",
+  lwd = 5,
+  main = "Binomial Distribution: High-Anxiety Responses",
+  xlab = "Number of high-anxiety respondents out of 10",
+  ylab = "Probability",
+  col = "steelblue"
+)
+
+points(x, probabilities, pch = 19, col = "steelblue")
+dev.off()
+
+cat("\nR analysis complete. Check outputs/r_figures/.\n")
