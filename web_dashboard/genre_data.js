@@ -1,0 +1,14444 @@
+window.GENRE_DATA = {
+  "global": {
+    "total_respondents": 735,
+    "anxiety": {
+      "count": 735,
+      "mean": 5.83,
+      "median": 6.0,
+      "min": 0.0,
+      "max": 10.0,
+      "std": 2.79
+    },
+    "depression": {
+      "count": 735,
+      "mean": 4.8,
+      "median": 5.0,
+      "min": 0.0,
+      "max": 10.0,
+      "std": 3.03
+    },
+    "insomnia": {
+      "count": 735,
+      "mean": 3.74,
+      "median": 3.0,
+      "min": 0.0,
+      "max": 10.0,
+      "std": 3.09
+    },
+    "ocd": {
+      "count": 735,
+      "mean": 2.63,
+      "median": 2.0,
+      "min": 0.0,
+      "max": 10.0,
+      "std": 2.84
+    },
+    "hours": {
+      "count": 735,
+      "mean": 3.57,
+      "median": 3.0,
+      "min": 0.0,
+      "max": 24.0,
+      "std": 3.03
+    },
+    "age": {
+      "count": 735,
+      "mean": 25.21,
+      "median": 21.0,
+      "min": 10.0,
+      "max": 89.0,
+      "std": 12.05
+    },
+    "effects_pct": {
+      "No effect": 23.0,
+      "Improve": 73.6,
+      "Worsen": 2.3
+    },
+    "working_pct": 78.6,
+    "high_anxiety_rate": 60.3,
+    "high_depression_rate": 46.8
+  },
+  "genres": {
+    "Classical": {
+      "name": "Classical",
+      "color": "#d97706",
+      "emoji": "\ud83c\udfbb",
+      "count": 53,
+      "pct_of_total": 7.2,
+      "anxiety": {
+        "count": 53,
+        "mean": 4.89,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 9.0,
+        "std": 2.87
+      },
+      "depression": {
+        "count": 53,
+        "mean": 4.08,
+        "median": 5.0,
+        "min": 0.0,
+        "max": 9.0,
+        "std": 3.1
+      },
+      "insomnia": {
+        "count": 53,
+        "mean": 3.79,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.05
+      },
+      "ocd": {
+        "count": 53,
+        "mean": 2.38,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 8.0,
+        "std": 2.24
+      },
+      "hours": {
+        "count": 53,
+        "mean": 2.88,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 8.0,
+        "std": 1.9
+      },
+      "age": {
+        "count": 53,
+        "mean": 26.23,
+        "median": 20.0,
+        "min": 12.0,
+        "max": 80.0,
+        "std": 15.56
+      },
+      "bpm": {
+        "count": 40,
+        "mean": 114.58,
+        "median": 117.5,
+        "min": 40.0,
+        "max": 181.0,
+        "std": 34.08
+      },
+      "high_anxiety_rate": 50.9,
+      "high_depression_rate": 41.5,
+      "effects_counts": {
+        "Improve": 39,
+        "No effect": 13,
+        "Worsen": 1
+      },
+      "effects_pct": {
+        "Improve": 73.6,
+        "No effect": 24.5,
+        "Worsen": 1.9
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 18,
+            "pct": 34.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 13,
+            "pct": 24.5
+          },
+          {
+            "label": "High (7-10)",
+            "count": 22,
+            "pct": 41.5
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 25,
+            "pct": 47.2
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 13,
+            "pct": 24.5
+          },
+          {
+            "label": "High (7-10)",
+            "count": 15,
+            "pct": 28.3
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 15,
+            "pct": 28.3
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 21,
+            "pct": 39.6
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 11,
+            "pct": 20.8
+          },
+          {
+            "label": "6+ hrs",
+            "count": 6,
+            "pct": 11.3
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 19,
+            "pct": 35.8
+          },
+          {
+            "label": "18 - 24",
+            "count": 16,
+            "pct": 30.2
+          },
+          {
+            "label": "25 - 34",
+            "count": 9,
+            "pct": 17.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 4,
+            "pct": 7.5
+          },
+          {
+            "label": "50+",
+            "count": 5,
+            "pct": 9.4
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 79.2,
+        "instrumentalist_pct": 71.7,
+        "composer_pct": 26.4,
+        "exploratory_pct": 58.5,
+        "foreign_languages_pct": 39.6,
+        "working_anxiety": 4.93,
+        "non_working_anxiety": 4.73
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 25,
+          "pct": 47.2
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 10,
+          "pct": 18.9
+        },
+        {
+          "name": "YouTube Music",
+          "count": 10,
+          "pct": 18.9
+        },
+        {
+          "name": "Apple Music",
+          "count": 3,
+          "pct": 5.7
+        },
+        {
+          "name": "Other streaming service",
+          "count": 3,
+          "pct": 5.7
+        },
+        {
+          "name": "Pandora",
+          "count": 2,
+          "pct": 3.8
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 51,
+          "Sometimes": 2,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 98.7
+        },
+        "Country": {
+          "Very frequently": 0,
+          "Sometimes": 7,
+          "Rarely": 15,
+          "Never": 31,
+          "score": 18.2
+        },
+        "EDM": {
+          "Very frequently": 3,
+          "Sometimes": 5,
+          "Rarely": 12,
+          "Never": 33,
+          "score": 19.5
+        },
+        "Folk": {
+          "Very frequently": 3,
+          "Sometimes": 3,
+          "Rarely": 17,
+          "Never": 30,
+          "score": 20.1
+        },
+        "Gospel": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 12,
+          "Never": 36,
+          "score": 14.5
+        },
+        "Hip hop": {
+          "Very frequently": 2,
+          "Sometimes": 11,
+          "Rarely": 12,
+          "Never": 28,
+          "score": 25.2
+        },
+        "Jazz": {
+          "Very frequently": 4,
+          "Sometimes": 17,
+          "Rarely": 19,
+          "Never": 13,
+          "score": 40.9
+        },
+        "K pop": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 17,
+          "Never": 33,
+          "score": 15.1
+        },
+        "Latin": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 16,
+          "Never": 32,
+          "score": 17.0
+        },
+        "Lofi": {
+          "Very frequently": 1,
+          "Sometimes": 10,
+          "Rarely": 15,
+          "Never": 27,
+          "score": 23.9
+        },
+        "Metal": {
+          "Very frequently": 1,
+          "Sometimes": 9,
+          "Rarely": 14,
+          "Never": 29,
+          "score": 22.0
+        },
+        "Pop": {
+          "Very frequently": 12,
+          "Sometimes": 18,
+          "Rarely": 15,
+          "Never": 8,
+          "score": 54.7
+        },
+        "R&B": {
+          "Very frequently": 1,
+          "Sometimes": 8,
+          "Rarely": 12,
+          "Never": 32,
+          "score": 19.5
+        },
+        "Rap": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 13,
+          "Never": 35,
+          "score": 15.1
+        },
+        "Rock": {
+          "Very frequently": 8,
+          "Sometimes": 12,
+          "Rarely": 16,
+          "Never": 17,
+          "score": 40.3
+        },
+        "Video game music": {
+          "Very frequently": 3,
+          "Sometimes": 13,
+          "Rarely": 19,
+          "Never": 18,
+          "score": 34.0
+        }
+      },
+      "sample_records": [
+        {
+          "id": 32,
+          "age": 19,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 4,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 35,
+          "age": 16,
+          "hours": 1.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 44,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 47,
+          "age": 36,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 56,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 93,
+          "age": 24,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 102,
+          "age": 25,
+          "hours": 0.5,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 137,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 188,
+          "age": 31,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 9,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 207,
+          "age": 23,
+          "hours": 6.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 6,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 243,
+          "age": 29,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 247,
+          "age": 17,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 9,
+          "insomnia": 2,
+          "ocd": 8,
+          "effects": "Worsen",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 260,
+          "age": 32,
+          "hours": 0.5,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 4,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 267,
+          "age": 31,
+          "hours": 8.0,
+          "anxiety": 5,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 349,
+          "age": 17,
+          "hours": 6.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 369,
+          "age": 32,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 372,
+          "age": 24,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 384,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 385,
+          "age": 12,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 386,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 10,
+          "ocd": 6,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 391,
+          "age": 54,
+          "hours": 6.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 393,
+          "age": 14,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 394,
+          "age": 13,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 5,
+          "insomnia": 10,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 396,
+          "age": 14,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 397,
+          "age": 14,
+          "hours": 1.5,
+          "anxiety": 1,
+          "depression": 2,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 400,
+          "age": 24,
+          "hours": 6.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 409,
+          "age": 13,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 9,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 410,
+          "age": 15,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 412,
+          "age": 12,
+          "hours": 0.5,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 415,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 2,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 416,
+          "age": 69,
+          "hours": 4.0,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 419,
+          "age": 22,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 422,
+          "age": 14,
+          "hours": 5.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 425,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 2,
+          "depression": 3,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 428,
+          "age": 31,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 9,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 433,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 434,
+          "age": 12,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 447,
+          "age": 17,
+          "hours": 1.5,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 475,
+          "age": 58,
+          "hours": 1.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 484,
+          "age": 49,
+          "hours": 0.5,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 515,
+          "age": 64,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 528,
+          "age": 80,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 9,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 552,
+          "age": 34,
+          "hours": 3.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 572,
+          "age": 29,
+          "hours": 4.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 591,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 608,
+          "age": 19,
+          "hours": 0.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 628,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 636,
+          "age": 49,
+          "hours": 8.0,
+          "anxiety": 4,
+          "depression": 8,
+          "insomnia": 9,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 644,
+          "age": 42,
+          "hours": 0.25,
+          "anxiety": 7,
+          "depression": 9,
+          "insomnia": 4,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 676,
+          "age": 21,
+          "hours": 1.5,
+          "anxiety": 4,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 687,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 5,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 688,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 735,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 2,
+          "depression": 3,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "Country": {
+      "name": "Country",
+      "color": "#b45309",
+      "emoji": "\ud83e\udd20",
+      "count": 25,
+      "pct_of_total": 3.4,
+      "anxiety": {
+        "count": 25,
+        "mean": 5.4,
+        "median": 7.0,
+        "min": 0.0,
+        "max": 9.0,
+        "std": 3.0
+      },
+      "depression": {
+        "count": 25,
+        "mean": 4.32,
+        "median": 5.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.18
+      },
+      "insomnia": {
+        "count": 25,
+        "mean": 2.72,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 9.0,
+        "std": 2.49
+      },
+      "ocd": {
+        "count": 25,
+        "mean": 2.76,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 7.0,
+        "std": 2.44
+      },
+      "hours": {
+        "count": 25,
+        "mean": 3.42,
+        "median": 3.0,
+        "min": 1.0,
+        "max": 8.0,
+        "std": 2.23
+      },
+      "age": {
+        "count": 25,
+        "mean": 25.36,
+        "median": 21.0,
+        "min": 14.0,
+        "max": 70.0,
+        "std": 11.74
+      },
+      "bpm": {
+        "count": 21,
+        "mean": 110.19,
+        "median": 109.0,
+        "min": 85.0,
+        "max": 163.0,
+        "std": 18.39
+      },
+      "high_anxiety_rate": 56.0,
+      "high_depression_rate": 32.0,
+      "effects_counts": {
+        "Improve": 20,
+        "No effect": 5,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 80.0,
+        "No effect": 20.0,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 7,
+            "pct": 28.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 5,
+            "pct": 20.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 13,
+            "pct": 52.0
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 11,
+            "pct": 44.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 7,
+            "pct": 28.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 7,
+            "pct": 28.0
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 7,
+            "pct": 28.0
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 8,
+            "pct": 32.0
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 5,
+            "pct": 20.0
+          },
+          {
+            "label": "6+ hrs",
+            "count": 5,
+            "pct": 20.0
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 3,
+            "pct": 12.0
+          },
+          {
+            "label": "18 - 24",
+            "count": 14,
+            "pct": 56.0
+          },
+          {
+            "label": "25 - 34",
+            "count": 3,
+            "pct": 12.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 4,
+            "pct": 16.0
+          },
+          {
+            "label": "50+",
+            "count": 1,
+            "pct": 4.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 72.0,
+        "instrumentalist_pct": 28.0,
+        "composer_pct": 16.0,
+        "exploratory_pct": 72.0,
+        "foreign_languages_pct": 20.0,
+        "working_anxiety": 5.39,
+        "non_working_anxiety": 5.43
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 15,
+          "pct": 60.0
+        },
+        {
+          "name": "Other streaming service",
+          "count": 3,
+          "pct": 12.0
+        },
+        {
+          "name": "Apple Music",
+          "count": 3,
+          "pct": 12.0
+        },
+        {
+          "name": "YouTube Music",
+          "count": 2,
+          "pct": 8.0
+        },
+        {
+          "name": "Unknown",
+          "count": 1,
+          "pct": 4.0
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 1,
+          "pct": 4.0
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 8,
+          "Never": 12,
+          "score": 25.3
+        },
+        "Country": {
+          "Very frequently": 25,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 100.0
+        },
+        "EDM": {
+          "Very frequently": 0,
+          "Sometimes": 5,
+          "Rarely": 6,
+          "Never": 14,
+          "score": 21.3
+        },
+        "Folk": {
+          "Very frequently": 2,
+          "Sometimes": 10,
+          "Rarely": 5,
+          "Never": 8,
+          "score": 41.3
+        },
+        "Gospel": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 6,
+          "Never": 16,
+          "score": 17.3
+        },
+        "Hip hop": {
+          "Very frequently": 1,
+          "Sometimes": 9,
+          "Rarely": 8,
+          "Never": 7,
+          "score": 38.7
+        },
+        "Jazz": {
+          "Very frequently": 0,
+          "Sometimes": 5,
+          "Rarely": 3,
+          "Never": 17,
+          "score": 17.3
+        },
+        "K pop": {
+          "Very frequently": 2,
+          "Sometimes": 2,
+          "Rarely": 1,
+          "Never": 20,
+          "score": 14.7
+        },
+        "Latin": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 6,
+          "Never": 16,
+          "score": 17.3
+        },
+        "Lofi": {
+          "Very frequently": 0,
+          "Sometimes": 3,
+          "Rarely": 4,
+          "Never": 18,
+          "score": 13.3
+        },
+        "Metal": {
+          "Very frequently": 0,
+          "Sometimes": 7,
+          "Rarely": 6,
+          "Never": 12,
+          "score": 26.7
+        },
+        "Pop": {
+          "Very frequently": 4,
+          "Sometimes": 11,
+          "Rarely": 7,
+          "Never": 3,
+          "score": 54.7
+        },
+        "R&B": {
+          "Very frequently": 1,
+          "Sometimes": 3,
+          "Rarely": 9,
+          "Never": 12,
+          "score": 24.0
+        },
+        "Rap": {
+          "Very frequently": 1,
+          "Sometimes": 7,
+          "Rarely": 7,
+          "Never": 10,
+          "score": 32.0
+        },
+        "Rock": {
+          "Very frequently": 7,
+          "Sometimes": 12,
+          "Rarely": 2,
+          "Never": 4,
+          "score": 62.7
+        },
+        "Video game music": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 7,
+          "Never": 16,
+          "score": 14.7
+        }
+      },
+      "sample_records": [
+        {
+          "id": 11,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 14,
+          "age": 19,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 1,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 198,
+          "age": 21,
+          "hours": 5.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 9,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Unknown"
+        },
+        {
+          "id": 228,
+          "age": 30,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 233,
+          "age": 35,
+          "hours": 4.0,
+          "anxiety": 9,
+          "depression": 9,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 263,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 0,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 264,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 4,
+          "insomnia": 3,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 265,
+          "age": 19,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 300,
+          "age": 20,
+          "hours": 8.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 2,
+          "ocd": 5,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 315,
+          "age": 22,
+          "hours": 6.0,
+          "anxiety": 5,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 333,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 336,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 5,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 395,
+          "age": 19,
+          "hours": 8.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 414,
+          "age": 17,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 438,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 468,
+          "age": 35,
+          "hours": 4.0,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 473,
+          "age": 22,
+          "hours": 6.0,
+          "anxiety": 4,
+          "depression": 8,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 477,
+          "age": 70,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 5,
+          "insomnia": 6,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 512,
+          "age": 43,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 542,
+          "age": 20,
+          "hours": 1.5,
+          "anxiety": 0,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 680,
+          "age": 36,
+          "hours": 3.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 699,
+          "age": 17,
+          "hours": 4.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 708,
+          "age": 26,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 715,
+          "age": 29,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 3,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 729,
+          "age": 14,
+          "hours": 7.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        }
+      ]
+    },
+    "EDM": {
+      "name": "EDM",
+      "color": "#06b6d4",
+      "emoji": "\u26a1",
+      "count": 37,
+      "pct_of_total": 5.0,
+      "anxiety": {
+        "count": 37,
+        "mean": 5.49,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.4
+      },
+      "depression": {
+        "count": 37,
+        "mean": 5.24,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.11
+      },
+      "insomnia": {
+        "count": 37,
+        "mean": 3.97,
+        "median": 4.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.14
+      },
+      "ocd": {
+        "count": 37,
+        "mean": 3.0,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.14
+      },
+      "hours": {
+        "count": 37,
+        "mean": 4.59,
+        "median": 3.0,
+        "min": 1.0,
+        "max": 18.0,
+        "std": 4.02
+      },
+      "age": {
+        "count": 37,
+        "mean": 22.05,
+        "median": 20.0,
+        "min": 15.0,
+        "max": 49.0,
+        "std": 6.54
+      },
+      "bpm": {
+        "count": 35,
+        "mean": 133.89,
+        "median": 128.0,
+        "min": 85.0,
+        "max": 200.0,
+        "std": 28.79
+      },
+      "high_anxiety_rate": 54.1,
+      "high_depression_rate": 51.4,
+      "effects_counts": {
+        "Improve": 30,
+        "No effect": 6,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 81.1,
+        "No effect": 16.2,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 10,
+            "pct": 27.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 11,
+            "pct": 29.7
+          },
+          {
+            "label": "High (7-10)",
+            "count": 16,
+            "pct": 43.2
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 11,
+            "pct": 29.7
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 10,
+            "pct": 27.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 16,
+            "pct": 43.2
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 7,
+            "pct": 18.9
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 13,
+            "pct": 35.1
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 5,
+            "pct": 13.5
+          },
+          {
+            "label": "6+ hrs",
+            "count": 12,
+            "pct": 32.4
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 7,
+            "pct": 18.9
+          },
+          {
+            "label": "18 - 24",
+            "count": 19,
+            "pct": 51.4
+          },
+          {
+            "label": "25 - 34",
+            "count": 10,
+            "pct": 27.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 1,
+            "pct": 2.7
+          },
+          {
+            "label": "50+",
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 78.4,
+        "instrumentalist_pct": 21.6,
+        "composer_pct": 18.9,
+        "exploratory_pct": 73.0,
+        "foreign_languages_pct": 56.8,
+        "working_anxiety": 5.62,
+        "non_working_anxiety": 5.0
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 21,
+          "pct": 56.8
+        },
+        {
+          "name": "YouTube Music",
+          "count": 6,
+          "pct": 16.2
+        },
+        {
+          "name": "Other streaming service",
+          "count": 5,
+          "pct": 13.5
+        },
+        {
+          "name": "Apple Music",
+          "count": 4,
+          "pct": 10.8
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 1,
+          "pct": 2.7
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 2,
+          "Sometimes": 6,
+          "Rarely": 18,
+          "Never": 11,
+          "score": 32.4
+        },
+        "Country": {
+          "Very frequently": 0,
+          "Sometimes": 6,
+          "Rarely": 10,
+          "Never": 21,
+          "score": 19.8
+        },
+        "EDM": {
+          "Very frequently": 37,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 100.0
+        },
+        "Folk": {
+          "Very frequently": 1,
+          "Sometimes": 9,
+          "Rarely": 6,
+          "Never": 21,
+          "score": 24.3
+        },
+        "Gospel": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 9,
+          "Never": 27,
+          "score": 9.9
+        },
+        "Hip hop": {
+          "Very frequently": 3,
+          "Sometimes": 23,
+          "Rarely": 6,
+          "Never": 5,
+          "score": 55.0
+        },
+        "Jazz": {
+          "Very frequently": 0,
+          "Sometimes": 7,
+          "Rarely": 14,
+          "Never": 16,
+          "score": 25.2
+        },
+        "K pop": {
+          "Very frequently": 3,
+          "Sometimes": 3,
+          "Rarely": 9,
+          "Never": 22,
+          "score": 21.6
+        },
+        "Latin": {
+          "Very frequently": 1,
+          "Sometimes": 3,
+          "Rarely": 6,
+          "Never": 27,
+          "score": 13.5
+        },
+        "Lofi": {
+          "Very frequently": 5,
+          "Sometimes": 9,
+          "Rarely": 13,
+          "Never": 10,
+          "score": 41.4
+        },
+        "Metal": {
+          "Very frequently": 4,
+          "Sometimes": 8,
+          "Rarely": 11,
+          "Never": 14,
+          "score": 35.1
+        },
+        "Pop": {
+          "Very frequently": 12,
+          "Sometimes": 14,
+          "Rarely": 6,
+          "Never": 5,
+          "score": 63.1
+        },
+        "R&B": {
+          "Very frequently": 6,
+          "Sometimes": 8,
+          "Rarely": 12,
+          "Never": 11,
+          "score": 41.4
+        },
+        "Rap": {
+          "Very frequently": 9,
+          "Sometimes": 16,
+          "Rarely": 6,
+          "Never": 6,
+          "score": 58.6
+        },
+        "Rock": {
+          "Very frequently": 11,
+          "Sometimes": 14,
+          "Rarely": 6,
+          "Never": 6,
+          "score": 60.4
+        },
+        "Video game music": {
+          "Very frequently": 7,
+          "Sometimes": 12,
+          "Rarely": 10,
+          "Never": 8,
+          "score": 49.5
+        }
+      },
+      "sample_records": [
+        {
+          "id": 12,
+          "age": 19,
+          "hours": 8.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 40,
+          "age": 20,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 8,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 51,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 79,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 0,
+          "insomnia": 5,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 97,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 0,
+          "depression": 3,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 118,
+          "age": 22,
+          "hours": 1.0,
+          "anxiety": 2,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 126,
+          "age": 22,
+          "hours": 10.0,
+          "anxiety": 4,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 134,
+          "age": 32,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 145,
+          "age": 25,
+          "hours": 1.0,
+          "anxiety": 0,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 150,
+          "age": 19,
+          "hours": 8.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 163,
+          "age": 49,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 240,
+          "age": 25,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 244,
+          "age": 31,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 6,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 248,
+          "age": 25,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 250,
+          "age": 15,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 1,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 252,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 272,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 0,
+          "depression": 1,
+          "insomnia": 3,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 310,
+          "age": 30,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 4,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 312,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 331,
+          "age": 22,
+          "hours": 3.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 339,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 5,
+          "ocd": 7,
+          "effects": "Unknown",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 350,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 358,
+          "age": 16,
+          "hours": 10.0,
+          "anxiety": 10,
+          "depression": 9,
+          "insomnia": 3,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 360,
+          "age": 16,
+          "hours": 15.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 9,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 413,
+          "age": 26,
+          "hours": 6.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 421,
+          "age": 18,
+          "hours": 10.0,
+          "anxiety": 10,
+          "depression": 9,
+          "insomnia": 9,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 441,
+          "age": 16,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 6,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 480,
+          "age": 18,
+          "hours": 6.0,
+          "anxiety": 5,
+          "depression": 5,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 501,
+          "age": 29,
+          "hours": 8.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 520,
+          "age": 20,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 526,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 10,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 576,
+          "age": 22,
+          "hours": 5.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 600,
+          "age": 18,
+          "hours": 6.0,
+          "anxiety": 0,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 638,
+          "age": 26,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 642,
+          "age": 30,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 7,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 645,
+          "age": 16,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 7,
+          "insomnia": 1,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 727,
+          "age": 18,
+          "hours": 18.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        }
+      ]
+    },
+    "Folk": {
+      "name": "Folk",
+      "color": "#84cc16",
+      "emoji": "\ud83e\ude95",
+      "count": 30,
+      "pct_of_total": 4.1,
+      "anxiety": {
+        "count": 30,
+        "mean": 6.57,
+        "median": 7.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.62
+      },
+      "depression": {
+        "count": 30,
+        "mean": 5.07,
+        "median": 5.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.94
+      },
+      "insomnia": {
+        "count": 30,
+        "mean": 3.63,
+        "median": 3.5,
+        "min": 0.0,
+        "max": 9.0,
+        "std": 2.86
+      },
+      "ocd": {
+        "count": 30,
+        "mean": 2.2,
+        "median": 1.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.7
+      },
+      "hours": {
+        "count": 30,
+        "mean": 3.24,
+        "median": 2.75,
+        "min": 0.1,
+        "max": 7.0,
+        "std": 2.08
+      },
+      "age": {
+        "count": 30,
+        "mean": 25.8,
+        "median": 23.5,
+        "min": 13.0,
+        "max": 49.0,
+        "std": 8.92
+      },
+      "bpm": {
+        "count": 25,
+        "mean": 113.92,
+        "median": 116.0,
+        "min": 55.0,
+        "max": 186.0,
+        "std": 29.67
+      },
+      "high_anxiety_rate": 76.7,
+      "high_depression_rate": 46.7,
+      "effects_counts": {
+        "Improve": 23,
+        "No effect": 6,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 76.7,
+        "No effect": 20.0,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 4,
+            "pct": 13.3
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 8,
+            "pct": 26.7
+          },
+          {
+            "label": "High (7-10)",
+            "count": 18,
+            "pct": 60.0
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 8,
+            "pct": 26.7
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 10,
+            "pct": 33.3
+          },
+          {
+            "label": "High (7-10)",
+            "count": 12,
+            "pct": 40.0
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 8,
+            "pct": 26.7
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 10,
+            "pct": 33.3
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 6,
+            "pct": 20.0
+          },
+          {
+            "label": "6+ hrs",
+            "count": 6,
+            "pct": 20.0
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 5,
+            "pct": 16.7
+          },
+          {
+            "label": "18 - 24",
+            "count": 12,
+            "pct": 40.0
+          },
+          {
+            "label": "25 - 34",
+            "count": 8,
+            "pct": 26.7
+          },
+          {
+            "label": "35 - 49",
+            "count": 5,
+            "pct": 16.7
+          },
+          {
+            "label": "50+",
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 83.3,
+        "instrumentalist_pct": 26.7,
+        "composer_pct": 13.3,
+        "exploratory_pct": 76.7,
+        "foreign_languages_pct": 60.0,
+        "working_anxiety": 6.6,
+        "non_working_anxiety": 6.4
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 20,
+          "pct": 66.7
+        },
+        {
+          "name": "YouTube Music",
+          "count": 6,
+          "pct": 20.0
+        },
+        {
+          "name": "Other streaming service",
+          "count": 2,
+          "pct": 6.7
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 1,
+          "pct": 3.3
+        },
+        {
+          "name": "Apple Music",
+          "count": 1,
+          "pct": 3.3
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 2,
+          "Sometimes": 10,
+          "Rarely": 9,
+          "Never": 9,
+          "score": 38.9
+        },
+        "Country": {
+          "Very frequently": 4,
+          "Sometimes": 11,
+          "Rarely": 9,
+          "Never": 6,
+          "score": 47.8
+        },
+        "EDM": {
+          "Very frequently": 3,
+          "Sometimes": 5,
+          "Rarely": 6,
+          "Never": 16,
+          "score": 27.8
+        },
+        "Folk": {
+          "Very frequently": 25,
+          "Sometimes": 5,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 94.4
+        },
+        "Gospel": {
+          "Very frequently": 1,
+          "Sometimes": 5,
+          "Rarely": 8,
+          "Never": 16,
+          "score": 23.3
+        },
+        "Hip hop": {
+          "Very frequently": 1,
+          "Sometimes": 11,
+          "Rarely": 14,
+          "Never": 4,
+          "score": 43.3
+        },
+        "Jazz": {
+          "Very frequently": 2,
+          "Sometimes": 9,
+          "Rarely": 11,
+          "Never": 8,
+          "score": 38.9
+        },
+        "K pop": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 3,
+          "Never": 25,
+          "score": 7.8
+        },
+        "Latin": {
+          "Very frequently": 0,
+          "Sometimes": 3,
+          "Rarely": 13,
+          "Never": 14,
+          "score": 21.1
+        },
+        "Lofi": {
+          "Very frequently": 2,
+          "Sometimes": 12,
+          "Rarely": 7,
+          "Never": 9,
+          "score": 41.1
+        },
+        "Metal": {
+          "Very frequently": 2,
+          "Sometimes": 7,
+          "Rarely": 9,
+          "Never": 12,
+          "score": 32.2
+        },
+        "Pop": {
+          "Very frequently": 9,
+          "Sometimes": 9,
+          "Rarely": 9,
+          "Never": 3,
+          "score": 60.0
+        },
+        "R&B": {
+          "Very frequently": 1,
+          "Sometimes": 10,
+          "Rarely": 9,
+          "Never": 10,
+          "score": 35.6
+        },
+        "Rap": {
+          "Very frequently": 1,
+          "Sometimes": 10,
+          "Rarely": 11,
+          "Never": 8,
+          "score": 37.8
+        },
+        "Rock": {
+          "Very frequently": 12,
+          "Sometimes": 13,
+          "Rarely": 4,
+          "Never": 1,
+          "score": 73.3
+        },
+        "Video game music": {
+          "Very frequently": 5,
+          "Sometimes": 10,
+          "Rarely": 8,
+          "Never": 7,
+          "score": 47.8
+        }
+      },
+      "sample_records": [
+        {
+          "id": 46,
+          "age": 17,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 59,
+          "age": 23,
+          "hours": 7.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 120,
+          "age": 28,
+          "hours": 0.5,
+          "anxiety": 4,
+          "depression": 7,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 149,
+          "age": 26,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 179,
+          "age": 21,
+          "hours": 5.0,
+          "anxiety": 9,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 204,
+          "age": 44,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 9,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 218,
+          "age": 29,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 4,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 227,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 235,
+          "age": 30,
+          "hours": 6.0,
+          "anxiety": 9,
+          "depression": 0,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 237,
+          "age": 27,
+          "hours": 5.0,
+          "anxiety": 0,
+          "depression": 9,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 269,
+          "age": 31,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 1,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 311,
+          "age": 49,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 340,
+          "age": 35,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 8,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 345,
+          "age": 13,
+          "hours": 2.5,
+          "anxiety": 8,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 365,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 399,
+          "age": 15,
+          "hours": 5.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 442,
+          "age": 21,
+          "hours": 1.5,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Unknown",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 469,
+          "age": 22,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 517,
+          "age": 24,
+          "hours": 1.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 7,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 545,
+          "age": 32,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 563,
+          "age": 24,
+          "hours": 7.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 8,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 610,
+          "age": 21,
+          "hours": 0.1,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 632,
+          "age": 22,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 641,
+          "age": 23,
+          "hours": 6.0,
+          "anxiety": 3,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 649,
+          "age": 18,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 652,
+          "age": 26,
+          "hours": 5.0,
+          "anxiety": 4,
+          "depression": 7,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 664,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 677,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 703,
+          "age": 37,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 704,
+          "age": 44,
+          "hours": 1.5,
+          "anxiety": 8,
+          "depression": 5,
+          "insomnia": 9,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        }
+      ]
+    },
+    "Gospel": {
+      "name": "Gospel",
+      "color": "#eab308",
+      "emoji": "\ud83d\udd4a\ufe0f",
+      "count": 6,
+      "pct_of_total": 0.8,
+      "anxiety": {
+        "count": 6,
+        "mean": 4.83,
+        "median": 4.5,
+        "min": 1.0,
+        "max": 10.0,
+        "std": 3.19
+      },
+      "depression": {
+        "count": 6,
+        "mean": 2.67,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.93
+      },
+      "insomnia": {
+        "count": 6,
+        "mean": 5.33,
+        "median": 5.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 4.5
+      },
+      "ocd": {
+        "count": 6,
+        "mean": 0.33,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 2.0,
+        "std": 0.82
+      },
+      "hours": {
+        "count": 6,
+        "mean": 2.38,
+        "median": 1.5,
+        "min": 0.25,
+        "max": 8.0,
+        "std": 2.84
+      },
+      "age": {
+        "count": 6,
+        "mean": 55.67,
+        "median": 60.0,
+        "min": 18.0,
+        "max": 71.0,
+        "std": 19.21
+      },
+      "bpm": {
+        "count": 3,
+        "mean": 116.33,
+        "median": 119.0,
+        "min": 56.0,
+        "max": 174.0,
+        "std": 59.05
+      },
+      "high_anxiety_rate": 50.0,
+      "high_depression_rate": 16.7,
+      "effects_counts": {
+        "Improve": 6,
+        "No effect": 0,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 100.0,
+        "No effect": 0.0,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 3,
+            "pct": 50.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 2,
+            "pct": 33.3
+          },
+          {
+            "label": "High (7-10)",
+            "count": 1,
+            "pct": 16.7
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 4,
+            "pct": 66.7
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 1,
+            "pct": 16.7
+          },
+          {
+            "label": "High (7-10)",
+            "count": 1,
+            "pct": 16.7
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 3,
+            "pct": 50.0
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 2,
+            "pct": 33.3
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "6+ hrs",
+            "count": 1,
+            "pct": 16.7
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "18 - 24",
+            "count": 1,
+            "pct": 16.7
+          },
+          {
+            "label": "25 - 34",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "50+",
+            "count": 5,
+            "pct": 83.3
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 83.3,
+        "instrumentalist_pct": 50.0,
+        "composer_pct": 33.3,
+        "exploratory_pct": 16.7,
+        "foreign_languages_pct": 33.3,
+        "working_anxiety": 4.6,
+        "non_working_anxiety": 6.0
+      },
+      "streaming_services": [
+        {
+          "name": "Pandora",
+          "count": 2,
+          "pct": 33.3
+        },
+        {
+          "name": "Spotify",
+          "count": 2,
+          "pct": 33.3
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 1,
+          "pct": 16.7
+        },
+        {
+          "name": "YouTube Music",
+          "count": 1,
+          "pct": 16.7
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 1,
+          "Sometimes": 3,
+          "Rarely": 2,
+          "Never": 0,
+          "score": 61.1
+        },
+        "Country": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 2,
+          "Never": 3,
+          "score": 22.2
+        },
+        "EDM": {
+          "Very frequently": 0,
+          "Sometimes": 0,
+          "Rarely": 1,
+          "Never": 5,
+          "score": 5.6
+        },
+        "Folk": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 3,
+          "Never": 2,
+          "score": 27.8
+        },
+        "Gospel": {
+          "Very frequently": 5,
+          "Sometimes": 1,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 94.4
+        },
+        "Hip hop": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 1,
+          "Never": 4,
+          "score": 16.7
+        },
+        "Jazz": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 0,
+          "Never": 4,
+          "score": 22.2
+        },
+        "K pop": {
+          "Very frequently": 0,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 6,
+          "score": 0.0
+        },
+        "Latin": {
+          "Very frequently": 0,
+          "Sometimes": 3,
+          "Rarely": 2,
+          "Never": 1,
+          "score": 44.4
+        },
+        "Lofi": {
+          "Very frequently": 1,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 5,
+          "score": 16.7
+        },
+        "Metal": {
+          "Very frequently": 0,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 6,
+          "score": 0.0
+        },
+        "Pop": {
+          "Very frequently": 0,
+          "Sometimes": 3,
+          "Rarely": 1,
+          "Never": 2,
+          "score": 38.9
+        },
+        "R&B": {
+          "Very frequently": 1,
+          "Sometimes": 1,
+          "Rarely": 2,
+          "Never": 2,
+          "score": 38.9
+        },
+        "Rap": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 1,
+          "Never": 4,
+          "score": 16.7
+        },
+        "Rock": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 3,
+          "Never": 2,
+          "score": 27.8
+        },
+        "Video game music": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 0,
+          "Never": 5,
+          "score": 11.1
+        }
+      },
+      "sample_records": [
+        {
+          "id": 171,
+          "age": 60,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 491,
+          "age": 71,
+          "hours": 0.25,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 492,
+          "age": 60,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 534,
+          "age": 57,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 568,
+          "age": 68,
+          "hours": 1.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 595,
+          "age": 18,
+          "hours": 8.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "Hip hop": {
+      "name": "Hip hop",
+      "color": "#10b981",
+      "emoji": "\ud83c\udfa7",
+      "count": 34,
+      "pct_of_total": 4.6,
+      "anxiety": {
+        "count": 34,
+        "mean": 6.12,
+        "median": 7.0,
+        "min": 2.0,
+        "max": 10.0,
+        "std": 2.43
+      },
+      "depression": {
+        "count": 34,
+        "mean": 5.88,
+        "median": 7.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.69
+      },
+      "insomnia": {
+        "count": 34,
+        "mean": 3.47,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.74
+      },
+      "ocd": {
+        "count": 34,
+        "mean": 2.59,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.63
+      },
+      "hours": {
+        "count": 34,
+        "mean": 3.96,
+        "median": 3.0,
+        "min": 0.5,
+        "max": 14.0,
+        "std": 3.02
+      },
+      "age": {
+        "count": 34,
+        "mean": 23.44,
+        "median": 20.5,
+        "min": 15.0,
+        "max": 58.0,
+        "std": 8.79
+      },
+      "bpm": {
+        "count": 31,
+        "mean": 114.87,
+        "median": 113.0,
+        "min": 72.0,
+        "max": 178.0,
+        "std": 30.49
+      },
+      "high_anxiety_rate": 64.7,
+      "high_depression_rate": 67.6,
+      "effects_counts": {
+        "Improve": 30,
+        "No effect": 4,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 88.2,
+        "No effect": 11.8,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 8,
+            "pct": 23.5
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 8,
+            "pct": 23.5
+          },
+          {
+            "label": "High (7-10)",
+            "count": 18,
+            "pct": 52.9
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 7,
+            "pct": 20.6
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 8,
+            "pct": 23.5
+          },
+          {
+            "label": "High (7-10)",
+            "count": 19,
+            "pct": 55.9
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 6,
+            "pct": 17.6
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 12,
+            "pct": 35.3
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 10,
+            "pct": 29.4
+          },
+          {
+            "label": "6+ hrs",
+            "count": 6,
+            "pct": 17.6
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 8,
+            "pct": 23.5
+          },
+          {
+            "label": "18 - 24",
+            "count": 15,
+            "pct": 44.1
+          },
+          {
+            "label": "25 - 34",
+            "count": 7,
+            "pct": 20.6
+          },
+          {
+            "label": "35 - 49",
+            "count": 3,
+            "pct": 8.8
+          },
+          {
+            "label": "50+",
+            "count": 1,
+            "pct": 2.9
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 76.5,
+        "instrumentalist_pct": 14.7,
+        "composer_pct": 17.6,
+        "exploratory_pct": 79.4,
+        "foreign_languages_pct": 58.8,
+        "working_anxiety": 5.96,
+        "non_working_anxiety": 6.62
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 27,
+          "pct": 79.4
+        },
+        {
+          "name": "YouTube Music",
+          "count": 3,
+          "pct": 8.8
+        },
+        {
+          "name": "Apple Music",
+          "count": 2,
+          "pct": 5.9
+        },
+        {
+          "name": "Other streaming service",
+          "count": 1,
+          "pct": 2.9
+        },
+        {
+          "name": "Pandora",
+          "count": 1,
+          "pct": 2.9
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 2,
+          "Sometimes": 10,
+          "Rarely": 12,
+          "Never": 10,
+          "score": 37.3
+        },
+        "Country": {
+          "Very frequently": 1,
+          "Sometimes": 5,
+          "Rarely": 8,
+          "Never": 20,
+          "score": 20.6
+        },
+        "EDM": {
+          "Very frequently": 4,
+          "Sometimes": 8,
+          "Rarely": 13,
+          "Never": 9,
+          "score": 40.2
+        },
+        "Folk": {
+          "Very frequently": 1,
+          "Sometimes": 6,
+          "Rarely": 10,
+          "Never": 17,
+          "score": 24.5
+        },
+        "Gospel": {
+          "Very frequently": 0,
+          "Sometimes": 3,
+          "Rarely": 8,
+          "Never": 23,
+          "score": 13.7
+        },
+        "Hip hop": {
+          "Very frequently": 33,
+          "Sometimes": 1,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 99.0
+        },
+        "Jazz": {
+          "Very frequently": 5,
+          "Sometimes": 5,
+          "Rarely": 14,
+          "Never": 10,
+          "score": 38.2
+        },
+        "K pop": {
+          "Very frequently": 4,
+          "Sometimes": 3,
+          "Rarely": 8,
+          "Never": 19,
+          "score": 25.5
+        },
+        "Latin": {
+          "Very frequently": 2,
+          "Sometimes": 8,
+          "Rarely": 8,
+          "Never": 16,
+          "score": 29.4
+        },
+        "Lofi": {
+          "Very frequently": 5,
+          "Sometimes": 11,
+          "Rarely": 10,
+          "Never": 8,
+          "score": 46.1
+        },
+        "Metal": {
+          "Very frequently": 1,
+          "Sometimes": 3,
+          "Rarely": 13,
+          "Never": 17,
+          "score": 21.6
+        },
+        "Pop": {
+          "Very frequently": 13,
+          "Sometimes": 16,
+          "Rarely": 4,
+          "Never": 1,
+          "score": 73.5
+        },
+        "R&B": {
+          "Very frequently": 13,
+          "Sometimes": 13,
+          "Rarely": 6,
+          "Never": 2,
+          "score": 69.6
+        },
+        "Rap": {
+          "Very frequently": 27,
+          "Sometimes": 7,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 93.1
+        },
+        "Rock": {
+          "Very frequently": 8,
+          "Sometimes": 12,
+          "Rarely": 7,
+          "Never": 7,
+          "score": 53.9
+        },
+        "Video game music": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 13,
+          "Never": 16,
+          "score": 23.5
+        }
+      },
+      "sample_records": [
+        {
+          "id": 17,
+          "age": 16,
+          "hours": 8.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 18,
+          "age": 16,
+          "hours": 12.0,
+          "anxiety": 5,
+          "depression": 7,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 20,
+          "age": 15,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 21,
+          "age": 15,
+          "hours": 8.0,
+          "anxiety": 6,
+          "depression": 9,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 68,
+          "age": 29,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 74,
+          "age": 26,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 75,
+          "age": 22,
+          "hours": 0.5,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 80,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 2,
+          "depression": 7,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 90,
+          "age": 32,
+          "hours": 3.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 116,
+          "age": 23,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 123,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 254,
+          "age": 22,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 277,
+          "age": 17,
+          "hours": 7.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 3,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 303,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 3,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 341,
+          "age": 18,
+          "hours": 1.5,
+          "anxiety": 3,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 364,
+          "age": 20,
+          "hours": 4.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 373,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 408,
+          "age": 26,
+          "hours": 14.0,
+          "anxiety": 5,
+          "depression": 10,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 435,
+          "age": 39,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 440,
+          "age": 23,
+          "hours": 0.5,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 461,
+          "age": 23,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 464,
+          "age": 27,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 4,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 481,
+          "age": 58,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 494,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 496,
+          "age": 36,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 498,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 605,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 3,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 624,
+          "age": 28,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 685,
+          "age": 18,
+          "hours": 7.0,
+          "anxiety": 3,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 691,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 692,
+          "age": 17,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 710,
+          "age": 35,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 721,
+          "age": 17,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 736,
+          "age": 29,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        }
+      ]
+    },
+    "Jazz": {
+      "name": "Jazz",
+      "color": "#14b8a6",
+      "emoji": "\ud83c\udfba",
+      "count": 20,
+      "pct_of_total": 2.7,
+      "anxiety": {
+        "count": 20,
+        "mean": 5.9,
+        "median": 6.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.85
+      },
+      "depression": {
+        "count": 20,
+        "mean": 4.5,
+        "median": 4.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.2
+      },
+      "insomnia": {
+        "count": 20,
+        "mean": 3.85,
+        "median": 3.5,
+        "min": 0.0,
+        "max": 8.0,
+        "std": 3.08
+      },
+      "ocd": {
+        "count": 20,
+        "mean": 2.8,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.86
+      },
+      "hours": {
+        "count": 20,
+        "mean": 5.42,
+        "median": 5.0,
+        "min": 1.0,
+        "max": 16.0,
+        "std": 3.9
+      },
+      "age": {
+        "count": 20,
+        "mean": 25.45,
+        "median": 22.5,
+        "min": 14.0,
+        "max": 61.0,
+        "std": 12.19
+      },
+      "bpm": {
+        "count": 19,
+        "mean": 124.47,
+        "median": 120.0,
+        "min": 81.0,
+        "max": 200.0,
+        "std": 36.93
+      },
+      "high_anxiety_rate": 65.0,
+      "high_depression_rate": 45.0,
+      "effects_counts": {
+        "Improve": 16,
+        "No effect": 4,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 80.0,
+        "No effect": 20.0,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 6,
+            "pct": 30.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 4,
+            "pct": 20.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 10,
+            "pct": 50.0
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 9,
+            "pct": 45.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 3,
+            "pct": 15.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 8,
+            "pct": 40.0
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 2,
+            "pct": 10.0
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 6,
+            "pct": 30.0
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 4,
+            "pct": 20.0
+          },
+          {
+            "label": "6+ hrs",
+            "count": 8,
+            "pct": 40.0
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 3,
+            "pct": 15.0
+          },
+          {
+            "label": "18 - 24",
+            "count": 11,
+            "pct": 55.0
+          },
+          {
+            "label": "25 - 34",
+            "count": 4,
+            "pct": 20.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "50+",
+            "count": 2,
+            "pct": 10.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 85.0,
+        "instrumentalist_pct": 55.0,
+        "composer_pct": 45.0,
+        "exploratory_pct": 90.0,
+        "foreign_languages_pct": 75.0,
+        "working_anxiety": 6.18,
+        "non_working_anxiety": 4.33
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 15,
+          "pct": 75.0
+        },
+        {
+          "name": "Other streaming service",
+          "count": 3,
+          "pct": 15.0
+        },
+        {
+          "name": "YouTube Music",
+          "count": 2,
+          "pct": 10.0
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 3,
+          "Sometimes": 7,
+          "Rarely": 9,
+          "Never": 1,
+          "score": 53.3
+        },
+        "Country": {
+          "Very frequently": 0,
+          "Sometimes": 3,
+          "Rarely": 7,
+          "Never": 10,
+          "score": 21.7
+        },
+        "EDM": {
+          "Very frequently": 4,
+          "Sometimes": 4,
+          "Rarely": 5,
+          "Never": 7,
+          "score": 41.7
+        },
+        "Folk": {
+          "Very frequently": 3,
+          "Sometimes": 2,
+          "Rarely": 7,
+          "Never": 8,
+          "score": 33.3
+        },
+        "Gospel": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 7,
+          "Never": 11,
+          "score": 18.3
+        },
+        "Hip hop": {
+          "Very frequently": 4,
+          "Sometimes": 4,
+          "Rarely": 5,
+          "Never": 7,
+          "score": 41.7
+        },
+        "Jazz": {
+          "Very frequently": 17,
+          "Sometimes": 2,
+          "Rarely": 1,
+          "Never": 0,
+          "score": 93.3
+        },
+        "K pop": {
+          "Very frequently": 3,
+          "Sometimes": 2,
+          "Rarely": 8,
+          "Never": 7,
+          "score": 35.0
+        },
+        "Latin": {
+          "Very frequently": 2,
+          "Sometimes": 6,
+          "Rarely": 8,
+          "Never": 4,
+          "score": 43.3
+        },
+        "Lofi": {
+          "Very frequently": 5,
+          "Sometimes": 5,
+          "Rarely": 7,
+          "Never": 3,
+          "score": 53.3
+        },
+        "Metal": {
+          "Very frequently": 2,
+          "Sometimes": 6,
+          "Rarely": 5,
+          "Never": 7,
+          "score": 38.3
+        },
+        "Pop": {
+          "Very frequently": 5,
+          "Sometimes": 9,
+          "Rarely": 5,
+          "Never": 1,
+          "score": 63.3
+        },
+        "R&B": {
+          "Very frequently": 3,
+          "Sometimes": 9,
+          "Rarely": 5,
+          "Never": 3,
+          "score": 53.3
+        },
+        "Rap": {
+          "Very frequently": 4,
+          "Sometimes": 3,
+          "Rarely": 6,
+          "Never": 7,
+          "score": 40.0
+        },
+        "Rock": {
+          "Very frequently": 9,
+          "Sometimes": 7,
+          "Rarely": 2,
+          "Never": 2,
+          "score": 71.7
+        },
+        "Video game music": {
+          "Very frequently": 3,
+          "Sometimes": 5,
+          "Rarely": 8,
+          "Never": 4,
+          "score": 45.0
+        }
+      },
+      "sample_records": [
+        {
+          "id": 4,
+          "age": 61,
+          "hours": 2.5,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 3,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 6,
+          "age": 18,
+          "hours": 5.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 15,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 76,
+          "age": 16,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 8,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 82,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 87,
+          "age": 14,
+          "hours": 7.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 125,
+          "age": 29,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 147,
+          "age": 22,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 8,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 148,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 284,
+          "age": 22,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 295,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 10,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 348,
+          "age": 18,
+          "hours": 16.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 5,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 357,
+          "age": 23,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 418,
+          "age": 32,
+          "hours": 12.0,
+          "anxiety": 9,
+          "depression": 4,
+          "insomnia": 4,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 522,
+          "age": 20,
+          "hours": 8.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 530,
+          "age": 56,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 5,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 602,
+          "age": 24,
+          "hours": 8.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 619,
+          "age": 24,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 620,
+          "age": 26,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 674,
+          "age": 27,
+          "hours": 10.0,
+          "anxiety": 6,
+          "depression": 10,
+          "insomnia": 8,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "K pop": {
+      "name": "K pop",
+      "color": "#f43f5e",
+      "emoji": "\u2728",
+      "count": 26,
+      "pct_of_total": 3.5,
+      "anxiety": {
+        "count": 26,
+        "mean": 6.23,
+        "median": 7.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.61
+      },
+      "depression": {
+        "count": 26,
+        "mean": 4.42,
+        "median": 4.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.14
+      },
+      "insomnia": {
+        "count": 26,
+        "mean": 3.46,
+        "median": 3.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.89
+      },
+      "ocd": {
+        "count": 26,
+        "mean": 2.54,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.96
+      },
+      "hours": {
+        "count": 26,
+        "mean": 4.0,
+        "median": 3.0,
+        "min": 1.0,
+        "max": 13.0,
+        "std": 3.36
+      },
+      "age": {
+        "count": 26,
+        "mean": 18.42,
+        "median": 18.0,
+        "min": 14.0,
+        "max": 30.0,
+        "std": 3.06
+      },
+      "bpm": {
+        "count": 25,
+        "mean": 128.56,
+        "median": 124.0,
+        "min": 80.0,
+        "max": 204.0,
+        "std": 28.58
+      },
+      "high_anxiety_rate": 61.5,
+      "high_depression_rate": 38.5,
+      "effects_counts": {
+        "Improve": 19,
+        "No effect": 4,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 73.1,
+        "No effect": 15.4,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 3,
+            "pct": 11.5
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 9,
+            "pct": 34.6
+          },
+          {
+            "label": "High (7-10)",
+            "count": 14,
+            "pct": 53.8
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 12,
+            "pct": 46.2
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 5,
+            "pct": 19.2
+          },
+          {
+            "label": "High (7-10)",
+            "count": 9,
+            "pct": 34.6
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 5,
+            "pct": 19.2
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 12,
+            "pct": 46.2
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 3,
+            "pct": 11.5
+          },
+          {
+            "label": "6+ hrs",
+            "count": 6,
+            "pct": 23.1
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 8,
+            "pct": 30.8
+          },
+          {
+            "label": "18 - 24",
+            "count": 17,
+            "pct": 65.4
+          },
+          {
+            "label": "25 - 34",
+            "count": 1,
+            "pct": 3.8
+          },
+          {
+            "label": "35 - 49",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "50+",
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 84.6,
+        "instrumentalist_pct": 30.8,
+        "composer_pct": 3.8,
+        "exploratory_pct": 88.5,
+        "foreign_languages_pct": 96.2,
+        "working_anxiety": 6.05,
+        "non_working_anxiety": 7.5
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 22,
+          "pct": 84.6
+        },
+        {
+          "name": "YouTube Music",
+          "count": 2,
+          "pct": 7.7
+        },
+        {
+          "name": "Other streaming service",
+          "count": 1,
+          "pct": 3.8
+        },
+        {
+          "name": "Apple Music",
+          "count": 1,
+          "pct": 3.8
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 3,
+          "Sometimes": 7,
+          "Rarely": 10,
+          "Never": 6,
+          "score": 42.3
+        },
+        "Country": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 4,
+          "Never": 20,
+          "score": 10.3
+        },
+        "EDM": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 14,
+          "Never": 7,
+          "score": 32.1
+        },
+        "Folk": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 4,
+          "Never": 17,
+          "score": 19.2
+        },
+        "Gospel": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 3,
+          "Never": 21,
+          "score": 9.0
+        },
+        "Hip hop": {
+          "Very frequently": 8,
+          "Sometimes": 8,
+          "Rarely": 6,
+          "Never": 4,
+          "score": 59.0
+        },
+        "Jazz": {
+          "Very frequently": 1,
+          "Sometimes": 10,
+          "Rarely": 7,
+          "Never": 8,
+          "score": 38.5
+        },
+        "K pop": {
+          "Very frequently": 26,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 100.0
+        },
+        "Latin": {
+          "Very frequently": 2,
+          "Sometimes": 4,
+          "Rarely": 5,
+          "Never": 15,
+          "score": 24.4
+        },
+        "Lofi": {
+          "Very frequently": 4,
+          "Sometimes": 11,
+          "Rarely": 5,
+          "Never": 6,
+          "score": 50.0
+        },
+        "Metal": {
+          "Very frequently": 2,
+          "Sometimes": 1,
+          "Rarely": 4,
+          "Never": 19,
+          "score": 15.4
+        },
+        "Pop": {
+          "Very frequently": 14,
+          "Sometimes": 9,
+          "Rarely": 2,
+          "Never": 1,
+          "score": 79.5
+        },
+        "R&B": {
+          "Very frequently": 8,
+          "Sometimes": 12,
+          "Rarely": 3,
+          "Never": 3,
+          "score": 65.4
+        },
+        "Rap": {
+          "Very frequently": 5,
+          "Sometimes": 7,
+          "Rarely": 10,
+          "Never": 4,
+          "score": 50.0
+        },
+        "Rock": {
+          "Very frequently": 7,
+          "Sometimes": 6,
+          "Rarely": 7,
+          "Never": 6,
+          "score": 51.3
+        },
+        "Video game music": {
+          "Very frequently": 1,
+          "Sometimes": 5,
+          "Rarely": 10,
+          "Never": 10,
+          "score": 29.5
+        }
+      },
+      "sample_records": [
+        {
+          "id": 8,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 3,
+          "insomnia": 5,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 52,
+          "age": 16,
+          "hours": 6.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 61,
+          "age": 19,
+          "hours": 1.0,
+          "anxiety": 10,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 83,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 115,
+          "age": 19,
+          "hours": 8.0,
+          "anxiety": 4,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 162,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Unknown",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 169,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "Unknown",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 185,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 222,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 224,
+          "age": 18,
+          "hours": 12.0,
+          "anxiety": 3,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 241,
+          "age": 16,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 346,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 0,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 352,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 392,
+          "age": 18,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 5,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 427,
+          "age": 30,
+          "hours": 13.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 436,
+          "age": 15,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 10,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 488,
+          "age": 14,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 499,
+          "age": 15,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 505,
+          "age": 19,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 548,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 4,
+          "insomnia": 7,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 562,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 5,
+          "effects": "Unknown",
+          "working": "",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 564,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 2,
+          "insomnia": 7,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 606,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 2,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 639,
+          "age": 17,
+          "hours": 10.0,
+          "anxiety": 10,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 670,
+          "age": 20,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 682,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 1,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "Latin": {
+      "name": "Latin",
+      "color": "#f97316",
+      "emoji": "\ud83d\udc83",
+      "count": 3,
+      "pct_of_total": 0.4,
+      "anxiety": {
+        "count": 3,
+        "mean": 4.33,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 5.13
+      },
+      "depression": {
+        "count": 3,
+        "mean": 3.0,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 6.0,
+        "std": 3.0
+      },
+      "insomnia": {
+        "count": 3,
+        "mean": 3.33,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 9.0,
+        "std": 4.93
+      },
+      "ocd": {
+        "count": 3,
+        "mean": 1.67,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 5.0,
+        "std": 2.89
+      },
+      "hours": {
+        "count": 3,
+        "mean": 6.67,
+        "median": 5.0,
+        "min": 3.0,
+        "max": 12.0,
+        "std": 4.73
+      },
+      "age": {
+        "count": 3,
+        "mean": 17.67,
+        "median": 18.0,
+        "min": 17.0,
+        "max": 18.0,
+        "std": 0.58
+      },
+      "bpm": {
+        "count": 3,
+        "mean": 133.67,
+        "median": 156.0,
+        "min": 73.0,
+        "max": 172.0,
+        "std": 53.14
+      },
+      "high_anxiety_rate": 33.3,
+      "high_depression_rate": 33.3,
+      "effects_counts": {
+        "Improve": 1,
+        "No effect": 1,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 33.3,
+        "No effect": 33.3,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 2,
+            "pct": 66.7
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 1,
+            "pct": 33.3
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 2,
+            "pct": 66.7
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 1,
+            "pct": 33.3
+          },
+          {
+            "label": "High (7-10)",
+            "count": 0,
+            "pct": 0.0
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 1,
+            "pct": 33.3
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 1,
+            "pct": 33.3
+          },
+          {
+            "label": "6+ hrs",
+            "count": 1,
+            "pct": 33.3
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 1,
+            "pct": 33.3
+          },
+          {
+            "label": "18 - 24",
+            "count": 2,
+            "pct": 66.7
+          },
+          {
+            "label": "25 - 34",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "50+",
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 100.0,
+        "instrumentalist_pct": 100.0,
+        "composer_pct": 33.3,
+        "exploratory_pct": 100.0,
+        "foreign_languages_pct": 66.7,
+        "working_anxiety": 4.33,
+        "non_working_anxiety": 0
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 2,
+          "pct": 66.7
+        },
+        {
+          "name": "Apple Music",
+          "count": 1,
+          "pct": 33.3
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 2,
+          "Sometimes": 0,
+          "Rarely": 1,
+          "Never": 0,
+          "score": 77.8
+        },
+        "Country": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 0,
+          "Never": 2,
+          "score": 22.2
+        },
+        "EDM": {
+          "Very frequently": 0,
+          "Sometimes": 0,
+          "Rarely": 3,
+          "Never": 0,
+          "score": 33.3
+        },
+        "Folk": {
+          "Very frequently": 0,
+          "Sometimes": 0,
+          "Rarely": 1,
+          "Never": 2,
+          "score": 11.1
+        },
+        "Gospel": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 0,
+          "Never": 2,
+          "score": 22.2
+        },
+        "Hip hop": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 77.8
+        },
+        "Jazz": {
+          "Very frequently": 0,
+          "Sometimes": 0,
+          "Rarely": 1,
+          "Never": 2,
+          "score": 11.1
+        },
+        "K pop": {
+          "Very frequently": 1,
+          "Sometimes": 1,
+          "Rarely": 1,
+          "Never": 0,
+          "score": 66.7
+        },
+        "Latin": {
+          "Very frequently": 3,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 100.0
+        },
+        "Lofi": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 2,
+          "Never": 0,
+          "score": 44.4
+        },
+        "Metal": {
+          "Very frequently": 0,
+          "Sometimes": 1,
+          "Rarely": 0,
+          "Never": 2,
+          "score": 22.2
+        },
+        "Pop": {
+          "Very frequently": 2,
+          "Sometimes": 0,
+          "Rarely": 1,
+          "Never": 0,
+          "score": 77.8
+        },
+        "R&B": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 0,
+          "Never": 1,
+          "score": 44.4
+        },
+        "Rap": {
+          "Very frequently": 2,
+          "Sometimes": 0,
+          "Rarely": 1,
+          "Never": 0,
+          "score": 77.8
+        },
+        "Rock": {
+          "Very frequently": 1,
+          "Sometimes": 1,
+          "Rarely": 0,
+          "Never": 1,
+          "score": 55.6
+        },
+        "Video game music": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 0,
+          "Never": 1,
+          "score": 44.4
+        }
+      },
+      "sample_records": [
+        {
+          "id": 1,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Unknown",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 599,
+          "age": 17,
+          "hours": 12.0,
+          "anxiety": 0,
+          "depression": 3,
+          "insomnia": 9,
+          "ocd": 5,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 683,
+          "age": 18,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        }
+      ]
+    },
+    "Lofi": {
+      "name": "Lofi",
+      "color": "#a855f7",
+      "emoji": "\u2615",
+      "count": 10,
+      "pct_of_total": 1.4,
+      "anxiety": {
+        "count": 10,
+        "mean": 6.1,
+        "median": 7.0,
+        "min": 3.0,
+        "max": 9.0,
+        "std": 2.08
+      },
+      "depression": {
+        "count": 10,
+        "mean": 6.6,
+        "median": 8.0,
+        "min": 1.0,
+        "max": 10.0,
+        "std": 3.1
+      },
+      "insomnia": {
+        "count": 10,
+        "mean": 5.6,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.17
+      },
+      "ocd": {
+        "count": 10,
+        "mean": 3.4,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 9.0,
+        "std": 3.53
+      },
+      "hours": {
+        "count": 10,
+        "mean": 4.2,
+        "median": 4.0,
+        "min": 1.0,
+        "max": 8.0,
+        "std": 2.1
+      },
+      "age": {
+        "count": 10,
+        "mean": 22.1,
+        "median": 22.0,
+        "min": 14.0,
+        "max": 33.0,
+        "std": 5.7
+      },
+      "bpm": {
+        "count": 10,
+        "mean": 114.3,
+        "median": 104.5,
+        "min": 79.0,
+        "max": 174.0,
+        "std": 34.4
+      },
+      "high_anxiety_rate": 70.0,
+      "high_depression_rate": 70.0,
+      "effects_counts": {
+        "Improve": 10,
+        "No effect": 0,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 100.0,
+        "No effect": 0.0,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 2,
+            "pct": 20.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 2,
+            "pct": 20.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 6,
+            "pct": 60.0
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 2,
+            "pct": 20.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 2,
+            "pct": 20.0
+          },
+          {
+            "label": "High (7-10)",
+            "count": 6,
+            "pct": 60.0
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 1,
+            "pct": 10.0
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 2,
+            "pct": 20.0
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 5,
+            "pct": 50.0
+          },
+          {
+            "label": "6+ hrs",
+            "count": 2,
+            "pct": 20.0
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 3,
+            "pct": 30.0
+          },
+          {
+            "label": "18 - 24",
+            "count": 4,
+            "pct": 40.0
+          },
+          {
+            "label": "25 - 34",
+            "count": 3,
+            "pct": 30.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "50+",
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 100.0,
+        "instrumentalist_pct": 20.0,
+        "composer_pct": 20.0,
+        "exploratory_pct": 100.0,
+        "foreign_languages_pct": 80.0,
+        "working_anxiety": 6.1,
+        "non_working_anxiety": 0
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 8,
+          "pct": 80.0
+        },
+        {
+          "name": "Apple Music",
+          "count": 1,
+          "pct": 10.0
+        },
+        {
+          "name": "Other streaming service",
+          "count": 1,
+          "pct": 10.0
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 3,
+          "Sometimes": 3,
+          "Rarely": 3,
+          "Never": 1,
+          "score": 60.0
+        },
+        "Country": {
+          "Very frequently": 2,
+          "Sometimes": 0,
+          "Rarely": 6,
+          "Never": 2,
+          "score": 40.0
+        },
+        "EDM": {
+          "Very frequently": 2,
+          "Sometimes": 3,
+          "Rarely": 2,
+          "Never": 3,
+          "score": 46.7
+        },
+        "Folk": {
+          "Very frequently": 1,
+          "Sometimes": 3,
+          "Rarely": 4,
+          "Never": 2,
+          "score": 43.3
+        },
+        "Gospel": {
+          "Very frequently": 1,
+          "Sometimes": 1,
+          "Rarely": 3,
+          "Never": 5,
+          "score": 26.7
+        },
+        "Hip hop": {
+          "Very frequently": 2,
+          "Sometimes": 4,
+          "Rarely": 4,
+          "Never": 0,
+          "score": 60.0
+        },
+        "Jazz": {
+          "Very frequently": 2,
+          "Sometimes": 4,
+          "Rarely": 3,
+          "Never": 1,
+          "score": 56.7
+        },
+        "K pop": {
+          "Very frequently": 1,
+          "Sometimes": 1,
+          "Rarely": 5,
+          "Never": 3,
+          "score": 33.3
+        },
+        "Latin": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 3,
+          "Never": 4,
+          "score": 33.3
+        },
+        "Lofi": {
+          "Very frequently": 10,
+          "Sometimes": 0,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 100.0
+        },
+        "Metal": {
+          "Very frequently": 2,
+          "Sometimes": 0,
+          "Rarely": 5,
+          "Never": 3,
+          "score": 36.7
+        },
+        "Pop": {
+          "Very frequently": 4,
+          "Sometimes": 5,
+          "Rarely": 1,
+          "Never": 0,
+          "score": 76.7
+        },
+        "R&B": {
+          "Very frequently": 2,
+          "Sometimes": 2,
+          "Rarely": 4,
+          "Never": 2,
+          "score": 46.7
+        },
+        "Rap": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 5,
+          "Never": 0,
+          "score": 53.3
+        },
+        "Rock": {
+          "Very frequently": 4,
+          "Sometimes": 2,
+          "Rarely": 3,
+          "Never": 1,
+          "score": 63.3
+        },
+        "Video game music": {
+          "Very frequently": 4,
+          "Sometimes": 3,
+          "Rarely": 2,
+          "Never": 1,
+          "score": 66.7
+        }
+      },
+      "sample_records": [
+        {
+          "id": 141,
+          "age": 17,
+          "hours": 4.0,
+          "anxiety": 3,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 251,
+          "age": 16,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 1,
+          "insomnia": 3,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 332,
+          "age": 23,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 355,
+          "age": 25,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 378,
+          "age": 33,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 451,
+          "age": 22,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 482,
+          "age": 28,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 483,
+          "age": 22,
+          "hours": 4.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 6,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 497,
+          "age": 14,
+          "hours": 7.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 596,
+          "age": 21,
+          "hours": 8.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 9,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "Metal": {
+      "name": "Metal",
+      "color": "#64748b",
+      "emoji": "\ud83e\udd18",
+      "count": 88,
+      "pct_of_total": 12.0,
+      "anxiety": {
+        "count": 88,
+        "mean": 5.76,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.98
+      },
+      "depression": {
+        "count": 88,
+        "mean": 5.07,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.96
+      },
+      "insomnia": {
+        "count": 88,
+        "mean": 4.56,
+        "median": 5.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.38
+      },
+      "ocd": {
+        "count": 88,
+        "mean": 2.4,
+        "median": 1.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.79
+      },
+      "hours": {
+        "count": 88,
+        "mean": 3.6,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 11.0,
+        "std": 2.47
+      },
+      "age": {
+        "count": 88,
+        "mean": 25.11,
+        "median": 23.0,
+        "min": 15.0,
+        "max": 48.0,
+        "std": 7.58
+      },
+      "bpm": {
+        "count": 76,
+        "mean": 142.76,
+        "median": 140.0,
+        "min": 70.0,
+        "max": 220.0,
+        "std": 35.86
+      },
+      "high_anxiety_rate": 56.8,
+      "high_depression_rate": 53.4,
+      "effects_counts": {
+        "Improve": 67,
+        "No effect": 21,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 76.1,
+        "No effect": 23.9,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 22,
+            "pct": 25.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 25,
+            "pct": 28.4
+          },
+          {
+            "label": "High (7-10)",
+            "count": 41,
+            "pct": 46.6
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 30,
+            "pct": 34.1
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 25,
+            "pct": 28.4
+          },
+          {
+            "label": "High (7-10)",
+            "count": 33,
+            "pct": 37.5
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 12,
+            "pct": 13.6
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 42,
+            "pct": 47.7
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 22,
+            "pct": 25.0
+          },
+          {
+            "label": "6+ hrs",
+            "count": 12,
+            "pct": 13.6
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 11,
+            "pct": 12.5
+          },
+          {
+            "label": "18 - 24",
+            "count": 38,
+            "pct": 43.2
+          },
+          {
+            "label": "25 - 34",
+            "count": 29,
+            "pct": 33.0
+          },
+          {
+            "label": "35 - 49",
+            "count": 10,
+            "pct": 11.4
+          },
+          {
+            "label": "50+",
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 73.9,
+        "instrumentalist_pct": 36.4,
+        "composer_pct": 22.7,
+        "exploratory_pct": 81.8,
+        "foreign_languages_pct": 67.0,
+        "working_anxiety": 5.89,
+        "non_working_anxiety": 5.39
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 61,
+          "pct": 69.3
+        },
+        {
+          "name": "YouTube Music",
+          "count": 11,
+          "pct": 12.5
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 8,
+          "pct": 9.1
+        },
+        {
+          "name": "Apple Music",
+          "count": 5,
+          "pct": 5.7
+        },
+        {
+          "name": "Other streaming service",
+          "count": 3,
+          "pct": 3.4
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 4,
+          "Sometimes": 30,
+          "Rarely": 30,
+          "Never": 24,
+          "score": 38.6
+        },
+        "Country": {
+          "Very frequently": 3,
+          "Sometimes": 9,
+          "Rarely": 31,
+          "Never": 45,
+          "score": 22.0
+        },
+        "EDM": {
+          "Very frequently": 6,
+          "Sometimes": 17,
+          "Rarely": 26,
+          "Never": 39,
+          "score": 29.5
+        },
+        "Folk": {
+          "Very frequently": 6,
+          "Sometimes": 15,
+          "Rarely": 29,
+          "Never": 38,
+          "score": 29.2
+        },
+        "Gospel": {
+          "Very frequently": 1,
+          "Sometimes": 3,
+          "Rarely": 9,
+          "Never": 75,
+          "score": 6.8
+        },
+        "Hip hop": {
+          "Very frequently": 5,
+          "Sometimes": 21,
+          "Rarely": 30,
+          "Never": 32,
+          "score": 33.0
+        },
+        "Jazz": {
+          "Very frequently": 2,
+          "Sometimes": 12,
+          "Rarely": 28,
+          "Never": 46,
+          "score": 22.0
+        },
+        "K pop": {
+          "Very frequently": 1,
+          "Sometimes": 5,
+          "Rarely": 15,
+          "Never": 67,
+          "score": 10.6
+        },
+        "Latin": {
+          "Very frequently": 1,
+          "Sometimes": 5,
+          "Rarely": 11,
+          "Never": 71,
+          "score": 9.1
+        },
+        "Lofi": {
+          "Very frequently": 5,
+          "Sometimes": 12,
+          "Rarely": 22,
+          "Never": 49,
+          "score": 23.1
+        },
+        "Metal": {
+          "Very frequently": 82,
+          "Sometimes": 6,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 97.7
+        },
+        "Pop": {
+          "Very frequently": 10,
+          "Sometimes": 33,
+          "Rarely": 30,
+          "Never": 15,
+          "score": 47.7
+        },
+        "R&B": {
+          "Very frequently": 3,
+          "Sometimes": 16,
+          "Rarely": 25,
+          "Never": 44,
+          "score": 25.0
+        },
+        "Rap": {
+          "Very frequently": 7,
+          "Sometimes": 23,
+          "Rarely": 31,
+          "Never": 27,
+          "score": 37.1
+        },
+        "Rock": {
+          "Very frequently": 56,
+          "Sometimes": 27,
+          "Rarely": 4,
+          "Never": 1,
+          "score": 85.6
+        },
+        "Video game music": {
+          "Very frequently": 15,
+          "Sometimes": 28,
+          "Rarely": 26,
+          "Never": 19,
+          "score": 48.1
+        }
+      },
+      "sample_records": [
+        {
+          "id": 33,
+          "age": 19,
+          "hours": 6.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 45,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 49,
+          "age": 18,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 9,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 64,
+          "age": 25,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 66,
+          "age": 36,
+          "hours": 6.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 10,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 69,
+          "age": 41,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 77,
+          "age": 17,
+          "hours": 5.0,
+          "anxiety": 4,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 88,
+          "age": 33,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 91,
+          "age": 30,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 96,
+          "age": 22,
+          "hours": 10.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 99,
+          "age": 19,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 101,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 4,
+          "insomnia": 6,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 103,
+          "age": 17,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 106,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 4,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 109,
+          "age": 34,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 110,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 0,
+          "insomnia": 10,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 111,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 117,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 129,
+          "age": 24,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 143,
+          "age": 27,
+          "hours": 10.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 146,
+          "age": 34,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 156,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 1,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 6,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 160,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 9,
+          "insomnia": 9,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 164,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 165,
+          "age": 27,
+          "hours": 10.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 166,
+          "age": 19,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 167,
+          "age": 27,
+          "hours": 3.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 172,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 0,
+          "depression": 5,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 174,
+          "age": 28,
+          "hours": 2.0,
+          "anxiety": 1,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 206,
+          "age": 26,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 9,
+          "insomnia": 8,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 209,
+          "age": 42,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 3,
+          "insomnia": 6,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 217,
+          "age": 31,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 229,
+          "age": 40,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 236,
+          "age": 31,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 239,
+          "age": 23,
+          "hours": 5.0,
+          "anxiety": 6,
+          "depression": 9,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 249,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 258,
+          "age": 21,
+          "hours": 10.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 262,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 273,
+          "age": 23,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 280,
+          "age": 24,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 293,
+          "age": 16,
+          "hours": 2.5,
+          "anxiety": 5,
+          "depression": 3,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 296,
+          "age": 15,
+          "hours": 5.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 297,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 301,
+          "age": 33,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 304,
+          "age": 21,
+          "hours": 5.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 319,
+          "age": 25,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 359,
+          "age": 25,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 9,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 361,
+          "age": 20,
+          "hours": 0.5,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 362,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 9,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 363,
+          "age": 29,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 3,
+          "insomnia": 7,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 371,
+          "age": 27,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 375,
+          "age": 19,
+          "hours": 6.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 381,
+          "age": 27,
+          "hours": 3.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 389,
+          "age": 32,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 420,
+          "age": 38,
+          "hours": 1.0,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 424,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 2,
+          "depression": 3,
+          "insomnia": 5,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 446,
+          "age": 21,
+          "hours": 4.0,
+          "anxiety": 10,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 459,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 460,
+          "age": 38,
+          "hours": 3.0,
+          "anxiety": 1,
+          "depression": 6,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 463,
+          "age": 40,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 8,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 470,
+          "age": 41,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 487,
+          "age": 48,
+          "hours": 1.5,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 502,
+          "age": 24,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 510,
+          "age": 25,
+          "hours": 5.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 525,
+          "age": 28,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 541,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 4,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 565,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 587,
+          "age": 23,
+          "hours": 10.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 598,
+          "age": 22,
+          "hours": 8.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 8,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 616,
+          "age": 33,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 622,
+          "age": 16,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 623,
+          "age": 27,
+          "hours": 8.0,
+          "anxiety": 2,
+          "depression": 6,
+          "insomnia": 9,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 629,
+          "age": 15,
+          "hours": 4.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 3,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 635,
+          "age": 20,
+          "hours": 4.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 637,
+          "age": 42,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 640,
+          "age": 30,
+          "hours": 0.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 643,
+          "age": 31,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 8,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 646,
+          "age": 34,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 9,
+          "insomnia": 9,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 650,
+          "age": 26,
+          "hours": 3.0,
+          "anxiety": 1,
+          "depression": 3,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 661,
+          "age": 17,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 663,
+          "age": 32,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 673,
+          "age": 21,
+          "hours": 11.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 700,
+          "age": 16,
+          "hours": 9.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 705,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 712,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 717,
+          "age": 17,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 719,
+          "age": 17,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 3,
+          "insomnia": 9,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 728,
+          "age": 26,
+          "hours": 1.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        }
+      ]
+    },
+    "Pop": {
+      "name": "Pop",
+      "color": "#ec4899",
+      "emoji": "\ud83c\udfa4",
+      "count": 114,
+      "pct_of_total": 15.5,
+      "anxiety": {
+        "count": 114,
+        "mean": 6.07,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.39
+      },
+      "depression": {
+        "count": 114,
+        "mean": 4.49,
+        "median": 5.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.64
+      },
+      "insomnia": {
+        "count": 114,
+        "mean": 3.37,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.86
+      },
+      "ocd": {
+        "count": 114,
+        "mean": 2.86,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.06
+      },
+      "hours": {
+        "count": 114,
+        "mean": 2.91,
+        "median": 2.0,
+        "min": 0.5,
+        "max": 12.0,
+        "std": 2.18
+      },
+      "age": {
+        "count": 114,
+        "mean": 23.25,
+        "median": 20.0,
+        "min": 10.0,
+        "max": 74.0,
+        "std": 10.53
+      },
+      "bpm": {
+        "count": 97,
+        "mean": 118.91,
+        "median": 120.0,
+        "min": 60.0,
+        "max": 208.0,
+        "std": 28.23
+      },
+      "high_anxiety_rate": 66.7,
+      "high_depression_rate": 39.5,
+      "effects_counts": {
+        "Improve": 85,
+        "No effect": 25,
+        "Worsen": 4
+      },
+      "effects_pct": {
+        "Improve": 74.6,
+        "No effect": 21.9,
+        "Worsen": 3.5
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 21,
+            "pct": 18.4
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 39,
+            "pct": 34.2
+          },
+          {
+            "label": "High (7-10)",
+            "count": 54,
+            "pct": 47.4
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 43,
+            "pct": 37.7
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 40,
+            "pct": 35.1
+          },
+          {
+            "label": "High (7-10)",
+            "count": 30,
+            "pct": 26.3
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 31,
+            "pct": 27.2
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 51,
+            "pct": 44.7
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 17,
+            "pct": 14.9
+          },
+          {
+            "label": "6+ hrs",
+            "count": 15,
+            "pct": 13.2
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 28,
+            "pct": 24.6
+          },
+          {
+            "label": "18 - 24",
+            "count": 56,
+            "pct": 49.1
+          },
+          {
+            "label": "25 - 34",
+            "count": 17,
+            "pct": 14.9
+          },
+          {
+            "label": "35 - 49",
+            "count": 7,
+            "pct": 6.1
+          },
+          {
+            "label": "50+",
+            "count": 6,
+            "pct": 5.3
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 82.5,
+        "instrumentalist_pct": 25.4,
+        "composer_pct": 9.6,
+        "exploratory_pct": 66.7,
+        "foreign_languages_pct": 52.6,
+        "working_anxiety": 6.01,
+        "non_working_anxiety": 6.4
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 68,
+          "pct": 59.6
+        },
+        {
+          "name": "YouTube Music",
+          "count": 18,
+          "pct": 15.8
+        },
+        {
+          "name": "Apple Music",
+          "count": 11,
+          "pct": 9.6
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 11,
+          "pct": 9.6
+        },
+        {
+          "name": "Other streaming service",
+          "count": 5,
+          "pct": 4.4
+        },
+        {
+          "name": "Pandora",
+          "count": 1,
+          "pct": 0.9
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 8,
+          "Sometimes": 28,
+          "Rarely": 50,
+          "Never": 28,
+          "score": 38.0
+        },
+        "Country": {
+          "Very frequently": 5,
+          "Sometimes": 14,
+          "Rarely": 49,
+          "Never": 46,
+          "score": 26.9
+        },
+        "EDM": {
+          "Very frequently": 10,
+          "Sometimes": 33,
+          "Rarely": 29,
+          "Never": 42,
+          "score": 36.5
+        },
+        "Folk": {
+          "Very frequently": 5,
+          "Sometimes": 19,
+          "Rarely": 41,
+          "Never": 49,
+          "score": 27.5
+        },
+        "Gospel": {
+          "Very frequently": 2,
+          "Sometimes": 6,
+          "Rarely": 22,
+          "Never": 84,
+          "score": 11.7
+        },
+        "Hip hop": {
+          "Very frequently": 23,
+          "Sometimes": 39,
+          "Rarely": 37,
+          "Never": 15,
+          "score": 53.8
+        },
+        "Jazz": {
+          "Very frequently": 5,
+          "Sometimes": 27,
+          "Rarely": 44,
+          "Never": 38,
+          "score": 33.0
+        },
+        "K pop": {
+          "Very frequently": 18,
+          "Sometimes": 21,
+          "Rarely": 35,
+          "Never": 40,
+          "score": 38.3
+        },
+        "Latin": {
+          "Very frequently": 7,
+          "Sometimes": 20,
+          "Rarely": 27,
+          "Never": 60,
+          "score": 25.7
+        },
+        "Lofi": {
+          "Very frequently": 10,
+          "Sometimes": 27,
+          "Rarely": 41,
+          "Never": 36,
+          "score": 36.5
+        },
+        "Metal": {
+          "Very frequently": 4,
+          "Sometimes": 10,
+          "Rarely": 39,
+          "Never": 61,
+          "score": 20.8
+        },
+        "Pop": {
+          "Very frequently": 107,
+          "Sometimes": 6,
+          "Rarely": 0,
+          "Never": 1,
+          "score": 97.4
+        },
+        "R&B": {
+          "Very frequently": 28,
+          "Sometimes": 34,
+          "Rarely": 32,
+          "Never": 20,
+          "score": 53.8
+        },
+        "Rap": {
+          "Very frequently": 22,
+          "Sometimes": 37,
+          "Rarely": 36,
+          "Never": 19,
+          "score": 51.5
+        },
+        "Rock": {
+          "Very frequently": 26,
+          "Sometimes": 55,
+          "Rarely": 17,
+          "Never": 16,
+          "score": 59.9
+        },
+        "Video game music": {
+          "Very frequently": 14,
+          "Sometimes": 28,
+          "Rarely": 30,
+          "Never": 42,
+          "score": 37.4
+        }
+      },
+      "sample_records": [
+        {
+          "id": 16,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 4,
+          "ocd": 1,
+          "effects": "Worsen",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 24,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 8,
+          "ocd": 6,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 26,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 28,
+          "age": 18,
+          "hours": 6.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 29,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 30,
+          "age": 17,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 36,
+          "age": 18,
+          "hours": 5.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 37,
+          "age": 21,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 38,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 50,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 54,
+          "age": 23,
+          "hours": 12.0,
+          "anxiety": 3,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 5,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 107,
+          "age": 41,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 108,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 112,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 5,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 113,
+          "age": 19,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 10,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 127,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 5,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 133,
+          "age": 32,
+          "hours": 7.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 2,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 138,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 139,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 140,
+          "age": 25,
+          "hours": 1.5,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 144,
+          "age": 53,
+          "hours": 7.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 151,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 154,
+          "age": 25,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 157,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 3,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 159,
+          "age": 41,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 173,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 178,
+          "age": 18,
+          "hours": 1.5,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 182,
+          "age": 35,
+          "hours": 0.5,
+          "anxiety": 10,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 186,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 3,
+          "insomnia": 5,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 187,
+          "age": 19,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 196,
+          "age": 26,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 202,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 8,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 211,
+          "age": 35,
+          "hours": 1.0,
+          "anxiety": 2,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 214,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 223,
+          "age": 25,
+          "hours": 7.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 225,
+          "age": 31,
+          "hours": 9.0,
+          "anxiety": 9,
+          "depression": 0,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 226,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 238,
+          "age": 53,
+          "hours": 1.5,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 246,
+          "age": 38,
+          "hours": 6.0,
+          "anxiety": 9,
+          "depression": 4,
+          "insomnia": 9,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 259,
+          "age": 19,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 266,
+          "age": 25,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 9,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 268,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 270,
+          "age": 20,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 286,
+          "age": 27,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 288,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 9,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 292,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 306,
+          "age": 56,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 10,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 307,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 308,
+          "age": 22,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 309,
+          "age": 26,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 10,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 324,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 325,
+          "age": 59,
+          "hours": 2.0,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 326,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 7,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 327,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 328,
+          "age": 27,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 3,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 342,
+          "age": 21,
+          "hours": 10.0,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 354,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 368,
+          "age": 43,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 370,
+          "age": 10,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 380,
+          "age": 15,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 383,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 388,
+          "age": 14,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 390,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 401,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 4,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 407,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 431,
+          "age": 16,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 7,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 449,
+          "age": 14,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 453,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 457,
+          "age": 49,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 5,
+          "insomnia": 9,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 479,
+          "age": 15,
+          "hours": 2.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 10,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 489,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 490,
+          "age": 25,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 495,
+          "age": 74,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 503,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 516,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 518,
+          "age": 19,
+          "hours": 8.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 519,
+          "age": 56,
+          "hours": 8.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 529,
+          "age": 22,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 531,
+          "age": 20,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 9,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 535,
+          "age": 22,
+          "hours": 7.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 536,
+          "age": 17,
+          "hours": 5.0,
+          "anxiety": 5,
+          "depression": 5,
+          "insomnia": 5,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 543,
+          "age": 15,
+          "hours": 4.0,
+          "anxiety": 3,
+          "depression": 5,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 544,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 549,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 553,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 556,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 558,
+          "age": 25,
+          "hours": 4.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 567,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 4,
+          "insomnia": 6,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 574,
+          "age": 29,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 8,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 577,
+          "age": 19,
+          "hours": 6.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 579,
+          "age": 26,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 581,
+          "age": 27,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 3,
+          "insomnia": 3,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 585,
+          "age": 27,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 594,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 603,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 613,
+          "age": 20,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 647,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 10,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 648,
+          "age": 27,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 653,
+          "age": 19,
+          "hours": 4.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 657,
+          "age": 21,
+          "hours": 0.5,
+          "anxiety": 10,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 10,
+          "effects": "Worsen",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 669,
+          "age": 24,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 671,
+          "age": 21,
+          "hours": 0.5,
+          "anxiety": 5,
+          "depression": 3,
+          "insomnia": 4,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 694,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 695,
+          "age": 19,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 9,
+          "insomnia": 1,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 701,
+          "age": 20,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 706,
+          "age": 19,
+          "hours": 4.0,
+          "anxiety": 9,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 714,
+          "age": 17,
+          "hours": 8.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 4,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 716,
+          "age": 21,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 722,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 723,
+          "age": 19,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 724,
+          "age": 16,
+          "hours": 6.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 6,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 725,
+          "age": 19,
+          "hours": 6.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 730,
+          "age": 21,
+          "hours": 0.5,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 733,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "R&B": {
+      "name": "R&B",
+      "color": "#f59e0b",
+      "emoji": "\ud83c\udfb7",
+      "count": 35,
+      "pct_of_total": 4.8,
+      "anxiety": {
+        "count": 35,
+        "mean": 5.17,
+        "median": 5.0,
+        "min": 1.0,
+        "max": 10.0,
+        "std": 2.78
+      },
+      "depression": {
+        "count": 35,
+        "mean": 3.83,
+        "median": 4.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.13
+      },
+      "insomnia": {
+        "count": 35,
+        "mean": 2.89,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.38
+      },
+      "ocd": {
+        "count": 35,
+        "mean": 2.74,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.82
+      },
+      "hours": {
+        "count": 35,
+        "mean": 3.47,
+        "median": 3.0,
+        "min": 1.0,
+        "max": 10.0,
+        "std": 2.05
+      },
+      "age": {
+        "count": 35,
+        "mean": 25.34,
+        "median": 19.0,
+        "min": 14.0,
+        "max": 73.0,
+        "std": 15.21
+      },
+      "bpm": {
+        "count": 29,
+        "mean": 117.97,
+        "median": 118.0,
+        "min": 70.0,
+        "max": 169.0,
+        "std": 29.1
+      },
+      "high_anxiety_rate": 45.7,
+      "high_depression_rate": 34.3,
+      "effects_counts": {
+        "Improve": 26,
+        "No effect": 9,
+        "Worsen": 0
+      },
+      "effects_pct": {
+        "Improve": 74.3,
+        "No effect": 25.7,
+        "Worsen": 0.0
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 14,
+            "pct": 40.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 8,
+            "pct": 22.9
+          },
+          {
+            "label": "High (7-10)",
+            "count": 13,
+            "pct": 37.1
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 17,
+            "pct": 48.6
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 11,
+            "pct": 31.4
+          },
+          {
+            "label": "High (7-10)",
+            "count": 7,
+            "pct": 20.0
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 3,
+            "pct": 8.6
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 17,
+            "pct": 48.6
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 10,
+            "pct": 28.6
+          },
+          {
+            "label": "6+ hrs",
+            "count": 5,
+            "pct": 14.3
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 5,
+            "pct": 14.3
+          },
+          {
+            "label": "18 - 24",
+            "count": 22,
+            "pct": 62.9
+          },
+          {
+            "label": "25 - 34",
+            "count": 3,
+            "pct": 8.6
+          },
+          {
+            "label": "35 - 49",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "50+",
+            "count": 5,
+            "pct": 14.3
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 82.9,
+        "instrumentalist_pct": 14.3,
+        "composer_pct": 8.6,
+        "exploratory_pct": 68.6,
+        "foreign_languages_pct": 65.7,
+        "working_anxiety": 5.38,
+        "non_working_anxiety": 4.17
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 23,
+          "pct": 65.7
+        },
+        {
+          "name": "Apple Music",
+          "count": 4,
+          "pct": 11.4
+        },
+        {
+          "name": "Other streaming service",
+          "count": 3,
+          "pct": 8.6
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 2,
+          "pct": 5.7
+        },
+        {
+          "name": "Pandora",
+          "count": 2,
+          "pct": 5.7
+        },
+        {
+          "name": "YouTube Music",
+          "count": 1,
+          "pct": 2.9
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 5,
+          "Sometimes": 8,
+          "Rarely": 15,
+          "Never": 7,
+          "score": 43.8
+        },
+        "Country": {
+          "Very frequently": 1,
+          "Sometimes": 5,
+          "Rarely": 13,
+          "Never": 16,
+          "score": 24.8
+        },
+        "EDM": {
+          "Very frequently": 3,
+          "Sometimes": 4,
+          "Rarely": 10,
+          "Never": 18,
+          "score": 25.7
+        },
+        "Folk": {
+          "Very frequently": 2,
+          "Sometimes": 3,
+          "Rarely": 10,
+          "Never": 20,
+          "score": 21.0
+        },
+        "Gospel": {
+          "Very frequently": 1,
+          "Sometimes": 6,
+          "Rarely": 11,
+          "Never": 17,
+          "score": 24.8
+        },
+        "Hip hop": {
+          "Very frequently": 16,
+          "Sometimes": 12,
+          "Rarely": 6,
+          "Never": 1,
+          "score": 74.3
+        },
+        "Jazz": {
+          "Very frequently": 3,
+          "Sometimes": 7,
+          "Rarely": 15,
+          "Never": 10,
+          "score": 36.2
+        },
+        "K pop": {
+          "Very frequently": 12,
+          "Sometimes": 4,
+          "Rarely": 6,
+          "Never": 13,
+          "score": 47.6
+        },
+        "Latin": {
+          "Very frequently": 5,
+          "Sometimes": 6,
+          "Rarely": 7,
+          "Never": 17,
+          "score": 32.4
+        },
+        "Lofi": {
+          "Very frequently": 5,
+          "Sometimes": 8,
+          "Rarely": 11,
+          "Never": 11,
+          "score": 40.0
+        },
+        "Metal": {
+          "Very frequently": 1,
+          "Sometimes": 1,
+          "Rarely": 11,
+          "Never": 22,
+          "score": 15.2
+        },
+        "Pop": {
+          "Very frequently": 15,
+          "Sometimes": 16,
+          "Rarely": 3,
+          "Never": 1,
+          "score": 76.2
+        },
+        "R&B": {
+          "Very frequently": 30,
+          "Sometimes": 5,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 95.2
+        },
+        "Rap": {
+          "Very frequently": 15,
+          "Sometimes": 12,
+          "Rarely": 6,
+          "Never": 2,
+          "score": 71.4
+        },
+        "Rock": {
+          "Very frequently": 5,
+          "Sometimes": 11,
+          "Rarely": 6,
+          "Never": 13,
+          "score": 41.0
+        },
+        "Video game music": {
+          "Very frequently": 1,
+          "Sometimes": 7,
+          "Rarely": 13,
+          "Never": 14,
+          "score": 28.6
+        }
+      },
+      "sample_records": [
+        {
+          "id": 5,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 5,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 10,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 23,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 78,
+          "age": 19,
+          "hours": 10.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 85,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 89,
+          "age": 26,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 161,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 1,
+          "depression": 1,
+          "insomnia": 4,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 176,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 184,
+          "age": 25,
+          "hours": 2.5,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 192,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 194,
+          "age": 20,
+          "hours": 4.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 208,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 10,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 405,
+          "age": 57,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 417,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 430,
+          "age": 73,
+          "hours": 3.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 437,
+          "age": 14,
+          "hours": 9.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 9,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 524,
+          "age": 65,
+          "hours": 6.0,
+          "anxiety": 3,
+          "depression": 5,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 554,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 4,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 559,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 561,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 566,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 570,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 571,
+          "age": 53,
+          "hours": 4.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 575,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 3,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 592,
+          "age": 56,
+          "hours": 6.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 10,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 593,
+          "age": 29,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 9,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 601,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 659,
+          "age": 23,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 10,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 662,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 5,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 681,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 684,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 5,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 689,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 690,
+          "age": 20,
+          "hours": 6.0,
+          "anxiety": 4,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 697,
+          "age": 20,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 731,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "Rap": {
+      "name": "Rap",
+      "color": "#6366f1",
+      "emoji": "\ud83c\udf99\ufe0f",
+      "count": 22,
+      "pct_of_total": 3.0,
+      "anxiety": {
+        "count": 22,
+        "mean": 5.09,
+        "median": 4.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.88
+      },
+      "depression": {
+        "count": 22,
+        "mean": 4.0,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.1
+      },
+      "insomnia": {
+        "count": 22,
+        "mean": 2.27,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 7.0,
+        "std": 2.47
+      },
+      "ocd": {
+        "count": 22,
+        "mean": 3.18,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.81
+      },
+      "hours": {
+        "count": 22,
+        "mean": 5.32,
+        "median": 3.0,
+        "min": 1.0,
+        "max": 24.0,
+        "std": 6.43
+      },
+      "age": {
+        "count": 22,
+        "mean": 21.77,
+        "median": 18.0,
+        "min": 13.0,
+        "max": 89.0,
+        "std": 15.35
+      },
+      "bpm": {
+        "count": 20,
+        "mean": 127.1,
+        "median": 130.5,
+        "min": 73.0,
+        "max": 170.0,
+        "std": 24.37
+      },
+      "high_anxiety_rate": 45.5,
+      "high_depression_rate": 31.8,
+      "effects_counts": {
+        "Improve": 17,
+        "No effect": 4,
+        "Worsen": 1
+      },
+      "effects_pct": {
+        "Improve": 77.3,
+        "No effect": 18.2,
+        "Worsen": 4.5
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 8,
+            "pct": 36.4
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 5,
+            "pct": 22.7
+          },
+          {
+            "label": "High (7-10)",
+            "count": 9,
+            "pct": 40.9
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 12,
+            "pct": 54.5
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 5,
+            "pct": 22.7
+          },
+          {
+            "label": "High (7-10)",
+            "count": 5,
+            "pct": 22.7
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 3,
+            "pct": 13.6
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 10,
+            "pct": 45.5
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 2,
+            "pct": 9.1
+          },
+          {
+            "label": "6+ hrs",
+            "count": 7,
+            "pct": 31.8
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 7,
+            "pct": 31.8
+          },
+          {
+            "label": "18 - 24",
+            "count": 13,
+            "pct": 59.1
+          },
+          {
+            "label": "25 - 34",
+            "count": 1,
+            "pct": 4.5
+          },
+          {
+            "label": "35 - 49",
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "label": "50+",
+            "count": 1,
+            "pct": 4.5
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 68.2,
+        "instrumentalist_pct": 27.3,
+        "composer_pct": 18.2,
+        "exploratory_pct": 81.8,
+        "foreign_languages_pct": 59.1,
+        "working_anxiety": 4.93,
+        "non_working_anxiety": 5.43
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 12,
+          "pct": 54.5
+        },
+        {
+          "name": "Apple Music",
+          "count": 4,
+          "pct": 18.2
+        },
+        {
+          "name": "Other streaming service",
+          "count": 4,
+          "pct": 18.2
+        },
+        {
+          "name": "YouTube Music",
+          "count": 2,
+          "pct": 9.1
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 3,
+          "Sometimes": 3,
+          "Rarely": 10,
+          "Never": 6,
+          "score": 37.9
+        },
+        "Country": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 3,
+          "Never": 17,
+          "score": 10.6
+        },
+        "EDM": {
+          "Very frequently": 0,
+          "Sometimes": 5,
+          "Rarely": 7,
+          "Never": 10,
+          "score": 25.8
+        },
+        "Folk": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 5,
+          "Never": 14,
+          "score": 18.2
+        },
+        "Gospel": {
+          "Very frequently": 0,
+          "Sometimes": 2,
+          "Rarely": 1,
+          "Never": 19,
+          "score": 7.6
+        },
+        "Hip hop": {
+          "Very frequently": 11,
+          "Sometimes": 10,
+          "Rarely": 1,
+          "Never": 0,
+          "score": 81.8
+        },
+        "Jazz": {
+          "Very frequently": 1,
+          "Sometimes": 7,
+          "Rarely": 6,
+          "Never": 8,
+          "score": 34.8
+        },
+        "K pop": {
+          "Very frequently": 0,
+          "Sometimes": 5,
+          "Rarely": 5,
+          "Never": 12,
+          "score": 22.7
+        },
+        "Latin": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 3,
+          "Never": 16,
+          "score": 15.2
+        },
+        "Lofi": {
+          "Very frequently": 2,
+          "Sometimes": 9,
+          "Rarely": 7,
+          "Never": 4,
+          "score": 47.0
+        },
+        "Metal": {
+          "Very frequently": 0,
+          "Sometimes": 4,
+          "Rarely": 7,
+          "Never": 11,
+          "score": 22.7
+        },
+        "Pop": {
+          "Very frequently": 4,
+          "Sometimes": 11,
+          "Rarely": 7,
+          "Never": 0,
+          "score": 62.1
+        },
+        "R&B": {
+          "Very frequently": 3,
+          "Sometimes": 9,
+          "Rarely": 6,
+          "Never": 4,
+          "score": 50.0
+        },
+        "Rap": {
+          "Very frequently": 19,
+          "Sometimes": 3,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 95.5
+        },
+        "Rock": {
+          "Very frequently": 3,
+          "Sometimes": 5,
+          "Rarely": 9,
+          "Never": 5,
+          "score": 42.4
+        },
+        "Video game music": {
+          "Very frequently": 3,
+          "Sometimes": 7,
+          "Rarely": 5,
+          "Never": 7,
+          "score": 42.4
+        }
+      },
+      "sample_records": [
+        {
+          "id": 19,
+          "age": 17,
+          "hours": 24.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 22,
+          "age": 17,
+          "hours": 4.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 2,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 53,
+          "age": 23,
+          "hours": 1.0,
+          "anxiety": 10,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 10,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 142,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 1,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 213,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 253,
+          "age": 23,
+          "hours": 6.0,
+          "anxiety": 3,
+          "depression": 1,
+          "insomnia": 2,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 321,
+          "age": 13,
+          "hours": 10.0,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 353,
+          "age": 15,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 0,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 398,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 404,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 3,
+          "insomnia": 4,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 432,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 443,
+          "age": 13,
+          "hours": 6.0,
+          "anxiety": 4,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 508,
+          "age": 27,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 546,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 3,
+          "insomnia": 4,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 551,
+          "age": 17,
+          "hours": 6.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 586,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 609,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 1,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 626,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 678,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 686,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 696,
+          "age": 89,
+          "hours": 24.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 734,
+          "age": 19,
+          "hours": 6.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        }
+      ]
+    },
+    "Rock": {
+      "name": "Rock",
+      "color": "#ef4444",
+      "emoji": "\ud83c\udfb8",
+      "count": 188,
+      "pct_of_total": 25.6,
+      "anxiety": {
+        "count": 188,
+        "mean": 6.12,
+        "median": 7.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.88
+      },
+      "depression": {
+        "count": 188,
+        "mean": 5.24,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.14
+      },
+      "insomnia": {
+        "count": 188,
+        "mean": 3.88,
+        "median": 3.25,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.05
+      },
+      "ocd": {
+        "count": 188,
+        "mean": 2.68,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.0
+      },
+      "hours": {
+        "count": 188,
+        "mean": 3.63,
+        "median": 3.0,
+        "min": 0.0,
+        "max": 24.0,
+        "std": 3.31
+      },
+      "age": {
+        "count": 188,
+        "mean": 28.42,
+        "median": 23.0,
+        "min": 13.0,
+        "max": 72.0,
+        "std": 13.87
+      },
+      "bpm": {
+        "count": 151,
+        "mean": 124.05,
+        "median": 120.0,
+        "min": 52.0,
+        "max": 220.0,
+        "std": 31.06
+      },
+      "high_anxiety_rate": 64.4,
+      "high_depression_rate": 54.3,
+      "effects_counts": {
+        "Improve": 126,
+        "No effect": 53,
+        "Worsen": 7
+      },
+      "effects_pct": {
+        "Improve": 67.0,
+        "No effect": 28.2,
+        "Worsen": 3.7
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 42,
+            "pct": 22.3
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 40,
+            "pct": 21.3
+          },
+          {
+            "label": "High (7-10)",
+            "count": 106,
+            "pct": 56.4
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 64,
+            "pct": 34.0
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 45,
+            "pct": 23.9
+          },
+          {
+            "label": "High (7-10)",
+            "count": 78,
+            "pct": 41.5
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 45,
+            "pct": 23.9
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 77,
+            "pct": 41.0
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 31,
+            "pct": 16.5
+          },
+          {
+            "label": "6+ hrs",
+            "count": 35,
+            "pct": 18.6
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 33,
+            "pct": 17.6
+          },
+          {
+            "label": "18 - 24",
+            "count": 69,
+            "pct": 36.7
+          },
+          {
+            "label": "25 - 34",
+            "count": 46,
+            "pct": 24.5
+          },
+          {
+            "label": "35 - 49",
+            "count": 18,
+            "pct": 9.6
+          },
+          {
+            "label": "50+",
+            "count": 22,
+            "pct": 11.7
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 75.5,
+        "instrumentalist_pct": 28.7,
+        "composer_pct": 15.4,
+        "exploratory_pct": 69.1,
+        "foreign_languages_pct": 45.2,
+        "working_anxiety": 6.26,
+        "non_working_anxiety": 5.62
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 118,
+          "pct": 62.8
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 23,
+          "pct": 12.2
+        },
+        {
+          "name": "YouTube Music",
+          "count": 22,
+          "pct": 11.7
+        },
+        {
+          "name": "Other streaming service",
+          "count": 12,
+          "pct": 6.4
+        },
+        {
+          "name": "Apple Music",
+          "count": 10,
+          "pct": 5.3
+        },
+        {
+          "name": "Pandora",
+          "count": 3,
+          "pct": 1.6
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 12,
+          "Sometimes": 60,
+          "Rarely": 69,
+          "Never": 47,
+          "score": 39.9
+        },
+        "Country": {
+          "Very frequently": 7,
+          "Sometimes": 41,
+          "Rarely": 61,
+          "Never": 79,
+          "score": 29.1
+        },
+        "EDM": {
+          "Very frequently": 10,
+          "Sometimes": 38,
+          "Rarely": 50,
+          "Never": 90,
+          "score": 27.7
+        },
+        "Folk": {
+          "Very frequently": 25,
+          "Sometimes": 56,
+          "Rarely": 62,
+          "Never": 45,
+          "score": 44.1
+        },
+        "Gospel": {
+          "Very frequently": 0,
+          "Sometimes": 10,
+          "Rarely": 25,
+          "Never": 153,
+          "score": 8.0
+        },
+        "Hip hop": {
+          "Very frequently": 10,
+          "Sometimes": 53,
+          "Rarely": 63,
+          "Never": 62,
+          "score": 35.3
+        },
+        "Jazz": {
+          "Very frequently": 10,
+          "Sometimes": 44,
+          "Rarely": 64,
+          "Never": 70,
+          "score": 32.3
+        },
+        "K pop": {
+          "Very frequently": 3,
+          "Sometimes": 10,
+          "Rarely": 47,
+          "Never": 128,
+          "score": 13.5
+        },
+        "Latin": {
+          "Very frequently": 5,
+          "Sometimes": 18,
+          "Rarely": 42,
+          "Never": 123,
+          "score": 16.5
+        },
+        "Lofi": {
+          "Very frequently": 15,
+          "Sometimes": 33,
+          "Rarely": 59,
+          "Never": 81,
+          "score": 30.1
+        },
+        "Metal": {
+          "Very frequently": 39,
+          "Sometimes": 64,
+          "Rarely": 55,
+          "Never": 30,
+          "score": 53.2
+        },
+        "Pop": {
+          "Very frequently": 56,
+          "Sometimes": 84,
+          "Rarely": 38,
+          "Never": 10,
+          "score": 66.3
+        },
+        "R&B": {
+          "Very frequently": 15,
+          "Sometimes": 42,
+          "Rarely": 72,
+          "Never": 59,
+          "score": 35.6
+        },
+        "Rap": {
+          "Very frequently": 11,
+          "Sometimes": 51,
+          "Rarely": 66,
+          "Never": 60,
+          "score": 35.6
+        },
+        "Rock": {
+          "Very frequently": 166,
+          "Sometimes": 22,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 96.1
+        },
+        "Video game music": {
+          "Very frequently": 22,
+          "Sometimes": 53,
+          "Rarely": 46,
+          "Never": 67,
+          "score": 38.7
+        }
+      },
+      "sample_records": [
+        {
+          "id": 2,
+          "age": 63,
+          "hours": 1.5,
+          "anxiety": 7,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Unknown",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 9,
+          "age": 19,
+          "hours": 6.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 25,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 27,
+          "age": 14,
+          "hours": 12.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 10,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 31,
+          "age": 20,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 34,
+          "age": 17,
+          "hours": 4.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 39,
+          "age": 26,
+          "hours": 0.5,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 42,
+          "age": 18,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 48,
+          "age": 24,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 55,
+          "age": 22,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 57,
+          "age": 18,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 10,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 58,
+          "age": 42,
+          "hours": 0.0,
+          "anxiety": 9,
+          "depression": 0,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 62,
+          "age": 22,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 63,
+          "age": 15,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 6,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 65,
+          "age": 32,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 67,
+          "age": 24,
+          "hours": 3.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 70,
+          "age": 36,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 71,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 72,
+          "age": 31,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 5,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 73,
+          "age": 16,
+          "hours": 4.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 81,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 84,
+          "age": 16,
+          "hours": 2.5,
+          "anxiety": 2,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 86,
+          "age": 37,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 6,
+          "ocd": 10,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 94,
+          "age": 36,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 98,
+          "age": 31,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 100,
+          "age": 15,
+          "hours": 8.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 104,
+          "age": 28,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 105,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 114,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 119,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 121,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 122,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 8,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 124,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 128,
+          "age": 13,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 10,
+          "insomnia": 5,
+          "ocd": 6,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 130,
+          "age": 35,
+          "hours": 6.0,
+          "anxiety": 4,
+          "depression": 1,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 132,
+          "age": 28,
+          "hours": 6.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 135,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 152,
+          "age": 32,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 153,
+          "age": 21,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 155,
+          "age": 26,
+          "hours": 1.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 8,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 158,
+          "age": 28,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 168,
+          "age": 27,
+          "hours": 1.5,
+          "anxiety": 5,
+          "depression": 5,
+          "insomnia": 4,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 170,
+          "age": 42,
+          "hours": 2.5,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 7,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 177,
+          "age": 34,
+          "hours": 1.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 180,
+          "age": 38,
+          "hours": 0.5,
+          "anxiety": 4,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 181,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 183,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 189,
+          "age": 26,
+          "hours": 5.0,
+          "anxiety": 2,
+          "depression": 9,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 190,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 10,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 191,
+          "age": 26,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 195,
+          "age": 30,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 5,
+          "insomnia": 8,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 197,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 9,
+          "depression": 9,
+          "insomnia": 9,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 199,
+          "age": 33,
+          "hours": 7.0,
+          "anxiety": 9,
+          "depression": 3,
+          "insomnia": 7,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 200,
+          "age": 28,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 201,
+          "age": 25,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 203,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 205,
+          "age": 22,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 3,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 210,
+          "age": 30,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 212,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 215,
+          "age": 19,
+          "hours": 6.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 216,
+          "age": 37,
+          "hours": 4.0,
+          "anxiety": 9,
+          "depression": 2,
+          "insomnia": 7,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 219,
+          "age": 20,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 221,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 230,
+          "age": 64,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 231,
+          "age": 14,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 232,
+          "age": 26,
+          "hours": 6.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 234,
+          "age": 33,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 10,
+          "insomnia": 4,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 242,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 245,
+          "age": 31,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 10,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Worsen",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 255,
+          "age": 15,
+          "hours": 5.0,
+          "anxiety": 10,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 261,
+          "age": 34,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 271,
+          "age": 19,
+          "hours": 5.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 275,
+          "age": 20,
+          "hours": 0.7,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 282,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 8,
+          "insomnia": 4,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 283,
+          "age": 28,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 285,
+          "age": 25,
+          "hours": 0.5,
+          "anxiety": 10,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 287,
+          "age": 18,
+          "hours": 5.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 8,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 289,
+          "age": 23,
+          "hours": 4.5,
+          "anxiety": 6,
+          "depression": 1,
+          "insomnia": 8,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 290,
+          "age": 40,
+          "hours": 3.0,
+          "anxiety": 0,
+          "depression": 4,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 291,
+          "age": 27,
+          "hours": 20.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 8,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 294,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 6,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 298,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 9,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 299,
+          "age": 16,
+          "hours": 0.5,
+          "anxiety": 8,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 302,
+          "age": 22,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 305,
+          "age": 29,
+          "hours": 1.5,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 313,
+          "age": 32,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 314,
+          "age": 32,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 4,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 316,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 8,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 317,
+          "age": 21,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 4,
+          "insomnia": 6,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 318,
+          "age": 17,
+          "hours": 1.5,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 320,
+          "age": 15,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 322,
+          "age": 38,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 323,
+          "age": 23,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 4,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 330,
+          "age": 15,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 3,
+          "insomnia": 5,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 334,
+          "age": 32,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 335,
+          "age": 40,
+          "hours": 6.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 3,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 337,
+          "age": 21,
+          "hours": 10.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 6,
+          "ocd": 8,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 344,
+          "age": 23,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 347,
+          "age": 33,
+          "hours": 0.5,
+          "anxiety": 7,
+          "depression": 9,
+          "insomnia": 4,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 351,
+          "age": 18,
+          "hours": 0.5,
+          "anxiety": 5,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 366,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 9,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 367,
+          "age": 16,
+          "hours": 24.0,
+          "anxiety": 5,
+          "depression": 1,
+          "insomnia": 9,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 374,
+          "age": 17,
+          "hours": 7.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 376,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 5,
+          "depression": 7,
+          "insomnia": 1,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 377,
+          "age": 64,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 9,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 379,
+          "age": 32,
+          "hours": 3.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 382,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 6,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 402,
+          "age": 44,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 403,
+          "age": 23,
+          "hours": 1.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 406,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 5,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 411,
+          "age": 57,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 426,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 4,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 429,
+          "age": 72,
+          "hours": 6.0,
+          "anxiety": 0,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 444,
+          "age": 16,
+          "hours": 4.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 6,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 445,
+          "age": 18,
+          "hours": 6.0,
+          "anxiety": 5,
+          "depression": 1,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 448,
+          "age": 24,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 450,
+          "age": 25,
+          "hours": 4.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 452,
+          "age": 20,
+          "hours": 4.0,
+          "anxiety": 5,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 454,
+          "age": 61,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Pandora"
+        },
+        {
+          "id": 456,
+          "age": 34,
+          "hours": 0.0,
+          "anxiety": 3,
+          "depression": 7,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Worsen",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 458,
+          "age": 33,
+          "hours": 4.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 465,
+          "age": 54,
+          "hours": 10.0,
+          "anxiety": 2,
+          "depression": 1,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 466,
+          "age": 16,
+          "hours": 10.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 471,
+          "age": 63,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 472,
+          "age": 28,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 474,
+          "age": 58,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 476,
+          "age": 67,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 7,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 478,
+          "age": 60,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 4,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 485,
+          "age": 20,
+          "hours": 8.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 486,
+          "age": 55,
+          "hours": 15.0,
+          "anxiety": 2,
+          "depression": 0,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 500,
+          "age": 19,
+          "hours": 7.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 504,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 507,
+          "age": 28,
+          "hours": 8.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 509,
+          "age": 60,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 511,
+          "age": 60,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 513,
+          "age": 51,
+          "hours": 5.0,
+          "anxiety": 1,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 514,
+          "age": 63,
+          "hours": 8.0,
+          "anxiety": 2,
+          "depression": 1,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 523,
+          "age": 60,
+          "hours": 2.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 527,
+          "age": 42,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 4,
+          "insomnia": 5,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 533,
+          "age": 67,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Unknown",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 537,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 538,
+          "age": 50,
+          "hours": 1.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 539,
+          "age": 24,
+          "hours": 6.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 540,
+          "age": 67,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 547,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 6,
+          "insomnia": 8,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 550,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 557,
+          "age": 19,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 0,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 560,
+          "age": 25,
+          "hours": 5.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 2,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 580,
+          "age": 14,
+          "hours": 3.0,
+          "anxiety": 2,
+          "depression": 6,
+          "insomnia": 3,
+          "ocd": 0,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 582,
+          "age": 26,
+          "hours": 8.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 583,
+          "age": 59,
+          "hours": 1.0,
+          "anxiety": 1,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 584,
+          "age": 30,
+          "hours": 8.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 588,
+          "age": 18,
+          "hours": 10.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 6,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 589,
+          "age": 40,
+          "hours": 5.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 590,
+          "age": 24,
+          "hours": 10.0,
+          "anxiety": 7,
+          "depression": 9,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 597,
+          "age": 32,
+          "hours": 8.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 604,
+          "age": 46,
+          "hours": 1.0,
+          "anxiety": 0,
+          "depression": 0,
+          "insomnia": 1,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 611,
+          "age": 56,
+          "hours": 2.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 8,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 612,
+          "age": 21,
+          "hours": 12.0,
+          "anxiety": 7,
+          "depression": 10,
+          "insomnia": 4,
+          "ocd": 7,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 614,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 1,
+          "insomnia": 1,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 615,
+          "age": 25,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 4,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 617,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 9,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 618,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 1,
+          "depression": 5,
+          "insomnia": 6,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 621,
+          "age": 17,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 3,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 625,
+          "age": 48,
+          "hours": 5.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 627,
+          "age": 21,
+          "hours": 4.0,
+          "anxiety": 4,
+          "depression": 8,
+          "insomnia": 2,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 630,
+          "age": 20,
+          "hours": 1.0,
+          "anxiety": 10,
+          "depression": 4,
+          "insomnia": 8,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 633,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 634,
+          "age": 31,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 6,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 651,
+          "age": 37,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 2,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 654,
+          "age": 22,
+          "hours": 4.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 4,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 655,
+          "age": 43,
+          "hours": 0.0,
+          "anxiety": 1,
+          "depression": 2,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 656,
+          "age": 24,
+          "hours": 12.0,
+          "anxiety": 7,
+          "depression": 10,
+          "insomnia": 0,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 658,
+          "age": 28,
+          "hours": 1.0,
+          "anxiety": 2,
+          "depression": 1,
+          "insomnia": 2,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 660,
+          "age": 20,
+          "hours": 12.0,
+          "anxiety": 7,
+          "depression": 10,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 665,
+          "age": 20,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 666,
+          "age": 27,
+          "hours": 3.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 9,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 667,
+          "age": 15,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 3,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 668,
+          "age": 26,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 1,
+          "insomnia": 0,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 675,
+          "age": 17,
+          "hours": 5.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 9,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 679,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 10,
+          "insomnia": 2,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 698,
+          "age": 16,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 3,
+          "insomnia": 3,
+          "ocd": 5,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 702,
+          "age": 30,
+          "hours": 1.0,
+          "anxiety": 9,
+          "depression": 7,
+          "insomnia": 8,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 707,
+          "age": 23,
+          "hours": 1.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 1,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 711,
+          "age": 16,
+          "hours": 8.0,
+          "anxiety": 8,
+          "depression": 9,
+          "insomnia": 5,
+          "ocd": 10,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 713,
+          "age": 23,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 5,
+          "insomnia": 2,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 718,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 7,
+          "insomnia": 10,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 732,
+          "age": 17,
+          "hours": 2.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 9,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    },
+    "Video game music": {
+      "name": "Video game music",
+      "color": "#8b5cf6",
+      "emoji": "\ud83c\udfae",
+      "count": 44,
+      "pct_of_total": 6.0,
+      "anxiety": {
+        "count": 44,
+        "mean": 5.89,
+        "median": 6.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.45
+      },
+      "depression": {
+        "count": 44,
+        "mean": 4.48,
+        "median": 4.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.81
+      },
+      "insomnia": {
+        "count": 44,
+        "mean": 4.0,
+        "median": 3.5,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 3.4
+      },
+      "ocd": {
+        "count": 44,
+        "mean": 2.39,
+        "median": 1.5,
+        "min": 0.0,
+        "max": 8.0,
+        "std": 2.56
+      },
+      "hours": {
+        "count": 44,
+        "mean": 2.91,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 10.0,
+        "std": 2.54
+      },
+      "age": {
+        "count": 44,
+        "mean": 21.59,
+        "median": 21.0,
+        "min": 13.0,
+        "max": 43.0,
+        "std": 6.92
+      },
+      "bpm": {
+        "count": 36,
+        "mean": 119.75,
+        "median": 119.5,
+        "min": 60.0,
+        "max": 180.0,
+        "std": 32.76
+      },
+      "high_anxiety_rate": 54.5,
+      "high_depression_rate": 38.6,
+      "effects_counts": {
+        "Improve": 26,
+        "No effect": 14,
+        "Worsen": 4
+      },
+      "effects_pct": {
+        "Improve": 59.1,
+        "No effect": 31.8,
+        "Worsen": 9.1
+      },
+      "distributions": {
+        "anxiety": [
+          {
+            "label": "Low (0-3)",
+            "count": 7,
+            "pct": 15.9
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 19,
+            "pct": 43.2
+          },
+          {
+            "label": "High (7-10)",
+            "count": 18,
+            "pct": 40.9
+          }
+        ],
+        "depression": [
+          {
+            "label": "Low (0-3)",
+            "count": 18,
+            "pct": 40.9
+          },
+          {
+            "label": "Moderate (4-6)",
+            "count": 16,
+            "pct": 36.4
+          },
+          {
+            "label": "High (7-10)",
+            "count": 10,
+            "pct": 22.7
+          }
+        ],
+        "hours": [
+          {
+            "label": "< 2 hrs",
+            "count": 17,
+            "pct": 38.6
+          },
+          {
+            "label": "2 - 4 hrs",
+            "count": 14,
+            "pct": 31.8
+          },
+          {
+            "label": "4 - 6 hrs",
+            "count": 6,
+            "pct": 13.6
+          },
+          {
+            "label": "6+ hrs",
+            "count": 7,
+            "pct": 15.9
+          }
+        ],
+        "age": [
+          {
+            "label": "< 18",
+            "count": 12,
+            "pct": 27.3
+          },
+          {
+            "label": "18 - 24",
+            "count": 25,
+            "pct": 56.8
+          },
+          {
+            "label": "25 - 34",
+            "count": 3,
+            "pct": 6.8
+          },
+          {
+            "label": "35 - 49",
+            "count": 4,
+            "pct": 9.1
+          },
+          {
+            "label": "50+",
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "habits": {
+        "working_pct": 81.8,
+        "instrumentalist_pct": 36.4,
+        "composer_pct": 20.5,
+        "exploratory_pct": 52.3,
+        "foreign_languages_pct": 59.1,
+        "working_anxiety": 5.83,
+        "non_working_anxiety": 6.12
+      },
+      "streaming_services": [
+        {
+          "name": "Spotify",
+          "count": 18,
+          "pct": 40.9
+        },
+        {
+          "name": "I do not use a streaming service.",
+          "count": 13,
+          "pct": 29.5
+        },
+        {
+          "name": "YouTube Music",
+          "count": 8,
+          "pct": 18.2
+        },
+        {
+          "name": "Other streaming service",
+          "count": 4,
+          "pct": 9.1
+        },
+        {
+          "name": "Apple Music",
+          "count": 1,
+          "pct": 2.3
+        }
+      ],
+      "cross_genre_affinity": {
+        "Classical": {
+          "Very frequently": 6,
+          "Sometimes": 19,
+          "Rarely": 12,
+          "Never": 7,
+          "score": 51.5
+        },
+        "Country": {
+          "Very frequently": 1,
+          "Sometimes": 4,
+          "Rarely": 15,
+          "Never": 24,
+          "score": 19.7
+        },
+        "EDM": {
+          "Very frequently": 6,
+          "Sometimes": 15,
+          "Rarely": 9,
+          "Never": 14,
+          "score": 43.2
+        },
+        "Folk": {
+          "Very frequently": 2,
+          "Sometimes": 7,
+          "Rarely": 17,
+          "Never": 18,
+          "score": 28.0
+        },
+        "Gospel": {
+          "Very frequently": 1,
+          "Sometimes": 3,
+          "Rarely": 11,
+          "Never": 29,
+          "score": 15.2
+        },
+        "Hip hop": {
+          "Very frequently": 2,
+          "Sometimes": 9,
+          "Rarely": 21,
+          "Never": 12,
+          "score": 34.1
+        },
+        "Jazz": {
+          "Very frequently": 1,
+          "Sometimes": 17,
+          "Rarely": 17,
+          "Never": 9,
+          "score": 40.9
+        },
+        "K pop": {
+          "Very frequently": 2,
+          "Sometimes": 5,
+          "Rarely": 16,
+          "Never": 21,
+          "score": 24.2
+        },
+        "Latin": {
+          "Very frequently": 1,
+          "Sometimes": 2,
+          "Rarely": 15,
+          "Never": 26,
+          "score": 16.7
+        },
+        "Lofi": {
+          "Very frequently": 14,
+          "Sometimes": 9,
+          "Rarely": 8,
+          "Never": 13,
+          "score": 51.5
+        },
+        "Metal": {
+          "Very frequently": 6,
+          "Sometimes": 7,
+          "Rarely": 13,
+          "Never": 18,
+          "score": 34.1
+        },
+        "Pop": {
+          "Very frequently": 10,
+          "Sometimes": 16,
+          "Rarely": 13,
+          "Never": 5,
+          "score": 56.8
+        },
+        "R&B": {
+          "Very frequently": 1,
+          "Sometimes": 9,
+          "Rarely": 14,
+          "Never": 20,
+          "score": 26.5
+        },
+        "Rap": {
+          "Very frequently": 1,
+          "Sometimes": 10,
+          "Rarely": 15,
+          "Never": 18,
+          "score": 28.8
+        },
+        "Rock": {
+          "Very frequently": 7,
+          "Sometimes": 19,
+          "Rarely": 9,
+          "Never": 9,
+          "score": 51.5
+        },
+        "Video game music": {
+          "Very frequently": 38,
+          "Sometimes": 6,
+          "Rarely": 0,
+          "Never": 0,
+          "score": 95.5
+        }
+      },
+      "sample_records": [
+        {
+          "id": 3,
+          "age": 18,
+          "hours": 4.0,
+          "anxiety": 7,
+          "depression": 7,
+          "insomnia": 10,
+          "ocd": 2,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 7,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 4,
+          "depression": 8,
+          "insomnia": 6,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 41,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 43,
+          "age": 37,
+          "hours": 0.25,
+          "anxiety": 3,
+          "depression": 2,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 60,
+          "age": 23,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 92,
+          "age": 43,
+          "hours": 6.0,
+          "anxiety": 5,
+          "depression": 4,
+          "insomnia": 8,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 95,
+          "age": 19,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 6,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 131,
+          "age": 29,
+          "hours": 1.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 1,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 136,
+          "age": 18,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 3,
+          "insomnia": 8,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 175,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 193,
+          "age": 22,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 6,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 220,
+          "age": 36,
+          "hours": 8.0,
+          "anxiety": 7,
+          "depression": 6,
+          "insomnia": 6,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 256,
+          "age": 17,
+          "hours": 0.5,
+          "anxiety": 6,
+          "depression": 3,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 257,
+          "age": 22,
+          "hours": 1.0,
+          "anxiety": 3,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 7,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 274,
+          "age": 24,
+          "hours": 8.0,
+          "anxiety": 6,
+          "depression": 4,
+          "insomnia": 8,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 276,
+          "age": 15,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 6,
+          "insomnia": 2,
+          "ocd": 6,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 278,
+          "age": 20,
+          "hours": 1.5,
+          "anxiety": 8,
+          "depression": 4,
+          "insomnia": 3,
+          "ocd": 3,
+          "effects": "Worsen",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 279,
+          "age": 14,
+          "hours": 4.0,
+          "anxiety": 8,
+          "depression": 6,
+          "insomnia": 5,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 281,
+          "age": 14,
+          "hours": 10.0,
+          "anxiety": 5,
+          "depression": 2,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 329,
+          "age": 23,
+          "hours": 5.0,
+          "anxiety": 8,
+          "depression": 7,
+          "insomnia": 0,
+          "ocd": 3,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 338,
+          "age": 23,
+          "hours": 2.0,
+          "anxiety": 10,
+          "depression": 7,
+          "insomnia": 7,
+          "ocd": 3,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 343,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 5,
+          "depression": 3,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 356,
+          "age": 24,
+          "hours": 1.5,
+          "anxiety": 3,
+          "depression": 4,
+          "insomnia": 1,
+          "ocd": 1,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 387,
+          "age": 17,
+          "hours": 0.0,
+          "anxiety": 10,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 423,
+          "age": 14,
+          "hours": 0.5,
+          "anxiety": 4,
+          "depression": 0,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Other streaming service"
+        },
+        {
+          "id": 439,
+          "age": 38,
+          "hours": 1.0,
+          "anxiety": 5,
+          "depression": 5,
+          "insomnia": 7,
+          "ocd": 1,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Apple Music"
+        },
+        {
+          "id": 455,
+          "age": 24,
+          "hours": 6.0,
+          "anxiety": 9,
+          "depression": 5,
+          "insomnia": 0,
+          "ocd": 7,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 462,
+          "age": 34,
+          "hours": 2.0,
+          "anxiety": 8,
+          "depression": 10,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "No",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 467,
+          "age": 23,
+          "hours": 10.0,
+          "anxiety": 8,
+          "depression": 8,
+          "insomnia": 5,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 493,
+          "age": 18,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 5,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 506,
+          "age": 25,
+          "hours": 4.0,
+          "anxiety": 3,
+          "depression": 0,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "No",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 521,
+          "age": 19,
+          "hours": 1.0,
+          "anxiety": 7,
+          "depression": 5,
+          "insomnia": 7,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 532,
+          "age": 15,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 2,
+          "insomnia": 3,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 555,
+          "age": 22,
+          "hours": 2.0,
+          "anxiety": 4,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 2,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "I do not use a streaming service."
+        },
+        {
+          "id": 569,
+          "age": 16,
+          "hours": 7.0,
+          "anxiety": 4,
+          "depression": 8,
+          "insomnia": 8,
+          "ocd": 4,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 573,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 7,
+          "depression": 0,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 578,
+          "age": 13,
+          "hours": 1.0,
+          "anxiety": 4,
+          "depression": 3,
+          "insomnia": 4,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 607,
+          "age": 21,
+          "hours": 1.0,
+          "anxiety": 0,
+          "depression": 6,
+          "insomnia": 0,
+          "ocd": 4,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 631,
+          "age": 21,
+          "hours": 2.0,
+          "anxiety": 2,
+          "depression": 2,
+          "insomnia": 0,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "YouTube Music"
+        },
+        {
+          "id": 672,
+          "age": 16,
+          "hours": 2.0,
+          "anxiety": 6,
+          "depression": 2,
+          "insomnia": 4,
+          "ocd": 3,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 693,
+          "age": 23,
+          "hours": 4.0,
+          "anxiety": 10,
+          "depression": 8,
+          "insomnia": 10,
+          "ocd": 0,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 709,
+          "age": 18,
+          "hours": 3.0,
+          "anxiety": 6,
+          "depression": 5,
+          "insomnia": 3,
+          "ocd": 1,
+          "effects": "No effect",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 720,
+          "age": 22,
+          "hours": 3.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 6,
+          "ocd": 8,
+          "effects": "Improve",
+          "working": "Yes",
+          "streaming": "Spotify"
+        },
+        {
+          "id": 726,
+          "age": 13,
+          "hours": 1.0,
+          "anxiety": 10,
+          "depression": 10,
+          "insomnia": 8,
+          "ocd": 4,
+          "effects": "Worsen",
+          "working": "Yes",
+          "streaming": "Spotify"
+        }
+      ]
+    }
+  },
+  "rankings": {
+    "by_count": [
+      {
+        "name": "Rock",
+        "val": 188,
+        "sub": "25.6%"
+      },
+      {
+        "name": "Pop",
+        "val": 114,
+        "sub": "15.5%"
+      },
+      {
+        "name": "Metal",
+        "val": 88,
+        "sub": "12.0%"
+      },
+      {
+        "name": "Classical",
+        "val": 53,
+        "sub": "7.2%"
+      },
+      {
+        "name": "Video game music",
+        "val": 44,
+        "sub": "6.0%"
+      },
+      {
+        "name": "EDM",
+        "val": 37,
+        "sub": "5.0%"
+      },
+      {
+        "name": "R&B",
+        "val": 35,
+        "sub": "4.8%"
+      },
+      {
+        "name": "Hip hop",
+        "val": 34,
+        "sub": "4.6%"
+      },
+      {
+        "name": "Folk",
+        "val": 30,
+        "sub": "4.1%"
+      },
+      {
+        "name": "K pop",
+        "val": 26,
+        "sub": "3.5%"
+      },
+      {
+        "name": "Country",
+        "val": 25,
+        "sub": "3.4%"
+      },
+      {
+        "name": "Rap",
+        "val": 22,
+        "sub": "3.0%"
+      },
+      {
+        "name": "Jazz",
+        "val": 20,
+        "sub": "2.7%"
+      },
+      {
+        "name": "Lofi",
+        "val": 10,
+        "sub": "1.4%"
+      },
+      {
+        "name": "Gospel",
+        "val": 6,
+        "sub": "0.8%"
+      },
+      {
+        "name": "Latin",
+        "val": 3,
+        "sub": "0.4%"
+      }
+    ],
+    "by_anxiety": [
+      {
+        "name": "Folk",
+        "val": 6.57,
+        "sub": "High: 76.7%"
+      },
+      {
+        "name": "K pop",
+        "val": 6.23,
+        "sub": "High: 61.5%"
+      },
+      {
+        "name": "Hip hop",
+        "val": 6.12,
+        "sub": "High: 64.7%"
+      },
+      {
+        "name": "Rock",
+        "val": 6.12,
+        "sub": "High: 64.4%"
+      },
+      {
+        "name": "Lofi",
+        "val": 6.1,
+        "sub": "High: 70.0%"
+      },
+      {
+        "name": "Pop",
+        "val": 6.07,
+        "sub": "High: 66.7%"
+      },
+      {
+        "name": "Jazz",
+        "val": 5.9,
+        "sub": "High: 65.0%"
+      },
+      {
+        "name": "Video game music",
+        "val": 5.89,
+        "sub": "High: 54.5%"
+      },
+      {
+        "name": "Metal",
+        "val": 5.76,
+        "sub": "High: 56.8%"
+      },
+      {
+        "name": "EDM",
+        "val": 5.49,
+        "sub": "High: 54.1%"
+      },
+      {
+        "name": "Country",
+        "val": 5.4,
+        "sub": "High: 56.0%"
+      },
+      {
+        "name": "R&B",
+        "val": 5.17,
+        "sub": "High: 45.7%"
+      },
+      {
+        "name": "Rap",
+        "val": 5.09,
+        "sub": "High: 45.5%"
+      },
+      {
+        "name": "Classical",
+        "val": 4.89,
+        "sub": "High: 50.9%"
+      },
+      {
+        "name": "Gospel",
+        "val": 4.83,
+        "sub": "High: 50.0%"
+      },
+      {
+        "name": "Latin",
+        "val": 4.33,
+        "sub": "High: 33.3%"
+      }
+    ],
+    "by_depression": [
+      {
+        "name": "Lofi",
+        "val": 6.6,
+        "sub": "High: 70.0%"
+      },
+      {
+        "name": "Hip hop",
+        "val": 5.88,
+        "sub": "High: 67.6%"
+      },
+      {
+        "name": "EDM",
+        "val": 5.24,
+        "sub": "High: 51.4%"
+      },
+      {
+        "name": "Rock",
+        "val": 5.24,
+        "sub": "High: 54.3%"
+      },
+      {
+        "name": "Folk",
+        "val": 5.07,
+        "sub": "High: 46.7%"
+      },
+      {
+        "name": "Metal",
+        "val": 5.07,
+        "sub": "High: 53.4%"
+      },
+      {
+        "name": "Jazz",
+        "val": 4.5,
+        "sub": "High: 45.0%"
+      },
+      {
+        "name": "Pop",
+        "val": 4.49,
+        "sub": "High: 39.5%"
+      },
+      {
+        "name": "Video game music",
+        "val": 4.48,
+        "sub": "High: 38.6%"
+      },
+      {
+        "name": "K pop",
+        "val": 4.42,
+        "sub": "High: 38.5%"
+      },
+      {
+        "name": "Country",
+        "val": 4.32,
+        "sub": "High: 32.0%"
+      },
+      {
+        "name": "Classical",
+        "val": 4.08,
+        "sub": "High: 41.5%"
+      },
+      {
+        "name": "Rap",
+        "val": 4.0,
+        "sub": "High: 31.8%"
+      },
+      {
+        "name": "R&B",
+        "val": 3.83,
+        "sub": "High: 34.3%"
+      },
+      {
+        "name": "Latin",
+        "val": 3.0,
+        "sub": "High: 33.3%"
+      },
+      {
+        "name": "Gospel",
+        "val": 2.67,
+        "sub": "High: 16.7%"
+      }
+    ],
+    "by_insomnia": [
+      {
+        "name": "Lofi",
+        "val": 5.6,
+        "sub": "Std: 3.17"
+      },
+      {
+        "name": "Gospel",
+        "val": 5.33,
+        "sub": "Std: 4.5"
+      },
+      {
+        "name": "Metal",
+        "val": 4.56,
+        "sub": "Std: 3.38"
+      },
+      {
+        "name": "Video game music",
+        "val": 4.0,
+        "sub": "Std: 3.4"
+      },
+      {
+        "name": "EDM",
+        "val": 3.97,
+        "sub": "Std: 3.14"
+      },
+      {
+        "name": "Rock",
+        "val": 3.88,
+        "sub": "Std: 3.05"
+      },
+      {
+        "name": "Jazz",
+        "val": 3.85,
+        "sub": "Std: 3.08"
+      },
+      {
+        "name": "Classical",
+        "val": 3.79,
+        "sub": "Std: 3.05"
+      },
+      {
+        "name": "Folk",
+        "val": 3.63,
+        "sub": "Std: 2.86"
+      },
+      {
+        "name": "Hip hop",
+        "val": 3.47,
+        "sub": "Std: 2.74"
+      },
+      {
+        "name": "K pop",
+        "val": 3.46,
+        "sub": "Std: 2.89"
+      },
+      {
+        "name": "Pop",
+        "val": 3.37,
+        "sub": "Std: 2.86"
+      },
+      {
+        "name": "Latin",
+        "val": 3.33,
+        "sub": "Std: 4.93"
+      },
+      {
+        "name": "R&B",
+        "val": 2.89,
+        "sub": "Std: 3.38"
+      },
+      {
+        "name": "Country",
+        "val": 2.72,
+        "sub": "Std: 2.49"
+      },
+      {
+        "name": "Rap",
+        "val": 2.27,
+        "sub": "Std: 2.47"
+      }
+    ],
+    "by_ocd": [
+      {
+        "name": "Lofi",
+        "val": 3.4,
+        "sub": "Std: 3.53"
+      },
+      {
+        "name": "Rap",
+        "val": 3.18,
+        "sub": "Std: 2.81"
+      },
+      {
+        "name": "EDM",
+        "val": 3.0,
+        "sub": "Std: 3.14"
+      },
+      {
+        "name": "Pop",
+        "val": 2.86,
+        "sub": "Std: 3.06"
+      },
+      {
+        "name": "Jazz",
+        "val": 2.8,
+        "sub": "Std: 2.86"
+      },
+      {
+        "name": "Country",
+        "val": 2.76,
+        "sub": "Std: 2.44"
+      },
+      {
+        "name": "R&B",
+        "val": 2.74,
+        "sub": "Std: 2.82"
+      },
+      {
+        "name": "Rock",
+        "val": 2.68,
+        "sub": "Std: 3.0"
+      },
+      {
+        "name": "Hip hop",
+        "val": 2.59,
+        "sub": "Std: 2.63"
+      },
+      {
+        "name": "K pop",
+        "val": 2.54,
+        "sub": "Std: 2.96"
+      },
+      {
+        "name": "Metal",
+        "val": 2.4,
+        "sub": "Std: 2.79"
+      },
+      {
+        "name": "Video game music",
+        "val": 2.39,
+        "sub": "Std: 2.56"
+      },
+      {
+        "name": "Classical",
+        "val": 2.38,
+        "sub": "Std: 2.24"
+      },
+      {
+        "name": "Folk",
+        "val": 2.2,
+        "sub": "Std: 2.7"
+      },
+      {
+        "name": "Latin",
+        "val": 1.67,
+        "sub": "Std: 2.89"
+      },
+      {
+        "name": "Gospel",
+        "val": 0.33,
+        "sub": "Std: 0.82"
+      }
+    ],
+    "by_hours": [
+      {
+        "name": "Latin",
+        "val": 6.67,
+        "sub": "Med: 5.0h"
+      },
+      {
+        "name": "Jazz",
+        "val": 5.42,
+        "sub": "Med: 5.0h"
+      },
+      {
+        "name": "Rap",
+        "val": 5.32,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "EDM",
+        "val": 4.59,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "Lofi",
+        "val": 4.2,
+        "sub": "Med: 4.0h"
+      },
+      {
+        "name": "K pop",
+        "val": 4.0,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "Hip hop",
+        "val": 3.96,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "Rock",
+        "val": 3.63,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "Metal",
+        "val": 3.6,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "R&B",
+        "val": 3.47,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "Country",
+        "val": 3.42,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "Folk",
+        "val": 3.24,
+        "sub": "Med: 2.75h"
+      },
+      {
+        "name": "Pop",
+        "val": 2.91,
+        "sub": "Med: 2.0h"
+      },
+      {
+        "name": "Video game music",
+        "val": 2.91,
+        "sub": "Med: 2.0h"
+      },
+      {
+        "name": "Classical",
+        "val": 2.88,
+        "sub": "Med: 3.0h"
+      },
+      {
+        "name": "Gospel",
+        "val": 2.38,
+        "sub": "Med: 1.5h"
+      }
+    ],
+    "by_improve_rate": [
+      {
+        "name": "Gospel",
+        "val": 100.0,
+        "sub": "n=6"
+      },
+      {
+        "name": "Lofi",
+        "val": 100.0,
+        "sub": "n=10"
+      },
+      {
+        "name": "Hip hop",
+        "val": 88.2,
+        "sub": "n=34"
+      },
+      {
+        "name": "EDM",
+        "val": 81.1,
+        "sub": "n=37"
+      },
+      {
+        "name": "Country",
+        "val": 80.0,
+        "sub": "n=25"
+      },
+      {
+        "name": "Jazz",
+        "val": 80.0,
+        "sub": "n=20"
+      },
+      {
+        "name": "Rap",
+        "val": 77.3,
+        "sub": "n=22"
+      },
+      {
+        "name": "Folk",
+        "val": 76.7,
+        "sub": "n=30"
+      },
+      {
+        "name": "Metal",
+        "val": 76.1,
+        "sub": "n=88"
+      },
+      {
+        "name": "Pop",
+        "val": 74.6,
+        "sub": "n=114"
+      },
+      {
+        "name": "R&B",
+        "val": 74.3,
+        "sub": "n=35"
+      },
+      {
+        "name": "Classical",
+        "val": 73.6,
+        "sub": "n=53"
+      },
+      {
+        "name": "K pop",
+        "val": 73.1,
+        "sub": "n=26"
+      },
+      {
+        "name": "Rock",
+        "val": 67.0,
+        "sub": "n=188"
+      },
+      {
+        "name": "Video game music",
+        "val": 59.1,
+        "sub": "n=44"
+      },
+      {
+        "name": "Latin",
+        "val": 33.3,
+        "sub": "n=3"
+      }
+    ]
+  },
+  "all_genre_names": [
+    "Classical",
+    "Country",
+    "EDM",
+    "Folk",
+    "Gospel",
+    "Hip hop",
+    "Jazz",
+    "K pop",
+    "Latin",
+    "Lofi",
+    "Metal",
+    "Pop",
+    "R&B",
+    "Rap",
+    "Rock",
+    "Video game music"
+  ]
+};

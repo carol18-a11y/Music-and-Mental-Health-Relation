@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioMental • Music & Mental Health Explorer</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --card-dark: #111827;
+      --card-border: #1f2937;
+      --accent: #6366f1;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: #f3f4f6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    .scrollbar-thin::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: #111827;
+      border-radius: 9999px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #374151;
+      border-radius: 9999px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: #4b5563;
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover {
+      transition: all 0.2s ease-in-out;
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-1px);
+    }
+    .tooltip-box {
+      pointer-events: none;
+      transition: opacity 0.15s ease-out;
+    }
+  </style>
+  <script src="genre_data.js"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="border-b border-gray-800 bg-gray-950/80 sticky top-0 z-40 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-xl shadow-lg shadow-indigo-500/20">
+          🎧
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-lg font-bold text-white tracking-tight">AudioMental</h1>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">MxMH Dataset</span>
+          </div>
+          <p class="text-xs text-gray-400">Interactive Music Genre & Mental Health Analytics Dashboard</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex items-center bg-gray-900 border border-gray-800 rounded-xl p-1 gap-1 text-xs sm:text-sm">
+        <button id="tab-deepdive" onclick="switchView('deepdive')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-white bg-indigo-600 shadow-sm flex items-center gap-1.5">
+          <span>🎯</span> Genre Deep Dive
+        </button>
+        <button id="tab-compare" onclick="switchView('compare')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5">
+          <span>⚖️</span> Compare
+        </button>
+        <button id="tab-rankings" onclick="switchView('rankings')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5">
+          <span>🏆</span> Leaderboard
+        </button>
+        <button id="tab-records" onclick="switchView('records')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5">
+          <span>📋</span> Survey Data
+        </button>
+      </nav>
+
+      <!-- Global Benchmark Counter -->
+      <div class="hidden lg:flex items-center gap-3 text-xs text-gray-400 border-l border-gray-800 pl-4">
+        <div>
+          <span class="text-gray-500 block">Respondents</span>
+          <span id="global-total" class="font-semibold text-white">735</span>
+        </div>
+        <div>
+          <span class="text-gray-500 block">Avg Anxiety</span>
+          <span id="global-anx" class="font-semibold text-indigo-400">5.83 / 10</span>
+        </div>
+        <div>
+          <span class="text-gray-500 block">Avg Depression</span>
+          <span id="global-dep" class="font-semibold text-purple-400">4.80 / 10</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Genre Selection Bar (Visible in Deep Dive and Survey Data views) -->
+  <section id="genre-bar-container" class="bg-gray-950/40 border-b border-gray-800/80 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xs uppercase tracking-wider font-semibold text-gray-400">Select Genre</span>
+          <span class="text-[11px] text-gray-500">(16 genres available)</span>
+        </div>
+        <div class="relative w-48 sm:w-64">
+          <input type="text" id="genre-search" placeholder="Filter genre..." oninput="filterGenrePills()" class="w-full text-xs bg-gray-900 border border-gray-800 rounded-lg px-2.5 py-1 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors">
+        </div>
+      </div>
+
+      <!-- Genre Pills Scrollable Container -->
+      <div id="genre-pills" class="flex gap-2 overflow-x-auto pb-1 scrollbar-thin">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Main View Area -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: GENRE DEEP DIVE -->
+    <!-- ========================================== -->
+    <div id="view-deepdive" class="space-y-6">
+
+      <!-- Hero Genre Overview Banner -->
+      <div id="genre-hero" class="glass-card rounded-2xl p-6 relative overflow-hidden">
+        <!-- Background decorative glow -->
+        <div id="hero-glow" class="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-20 pointer-events-none bg-indigo-500"></div>
+
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="flex items-center gap-3">
+              <span id="hero-emoji" class="text-4xl">🎸</span>
+              <div>
+                <div class="flex items-center gap-3">
+                  <h2 id="hero-title" class="text-3xl font-extrabold text-white tracking-tight">Rock</h2>
+                  <span id="hero-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-800 text-gray-300 border border-gray-700">188 listeners (25.6%)</span>
+                </div>
+                <p id="hero-subtitle" class="text-sm text-gray-400 mt-0.5">Primary genre affinity and mental health indicators analysis</p>
+              </div>
+            </div>
+            <p id="hero-summary" class="text-sm text-gray-300 leading-relaxed max-w-3xl pt-2">
+              Loading insights...
+            </p>
+          </div>
+
+          <!-- Quick Metrics Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-gray-900/90 border border-gray-800 rounded-xl p-3 text-center min-w-[110px]">
+              <span class="text-[11px] text-gray-400 uppercase tracking-wide block">Avg Daily Hours</span>
+              <span id="hero-hours" class="text-lg font-bold text-white">3.6h</span>
+              <span id="hero-hours-delta" class="text-[11px] block text-emerald-400">+0.1h vs avg</span>
+            </div>
+            <div class="bg-gray-900/90 border border-gray-800 rounded-xl p-3 text-center min-w-[110px]">
+              <span class="text-[11px] text-gray-400 uppercase tracking-wide block">Avg Age</span>
+              <span id="hero-age" class="text-lg font-bold text-white">25.4 yrs</span>
+              <span class="text-[11px] text-gray-500 block">Median: 22</span>
+            </div>
+            <div class="bg-gray-900/90 border border-gray-800 rounded-xl p-3 text-center min-w-[110px]">
+              <span class="text-[11px] text-gray-400 uppercase tracking-wide block">Music Improves</span>
+              <span id="hero-improve-rate" class="text-lg font-bold text-emerald-400">67.0%</span>
+              <span class="text-[11px] text-gray-500 block">Report positive</span>
+            </div>
+            <div class="bg-gray-900/90 border border-gray-800 rounded-xl p-3 text-center min-w-[110px]">
+              <span class="text-[11px] text-gray-400 uppercase tracking-wide block">Top Platform</span>
+              <span id="hero-streaming" class="text-sm font-bold text-white truncate max-w-[110px] block mx-auto">Spotify</span>
+              <span id="hero-streaming-pct" class="text-[11px] text-gray-500 block">62% share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Grid: The 4 Mental Health Dimensions -->
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 flex items-center gap-2">
+            <span>🧠</span> Mental Health Dimension Scores (Scale: 0 - 10)
+          </h3>
+          <span class="text-xs text-gray-500">Benchmark: Global Survey Average</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <!-- Anxiety Card -->
+          <div class="glass-card glass-card-hover rounded-xl p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Anxiety</span>
+              <span id="kpi-anxiety-delta" class="text-xs px-2 py-0.5 rounded-full font-medium bg-red-500/10 text-red-400 border border-red-500/20">+0.29 vs Avg</span>
+            </div>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span id="kpi-anxiety-mean" class="text-3xl font-extrabold text-white">6.12</span>
+              <span class="text-xs text-gray-500">/ 10</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400 flex justify-between">
+              <span>High Anxiety (&ge;6): <strong id="kpi-anxiety-high" class="text-gray-200">64.4%</strong></span>
+              <span>Median: <strong id="kpi-anxiety-median" class="text-gray-200">7.0</strong></span>
+            </div>
+            <!-- Mini severity bar -->
+            <div class="mt-3">
+              <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
+                <span>Severity Split:</span>
+                <span id="kpi-anxiety-split-label">Low / Mod / High</span>
+              </div>
+              <div class="h-2 rounded-full bg-gray-800 flex overflow-hidden" id="kpi-anxiety-bar"></div>
+            </div>
+          </div>
+
+          <!-- Depression Card -->
+          <div class="glass-card glass-card-hover rounded-xl p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Depression</span>
+              <span id="kpi-depression-delta" class="text-xs px-2 py-0.5 rounded-full font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">+0.44 vs Avg</span>
+            </div>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span id="kpi-depression-mean" class="text-3xl font-extrabold text-white">5.24</span>
+              <span class="text-xs text-gray-500">/ 10</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400 flex justify-between">
+              <span>High Depr (&ge;6): <strong id="kpi-depression-high" class="text-gray-200">46.8%</strong></span>
+              <span>Median: <strong id="kpi-depression-median" class="text-gray-200">5.0</strong></span>
+            </div>
+            <!-- Mini severity bar -->
+            <div class="mt-3">
+              <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
+                <span>Severity Split:</span>
+                <span id="kpi-depression-split-label">Low / Mod / High</span>
+              </div>
+              <div class="h-2 rounded-full bg-gray-800 flex overflow-hidden" id="kpi-depression-bar"></div>
+            </div>
+          </div>
+
+          <!-- Insomnia Card -->
+          <div class="glass-card glass-card-hover rounded-xl p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Insomnia</span>
+              <span id="kpi-insomnia-delta" class="text-xs px-2 py-0.5 rounded-full font-medium bg-gray-500/10 text-gray-300 border border-gray-500/20">+0.14 vs Avg</span>
+            </div>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span id="kpi-insomnia-mean" class="text-3xl font-extrabold text-white">3.88</span>
+              <span class="text-xs text-gray-500">/ 10</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400 flex justify-between">
+              <span>High Sleep Loss: <strong id="kpi-insomnia-high" class="text-gray-200">30.3%</strong></span>
+              <span>Median: <strong id="kpi-insomnia-median" class="text-gray-200">3.0</strong></span>
+            </div>
+            <!-- Mini severity bar -->
+            <div class="mt-3">
+              <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
+                <span>Severity Split:</span>
+                <span id="kpi-insomnia-split-label">Low / Mod / High</span>
+              </div>
+              <div class="h-2 rounded-full bg-gray-800 flex overflow-hidden" id="kpi-insomnia-bar"></div>
+            </div>
+          </div>
+
+          <!-- OCD Card -->
+          <div class="glass-card glass-card-hover rounded-xl p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">OCD</span>
+              <span id="kpi-ocd-delta" class="text-xs px-2 py-0.5 rounded-full font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+0.05 vs Avg</span>
+            </div>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span id="kpi-ocd-mean" class="text-3xl font-extrabold text-white">2.68</span>
+              <span class="text-xs text-gray-500">/ 10</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400 flex justify-between">
+              <span>Std Dev: <strong id="kpi-ocd-std" class="text-gray-200">2.82</strong></span>
+              <span>Median: <strong id="kpi-ocd-median" class="text-gray-200">2.0</strong></span>
+            </div>
+            <!-- Mini severity bar -->
+            <div class="mt-3">
+              <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
+                <span>Severity Split:</span>
+                <span id="kpi-ocd-split-label">Low / Mod / High</span>
+              </div>
+              <div class="h-2 rounded-full bg-gray-800 flex overflow-hidden" id="kpi-ocd-bar"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Main Visualizations Row: Radar vs Donut Chart -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Mental Health Profile (Radar / Spider SVG Chart) -->
+        <div class="lg:col-span-7 glass-card rounded-2xl p-5 flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                <span>🕸️</span> Mental Health Profile vs Global Benchmark
+              </h4>
+              <p class="text-xs text-gray-400">4-axis comparative spider plot (0 to 10 scale)</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <div class="flex items-center gap-1.5">
+                <span id="radar-legend-genre-color" class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span id="radar-legend-genre-name" class="text-gray-200 font-medium">Rock</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full border border-dashed border-gray-400 bg-gray-600/30"></span>
+                <span class="text-gray-400">Global Average</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Radar SVG Canvas container -->
+          <div class="relative w-full aspect-[4/3] max-h-80 flex items-center justify-center my-auto">
+            <svg id="radar-svg" viewBox="0 0 400 320" class="w-full h-full max-h-80 overflow-visible"></svg>
+          </div>
+
+          <div class="mt-2 pt-2 border-t border-gray-800/80 text-xs text-gray-400 flex flex-wrap justify-between gap-2">
+            <span>Anxiety: <strong id="radar-score-anx" class="text-white">6.12</strong> (vs 5.83)</span>
+            <span>Depression: <strong id="radar-score-dep" class="text-white">5.24</strong> (vs 4.80)</span>
+            <span>Insomnia: <strong id="radar-score-ins" class="text-white">3.88</strong> (vs 3.74)</span>
+            <span>OCD: <strong id="radar-score-ocd" class="text-white">2.68</strong> (vs 2.63)</span>
+          </div>
+        </div>
+
+        <!-- Music Effects & Work Context -->
+        <div class="lg:col-span-5 glass-card rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>❤️</span> Perceived Music Effect on Mental State
+            </h4>
+            <p class="text-xs text-gray-400">Does listening to music improve, worsen, or have no effect?</p>
+          </div>
+
+          <!-- SVG Donut Chart -->
+          <div class="relative w-full aspect-square max-h-56 flex items-center justify-center my-3">
+            <svg id="donut-svg" viewBox="0 0 200 200" class="w-48 h-48"></svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+              <span id="donut-center-pct" class="text-2xl font-black text-emerald-400">67.0%</span>
+              <span class="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Improved</span>
+            </div>
+          </div>
+
+          <!-- Legend details -->
+          <div class="space-y-2 border-t border-gray-800 pt-3 text-xs">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span class="text-gray-300">Improves mental health</span>
+              </div>
+              <span id="donut-improve-val" class="font-semibold text-emerald-400">126 (67.0%)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
+                <span class="text-gray-300">No effect</span>
+              </div>
+              <span id="donut-noeffect-val" class="font-semibold text-gray-400">53 (28.2%)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span class="text-gray-300">Worsens condition</span>
+              </div>
+              <span id="donut-worsen-val" class="font-semibold text-rose-400">7 (3.7%)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Habits, Work Context, & Cross-Genre Affinity -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Listening Habits & Demographics -->
+        <div class="lg:col-span-6 glass-card rounded-2xl p-5 space-y-4">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>🎧</span> Listening Habits & Musician Profile
+          </h4>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center">
+              <span class="text-[11px] text-gray-400 block">Listens at Work</span>
+              <span id="habit-work" class="text-base font-bold text-indigo-400">78.2%</span>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center">
+              <span class="text-[11px] text-gray-400 block">Instrumentalist</span>
+              <span id="habit-instrument" class="text-base font-bold text-white">34.6%</span>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center">
+              <span class="text-[11px] text-gray-400 block">Composer</span>
+              <span id="habit-composer" class="text-base font-bold text-white">14.9%</span>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center">
+              <span class="text-[11px] text-gray-400 block">Exploratory</span>
+              <span id="habit-exploratory" class="text-base font-bold text-emerald-400">71.8%</span>
+            </div>
+          </div>
+
+          <!-- Working vs Non-Working Anxiety Comparison -->
+          <div class="bg-gray-900/60 border border-gray-800 rounded-xl p-3">
+            <div class="flex justify-between items-center text-xs mb-2">
+              <span class="font-semibold text-gray-300">Anxiety by Work Status</span>
+              <span class="text-gray-500">Listening while working</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-gray-950/70 p-2.5 rounded-lg border border-gray-800 flex justify-between items-center">
+                <span class="text-gray-400">Yes (Working):</span>
+                <span id="habit-work-anx" class="font-bold text-white">6.18 / 10</span>
+              </div>
+              <div class="bg-gray-950/70 p-2.5 rounded-lg border border-gray-800 flex justify-between items-center">
+                <span class="text-gray-400">No (Not working):</span>
+                <span id="habit-nowork-anx" class="font-bold text-white">5.92 / 10</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hours distribution bars -->
+          <div>
+            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2">Daily Hours Distribution</span>
+            <div id="habit-hours-bars" class="space-y-1.5 text-xs"></div>
+          </div>
+
+          <!-- Streaming Services Breakdown -->
+          <div>
+            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2">Top Streaming Services</span>
+            <div id="habit-streaming-bars" class="space-y-1.5 text-xs"></div>
+          </div>
+        </div>
+
+        <!-- Cross-Genre Affinity -->
+        <div class="lg:col-span-6 glass-card rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                <span>🔄</span> Cross-Genre Affinity
+              </h4>
+              <span class="text-xs text-gray-500">Survey Frequency Score (0-100)</span>
+            </div>
+            <p class="text-xs text-gray-400 mb-3">
+              How often do <strong id="affinity-genre-title" class="text-gray-200">Rock</strong> listeners listen to other musical styles?
+            </p>
+          </div>
+
+          <div id="cross-genre-bars" class="space-y-2 overflow-y-auto max-h-[360px] pr-1 scrollbar-thin">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="mt-3 pt-3 border-t border-gray-800 text-[11px] text-gray-500 flex justify-between">
+            <span>Score weights: Very frequently (100%), Sometimes (66%), Rarely (33%), Never (0%)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Statistical Highlights & Context from Research -->
+      <div class="glass-card rounded-2xl p-5 border-l-4 border-indigo-500">
+        <h4 class="text-sm font-bold text-white flex items-center gap-2 mb-2">
+          <span>📊</span> Research Statistical Notes & Bayesian Insights
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-gray-300">
+          <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-gray-400 block mb-1 font-semibold">Conditional Probability:</span>
+            <p id="stat-conditional-prob">P(High Anxiety &ge; 6 | Genre) = 0.644. 64.4% of this genre's respondents meet the high anxiety threshold.</p>
+          </div>
+          <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-gray-400 block mb-1 font-semibold">Sample Reliability:</span>
+            <p id="stat-sample-size">Sample size: n = 188. Standard deviation: 2.88. High statistical power for descriptive inference.</p>
+          </div>
+          <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-gray-400 block mb-1 font-semibold">Overall Research Context:</span>
+            <p>R-analysis shows hours listened vs anxiety correlation: r = 0.050 (p=0.179 Pearson), Spearman rho = 0.094 (p=0.011). Effect of music is largely perceived as positive across 73.7% of all surveyed participants.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: HEAD-TO-HEAD COMPARISON -->
+    <!-- ========================================== -->
+    <div id="view-compare" class="hidden space-y-6">
+
+      <!-- Genre Selectors Header -->
+      <div class="glass-card rounded-2xl p-5">
+        <h3 class="text-base font-bold text-white flex items-center gap-2 mb-4">
+          <span>⚖️</span> Head-to-Head Genre Comparison
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <!-- Genre 1 Selector -->
+          <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800">
+            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Primary Genre (A)</label>
+            <div class="flex items-center gap-3">
+              <span id="compare-emoji-1" class="text-3xl">🎸</span>
+              <select id="compare-select-1" onchange="updateCompareView()" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-medium">
+                <!-- populated dynamically -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Genre 2 Selector -->
+          <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800">
+            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Comparison Genre (B)</label>
+            <div class="flex items-center gap-3">
+              <span id="compare-emoji-2" class="text-3xl">🎻</span>
+              <select id="compare-select-2" onchange="updateCompareView()" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-medium">
+                <!-- populated dynamically -->
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparative Radar Chart & Summary -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Comparative Radar Chart -->
+        <div class="lg:col-span-7 glass-card rounded-2xl p-5 flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <h4 class="text-sm font-bold text-white">Comparative Radar Profile</h4>
+              <p class="text-xs text-gray-400">Direct overlay across the 4 mental health dimensions</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <div class="flex items-center gap-1.5">
+                <span id="compare-legend-color-1" class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span id="compare-legend-name-1" class="text-gray-200 font-medium">Genre A</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span id="compare-legend-color-2" class="w-3 h-3 rounded-full bg-amber-500"></span>
+                <span id="compare-legend-name-2" class="text-gray-200 font-medium">Genre B</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative w-full aspect-[4/3] max-h-80 flex items-center justify-center my-auto">
+            <svg id="compare-radar-svg" viewBox="0 0 400 320" class="w-full h-full max-h-80 overflow-visible"></svg>
+          </div>
+        </div>
+
+        <!-- Comparative Side-by-Side Summary Cards -->
+        <div class="lg:col-span-5 glass-card rounded-2xl p-5 space-y-4">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>📊</span> Key Metric Differences
+          </h4>
+
+          <div id="compare-metrics-list" class="space-y-3 text-xs">
+            <!-- Dynamically populated metric bars -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Detailed Comparison Table -->
+      <div class="glass-card rounded-2xl p-5 overflow-x-auto">
+        <h4 class="text-sm font-bold text-white mb-3">Comprehensive Side-by-Side Breakdown</h4>
+        <table class="w-full text-xs text-left">
+          <thead class="text-gray-400 uppercase bg-gray-900/60 border-b border-gray-800">
+            <tr>
+              <th class="py-2.5 px-4">Metric</th>
+              <th id="compare-table-head-1" class="py-2.5 px-4 font-bold text-white">Genre A</th>
+              <th id="compare-table-head-2" class="py-2.5 px-4 font-bold text-white">Genre B</th>
+              <th class="py-2.5 px-4">Absolute Difference</th>
+              <th class="py-2.5 px-4">Higher Score</th>
+            </tr>
+          </thead>
+          <tbody id="compare-table-body" class="divide-y divide-gray-800/80">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: GLOBAL RANKINGS & LEADERBOARD -->
+    <!-- ========================================== -->
+    <div id="view-rankings" class="hidden space-y-6">
+
+      <div class="glass-card rounded-2xl p-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <span>🏆</span> Genre Rankings & Leaderboards
+            </h3>
+            <p class="text-xs text-gray-400">Compare all 16 genres across different dimensions</p>
+          </div>
+
+          <!-- Ranking Metric Switcher -->
+          <div class="flex flex-wrap gap-1.5 text-xs">
+            <button onclick="renderRankings('by_anxiety', 'Anxiety (0-10)', 'mean')" id="rank-btn-anxiety" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium">Anxiety</button>
+            <button onclick="renderRankings('by_depression', 'Depression (0-10)', 'mean')" id="rank-btn-depression" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Depression</button>
+            <button onclick="renderRankings('by_insomnia', 'Insomnia (0-10)', 'mean')" id="rank-btn-insomnia" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Insomnia</button>
+            <button onclick="renderRankings('by_ocd', 'OCD (0-10)', 'mean')" id="rank-btn-ocd" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">OCD</button>
+            <button onclick="renderRankings('by_hours', 'Daily Hours Listened', 'mean')" id="rank-btn-hours" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Listening Hours</button>
+            <button onclick="renderRankings('by_improve_rate', '% Reporting Mental Improvement', '%')" id="rank-btn-improve" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Improvement %</button>
+            <button onclick="renderRankings('by_count', 'Sample Size (Respondents)', 'count')" id="rank-btn-count" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Popularity</button>
+          </div>
+        </div>
+
+        <div class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+          <span id="ranking-metric-desc">Showing genres ranked from highest to lowest</span>
+          <span class="text-gray-500">Click any genre bar to inspect deep-dive</span>
+        </div>
+
+        <!-- Leaderboard Bars -->
+        <div id="ranking-bars-container" class="space-y-2">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: RAW SURVEY DATA RECORDS -->
+    <!-- ========================================== -->
+    <div id="view-records" class="hidden space-y-6">
+
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <span>📋</span> Individual Respondent Records
+            </h3>
+            <p class="text-xs text-gray-400">
+              Showing responses for <strong id="records-genre-name" class="text-indigo-400">Rock</strong> (<span id="records-count">188</span> total records)
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <input type="text" id="records-filter-input" oninput="filterRecordsTable()" placeholder="Search records..." class="text-xs bg-gray-900 border border-gray-800 rounded-lg px-3 py-1.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500">
+            <select id="records-effect-filter" onchange="filterRecordsTable()" class="text-xs bg-gray-900 border border-gray-800 rounded-lg px-2.5 py-1.5 text-gray-200 focus:outline-none focus:border-indigo-500">
+              <option value="All">All Effects</option>
+              <option value="Improve">Improves</option>
+              <option value="No effect">No effect</option>
+              <option value="Worsen">Worsens</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Table Container -->
+        <div class="overflow-x-auto rounded-xl border border-gray-800">
+          <table class="w-full text-xs text-left">
+            <thead class="text-gray-400 uppercase bg-gray-950 border-b border-gray-800">
+              <tr>
+                <th class="py-2.5 px-3">ID</th>
+                <th class="py-2.5 px-3">Age</th>
+                <th class="py-2.5 px-3">Daily Hrs</th>
+                <th class="py-2.5 px-3">Streaming</th>
+                <th class="py-2.5 px-3">While Working</th>
+                <th class="py-2.5 px-3 text-red-400">Anxiety</th>
+                <th class="py-2.5 px-3 text-amber-400">Depression</th>
+                <th class="py-2.5 px-3 text-blue-400">Insomnia</th>
+                <th class="py-2.5 px-3 text-emerald-400">OCD</th>
+                <th class="py-2.5 px-3">Music Effect</th>
+              </tr>
+            </thead>
+            <tbody id="records-table-body" class="divide-y divide-gray-800 bg-gray-900/40">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="flex items-center justify-between text-xs text-gray-400 pt-2">
+          <span id="records-page-info">Showing 1 to 20 of 188</span>
+          <div class="flex items-center gap-2">
+            <button id="records-prev-btn" onclick="prevRecordsPage()" class="px-3 py-1 rounded bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 disabled:opacity-30 disabled:pointer-events-none">Previous</button>
+            <span id="records-page-curr" class="font-semibold text-white">1</span>
+            <button id="records-next-btn" onclick="nextRecordsPage()" class="px-3 py-1 rounded bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 disabled:opacity-30 disabled:pointer-events-none">Next</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/80 bg-gray-950 py-4 text-center text-xs text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-gray-300">AudioMental</span>
+        <span>•</span>
+        <span>Kaggle Music & Mental Health (MxMH) Dataset</span>
+      </div>
+      <div>
+        <span>Zero External Dependencies • Self-Contained SVG Charts</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Inline Application Logic -->
+  <script>
+    // State management
+    let DATA = null;
+    let selectedGenre = 'Rock';
+    let compareGenre1 = 'Rock';
+    let compareGenre2 = 'Classical';
+    let currentView = 'deepdive';
+    let currentRankingMetric = 'by_anxiety';
+    let recordsPage = 1;
+    const recordsPerPage = 15;
+    let filteredRecords = [];
+
+    // Initialize data from either window.GENRE_DATA or fetch fallback
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.GENRE_DATA) {
+        DATA = window.GENRE_DATA;
+        initApp();
+      } else {
+        fetch('genre_data.json')
+          .then(res => res.json())
+          .then(data => {
+            DATA = data;
+            initApp();
+          })
+          .catch(err => {
+            console.error('Failed to load genre data', err);
+            document.body.innerHTML = '<div class="p-8 text-center text-red-400">Failed to load dataset. Please ensure genre_data.js or genre_data.json is present.</div>';
+          });
+      }
+    });
+
+    function initApp() {
+      // Set global counters
+      document.getElementById('global-total').textContent = DATA.global.total_respondents;
+      document.getElementById('global-anx').textContent = DATA.global.anxiety.mean + ' / 10';
+      document.getElementById('global-dep').textContent = DATA.global.depression.mean + ' / 10';
+
+      renderGenrePills();
+      populateCompareSelects();
+      selectGenre(selectedGenre);
+      renderRankings('by_anxiety', 'Anxiety (0-10)', 'mean');
+    }
+
+    // Switch Top Navigation Views
+    function switchView(viewName) {
+      currentView = viewName;
+      const views = ['deepdive', 'compare', 'rankings', 'records'];
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        const tab = document.getElementById('tab-' + v);
+        if (v === viewName) {
+          el.classList.remove('hidden');
+          tab.className = "px-3.5 py-1.5 rounded-lg font-medium transition-all text-white bg-indigo-600 shadow-sm flex items-center gap-1.5";
+        } else {
+          el.classList.add('hidden');
+          tab.className = "px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5";
+        }
+      });
+
+      // Show/Hide genre selector bar
+      const bar = document.getElementById('genre-bar-container');
+      if (viewName === 'deepdive' || viewName === 'records') {
+        bar.classList.remove('hidden');
+      } else {
+        bar.classList.add('hidden');
+      }
+
+      if (viewName === 'compare') {
+        updateCompareView();
+      } else if (viewName === 'records') {
+        initRecordsTable();
+      }
+    }
+
+    // Render horizontal genre selection pills
+    function renderGenrePills() {
+      const container = document.getElementById('genre-pills');
+      const search = (document.getElementById('genre-search').value || '').toLowerCase();
+      container.innerHTML = '';
+
+      DATA.all_genre_names.forEach(g => {
+        if (search && !g.toLowerCase().includes(search)) return;
+        const info = DATA.genres[g];
+        const isSelected = (g === selectedGenre);
+
+        const pill = document.createElement('button');
+        pill.className = `flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${
+          isSelected 
+            ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/20' 
+            : 'bg-gray-900/90 text-gray-300 border-gray-800 hover:bg-gray-800 hover:text-white'
+        }`;
+        pill.onclick = () => selectGenre(g);
+        pill.innerHTML = `
+          <span>${info.emoji}</span>
+          <span>${g}</span>
+          <span class="text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-indigo-700/80 text-white' : 'bg-gray-800 text-gray-400'}">${info.count}</span>
+        `;
+        container.appendChild(pill);
+      });
+    }
+
+    function filterGenrePills() {
+      renderGenrePills();
+    }
+
+    // Select genre and refresh deepdive view
+    function selectGenre(genreName) {
+      selectedGenre = genreName;
+      renderGenrePills();
+      const g = DATA.genres[genreName];
+      if (!g) return;
+
+      // Hero Section
+      document.getElementById('hero-emoji').textContent = g.emoji;
+      document.getElementById('hero-title').textContent = g.name;
+      document.getElementById('hero-count-badge').textContent = `${g.count} listeners (${g.pct_of_total}%)`;
+      
+      const hoursDiff = (g.hours.mean - DATA.global.hours.mean).toFixed(1);
+      document.getElementById('hero-hours').textContent = `${g.hours.mean}h`;
+      document.getElementById('hero-hours-delta').textContent = `${hoursDiff >= 0 ? '+' : ''}${hoursDiff}h vs avg`;
+      document.getElementById('hero-hours-delta').className = `text-[11px] block ${hoursDiff > 0 ? 'text-indigo-400' : 'text-gray-400'}`;
+
+      document.getElementById('hero-age').textContent = `${g.age.mean} yrs`;
+      document.getElementById('hero-improve-rate').textContent = `${g.effects_pct.Improve}%`;
+      
+      const topStreaming = g.streaming_services[0] || { name: 'Unknown', pct: 0 };
+      document.getElementById('hero-streaming').textContent = topStreaming.name;
+      document.getElementById('hero-streaming-pct').textContent = `${topStreaming.pct}% share`;
+
+      // Hero Dynamic Summary
+      const anxDiff = (g.anxiety.mean - DATA.global.anxiety.mean).toFixed(2);
+      const anxPctDiff = Math.abs(Math.round(((g.anxiety.mean - DATA.global.anxiety.mean) / DATA.global.anxiety.mean) * 100));
+      const anxDirection = anxDiff >= 0 ? `${anxPctDiff}% higher than` : `${anxPctDiff}% lower than`;
+      
+      document.getElementById('hero-summary').innerHTML = `
+        <strong>${g.name}</strong> listeners report an average Anxiety score of <strong class="text-white">${g.anxiety.mean}/10</strong> (${anxDirection} the global survey average of ${DATA.global.anxiety.mean}). 
+        Daily listening averages <strong class="text-white">${g.hours.mean} hours</strong>. 
+        Remarkably, <strong class="text-emerald-400">${g.effects_pct.Improve}%</strong> report that music directly improves their mental state, while only <strong class="text-rose-400">${g.effects_pct.Worsen}%</strong> report negative effects.
+      `;
+
+      // Hero glow color
+      const glow = document.getElementById('hero-glow');
+      glow.style.backgroundColor = g.color || '#6366f1';
+
+      // KPI Cards
+      renderKpiCard('anxiety', g.anxiety, DATA.global.anxiety, g.high_anxiety_rate, g.distributions.anxiety);
+      renderKpiCard('depression', g.depression, DATA.global.depression, g.high_depression_rate, g.distributions.depression);
+      renderKpiCard('insomnia', g.insomnia, DATA.global.insomnia, null, g.distributions.hours); // using hours for distribution
+      renderKpiCard('ocd', g.ocd, DATA.global.ocd, null, null);
+
+      // Radar & Donut Charts
+      renderRadarChart(g);
+      renderDonutChart(g);
+
+      // Habits & Demographics
+      document.getElementById('habit-work').textContent = `${g.habits.working_pct}%`;
+      document.getElementById('habit-instrument').textContent = `${g.habits.instrumentalist_pct}%`;
+      document.getElementById('habit-composer').textContent = `${g.habits.composer_pct}%`;
+      document.getElementById('habit-exploratory').textContent = `${g.habits.exploratory_pct}%`;
+
+      document.getElementById('habit-work-anx').textContent = `${g.habits.working_anxiety || 'N/A'} / 10`;
+      document.getElementById('habit-nowork-anx').textContent = `${g.habits.non_working_anxiety || 'N/A'} / 10`;
+
+      // Hours bars
+      renderHabitHoursBars(g.distributions.hours);
+      renderStreamingBars(g.streaming_services);
+
+      // Cross Genre Affinity
+      renderCrossGenreAffinity(g);
+
+      // Statistical notes
+      document.getElementById('stat-conditional-prob').textContent = `P(High Anxiety \u2265 6 | ${g.name}) = ${ (g.high_anxiety_rate / 100).toFixed(3) }. Exactly ${g.high_anxiety_rate}% of surveyed ${g.name} listeners scored \u2265 6 on anxiety.`;
+      document.getElementById('stat-sample-size').textContent = `Sample size: n = ${g.count} respondents (${g.pct_of_total}% of all 735 surveyed). Anxiety standard deviation: ${g.anxiety.std}, Insomnia: ${g.insomnia.std}.`;
+
+      // If in records view, update records
+      if (currentView === 'records') {
+        initRecordsTable();
+      }
+    }
+
+    function renderKpiCard(dim, stats, globalStats, highRate, distList) {
+      const meanEl = document.getElementById(`kpi-${dim}-mean`);
+      const deltaEl = document.getElementById(`kpi-${dim}-delta`);
+      const medianEl = document.getElementById(`kpi-${dim}-median`);
+      const barEl = document.getElementById(`kpi-${dim}-bar`);
+
+      if (meanEl) meanEl.textContent = stats.mean.toFixed(2);
+      if (medianEl) medianEl.textContent = stats.median.toFixed(1);
+
+      const diff = (stats.mean - globalStats.mean).toFixed(2);
+      if (deltaEl) {
+        const sign = diff >= 0 ? '+' : '';
+        deltaEl.textContent = `${sign}${diff} vs Avg`;
+        if (diff > 0.2) {
+          deltaEl.className = 'text-xs px-2 py-0.5 rounded-full font-medium bg-red-500/10 text-red-400 border border-red-500/20';
+        } else if (diff < -0.2) {
+          deltaEl.className = 'text-xs px-2 py-0.5 rounded-full font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+        } else {
+          deltaEl.className = 'text-xs px-2 py-0.5 rounded-full font-medium bg-gray-500/10 text-gray-300 border border-gray-500/20';
+        }
+      }
+
+      if (highRate !== null) {
+        const highEl = document.getElementById(`kpi-${dim}-high`);
+        if (highEl) highEl.textContent = `${highRate}%`;
+      } else {
+        const stdEl = document.getElementById(`kpi-${dim}-std`);
+        if (stdEl) stdEl.textContent = stats.std.toFixed(2);
+      }
+
+      // Severity bar
+      if (barEl && distList && distList.length >= 3) {
+        barEl.innerHTML = `
+          <div style="width: ${distList[0].pct}%" title="Low: ${distList[0].pct}%" class="bg-emerald-500 h-full"></div>
+          <div style="width: ${distList[1].pct}%" title="Moderate: ${distList[1].pct}%" class="bg-amber-500 h-full"></div>
+          <div style="width: ${distList[2].pct}%" title="High: ${distList[2].pct}%" class="bg-rose-500 h-full"></div>
+        `;
+      }
+    }
+
+    // Render Pure SVG Radar / Spider Plot
+    function renderRadarChart(g) {
+      const svg = document.getElementById('radar-svg');
+      const cx = 200, cy = 160, maxR = 110;
+      const axes = [
+        { label: 'Anxiety', key: 'anxiety' },
+        { label: 'Depression', key: 'depression' },
+        { label: 'Insomnia', key: 'insomnia' },
+        { label: 'OCD', key: 'ocd' }
+      ];
+
+      // Update radar legends
+      document.getElementById('radar-legend-genre-color').style.backgroundColor = g.color || '#6366f1';
+      document.getElementById('radar-legend-genre-name').textContent = g.name;
+
+      document.getElementById('radar-score-anx').textContent = g.anxiety.mean;
+      document.getElementById('radar-score-dep').textContent = g.depression.mean;
+      document.getElementById('radar-score-ins').textContent = g.insomnia.mean;
+      document.getElementById('radar-score-ocd').textContent = g.ocd.mean;
+
+      let html = '';
+
+      // Draw concentric grid circles / polygons (levels 2, 4, 6, 8, 10)
+      [2, 4, 6, 8, 10].forEach(level => {
+        const r = (level / 10) * maxR;
+        const pts = axes.map((_, i) => {
+          const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+          return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+        }).join(' ');
+
+        html += `<polygon points="${pts}" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="${level === 10 ? 'none' : '3,3'}"/>`;
+        html += `<text x="${cx + 4}" y="${cy - r + 3}" fill="#4b5563" font-size="9">${level}</text>`;
+      });
+
+      // Draw Axis Lines & Labels
+      axes.forEach((axis, i) => {
+        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+        const x2 = cx + maxR * Math.cos(angle);
+        const y2 = cy - maxR * Math.sin(angle);
+        html += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#374151" stroke-width="1.5" />`;
+
+        // Labels
+        const lx = cx + (maxR + 24) * Math.cos(angle);
+        const ly = cy - (maxR + 18) * Math.sin(angle);
+        const textAnchor = Math.abs(Math.cos(angle)) < 0.2 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
+        html += `<text x="${lx}" y="${ly}" fill="#e5e7eb" font-size="11" font-weight="600" text-anchor="${textAnchor}">${axis.label}</text>`;
+      });
+
+      // Draw Global Baseline Polygon
+      const globalPts = axes.map((axis, i) => {
+        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+        const val = DATA.global[axis.key].mean;
+        const r = (val / 10) * maxR;
+        return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+      }).join(' ');
+      html += `<polygon points="${globalPts}" fill="rgba(156, 163, 175, 0.15)" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,4"/>`;
+
+      // Draw Selected Genre Polygon
+      const genrePts = axes.map((axis, i) => {
+        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+        const val = g[axis.key].mean;
+        const r = (val / 10) * maxR;
+        return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+      }).join(' ');
+
+      const genreColor = g.color || '#6366f1';
+      html += `<polygon points="${genrePts}" fill="${genreColor}" fill-opacity="0.35" stroke="${genreColor}" stroke-width="2.5"/>`;
+
+      // Draw vertices dots
+      axes.forEach((axis, i) => {
+        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+        const val = g[axis.key].mean;
+        const r = (val / 10) * maxR;
+        const px = cx + r * Math.cos(angle);
+        const py = cy - r * Math.sin(angle);
+        html += `<circle cx="${px}" cy="${py}" r="4" fill="${genreColor}" stroke="#ffffff" stroke-width="1.5" />`;
+      });
+
+      svg.innerHTML = html;
+    }
+
+    // Render Pure SVG Donut Chart
+    function renderDonutChart(g) {
+      const svg = document.getElementById('donut-svg');
+      const imp = g.effects_pct.Improve;
+      const noEff = g.effects_pct['No effect'];
+      const wor = g.effects_pct.Worsen;
+
+      document.getElementById('donut-center-pct').textContent = `${imp}%`;
+      document.getElementById('donut-improve-val').textContent = `${g.effects_counts.Improve} (${imp}%)`;
+      document.getElementById('donut-noeffect-val').textContent = `${g.effects_counts['No effect']} (${noEff}%)`;
+      document.getElementById('donut-worsen-val').textContent = `${g.effects_counts.Worsen} (${wor}%)`;
+
+      const cx = 100, cy = 100, r = 70;
+      const circumference = 2 * Math.PI * r;
+
+      const strokeImp = (imp / 100) * circumference;
+      const strokeNoEff = (noEff / 100) * circumference;
+      const strokeWor = (wor / 100) * circumference;
+
+      const offsetImp = 0;
+      const offsetNoEff = -strokeImp;
+      const offsetWor = -(strokeImp + strokeNoEff);
+
+      svg.innerHTML = `
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#1f2937" stroke-width="24" />
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#10b981" stroke-width="24"
+          stroke-dasharray="${strokeImp} ${circumference}" stroke-dashoffset="${offsetImp}"
+          transform="rotate(-90 ${cx} ${cy})" stroke-linecap="round" />
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#6b7280" stroke-width="24"
+          stroke-dasharray="${strokeNoEff} ${circumference}" stroke-dashoffset="${offsetNoEff}"
+          transform="rotate(-90 ${cx} ${cy})" />
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#f43f5e" stroke-width="24"
+          stroke-dasharray="${strokeWor} ${circumference}" stroke-dashoffset="${offsetWor}"
+          transform="rotate(-90 ${cx} ${cy})" stroke-linecap="round" />
+      `;
+    }
+
+    // Render Daily Hours Horizontal Bars
+    function renderHabitHoursBars(hoursDist) {
+      const container = document.getElementById('habit-hours-bars');
+      container.innerHTML = '';
+      hoursDist.forEach(h => {
+        const row = document.createElement('div');
+        row.className = 'space-y-1';
+        row.innerHTML = `
+          <div class="flex justify-between text-[11px] text-gray-400">
+            <span>${h.label}</span>
+            <span class="font-semibold text-gray-200">${h.count} (${h.pct}%)</span>
+          </div>
+          <div class="h-2 rounded-full bg-gray-800 overflow-hidden">
+            <div style="width: ${h.pct}%" class="h-full bg-indigo-500 rounded-full"></div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    // Render Streaming Breakdown
+    function renderStreamingBars(services) {
+      const container = document.getElementById('habit-streaming-bars');
+      container.innerHTML = '';
+      services.slice(0, 4).forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'space-y-1';
+        row.innerHTML = `
+          <div class="flex justify-between text-[11px] text-gray-400">
+            <span class="truncate max-w-[180px]">${s.name}</span>
+            <span class="font-semibold text-gray-200">${s.pct}%</span>
+          </div>
+          <div class="h-1.5 rounded-full bg-gray-800 overflow-hidden">
+            <div style="width: ${s.pct}%" class="h-full bg-purple-500 rounded-full"></div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    // Render Cross-Genre Affinity Map
+    function renderCrossGenreAffinity(g) {
+      document.getElementById('affinity-genre-title').textContent = g.name;
+      const container = document.getElementById('cross-genre-bars');
+      container.innerHTML = '';
+
+      const affinities = [];
+      DATA.all_genre_names.forEach(other => {
+        if (other === g.name) return;
+        const aff = g.cross_genre_affinity[other] || { score: 0 };
+        affinities.push({ genre: other, score: aff.score, details: aff });
+      });
+
+      affinities.sort((a, b) => b.score - a.score);
+
+      affinities.forEach(item => {
+        const otherInfo = DATA.genres[item.genre];
+        const bar = document.createElement('div');
+        bar.className = 'bg-gray-900/60 p-2 rounded-xl border border-gray-800/80 hover:border-gray-700 transition-all';
+        bar.innerHTML = `
+          <div class="flex justify-between items-center text-xs mb-1">
+            <div class="flex items-center gap-1.5 font-medium text-gray-200">
+              <span>${otherInfo.emoji}</span>
+              <span>${item.genre}</span>
+            </div>
+            <span class="font-bold text-indigo-400">${item.score}% Affinity</span>
+          </div>
+          <div class="h-2 rounded-full bg-gray-800 overflow-hidden">
+            <div style="width: ${item.score}%; background-color: ${otherInfo.color || '#6366f1'}" class="h-full rounded-full"></div>
+          </div>
+        `;
+        container.appendChild(bar);
+      });
+    }
+
+    // ==========================================
+    // VIEW 2 LOGIC: HEAD-TO-HEAD COMPARISON
+    // ==========================================
+    function populateCompareSelects() {
+      const s1 = document.getElementById('compare-select-1');
+      const s2 = document.getElementById('compare-select-2');
+      s1.innerHTML = '';
+      s2.innerHTML = '';
+
+      DATA.all_genre_names.forEach(g => {
+        const opt1 = document.createElement('option');
+        opt1.value = g;
+        opt1.textContent = `${DATA.genres[g].emoji} ${g} (${DATA.genres[g].count})`;
+        if (g === compareGenre1) opt1.selected = true;
+        s1.appendChild(opt1);
+
+        const opt2 = document.createElement('option');
+        opt2.value = g;
+        opt2.textContent = `${DATA.genres[g].emoji} ${g} (${DATA.genres[g].count})`;
+        if (g === compareGenre2) opt2.selected = true;
+        s2.appendChild(opt2);
+      });
+    }
+
+    function updateCompareView() {
+      compareGenre1 = document.getElementById('compare-select-1').value;
+      compareGenre2 = document.getElementById('compare-select-2').value;
+
+      const g1 = DATA.genres[compareGenre1];
+      const g2 = DATA.genres[compareGenre2];
+      if (!g1 || !g2) return;
+
+      document.getElementById('compare-emoji-1').textContent = g1.emoji;
+      document.getElementById('compare-emoji-2').textContent = g2.emoji;
+
+      document.getElementById('compare-legend-name-1').textContent = g1.name;
+      document.getElementById('compare-legend-name-2').textContent = g2.name;
+      document.getElementById('compare-legend-color-1').style.backgroundColor = g1.color || '#ef4444';
+      document.getElementById('compare-legend-color-2').style.backgroundColor = g2.color || '#3b82f6';
+
+      renderComparativeRadar(g1, g2);
+      renderComparativeMetrics(g1, g2);
+      renderComparativeTable(g1, g2);
+    }
+
+    function renderComparativeRadar(g1, g2) {
+      const svg = document.getElementById('compare-radar-svg');
+      const cx = 200, cy = 160, maxR = 110;
+      const axes = [
+        { label: 'Anxiety', key: 'anxiety' },
+        { label: 'Depression', key: 'depression' },
+        { label: 'Insomnia', key: 'insomnia' },
+        { label: 'OCD', key: 'ocd' }
+      ];
+
+      let html = '';
+
+      // Grid rings
+      [2, 4, 6, 8, 10].forEach(level => {
+        const r = (level / 10) * maxR;
+        const pts = axes.map((_, i) => {
+          const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+          return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+        }).join(' ');
+        html += `<polygon points="${pts}" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="3,3"/>`;
+      });
+
+      // Axes
+      axes.forEach((axis, i) => {
+        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+        const x2 = cx + maxR * Math.cos(angle);
+        const y2 = cy - maxR * Math.sin(angle);
+        html += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#374151" stroke-width="1.5" />`;
+        const lx = cx + (maxR + 24) * Math.cos(angle);
+        const ly = cy - (maxR + 18) * Math.sin(angle);
+        const textAnchor = Math.abs(Math.cos(angle)) < 0.2 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
+        html += `<text x="${lx}" y="${ly}" fill="#e5e7eb" font-size="11" font-weight="600" text-anchor="${textAnchor}">${axis.label}</text>`;
+      });
+
+      // Polygon 1
+      const pts1 = axes.map((axis, i) => {
+        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+        const r = (g1[axis.key].mean / 10) * maxR;
+        return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+      }).join(' ');
+      const col1 = g1.color || '#ef4444';
+      html += `<polygon points="${pts1}" fill="${col1}" fill-opacity="0.3" stroke="${col1}" stroke-width="2.5"/>`;
+
+      // Polygon 2
+      const pts2 = axes.map((axis, i) => {
+        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+        const r = (g2[axis.key].mean / 10) * maxR;
+        return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+      }).join(' ');
+      const col2 = g2.color || '#3b82f6';
+      html += `<polygon points="${pts2}" fill="${col2}" fill-opacity="0.3" stroke="${col2}" stroke-width="2.5"/>`;
+
+      svg.innerHTML = html;
+    }
+
+    function renderComparativeMetrics(g1, g2) {
+      const container = document.getElementById('compare-metrics-list');
+      container.innerHTML = '';
+
+      const metrics = [
+        { label: 'Anxiety Score', val1: g1.anxiety.mean, val2: g2.anxiety.mean, unit: '/10', max: 10 },
+        { label: 'Depression Score', val1: g1.depression.mean, val2: g2.depression.mean, unit: '/10', max: 10 },
+        { label: 'Insomnia Score', val1: g1.insomnia.mean, val2: g2.insomnia.mean, unit: '/10', max: 10 },
+        { label: 'OCD Score', val1: g1.ocd.mean, val2: g2.ocd.mean, unit: '/10', max: 10 },
+        { label: 'Daily Listening Hours', val1: g1.hours.mean, val2: g2.hours.mean, unit: ' hrs', max: 8 },
+        { label: 'Music Improves Mood', val1: g1.effects_pct.Improve, val2: g2.effects_pct.Improve, unit: '%', max: 100 }
+      ];
+
+      metrics.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'bg-gray-900/80 p-3 rounded-xl border border-gray-800';
+        
+        const pct1 = Math.min(100, (m.val1 / m.max) * 100);
+        const pct2 = Math.min(100, (m.val2 / m.max) * 100);
+
+        card.innerHTML = `
+          <div class="flex justify-between items-center text-xs mb-1.5">
+            <span class="font-bold text-gray-300">${m.label}</span>
+            <span class="text-gray-500">${g1.name}: <strong class="text-white">${m.val1}${m.unit}</strong> vs ${g2.name}: <strong class="text-white">${m.val2}${m.unit}</strong></span>
+          </div>
+          <div class="space-y-1">
+            <div class="h-2 rounded-full bg-gray-800 overflow-hidden flex">
+              <div style="width: ${pct1}%; background-color: ${g1.color || '#ef4444'}" class="h-full rounded-full"></div>
+            </div>
+            <div class="h-2 rounded-full bg-gray-800 overflow-hidden flex">
+              <div style="width: ${pct2}%; background-color: ${g2.color || '#3b82f6'}" class="h-full rounded-full"></div>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderComparativeTable(g1, g2) {
+      document.getElementById('compare-table-head-1').textContent = `${g1.emoji} ${g1.name}`;
+      document.getElementById('compare-table-head-2').textContent = `${g2.emoji} ${g2.name}`;
+
+      const tbody = document.getElementById('compare-table-body');
+      tbody.innerHTML = '';
+
+      const rows = [
+        { name: 'Sample Size (Respondents)', v1: g1.count, v2: g2.count, fmt: (v) => `${v} listeners` },
+        { name: 'Mean Anxiety', v1: g1.anxiety.mean, v2: g2.anxiety.mean, fmt: (v) => `${v.toFixed(2)} / 10` },
+        { name: 'High Anxiety Rate (\u2265 6)', v1: g1.high_anxiety_rate, v2: g2.high_anxiety_rate, fmt: (v) => `${v}%` },
+        { name: 'Mean Depression', v1: g1.depression.mean, v2: g2.depression.mean, fmt: (v) => `${v.toFixed(2)} / 10` },
+        { name: 'High Depression Rate (\u2265 6)', v1: g1.high_depression_rate, v2: g2.high_depression_rate, fmt: (v) => `${v}%` },
+        { name: 'Mean Insomnia', v1: g1.insomnia.mean, v2: g2.insomnia.mean, fmt: (v) => `${v.toFixed(2)} / 10` },
+        { name: 'Mean OCD', v1: g1.ocd.mean, v2: g2.ocd.mean, fmt: (v) => `${v.toFixed(2)} / 10` },
+        { name: 'Daily Hours Listened', v1: g1.hours.mean, v2: g2.hours.mean, fmt: (v) => `${v.toFixed(2)} hrs/day` },
+        { name: 'Perceived Music Improvement', v1: g1.effects_pct.Improve, v2: g2.effects_pct.Improve, fmt: (v) => `${v}%` },
+        { name: 'Listens While Working', v1: g1.habits.working_pct, v2: g2.habits.working_pct, fmt: (v) => `${v}%` },
+        { name: 'Instrumentalist Share', v1: g1.habits.instrumentalist_pct, v2: g2.habits.instrumentalist_pct, fmt: (v) => `${v}%` },
+        { name: 'Average Age', v1: g1.age.mean, v2: g2.age.mean, fmt: (v) => `${v.toFixed(1)} yrs` }
+      ];
+
+      rows.forEach(r => {
+        const diff = Math.abs(r.v1 - r.v2).toFixed(2);
+        const higher = r.v1 > r.v2 ? g1.name : (r.v2 > r.v1 ? g2.name : 'Tie');
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-900/50 transition-colors';
+        tr.innerHTML = `
+          <td class="py-2.5 px-4 font-medium text-gray-300">${r.name}</td>
+          <td class="py-2.5 px-4 font-semibold text-white">${r.fmt(r.v1)}</td>
+          <td class="py-2.5 px-4 font-semibold text-white">${r.fmt(r.v2)}</td>
+          <td class="py-2.5 px-4 text-gray-400 font-mono">${diff}</td>
+          <td class="py-2.5 px-4 font-semibold ${higher === g1.name ? 'text-indigo-400' : (higher === g2.name ? 'text-purple-400' : 'text-gray-400')}">${higher}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ==========================================
+    // VIEW 3 LOGIC: GLOBAL RANKINGS
+    // ==========================================
+    function renderRankings(metricKey, title, type) {
+      currentRankingMetric = metricKey;
+      document.getElementById('ranking-metric-desc').textContent = `Ranked by ${title}`;
+
+      // Update button styles
+      ['anxiety', 'depression', 'insomnia', 'ocd', 'hours', 'improve', 'count'].forEach(k => {
+        const btn = document.getElementById(`rank-btn-${k}`);
+        if (metricKey.includes(k) || (k === 'improve' && metricKey.includes('improve')) || (k === 'count' && metricKey.includes('count'))) {
+          btn.className = "px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium";
+        }
+      });
+
+      const list = DATA.rankings[metricKey] || [];
+      const container = document.getElementById('ranking-bars-container');
+      container.innerHTML = '';
+
+      const maxVal = Math.max(...list.map(x => x.val)) || 1;
+
+      list.forEach((item, index) => {
+        const gInfo = DATA.genres[item.name];
+        const barWidth = Math.max(8, (item.val / maxVal) * 100);
+
+        const card = document.createElement('div');
+        card.className = 'glass-card-hover bg-gray-900/80 p-2.5 rounded-xl border border-gray-800 flex items-center gap-3 cursor-pointer';
+        card.onclick = () => {
+          selectGenre(item.name);
+          switchView('deepdive');
+        };
+
+        card.innerHTML = `
+          <span class="w-6 text-center text-xs font-bold ${index < 3 ? 'text-amber-400' : 'text-gray-500'}">#${index + 1}</span>
+          <span class="text-lg">${gInfo.emoji}</span>
+          <div class="w-32 flex-shrink-0">
+            <span class="text-xs font-semibold text-white block truncate">${item.name}</span>
+            <span class="text-[10px] text-gray-500">${item.sub}</span>
+          </div>
+          <div class="flex-1 h-3 rounded-full bg-gray-800 overflow-hidden flex">
+            <div style="width: ${barWidth}%; background-color: ${gInfo.color || '#6366f1'}" class="h-full rounded-full transition-all duration-300"></div>
+          </div>
+          <span class="w-16 text-right text-xs font-bold text-white font-mono">${item.val}</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // ==========================================
+    // VIEW 4 LOGIC: RAW SURVEY RECORDS TABLE
+    // ==========================================
+    function initRecordsTable() {
+      const g = DATA.genres[selectedGenre];
+      if (!g) return;
+      document.getElementById('records-genre-name').textContent = g.name;
+      recordsPage = 1;
+      filterRecordsTable();
+    }
+
+    function filterRecordsTable() {
+      const g = DATA.genres[selectedGenre];
+      if (!g) return;
+
+      const q = (document.getElementById('records-filter-input').value || '').toLowerCase();
+      const effFilter = document.getElementById('records-effect-filter').value;
+
+      filteredRecords = g.sample_records.filter(r => {
+        if (effFilter !== 'All' && r.effects !== effFilter) return false;
+        if (q) {
+          const text = `${r.id} ${r.age} ${r.streaming} ${r.working} ${r.effects}`.toLowerCase();
+          if (!text.includes(q)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('records-count').textContent = filteredRecords.length;
+      renderRecordsPage();
+    }
+
+    function renderRecordsPage() {
+      const tbody = document.getElementById('records-table-body');
+      tbody.innerHTML = '';
+
+      const total = filteredRecords.length;
+      const start = (recordsPage - 1) * recordsPerPage;
+      const end = Math.min(start + recordsPerPage, total);
+
+      document.getElementById('records-page-curr').textContent = recordsPage;
+      document.getElementById('records-page-info').textContent = total === 0 ? 'No records found' : `Showing ${start + 1} to ${end} of ${total}`;
+
+      document.getElementById('records-prev-btn').disabled = (recordsPage <= 1);
+      document.getElementById('records-next-btn').disabled = (end >= total);
+
+      for (let i = start; i < end; i++) {
+        const r = filteredRecords[i];
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-800/40 transition-colors';
+
+        let effectBadge = '';
+        if (r.effects === 'Improve') effectBadge = '<span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">Improves</span>';
+        else if (r.effects === 'Worsen') effectBadge = '<span class="px-2 py-0.5 rounded text-[10px] bg-rose-500/10 text-rose-400 border border-rose-500/20 font-semibold">Worsens</span>';
+        else effectBadge = '<span class="px-2 py-0.5 rounded text-[10px] bg-gray-500/10 text-gray-400 border border-gray-500/20 font-semibold">No effect</span>';
+
+        tr.innerHTML = `
+          <td class="py-2 px-3 text-gray-500 font-mono">#${r.id}</td>
+          <td class="py-2 px-3 font-semibold text-white">${r.age}</td>
+          <td class="py-2 px-3 text-gray-300 font-mono">${r.hours}h</td>
+          <td class="py-2 px-3 text-gray-300 truncate max-w-[120px]">${r.streaming}</td>
+          <td class="py-2 px-3 text-gray-400">${r.working}</td>
+          <td class="py-2 px-3 font-bold ${r.anxiety >= 7 ? 'text-rose-400' : 'text-gray-200'}">${r.anxiety}</td>
+          <td class="py-2 px-3 font-bold ${r.depression >= 7 ? 'text-amber-400' : 'text-gray-200'}">${r.depression}</td>
+          <td class="py-2 px-3 font-bold ${r.insomnia >= 7 ? 'text-blue-400' : 'text-gray-200'}">${r.insomnia}</td>
+          <td class="py-2 px-3 font-bold ${r.ocd >= 7 ? 'text-purple-400' : 'text-gray-200'}">${r.ocd}</td>
+          <td class="py-2 px-3">${effectBadge}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function prevRecordsPage() {
+      if (recordsPage > 1) {
+        recordsPage--;
+        renderRecordsPage();
+      }
+    }
+
+    function nextRecordsPage() {
+      if (recordsPage * recordsPerPage < filteredRecords.length) {
+        recordsPage++;
+        renderRecordsPage();
+      }
+    }
+  </script>
+</body>
+</html>
