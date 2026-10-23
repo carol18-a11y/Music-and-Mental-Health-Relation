@@ -1,6 +1,7 @@
 import csv
 import json
 import math
+import os
 from collections import defaultdict, Counter
 
 def calc_stats(values):
@@ -29,7 +30,28 @@ def get_bucket(val, thresholds):
     return 'Other'
 
 def process():
-    csv_path = 'Music-and-Mental-Health-Relation/Data/mxmh_survey_results.csv'
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_dir = os.path.dirname(base_dir)
+
+    # Search for CSV in possible locations
+    candidates = [
+        os.path.join(repo_dir, 'Data', 'mxmh_survey_results.csv'),
+        os.path.join(repo_dir, 'data', 'mxmh_survey_results.csv'),
+        os.path.join(base_dir, '..', 'Data', 'mxmh_survey_results.csv'),
+        os.path.join(base_dir, 'mxmh_survey_results.csv'),
+        'Music-and-Mental-Health-Relation/Data/mxmh_survey_results.csv',
+        'Data/mxmh_survey_results.csv',
+    ]
+
+    csv_path = None
+    for c in candidates:
+        if os.path.exists(c):
+            csv_path = c
+            break
+
+    if not csv_path:
+        raise FileNotFoundError("Could not locate mxmh_survey_results.csv in Data/ directory.")
+
     with open(csv_path, mode='r', encoding='utf-8') as f:
         raw_rows = list(csv.DictReader(f))
 
@@ -319,12 +341,14 @@ def process():
         'all_genre_names': genres_list
     }
 
-    # Save to JSON
-    with open('web_dashboard/genre_data.json', 'w', encoding='utf-8') as f:
+    # Save to JSON in the web_dashboard directory
+    out_json = os.path.join(base_dir, 'genre_data.json')
+    with open(out_json, 'w', encoding='utf-8') as f:
         json.dump(full_payload, f, indent=2)
 
     # Also save as a JS variable for direct file:// browser opening
-    with open('web_dashboard/genre_data.js', 'w', encoding='utf-8') as f:
+    out_js = os.path.join(base_dir, 'genre_data.js')
+    with open(out_js, 'w', encoding='utf-8') as f:
         f.write('window.GENRE_DATA = ' + json.dumps(full_payload, indent=2) + ';')
 
     print(f"Data prepared successfully: {len(genres_list)} genres, {total_n} respondents.")
