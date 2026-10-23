@@ -44,9 +44,8 @@
       border-color: rgba(99, 102, 241, 0.4);
       transform: translateY(-1px);
     }
-    .tooltip-box {
-      pointer-events: none;
-      transition: opacity 0.15s ease-out;
+    .code-box {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
   </style>
   <script src="genre_data.js"></script>
@@ -63,30 +62,36 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-lg font-bold text-white tracking-tight">AudioMental</h1>
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">MxMH Dataset</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">MxMH Probability & Stats</span>
           </div>
           <p class="text-xs text-gray-400">Interactive Music Genre & Mental Health Analytics Dashboard</p>
         </div>
       </div>
 
-      <!-- Navigation Tabs -->
-      <nav class="flex items-center bg-gray-900 border border-gray-800 rounded-xl p-1 gap-1 text-xs sm:text-sm">
-        <button id="tab-deepdive" onclick="switchView('deepdive')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-white bg-indigo-600 shadow-sm flex items-center gap-1.5">
+      <!-- Navigation Tabs (Now with 6 tabs!) -->
+      <nav class="flex items-center bg-gray-900 border border-gray-800 rounded-xl p-1 gap-1 text-xs sm:text-sm overflow-x-auto max-w-full">
+        <button id="tab-deepdive" onclick="switchView('deepdive')" class="px-3 py-1.5 rounded-lg font-medium transition-all text-white bg-indigo-600 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
           <span>🎯</span> Genre Deep Dive
         </button>
-        <button id="tab-compare" onclick="switchView('compare')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5">
+        <button id="tab-compare" onclick="switchView('compare')" class="px-3 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <span>⚖️</span> Compare
         </button>
-        <button id="tab-rankings" onclick="switchView('rankings')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5">
+        <button id="tab-rankings" onclick="switchView('rankings')" class="px-3 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <span>🏆</span> Leaderboard
         </button>
-        <button id="tab-records" onclick="switchView('records')" class="px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5">
+        <button id="tab-gallery" onclick="switchView('gallery')" class="px-3 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <span>📈</span> R Plots Gallery
+        </button>
+        <button id="tab-stats" onclick="switchView('stats')" class="px-3 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <span>🧪</span> Hypothesis Tests & Math
+        </button>
+        <button id="tab-records" onclick="switchView('records')" class="px-3 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <span>📋</span> Survey Data
         </button>
       </nav>
 
       <!-- Global Benchmark Counter -->
-      <div class="hidden lg:flex items-center gap-3 text-xs text-gray-400 border-l border-gray-800 pl-4">
+      <div class="hidden xl:flex items-center gap-3 text-xs text-gray-400 border-l border-gray-800 pl-4">
         <div>
           <span class="text-gray-500 block">Respondents</span>
           <span id="global-total" class="font-semibold text-white">735</span>
@@ -203,7 +208,6 @@
               <span>High Anxiety (&ge;6): <strong id="kpi-anxiety-high" class="text-gray-200">64.4%</strong></span>
               <span>Median: <strong id="kpi-anxiety-median" class="text-gray-200">7.0</strong></span>
             </div>
-            <!-- Mini severity bar -->
             <div class="mt-3">
               <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
                 <span>Severity Split:</span>
@@ -227,7 +231,6 @@
               <span>High Depr (&ge;6): <strong id="kpi-depression-high" class="text-gray-200">46.8%</strong></span>
               <span>Median: <strong id="kpi-depression-median" class="text-gray-200">5.0</strong></span>
             </div>
-            <!-- Mini severity bar -->
             <div class="mt-3">
               <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
                 <span>Severity Split:</span>
@@ -251,7 +254,6 @@
               <span>High Sleep Loss: <strong id="kpi-insomnia-high" class="text-gray-200">30.3%</strong></span>
               <span>Median: <strong id="kpi-insomnia-median" class="text-gray-200">3.0</strong></span>
             </div>
-            <!-- Mini severity bar -->
             <div class="mt-3">
               <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
                 <span>Severity Split:</span>
@@ -275,7 +277,6 @@
               <span>Std Dev: <strong id="kpi-ocd-std" class="text-gray-200">2.82</strong></span>
               <span>Median: <strong id="kpi-ocd-median" class="text-gray-200">2.0</strong></span>
             </div>
-            <!-- Mini severity bar -->
             <div class="mt-3">
               <div class="text-[10px] text-gray-500 mb-1 flex justify-between">
                 <span>Severity Split:</span>
@@ -312,7 +313,6 @@
             </div>
           </div>
 
-          <!-- Radar SVG Canvas container -->
           <div class="relative w-full aspect-[4/3] max-h-80 flex items-center justify-center my-auto">
             <svg id="radar-svg" viewBox="0 0 400 320" class="w-full h-full max-h-80 overflow-visible"></svg>
           </div>
@@ -334,7 +334,6 @@
             <p class="text-xs text-gray-400">Does listening to music improve, worsen, or have no effect?</p>
           </div>
 
-          <!-- SVG Donut Chart -->
           <div class="relative w-full aspect-square max-h-56 flex items-center justify-center my-3">
             <svg id="donut-svg" viewBox="0 0 200 200" class="w-48 h-48"></svg>
             <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
@@ -343,7 +342,6 @@
             </div>
           </div>
 
-          <!-- Legend details -->
           <div class="space-y-2 border-t border-gray-800 pt-3 text-xs">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
@@ -399,7 +397,6 @@
             </div>
           </div>
 
-          <!-- Working vs Non-Working Anxiety Comparison -->
           <div class="bg-gray-900/60 border border-gray-800 rounded-xl p-3">
             <div class="flex justify-between items-center text-xs mb-2">
               <span class="font-semibold text-gray-300">Anxiety by Work Status</span>
@@ -417,13 +414,11 @@
             </div>
           </div>
 
-          <!-- Hours distribution bars -->
           <div>
             <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2">Daily Hours Distribution</span>
             <div id="habit-hours-bars" class="space-y-1.5 text-xs"></div>
           </div>
 
-          <!-- Streaming Services Breakdown -->
           <div>
             <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2">Top Streaming Services</span>
             <div id="habit-streaming-bars" class="space-y-1.5 text-xs"></div>
@@ -444,9 +439,7 @@
             </p>
           </div>
 
-          <div id="cross-genre-bars" class="space-y-2 overflow-y-auto max-h-[360px] pr-1 scrollbar-thin">
-            <!-- Dynamically populated -->
-          </div>
+          <div id="cross-genre-bars" class="space-y-2 overflow-y-auto max-h-[360px] pr-1 scrollbar-thin"></div>
 
           <div class="mt-3 pt-3 border-t border-gray-800 text-[11px] text-gray-500 flex justify-between">
             <span>Score weights: Very frequently (100%), Sometimes (66%), Rarely (33%), Never (0%)</span>
@@ -483,41 +476,31 @@
     <!-- ========================================== -->
     <div id="view-compare" class="hidden space-y-6">
 
-      <!-- Genre Selectors Header -->
       <div class="glass-card rounded-2xl p-5">
         <h3 class="text-base font-bold text-white flex items-center gap-2 mb-4">
           <span>⚖️</span> Head-to-Head Genre Comparison
         </h3>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <!-- Genre 1 Selector -->
           <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800">
             <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Primary Genre (A)</label>
             <div class="flex items-center gap-3">
               <span id="compare-emoji-1" class="text-3xl">🎸</span>
-              <select id="compare-select-1" onchange="updateCompareView()" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-medium">
-                <!-- populated dynamically -->
-              </select>
+              <select id="compare-select-1" onchange="updateCompareView()" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-medium"></select>
             </div>
           </div>
 
-          <!-- Genre 2 Selector -->
           <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800">
             <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Comparison Genre (B)</label>
             <div class="flex items-center gap-3">
               <span id="compare-emoji-2" class="text-3xl">🎻</span>
-              <select id="compare-select-2" onchange="updateCompareView()" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-medium">
-                <!-- populated dynamically -->
-              </select>
+              <select id="compare-select-2" onchange="updateCompareView()" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-medium"></select>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Comparative Radar Chart & Summary -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-        <!-- Comparative Radar Chart -->
         <div class="lg:col-span-7 glass-card rounded-2xl p-5 flex flex-col justify-between">
           <div class="flex items-center justify-between mb-2">
             <div>
@@ -541,20 +524,14 @@
           </div>
         </div>
 
-        <!-- Comparative Side-by-Side Summary Cards -->
         <div class="lg:col-span-5 glass-card rounded-2xl p-5 space-y-4">
           <h4 class="text-sm font-bold text-white flex items-center gap-2">
             <span>📊</span> Key Metric Differences
           </h4>
-
-          <div id="compare-metrics-list" class="space-y-3 text-xs">
-            <!-- Dynamically populated metric bars -->
-          </div>
+          <div id="compare-metrics-list" class="space-y-3 text-xs"></div>
         </div>
-
       </div>
 
-      <!-- Detailed Comparison Table -->
       <div class="glass-card rounded-2xl p-5 overflow-x-auto">
         <h4 class="text-sm font-bold text-white mb-3">Comprehensive Side-by-Side Breakdown</h4>
         <table class="w-full text-xs text-left">
@@ -567,9 +544,7 @@
               <th class="py-2.5 px-4">Higher Score</th>
             </tr>
           </thead>
-          <tbody id="compare-table-body" class="divide-y divide-gray-800/80">
-            <!-- Populated dynamically -->
-          </tbody>
+          <tbody id="compare-table-body" class="divide-y divide-gray-800/80"></tbody>
         </table>
       </div>
 
@@ -589,7 +564,6 @@
             <p class="text-xs text-gray-400">Compare all 16 genres across different dimensions</p>
           </div>
 
-          <!-- Ranking Metric Switcher -->
           <div class="flex flex-wrap gap-1.5 text-xs">
             <button onclick="renderRankings('by_anxiety', 'Anxiety (0-10)', 'mean')" id="rank-btn-anxiety" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium">Anxiety</button>
             <button onclick="renderRankings('by_depression', 'Depression (0-10)', 'mean')" id="rank-btn-depression" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Depression</button>
@@ -606,16 +580,454 @@
           <span class="text-gray-500">Click any genre bar to inspect deep-dive</span>
         </div>
 
-        <!-- Leaderboard Bars -->
-        <div id="ranking-bars-container" class="space-y-2">
-          <!-- Dynamically populated -->
+        <div id="ranking-bars-container" class="space-y-2"></div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: R VISUALIZATIONS GALLERY (NEW TAB 1) -->
+    <!-- ========================================== -->
+    <div id="view-gallery" class="hidden space-y-6">
+
+      <!-- Gallery Header -->
+      <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-2xl">📈</span>
+              <h3 class="text-xl font-bold text-white">R Statistical Visualizations Gallery</h3>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">Base R Engine</span>
+            </div>
+            <p class="text-xs text-gray-400 max-w-2xl">
+              All 6 graphical plots generated by the R statistical script (<code class="text-indigo-300">additional_analysis.R</code>). Illustrates histograms, bivariate OLS scatter plots, two-sample Tukey boxplots, contingency stacked bars, discrete probability distributions, and Bayesian conditionals.
+            </p>
+          </div>
+
+          <!-- Filter buttons for plot types -->
+          <div class="flex flex-wrap gap-1.5 text-xs">
+            <button onclick="filterGallery('all')" id="gal-filter-all" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium">All Plots (6)</button>
+            <button onclick="filterGallery('histogram')" id="gal-filter-histogram" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Histogram</button>
+            <button onclick="filterGallery('scatter')" id="gal-filter-scatter" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Scatter/OLS</button>
+            <button onclick="filterGallery('boxplot')" id="gal-filter-boxplot" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Boxplot</button>
+            <button onclick="filterGallery('stacked')" id="gal-filter-stacked" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Stacked Bar</button>
+            <button onclick="filterGallery('conditional')" id="gal-filter-conditional" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Conditional</button>
+            <button onclick="filterGallery('binomial')" id="gal-filter-binomial" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Binomial PMF</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plots Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 5: STATISTICAL TESTS & DISTRIBUTIONS (NEW TAB 2) -->
+    <!-- ========================================== -->
+    <div id="view-stats" class="hidden space-y-6">
+
+      <!-- Course Header Banner -->
+      <div class="glass-card rounded-2xl p-6 border-l-4 border-emerald-500">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-2xl">🧪</span>
+              <h3 class="text-xl font-bold text-white">Probability & Statistics Inferential Testing Suite</h3>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">&alpha; = 0.05 Benchmark</span>
+            </div>
+            <p class="text-xs text-gray-400 max-w-3xl">
+              Formal hypothesis tests, confidence intervals, probability models, and contingency analyses formulated and tested according to university probability & statistics curriculum guidelines.
+            </p>
+          </div>
+          <div class="text-right text-xs text-gray-400 hidden md:block">
+            <span class="block font-semibold text-gray-200">Statistical Engine: R 4.2+</span>
+            <span class="text-gray-500">Parametric & Non-Parametric</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive Hypothesis Testing Scorecard -->
+      <div class="glass-card rounded-2xl p-5 overflow-x-auto">
+        <div class="flex items-center justify-between mb-3">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>📋</span> Hypothesis Testing Decision Matrix
+          </h4>
+          <span class="text-xs text-gray-500">Significance Level &alpha; = 0.05</span>
+        </div>
+        <table class="w-full text-xs text-left">
+          <thead class="text-gray-400 uppercase bg-gray-950 border-b border-gray-800">
+            <tr>
+              <th class="py-2.5 px-3">Test Name</th>
+              <th class="py-2.5 px-3">Null Hypothesis ($H_0$)</th>
+              <th class="py-2.5 px-3">Alternative ($H_1$)</th>
+              <th class="py-2.5 px-3 font-mono">Test Statistic</th>
+              <th class="py-2.5 px-3 font-mono">P-Value</th>
+              <th class="py-2.5 px-3">Decision</th>
+              <th class="py-2.5 px-3">Effect Size</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-800/80 bg-gray-900/30">
+            <tr class="hover:bg-gray-800/30">
+              <td class="py-3 px-3 font-semibold text-indigo-300">Welch Two-Sample t-Test</td>
+              <td class="py-3 px-3 text-gray-400">&mu;<sub>work</sub> = &mu;<sub>no_work</sub></td>
+              <td class="py-3 px-3 text-gray-300">&mu;<sub>work</sub> &ne; &mu;<sub>no_work</sub></td>
+              <td class="py-3 px-3 font-mono font-bold text-white">t = -0.9791 (df=230.6)</td>
+              <td class="py-3 px-3 font-mono font-bold text-amber-400">p = 0.3285</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300 font-semibold text-[11px]">Fail to Reject H₀</span></td>
+              <td class="py-3 px-3 text-gray-400 font-mono">d = 0.09 (negligible)</td>
+            </tr>
+            <tr class="hover:bg-gray-800/30">
+              <td class="py-3 px-3 font-semibold text-purple-300">Chi-Square (&chi;&sup2;) Independence</td>
+              <td class="py-3 px-3 text-gray-400">Genre & Anxiety are Independent</td>
+              <td class="py-3 px-3 text-gray-300">Genre & Anxiety are Associated</td>
+              <td class="py-3 px-3 font-mono font-bold text-white">&chi;&sup2; = 6.9182 (df=6)</td>
+              <td class="py-3 px-3 font-mono font-bold text-amber-400">p = 0.3285</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300 font-semibold text-[11px]">Fail to Reject H₀</span></td>
+              <td class="py-3 px-3 text-gray-400 font-mono">Cramer's V = 0.097</td>
+            </tr>
+            <tr class="hover:bg-gray-800/30">
+              <td class="py-3 px-3 font-semibold text-cyan-300">Pearson Correlation</td>
+              <td class="py-3 px-3 text-gray-400">True linear correlation &rho; = 0</td>
+              <td class="py-3 px-3 text-gray-300">True linear correlation &rho; &ne; 0</td>
+              <td class="py-3 px-3 font-mono font-bold text-white">r = 0.0497 (t=1.35)</td>
+              <td class="py-3 px-3 font-mono font-bold text-amber-400">p = 0.1787</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-gray-800 text-gray-300 font-semibold text-[11px]">Fail to Reject H₀</span></td>
+              <td class="py-3 px-3 text-gray-400 font-mono">r&sup2; = 0.0025 (0.25% variance)</td>
+            </tr>
+            <tr class="hover:bg-gray-800/30">
+              <td class="py-3 px-3 font-semibold text-emerald-300">Spearman Rank Correlation</td>
+              <td class="py-3 px-3 text-gray-400">No monotonic association</td>
+              <td class="py-3 px-3 text-gray-300">Monotonic association exists</td>
+              <td class="py-3 px-3 font-mono font-bold text-white">&rho; = 0.0941</td>
+              <td class="py-3 px-3 font-mono font-bold text-emerald-400">p = 0.0107 *</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold text-[11px]">Reject H₀ (&alpha;=0.05)</span></td>
+              <td class="py-3 px-3 text-gray-400 font-mono">Weak monotonic trend</td>
+            </tr>
+            <tr class="hover:bg-gray-800/30">
+              <td class="py-3 px-3 font-semibold text-pink-300">Wilson Score Proportion (High Anxiety)</td>
+              <td class="py-3 px-3 text-gray-400">p = 0.50 (Fair Coin / Chance)</td>
+              <td class="py-3 px-3 text-gray-300">p &gt; 0.50 (Majority High)</td>
+              <td class="py-3 px-3 font-mono font-bold text-white">p&#770; = 0.6027 (z = 5.57)</td>
+              <td class="py-3 px-3 font-mono font-bold text-emerald-400">p &lt; 0.0001 ***</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold text-[11px]">Reject H₀</span></td>
+              <td class="py-3 px-3 text-gray-400 font-mono">95% CI [0.567, 0.638]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 1: Welch t-Test Deep Dive & Distribution Curve -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- t-Test Explanation & Formulations -->
+        <div class="lg:col-span-6 glass-card rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>⚖️</span> Welch Two-Sample t-Test (Workplace Music Effect)
+            </h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-gray-800 text-gray-300 font-mono">t.test(Anxiety ~ While.working)</span>
+          </div>
+
+          <div class="text-xs text-gray-300 space-y-2">
+            <p><strong class="text-white">Research Question:</strong> Does listening to music while working significantly impact anxiety levels?</p>
+            <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 code-box space-y-1 text-gray-300">
+              <div><span class="text-gray-500">Null Hypothesis (H₀):</span> &mu;<sub>Yes</sub> - &mu;<sub>No</sub> = 0</div>
+              <div><span class="text-gray-500">Alternative (H₁):</span> &mu;<sub>Yes</sub> - &mu;<sub>No</sub> &ne; 0 (Two-tailed)</div>
+              <div><span class="text-gray-500">Degrees of Freedom:</span> df = 230.63 (Satterthwaite-Welch approximation)</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-center text-xs">
+            <div class="bg-gray-900 p-2.5 rounded-xl border border-gray-800">
+              <span class="text-gray-500 block text-[10px] uppercase">t-Statistic</span>
+              <span class="font-bold text-white text-base font-mono">-0.9791</span>
+            </div>
+            <div class="bg-gray-900 p-2.5 rounded-xl border border-gray-800">
+              <span class="text-gray-500 block text-[10px] uppercase">p-Value</span>
+              <span class="font-bold text-amber-400 text-base font-mono">0.3285</span>
+            </div>
+            <div class="bg-gray-900 p-2.5 rounded-xl border border-gray-800 col-span-2 sm:col-span-1">
+              <span class="text-gray-500 block text-[10px] uppercase">95% CI Difference</span>
+              <span class="font-bold text-indigo-300 text-xs font-mono">[-0.772, +0.260]</span>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 text-xs text-gray-300">
+            <strong class="text-white block mb-1">Statistical Decision:</strong>
+            Because the p-value ($0.3285$) exceeds the significance threshold $\alpha = 0.05$, and the 95% confidence interval for the difference contains $0$, we <strong>fail to reject $H_0$</strong>. There is no statistically significant difference in self-reported anxiety between people who listen to music while working ($\bar{x} = 5.88$) and those who do not ($\bar{x} = 5.62$).
+          </div>
+        </div>
+
+        <!-- Dynamic SVG Student's t / Normal Distribution Curve -->
+        <div class="lg:col-span-6 glass-card rounded-2xl p-5 flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <h4 class="text-sm font-bold text-white">Student's t Distribution (df = 230.6)</h4>
+              <p class="text-xs text-gray-400">Critical rejection boundaries (&alpha; = 0.05) vs. Observed Statistic</p>
+            </div>
+            <span class="text-xs text-gray-500 font-mono">Critical: t &plusmn; 1.970</span>
+          </div>
+
+          <!-- Dynamic SVG Bell Curve -->
+          <div class="relative w-full aspect-[16/9] max-h-56 flex items-center justify-center my-auto">
+            <svg id="t-dist-svg" viewBox="0 0 500 240" class="w-full h-full overflow-visible"></svg>
+          </div>
+
+          <div class="pt-2 border-t border-gray-800 text-[11px] text-gray-400 flex flex-wrap justify-between">
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Rejection Regions (2.5% each tail)</span>
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-400"></span> Acceptance Region (95%)</span>
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Test Stat (t = -0.979)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section 2: 95% Confidence Intervals for Means -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>📏</span> 95% Confidence Intervals for Population Means (&mu;)
+            </h4>
+            <p class="text-xs text-gray-400">Calculated via Student's t distribution: $\bar{x} \pm t^*_{0.025, df} \cdot \frac{s}{\sqrt{n}}$</p>
+          </div>
+          <span class="text-xs text-gray-500">Confidence Level: 95%</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead class="text-gray-400 uppercase bg-gray-950 border-b border-gray-800">
+              <tr>
+                <th class="py-2.5 px-3">Variable</th>
+                <th class="py-2.5 px-3">While Working?</th>
+                <th class="py-2.5 px-3">Sample (n)</th>
+                <th class="py-2.5 px-3">Sample Mean ($\bar{x}$)</th>
+                <th class="py-2.5 px-3">Margin of Error</th>
+                <th class="py-2.5 px-3 font-mono">95% Confidence Interval</th>
+                <th class="py-2.5 px-3">Visual Range</th>
+              </tr>
+            </thead>
+            <tbody id="ci-table-body" class="divide-y divide-gray-800/80 bg-gray-900/30">
+              <!-- Populated dynamically from JSON -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 3: Chi-Square Test of Independence & Contingency Table -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <div class="lg:col-span-7 glass-card rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>🎲</span> Chi-Square (&chi;&sup2;) Test of Independence: Genre vs. Anxiety
+            </h4>
+            <span class="text-xs font-mono text-gray-400">&chi;&sup2; = 6.9182, df = 6, p = 0.3285</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="text-gray-400 uppercase bg-gray-950 border-b border-gray-800">
+                <tr>
+                  <th class="py-2 px-3">Genre Category</th>
+                  <th class="py-2 px-3 text-red-400">High Anxiety (&ge;6)</th>
+                  <th class="py-2 px-3 text-emerald-400">Not High Anxiety (&lt;6)</th>
+                  <th class="py-2 px-3">Total (n)</th>
+                  <th class="py-2 px-3">Observed % High</th>
+                </tr>
+              </thead>
+              <tbody id="contingency-table-body" class="divide-y divide-gray-800/80 bg-gray-900/30">
+                <!-- Dynamically loaded from contingency table CSV -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="text-xs text-gray-300 bg-gray-950 p-3 rounded-xl border border-gray-800 space-y-1">
+            <div class="flex justify-between">
+              <span>Test Statistic Formula:</span>
+              <span class="font-mono text-indigo-300">&chi;&sup2; = &Sigma; (O - E)&sup2; / E</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Cramer's V Effect Size:</span>
+              <span class="font-mono text-purple-300">V = &radic;(&chi;&sup2; / (n &times; 1)) = 0.097 (Negligible association)</span>
+            </div>
+            <p class="pt-1 text-gray-400">
+              Because all expected frequencies exceed 5 ($E \ge 5$) and $p = 0.3285 > 0.05$, the assumption of independence between music preference and clinical anxiety severity cannot be rejected.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 4: Correlation (Pearson vs. Spearman) -->
+        <div class="lg:col-span-5 glass-card rounded-2xl p-5 space-y-4">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>📈</span> Correlation: Hours Listened vs. Anxiety
+          </h4>
+
+          <div class="space-y-3">
+            <div class="bg-gray-900/80 p-3 rounded-xl border border-gray-800 space-y-1">
+              <div class="flex justify-between items-center text-xs">
+                <span class="font-bold text-indigo-300">Pearson Product-Moment Correlation (r)</span>
+                <span class="text-amber-400 font-mono font-bold">p = 0.1787</span>
+              </div>
+              <div class="text-lg font-extrabold text-white font-mono">r = +0.0497</div>
+              <p class="text-[11px] text-gray-400">
+                Measures pure <strong>linear relationship</strong>. Statistically non-significant ($p > 0.05$). Coefficient of determination $r^2 = 0.0025$ explains only 0.25% of anxiety variance.
+              </p>
+            </div>
+
+            <div class="bg-gray-900/80 p-3 rounded-xl border border-gray-800 space-y-1">
+              <div class="flex justify-between items-center text-xs">
+                <span class="font-bold text-emerald-300">Spearman Rank Correlation (&rho;)</span>
+                <span class="text-emerald-400 font-mono font-bold">p = 0.0107 *</span>
+              </div>
+              <div class="text-lg font-extrabold text-white font-mono">&rho; = +0.0941</div>
+              <p class="text-[11px] text-gray-400">
+                Non-parametric test of <strong>monotonic association</strong>. Statistically significant ($p < 0.05$). Indicates a faint positive rank-order tendency for higher listening hours to correlate with higher anxiety ranks.
+              </p>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-gray-950 border border-gray-800 text-[11px] text-gray-400">
+              <strong class="text-gray-200">Statistical Takeaway:</strong> Spearman is more sensitive here because it is robust to non-normal distributions and ordinal rank ties on the discrete 0-10 anxiety scale.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section 5: Interactive Discrete Binomial Distribution Calculator & PMF -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>🎯</span> Interactive Discrete Binomial Distribution Model: $X \sim \text{Binomial}(n, p)$
+            </h4>
+            <p class="text-xs text-gray-400">Probability of observing $k$ high-anxiety respondents in a random sample of size $n$, with base survey rate $p = 0.6027$</p>
+          </div>
+
+          <div class="flex items-center gap-4 text-xs">
+            <div class="flex items-center gap-2">
+              <label class="text-gray-400">Sample Size (n):</label>
+              <input type="range" id="binom-n-slider" min="5" max="20" value="10" oninput="updateBinomialModel()" class="w-24 accent-indigo-500">
+              <span id="binom-n-val" class="font-bold text-white font-mono w-5">10</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <label class="text-gray-400">Target (k):</label>
+              <input type="number" id="binom-k-input" min="0" max="10" value="6" oninput="updateBinomialModel()" class="w-14 bg-gray-900 border border-gray-800 rounded px-2 py-0.5 text-center text-white font-mono">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Dynamic SVG Binomial PMF Bar Plot -->
+          <div class="lg:col-span-8 relative aspect-[16/8] max-h-64 flex items-center justify-center">
+            <svg id="binomial-svg" viewBox="0 0 600 240" class="w-full h-full overflow-visible"></svg>
+          </div>
+
+          <!-- Binomial Parameters & Calculation Output -->
+          <div class="lg:col-span-4 bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-3 text-xs">
+            <div class="text-gray-300 font-semibold border-b border-gray-800 pb-2">Binomial Formulas & Calculated Metrics</div>
+            <div class="space-y-1.5 text-gray-400">
+              <div class="flex justify-between">
+                <span>Formula:</span>
+                <span class="font-mono text-indigo-300">P(X=k) = C(n,k) p^k (1-p)^(n-k)</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Success Prob (p):</span>
+                <span class="font-mono text-white">0.6027 (60.3%)</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Expected Value E[X]:</span>
+                <span id="binom-out-expected" class="font-mono text-emerald-400 font-bold">6.03</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Variance Var(X):</span>
+                <span id="binom-out-variance" class="font-mono text-white">2.395</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Std Dev &sigma;:</span>
+                <span id="binom-out-std" class="font-mono text-white">1.548</span>
+              </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-2 space-y-1">
+              <div class="flex justify-between font-bold text-white">
+                <span>Exact P(X = k):</span>
+                <span id="binom-out-exact" class="text-indigo-400 font-mono text-sm">25.08%</span>
+              </div>
+              <div class="flex justify-between text-gray-300">
+                <span>Cumulative P(X &le; k):</span>
+                <span id="binom-out-cum-le" class="font-mono">61.02%</span>
+              </div>
+              <div class="flex justify-between text-gray-300">
+                <span>Cumulative P(X &ge; k):</span>
+                <span id="binom-out-cum-ge" class="font-mono">64.06%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Bayes' Theorem & Conditional Probabilities -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+          <span>🧠</span> Bayes' Theorem: Posterior Probabilities $P(\text{Genre} \mid \text{High Anxiety})$
+        </h4>
+        <p class="text-xs text-gray-400">
+          Given that a randomly selected survey respondent has High Anxiety ($\text{Anxiety} \ge 6$), what is the probability that their favorite genre is Rock, Pop, or Metal?
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Rock -->
+          <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-2 text-xs">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-red-400 text-sm">🎸 Rock Listeners</span>
+              <span class="font-bold text-white font-mono text-base">27.3%</span>
+            </div>
+            <div class="text-[11px] text-gray-400 space-y-1 code-box">
+              <div>Prior: P(Rock) = 0.2558</div>
+              <div>Likelihood: P(High | Rock) = 0.6436</div>
+              <div>Marginal: P(High Anxiety) = 0.6027</div>
+              <div class="text-indigo-300 pt-1">P(Rock | High) = (0.6436 &times; 0.2558) / 0.6027 = <strong>0.2731</strong></div>
+            </div>
+          </div>
+
+          <!-- Pop -->
+          <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-2 text-xs">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-pink-400 text-sm">🎤 Pop Listeners</span>
+              <span class="font-bold text-white font-mono text-base">17.2%</span>
+            </div>
+            <div class="text-[11px] text-gray-400 space-y-1 code-box">
+              <div>Prior: P(Pop) = 0.1551</div>
+              <div>Likelihood: P(High | Pop) = 0.6667</div>
+              <div>Marginal: P(High Anxiety) = 0.6027</div>
+              <div class="text-indigo-300 pt-1">P(Pop | High) = (0.6667 &times; 0.1551) / 0.6027 = <strong>0.1716</strong></div>
+            </div>
+          </div>
+
+          <!-- Metal -->
+          <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-2 text-xs">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-slate-300 text-sm">🤘 Metal Listeners</span>
+              <span class="font-bold text-white font-mono text-base">11.3%</span>
+            </div>
+            <div class="text-[11px] text-gray-400 space-y-1 code-box">
+              <div>Prior: P(Metal) = 0.1197</div>
+              <div>Likelihood: P(High | Metal) = 0.5682</div>
+              <div>Marginal: P(High Anxiety) = 0.6027</div>
+              <div class="text-indigo-300 pt-1">P(Metal | High) = (0.5682 &times; 0.1197) / 0.6027 = <strong>0.1129</strong></div>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
 
     <!-- ========================================== -->
-    <!-- VIEW 4: RAW SURVEY DATA RECORDS -->
+    <!-- VIEW 6: RAW SURVEY DATA RECORDS -->
     <!-- ========================================== -->
     <div id="view-records" class="hidden space-y-6">
 
@@ -641,7 +1053,6 @@
           </div>
         </div>
 
-        <!-- Table Container -->
         <div class="overflow-x-auto rounded-xl border border-gray-800">
           <table class="w-full text-xs text-left">
             <thead class="text-gray-400 uppercase bg-gray-950 border-b border-gray-800">
@@ -658,13 +1069,10 @@
                 <th class="py-2.5 px-3">Music Effect</th>
               </tr>
             </thead>
-            <tbody id="records-table-body" class="divide-y divide-gray-800 bg-gray-900/40">
-              <!-- Dynamically populated -->
-            </tbody>
+            <tbody id="records-table-body" class="divide-y divide-gray-800 bg-gray-900/40"></tbody>
           </table>
         </div>
 
-        <!-- Pagination Controls -->
         <div class="flex items-center justify-between text-xs text-gray-400 pt-2">
           <span id="records-page-info">Showing 1 to 20 of 188</span>
           <div class="flex items-center gap-2">
@@ -679,23 +1087,44 @@
 
   </main>
 
+  <!-- Image Zoom Modal for R Plots -->
+  <div id="image-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeImageModal()">
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-4xl w-full p-4 overflow-hidden relative" onclick="event.stopPropagation()">
+      <div class="flex justify-between items-center mb-3 pb-2 border-b border-gray-800">
+        <div>
+          <h4 id="modal-title" class="font-bold text-white text-base">R Plot Preview</h4>
+          <span id="modal-subtitle" class="text-xs text-gray-400">Base R Plot</span>
+        </div>
+        <button onclick="closeImageModal()" class="w-8 h-8 rounded-lg bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center text-sm">&times;</button>
+      </div>
+      <div class="bg-gray-950 rounded-xl p-2 flex items-center justify-center max-h-[70vh]">
+        <img id="modal-img" src="" alt="Plot Full View" class="max-h-[68vh] w-auto object-contain rounded-lg">
+      </div>
+      <div class="mt-3 flex justify-between items-center text-xs text-gray-400">
+        <span id="modal-caption">Generated from additional_analysis.R</span>
+        <button onclick="closeImageModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="border-t border-gray-800/80 bg-gray-950 py-4 text-center text-xs text-gray-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="font-bold text-gray-300">AudioMental</span>
         <span>•</span>
-        <span>Kaggle Music & Mental Health (MxMH) Dataset</span>
+        <span>Probability & Statistics Project</span>
+        <span>•</span>
+        <span>Kaggle MxMH Dataset</span>
       </div>
       <div>
-        <span>Zero External Dependencies • Self-Contained SVG Charts</span>
+        <span>Zero External Dependencies • Native Base R Visualizations & SVG Plots</span>
       </div>
     </div>
   </footer>
 
-  <!-- Inline Application Logic -->
+  <!-- Application Logic -->
   <script>
-    // State management
     let DATA = null;
     let selectedGenre = 'Rock';
     let compareGenre1 = 'Rock';
@@ -705,8 +1134,8 @@
     let recordsPage = 1;
     const recordsPerPage = 15;
     let filteredRecords = [];
+    let currentGalleryFilter = 'all';
 
-    // Initialize data from either window.GENRE_DATA or fetch fallback
     window.addEventListener('DOMContentLoaded', () => {
       if (window.GENRE_DATA) {
         DATA = window.GENRE_DATA;
@@ -726,7 +1155,6 @@
     });
 
     function initApp() {
-      // Set global counters
       document.getElementById('global-total').textContent = DATA.global.total_respondents;
       document.getElementById('global-anx').textContent = DATA.global.anxiety.mean + ' / 10';
       document.getElementById('global-dep').textContent = DATA.global.depression.mean + ' / 10';
@@ -735,25 +1163,27 @@
       populateCompareSelects();
       selectGenre(selectedGenre);
       renderRankings('by_anxiety', 'Anxiety (0-10)', 'mean');
+      renderPlotsGallery();
+      renderStatsView();
     }
 
-    // Switch Top Navigation Views
     function switchView(viewName) {
       currentView = viewName;
-      const views = ['deepdive', 'compare', 'rankings', 'records'];
+      const views = ['deepdive', 'compare', 'rankings', 'gallery', 'stats', 'records'];
       views.forEach(v => {
         const el = document.getElementById('view-' + v);
         const tab = document.getElementById('tab-' + v);
-        if (v === viewName) {
-          el.classList.remove('hidden');
-          tab.className = "px-3.5 py-1.5 rounded-lg font-medium transition-all text-white bg-indigo-600 shadow-sm flex items-center gap-1.5";
-        } else {
-          el.classList.add('hidden');
-          tab.className = "px-3.5 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5";
+        if (el && tab) {
+          if (v === viewName) {
+            el.classList.remove('hidden');
+            tab.className = "px-3 py-1.5 rounded-lg font-medium transition-all text-white bg-indigo-600 shadow-sm flex items-center gap-1.5 whitespace-nowrap";
+          } else {
+            el.classList.add('hidden');
+            tab.className = "px-3 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap";
+          }
         }
       });
 
-      // Show/Hide genre selector bar
       const bar = document.getElementById('genre-bar-container');
       if (viewName === 'deepdive' || viewName === 'records') {
         bar.classList.remove('hidden');
@@ -765,10 +1195,386 @@
         updateCompareView();
       } else if (viewName === 'records') {
         initRecordsTable();
+      } else if (viewName === 'stats') {
+        renderStatsView();
+      } else if (viewName === 'gallery') {
+        renderPlotsGallery();
       }
     }
 
-    // Render horizontal genre selection pills
+    // ========================================================
+    // GALLERY OF R PLOTS (NEW TAB 1)
+    // ========================================================
+    function renderPlotsGallery() {
+      const container = document.getElementById('gallery-grid');
+      if (!container || !DATA.r_statistics || !DATA.r_statistics.plots_gallery) return;
+      container.innerHTML = '';
+
+      const plots = DATA.r_statistics.plots_gallery;
+
+      plots.forEach(p => {
+        if (currentGalleryFilter !== 'all') {
+          if (currentGalleryFilter === 'histogram' && p.id !== 'anxiety_histogram') return;
+          if (currentGalleryFilter === 'scatter' && p.id !== 'hours_vs_anxiety') return;
+          if (currentGalleryFilter === 'boxplot' && p.id !== 'anxiety_by_working') return;
+          if (currentGalleryFilter === 'stacked' && p.id !== 'genre_anxiety_stacked_bar') return;
+          if (currentGalleryFilter === 'conditional' && p.id !== 'conditional_probability_genre') return;
+          if (currentGalleryFilter === 'binomial' && p.id !== 'binomial_distribution') return;
+        }
+
+        const card = document.createElement('div');
+        card.className = 'glass-card glass-card-hover rounded-2xl p-5 flex flex-col justify-between space-y-4';
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-semibold uppercase tracking-wider">${p.type}</span>
+              <button onclick="openImageModal('${p.file}', '${p.title}', '${p.type}')" class="text-xs text-gray-400 hover:text-white flex items-center gap-1 bg-gray-900 border border-gray-800 px-2.5 py-1 rounded-lg">
+                <span>🔍</span> Zoom
+              </button>
+            </div>
+            <h4 class="text-base font-bold text-white">${p.title}</h4>
+            <div class="flex gap-2 text-[11px] text-gray-400 mt-1">
+              <span><strong>X:</strong> ${p.x_label}</span>
+              <span>•</span>
+              <span><strong>Y:</strong> ${p.y_label}</span>
+            </div>
+          </div>
+
+          <!-- Plot Image Preview -->
+          <div class="relative bg-gray-950 border border-gray-800/80 rounded-xl overflow-hidden cursor-pointer group" onclick="openImageModal('${p.file}', '${p.title}', '${p.type}')">
+            <img src="${p.file}" alt="${p.title}" class="w-full h-56 object-contain p-2 group-hover:scale-[1.02] transition-transform duration-200">
+            <div class="absolute inset-0 bg-indigo-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1 rounded-full bg-gray-900/90 text-white text-xs font-semibold shadow">Click to Expand</span>
+            </div>
+          </div>
+
+          <!-- Statistical Interpretations -->
+          <div class="space-y-2 text-xs">
+            <div class="bg-gray-900/70 p-3 rounded-xl border border-gray-800">
+              <span class="text-gray-400 font-semibold block mb-0.5">Statistical Finding:</span>
+              <p class="text-gray-200">${p.insight}</p>
+            </div>
+            <div class="bg-gray-900/40 p-2.5 rounded-xl border border-gray-800/60 text-gray-400 text-[11px]">
+              <span class="text-gray-300 font-medium">Academic Context:</span> ${p.interpretation}
+            </div>
+          </div>
+
+          <!-- Collapsible R Code -->
+          <details class="text-xs group">
+            <summary class="cursor-pointer text-indigo-400 font-medium flex items-center gap-1 select-none hover:text-indigo-300">
+              <span>View R Code</span>
+              <span class="text-[10px] text-gray-500">(base R command)</span>
+            </summary>
+            <div class="mt-2 p-2.5 rounded-lg bg-gray-950 border border-gray-800 font-mono text-[11px] text-emerald-400 overflow-x-auto">
+              ${p.r_code}
+            </div>
+          </details>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterGallery(type) {
+      currentGalleryFilter = type;
+      ['all', 'histogram', 'scatter', 'boxplot', 'stacked', 'conditional', 'binomial'].forEach(t => {
+        const btn = document.getElementById('gal-filter-' + t);
+        if (btn) {
+          if (t === type) {
+            btn.className = "px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium";
+          } else {
+            btn.className = "px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium";
+          }
+        }
+      });
+      renderPlotsGallery();
+    }
+
+    function openImageModal(imgSrc, title, subtitle) {
+      const modal = document.getElementById('image-modal');
+      document.getElementById('modal-img').src = imgSrc;
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-subtitle').textContent = subtitle;
+      modal.classList.remove('hidden');
+    }
+
+    function closeImageModal() {
+      document.getElementById('image-modal').classList.add('hidden');
+    }
+
+    // ========================================================
+    // HYPOTHESIS TESTS & DISTRIBUTIONS (NEW TAB 2)
+    // ========================================================
+    function renderStatsView() {
+      renderTDistributionCurve();
+      renderConfidenceIntervalsTable();
+      renderContingencyTable();
+      updateBinomialModel();
+    }
+
+    // Draw SVG Student's t distribution curve with rejection regions and test stat
+    function renderTDistributionCurve() {
+      const svg = document.getElementById('t-dist-svg');
+      if (!svg) return;
+
+      const width = 500, height = 240;
+      const margin = { top: 20, right: 30, bottom: 40, left: 30 };
+      const w = width - margin.left - margin.right;
+      const h = height - margin.top - margin.bottom;
+
+      // Range: t from -4 to +4
+      const tMin = -4, tMax = 4;
+      const tCrit = 1.970;
+      const tObs = -0.9791;
+
+      // Standard t-density with large df is practically standard normal density
+      function tDensity(t) {
+        return (1 / Math.sqrt(2 * Math.PI)) * Math.exp(-0.5 * t * t);
+      }
+
+      const maxDensity = tDensity(0); // ~0.3989
+
+      function scaleX(t) {
+        return margin.left + ((t - tMin) / (tMax - tMin)) * w;
+      }
+      function scaleY(dens) {
+        return margin.top + h - (dens / maxDensity) * (h - 10);
+      }
+
+      let curvePoints = [];
+      let leftRejectionPoints = [];
+      let rightRejectionPoints = [];
+      let centerPoints = [];
+
+      const steps = 160;
+      for (let i = 0; i <= steps; i++) {
+        const t = tMin + (i / steps) * (tMax - tMin);
+        const y = tDensity(t);
+        const px = scaleX(t);
+        const py = scaleY(y);
+        curvePoints.push(`${px},${py}`);
+
+        if (t <= -tCrit) {
+          leftRejectionPoints.push(`${px},${py}`);
+        } else if (t >= tCrit) {
+          rightRejectionPoints.push(`${px},${py}`);
+        } else {
+          centerPoints.push(`${px},${py}`);
+        }
+      }
+
+      // Rejection polygon left
+      const xLeftMin = scaleX(tMin);
+      const xLeftCrit = scaleX(-tCrit);
+      const yZero = scaleY(0);
+      let leftPoly = `${xLeftMin},${yZero} ` + leftRejectionPoints.join(' ') + ` ${xLeftCrit},${yZero}`;
+
+      // Rejection polygon right
+      const xRightCrit = scaleX(tCrit);
+      const xRightMax = scaleX(tMax);
+      let rightPoly = `${xRightCrit},${yZero} ` + rightRejectionPoints.join(' ') + ` ${xRightMax},${yZero}`;
+
+      // Acceptance polygon center
+      let centerPoly = `${xLeftCrit},${yZero} ` + centerPoints.join(' ') + ` ${xRightCrit},${yZero}`;
+
+      // Obs pos
+      const xObs = scaleX(tObs);
+      const yObs = scaleY(tDensity(tObs));
+
+      svg.innerHTML = `
+        <!-- Acceptance Region Shading -->
+        <polygon points="${centerPoly}" fill="#6366f1" fill-opacity="0.15" />
+
+        <!-- Left & Right Rejection Regions -->
+        <polygon points="${leftPoly}" fill="#f43f5e" fill-opacity="0.5" />
+        <polygon points="${rightPoly}" fill="#f43f5e" fill-opacity="0.5" />
+
+        <!-- Horizontal baseline axis -->
+        <line x1="${margin.left}" y1="${yZero}" x2="${margin.left + w}" y2="${yZero}" stroke="#374151" stroke-width="1.5" />
+
+        <!-- Main Bell Curve Line -->
+        <polyline points="${curvePoints.join(' ')}" fill="none" stroke="#818cf8" stroke-width="2.5" />
+
+        <!-- Critical threshold lines -->
+        <line x1="${scaleX(-tCrit)}" y1="${yZero}" x2="${scaleX(-tCrit)}" y2="${scaleY(tDensity(-tCrit))}" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="3,3" />
+        <line x1="${scaleX(tCrit)}" y1="${yZero}" x2="${scaleX(tCrit)}" y2="${scaleY(tDensity(tCrit))}" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="3,3" />
+
+        <!-- Critical labels -->
+        <text x="${scaleX(-tCrit)}" y="${yZero + 16}" fill="#f43f5e" font-size="10" font-weight="bold" text-anchor="middle">-1.97</text>
+        <text x="${scaleX(tCrit)}" y="${yZero + 16}" fill="#f43f5e" font-size="10" font-weight="bold" text-anchor="middle">+1.97</text>
+        <text x="${scaleX(0)}" y="${yZero + 16}" fill="#9ca3af" font-size="10" text-anchor="middle">0 (Mean)</text>
+
+        <!-- Test Statistic Marker (t = -0.979) -->
+        <line x1="${xObs}" y1="${margin.top}" x2="${xObs}" y2="${yZero}" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4,2" />
+        <circle cx="${xObs}" cy="${yObs}" r="5" fill="#fbbf24" stroke="#ffffff" stroke-width="1.5" />
+        <rect x="${xObs - 55}" y="${margin.top - 5}" width="110" height="22" rx="4" fill="#1f2937" stroke="#fbbf24" stroke-width="1" />
+        <text x="${xObs}" y="${margin.top + 10}" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Observed t = -0.979</text>
+
+        <!-- Rejection Region Labels -->
+        <text x="${scaleX(-3.2)}" y="${yZero - 20}" fill="#f43f5e" font-size="9" font-weight="bold" text-anchor="middle">&alpha;/2 = 2.5%</text>
+        <text x="${scaleX(3.2)}" y="${yZero - 20}" fill="#f43f5e" font-size="9" font-weight="bold" text-anchor="middle">&alpha;/2 = 2.5%</text>
+        <text x="${scaleX(0)}" y="${yZero - 40}" fill="#c7d2fe" font-size="11" font-weight="bold" text-anchor="middle">Fail to Reject H₀ (95% Region)</text>
+      `;
+    }
+
+    // Render Confidence Intervals Table
+    function renderConfidenceIntervalsTable() {
+      const tbody = document.getElementById('ci-table-body');
+      if (!tbody || !DATA.r_statistics || !DATA.r_statistics.confidence_intervals) return;
+      tbody.innerHTML = '';
+
+      DATA.r_statistics.confidence_intervals.forEach(ci => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-800/40 transition-colors';
+
+        // Normalized progress bar inside range 0 to 10
+        const leftPct = (ci.ci_lower / 10) * 100;
+        const widthPct = ((ci.ci_upper - ci.ci_lower) / 10) * 100;
+
+        tr.innerHTML = `
+          <td class="py-2.5 px-3 font-semibold text-white">${ci.variable}</td>
+          <td class="py-2.5 px-3">
+            <span class="px-2 py-0.5 rounded text-[11px] font-medium ${ci.while_working === 'Yes' ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20' : 'bg-gray-700/30 text-gray-300 border border-gray-700'}">
+              ${ci.while_working === 'Yes' ? 'Yes (Work Listener)' : 'No (Non-Work)'}
+            </span>
+          </td>
+          <td class="py-2.5 px-3 text-gray-400 font-mono">${ci.count}</td>
+          <td class="py-2.5 px-3 font-bold text-white font-mono">${ci.mean.toFixed(3)}</td>
+          <td class="py-2.5 px-3 text-gray-400 font-mono">&plusmn; ${ci.margin_of_error.toFixed(3)}</td>
+          <td class="py-2.5 px-3 font-mono text-indigo-300 font-bold">[${ci.ci_lower.toFixed(3)}, ${ci.ci_upper.toFixed(3)}]</td>
+          <td class="py-2.5 px-3 w-40">
+            <div class="h-2 rounded-full bg-gray-800 relative overflow-hidden">
+              <div style="left: ${leftPct}%; width: ${Math.max(4, widthPct)}%" class="absolute top-0 bottom-0 bg-indigo-500 rounded-full"></div>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Chi Square Contingency Table
+    function renderContingencyTable() {
+      const tbody = document.getElementById('contingency-table-body');
+      if (!tbody || !DATA.r_statistics || !DATA.r_statistics.contingency_table) return;
+      tbody.innerHTML = '';
+
+      DATA.r_statistics.contingency_table.forEach(r => {
+        const genre = r[''] || r['Genre'] || 'Unknown';
+        const high = parseInt(r['High anxiety'] || 0);
+        const notHigh = parseInt(r['Not high anxiety'] || 0);
+        const total = high + notHigh;
+        const pct = total > 0 ? ((high / total) * 100).toFixed(1) : '0.0';
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-800/40 transition-colors';
+        tr.innerHTML = `
+          <td class="py-2 px-3 font-semibold text-white">${genre}</td>
+          <td class="py-2 px-3 font-mono font-bold text-red-400">${high}</td>
+          <td class="py-2 px-3 font-mono text-emerald-400">${notHigh}</td>
+          <td class="py-2 px-3 font-mono text-gray-300">${total}</td>
+          <td class="py-2 px-3 font-mono font-bold text-white">${pct}%</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Interactive Binomial Model & SVG Plot
+    function updateBinomialModel() {
+      const n = parseInt(document.getElementById('binom-n-slider').value);
+      const kInput = document.getElementById('binom-k-input');
+      kInput.max = n;
+      let k = parseInt(kInput.value);
+      if (k > n) { k = n; kInput.value = n; }
+      if (k < 0) { k = 0; kInput.value = 0; }
+
+      document.getElementById('binom-n-val').textContent = n;
+
+      const p = 0.6027; // survey base rate of high anxiety
+
+      // Math calculations
+      function factorial(x) {
+        if (x <= 1) return 1;
+        let res = 1;
+        for (let i = 2; i <= x; i++) res *= i;
+        return res;
+      }
+      function comb(n, r) {
+        return factorial(n) / (factorial(r) * factorial(n - r));
+      }
+      function bPmf(n, r, p) {
+        return comb(n, r) * Math.pow(p, r) * Math.pow(1 - p, n - r);
+      }
+
+      const probs = [];
+      let exactProb = 0;
+      let cumLe = 0;
+      let cumGe = 0;
+
+      for (let i = 0; i <= n; i++) {
+        const pr = bPmf(n, i, p);
+        probs.push({ i, pr });
+        if (i === k) exactProb = pr;
+        if (i <= k) cumLe += pr;
+        if (i >= k) cumGe += pr;
+      }
+
+      const expected = n * p;
+      const variance = n * p * (1 - p);
+      const std = Math.sqrt(variance);
+
+      document.getElementById('binom-out-expected').textContent = expected.toFixed(2);
+      document.getElementById('binom-out-variance').textContent = variance.toFixed(3);
+      document.getElementById('binom-out-std').textContent = std.toFixed(3);
+      document.getElementById('binom-out-exact').textContent = (exactProb * 100).toFixed(2) + '%';
+      document.getElementById('binom-out-cum-le').textContent = (cumLe * 100).toFixed(2) + '%';
+      document.getElementById('binom-out-cum-ge').textContent = (cumGe * 100).toFixed(2) + '%';
+
+      // Draw SVG PMF Bars
+      const svg = document.getElementById('binomial-svg');
+      if (!svg) return;
+
+      const width = 600, height = 240;
+      const margin = { top: 20, right: 20, bottom: 35, left: 40 };
+      const w = width - margin.left - margin.right;
+      const h = height - margin.top - margin.bottom;
+
+      const maxProb = Math.max(...probs.map(x => x.pr), 0.3);
+      const barWidth = Math.min(35, (w / (n + 1)) * 0.7);
+
+      let html = '';
+
+      // Horizontal grid lines (0.05, 0.10, 0.15, 0.20, 0.25, 0.30)
+      for (let pStep = 0.05; pStep <= maxProb + 0.05; pStep += 0.05) {
+        const y = margin.top + h - (pStep / maxProb) * h;
+        html += `<line x1="${margin.left}" y1="${y}" x2="${margin.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1" />`;
+        html += `<text x="${margin.left - 6}" y="${y + 3}" fill="#6b7280" font-size="9" text-anchor="end">${(pStep * 100).toFixed(0)}%</text>`;
+      }
+
+      // Base axis
+      html += `<line x1="${margin.left}" y1="${margin.top + h}" x2="${margin.left + w}" y2="${margin.top + h}" stroke="#374151" stroke-width="1.5" />`;
+
+      // Draw bars
+      probs.forEach(item => {
+        const xCenter = margin.left + ((item.i + 0.5) / (n + 1)) * w;
+        const x = xCenter - barWidth / 2;
+        const barHeight = (item.pr / maxProb) * h;
+        const y = margin.top + h - barHeight;
+
+        const isTarget = (item.i === k);
+        const barColor = isTarget ? '#818cf8' : '#10b981';
+
+        html += `
+          <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="3" fill="${barColor}" fill-opacity="${isTarget ? '1' : '0.75'}" stroke="${isTarget ? '#ffffff' : '#059669'}" stroke-width="${isTarget ? '1.5' : '1'}" />
+          <text x="${xCenter}" y="${y - 4}" fill="${isTarget ? '#ffffff' : '#9ca3af'}" font-size="9" font-weight="${isTarget ? 'bold' : 'normal'}" text-anchor="middle">${(item.pr * 100).toFixed(1)}%</text>
+          <text x="${xCenter}" y="${margin.top + h + 15}" fill="${isTarget ? '#ffffff' : '#6b7280'}" font-size="10" font-weight="${isTarget ? 'bold' : 'normal'}" text-anchor="middle">k=${item.i}</text>
+        `;
+      });
+
+      svg.innerHTML = html;
+    }
+
+    // ========================================================
+    // PRE-EXISTING TABS LOGIC
+    // ========================================================
     function renderGenrePills() {
       const container = document.getElementById('genre-pills');
       const search = (document.getElementById('genre-search').value || '').toLowerCase();
@@ -799,14 +1605,12 @@
       renderGenrePills();
     }
 
-    // Select genre and refresh deepdive view
     function selectGenre(genreName) {
       selectedGenre = genreName;
       renderGenrePills();
       const g = DATA.genres[genreName];
       if (!g) return;
 
-      // Hero Section
       document.getElementById('hero-emoji').textContent = g.emoji;
       document.getElementById('hero-title').textContent = g.name;
       document.getElementById('hero-count-badge').textContent = `${g.count} listeners (${g.pct_of_total}%)`;
@@ -823,7 +1627,6 @@
       document.getElementById('hero-streaming').textContent = topStreaming.name;
       document.getElementById('hero-streaming-pct').textContent = `${topStreaming.pct}% share`;
 
-      // Hero Dynamic Summary
       const anxDiff = (g.anxiety.mean - DATA.global.anxiety.mean).toFixed(2);
       const anxPctDiff = Math.abs(Math.round(((g.anxiety.mean - DATA.global.anxiety.mean) / DATA.global.anxiety.mean) * 100));
       const anxDirection = anxDiff >= 0 ? `${anxPctDiff}% higher than` : `${anxPctDiff}% lower than`;
@@ -834,21 +1637,17 @@
         Remarkably, <strong class="text-emerald-400">${g.effects_pct.Improve}%</strong> report that music directly improves their mental state, while only <strong class="text-rose-400">${g.effects_pct.Worsen}%</strong> report negative effects.
       `;
 
-      // Hero glow color
       const glow = document.getElementById('hero-glow');
       glow.style.backgroundColor = g.color || '#6366f1';
 
-      // KPI Cards
       renderKpiCard('anxiety', g.anxiety, DATA.global.anxiety, g.high_anxiety_rate, g.distributions.anxiety);
       renderKpiCard('depression', g.depression, DATA.global.depression, g.high_depression_rate, g.distributions.depression);
-      renderKpiCard('insomnia', g.insomnia, DATA.global.insomnia, null, g.distributions.hours); // using hours for distribution
+      renderKpiCard('insomnia', g.insomnia, DATA.global.insomnia, null, g.distributions.hours);
       renderKpiCard('ocd', g.ocd, DATA.global.ocd, null, null);
 
-      // Radar & Donut Charts
       renderRadarChart(g);
       renderDonutChart(g);
 
-      // Habits & Demographics
       document.getElementById('habit-work').textContent = `${g.habits.working_pct}%`;
       document.getElementById('habit-instrument').textContent = `${g.habits.instrumentalist_pct}%`;
       document.getElementById('habit-composer').textContent = `${g.habits.composer_pct}%`;
@@ -857,18 +1656,13 @@
       document.getElementById('habit-work-anx').textContent = `${g.habits.working_anxiety || 'N/A'} / 10`;
       document.getElementById('habit-nowork-anx').textContent = `${g.habits.non_working_anxiety || 'N/A'} / 10`;
 
-      // Hours bars
       renderHabitHoursBars(g.distributions.hours);
       renderStreamingBars(g.streaming_services);
-
-      // Cross Genre Affinity
       renderCrossGenreAffinity(g);
 
-      // Statistical notes
       document.getElementById('stat-conditional-prob').textContent = `P(High Anxiety \u2265 6 | ${g.name}) = ${ (g.high_anxiety_rate / 100).toFixed(3) }. Exactly ${g.high_anxiety_rate}% of surveyed ${g.name} listeners scored \u2265 6 on anxiety.`;
       document.getElementById('stat-sample-size').textContent = `Sample size: n = ${g.count} respondents (${g.pct_of_total}% of all 735 surveyed). Anxiety standard deviation: ${g.anxiety.std}, Insomnia: ${g.insomnia.std}.`;
 
-      // If in records view, update records
       if (currentView === 'records') {
         initRecordsTable();
       }
@@ -904,7 +1698,6 @@
         if (stdEl) stdEl.textContent = stats.std.toFixed(2);
       }
 
-      // Severity bar
       if (barEl && distList && distList.length >= 3) {
         barEl.innerHTML = `
           <div style="width: ${distList[0].pct}%" title="Low: ${distList[0].pct}%" class="bg-emerald-500 h-full"></div>
@@ -914,7 +1707,6 @@
       }
     }
 
-    // Render Pure SVG Radar / Spider Plot
     function renderRadarChart(g) {
       const svg = document.getElementById('radar-svg');
       const cx = 200, cy = 160, maxR = 110;
@@ -925,7 +1717,6 @@
         { label: 'OCD', key: 'ocd' }
       ];
 
-      // Update radar legends
       document.getElementById('radar-legend-genre-color').style.backgroundColor = g.color || '#6366f1';
       document.getElementById('radar-legend-genre-name').textContent = g.name;
 
@@ -936,7 +1727,6 @@
 
       let html = '';
 
-      // Draw concentric grid circles / polygons (levels 2, 4, 6, 8, 10)
       [2, 4, 6, 8, 10].forEach(level => {
         const r = (level / 10) * maxR;
         const pts = axes.map((_, i) => {
@@ -948,21 +1738,18 @@
         html += `<text x="${cx + 4}" y="${cy - r + 3}" fill="#4b5563" font-size="9">${level}</text>`;
       });
 
-      // Draw Axis Lines & Labels
       axes.forEach((axis, i) => {
         const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
         const x2 = cx + maxR * Math.cos(angle);
         const y2 = cy - maxR * Math.sin(angle);
         html += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#374151" stroke-width="1.5" />`;
 
-        // Labels
         const lx = cx + (maxR + 24) * Math.cos(angle);
         const ly = cy - (maxR + 18) * Math.sin(angle);
         const textAnchor = Math.abs(Math.cos(angle)) < 0.2 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
         html += `<text x="${lx}" y="${ly}" fill="#e5e7eb" font-size="11" font-weight="600" text-anchor="${textAnchor}">${axis.label}</text>`;
       });
 
-      // Draw Global Baseline Polygon
       const globalPts = axes.map((axis, i) => {
         const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
         const val = DATA.global[axis.key].mean;
@@ -971,7 +1758,6 @@
       }).join(' ');
       html += `<polygon points="${globalPts}" fill="rgba(156, 163, 175, 0.15)" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,4"/>`;
 
-      // Draw Selected Genre Polygon
       const genrePts = axes.map((axis, i) => {
         const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
         const val = g[axis.key].mean;
@@ -982,7 +1768,6 @@
       const genreColor = g.color || '#6366f1';
       html += `<polygon points="${genrePts}" fill="${genreColor}" fill-opacity="0.35" stroke="${genreColor}" stroke-width="2.5"/>`;
 
-      // Draw vertices dots
       axes.forEach((axis, i) => {
         const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
         const val = g[axis.key].mean;
@@ -995,7 +1780,6 @@
       svg.innerHTML = html;
     }
 
-    // Render Pure SVG Donut Chart
     function renderDonutChart(g) {
       const svg = document.getElementById('donut-svg');
       const imp = g.effects_pct.Improve;
@@ -1032,7 +1816,6 @@
       `;
     }
 
-    // Render Daily Hours Horizontal Bars
     function renderHabitHoursBars(hoursDist) {
       const container = document.getElementById('habit-hours-bars');
       container.innerHTML = '';
@@ -1052,7 +1835,6 @@
       });
     }
 
-    // Render Streaming Breakdown
     function renderStreamingBars(services) {
       const container = document.getElementById('habit-streaming-bars');
       container.innerHTML = '';
@@ -1072,7 +1854,6 @@
       });
     }
 
-    // Render Cross-Genre Affinity Map
     function renderCrossGenreAffinity(g) {
       document.getElementById('affinity-genre-title').textContent = g.name;
       const container = document.getElementById('cross-genre-bars');
@@ -1107,9 +1888,6 @@
       });
     }
 
-    // ==========================================
-    // VIEW 2 LOGIC: HEAD-TO-HEAD COMPARISON
-    // ==========================================
     function populateCompareSelects() {
       const s1 = document.getElementById('compare-select-1');
       const s2 = document.getElementById('compare-select-2');
@@ -1164,7 +1942,6 @@
 
       let html = '';
 
-      // Grid rings
       [2, 4, 6, 8, 10].forEach(level => {
         const r = (level / 10) * maxR;
         const pts = axes.map((_, i) => {
@@ -1174,7 +1951,6 @@
         html += `<polygon points="${pts}" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="3,3"/>`;
       });
 
-      // Axes
       axes.forEach((axis, i) => {
         const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
         const x2 = cx + maxR * Math.cos(angle);
@@ -1186,7 +1962,6 @@
         html += `<text x="${lx}" y="${ly}" fill="#e5e7eb" font-size="11" font-weight="600" text-anchor="${textAnchor}">${axis.label}</text>`;
       });
 
-      // Polygon 1
       const pts1 = axes.map((axis, i) => {
         const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
         const r = (g1[axis.key].mean / 10) * maxR;
@@ -1195,7 +1970,6 @@
       const col1 = g1.color || '#ef4444';
       html += `<polygon points="${pts1}" fill="${col1}" fill-opacity="0.3" stroke="${col1}" stroke-width="2.5"/>`;
 
-      // Polygon 2
       const pts2 = axes.map((axis, i) => {
         const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
         const r = (g2[axis.key].mean / 10) * maxR;
@@ -1283,14 +2057,10 @@
       });
     }
 
-    // ==========================================
-    // VIEW 3 LOGIC: GLOBAL RANKINGS
-    // ==========================================
     function renderRankings(metricKey, title, type) {
       currentRankingMetric = metricKey;
       document.getElementById('ranking-metric-desc').textContent = `Ranked by ${title}`;
 
-      // Update button styles
       ['anxiety', 'depression', 'insomnia', 'ocd', 'hours', 'improve', 'count'].forEach(k => {
         const btn = document.getElementById(`rank-btn-${k}`);
         if (metricKey.includes(k) || (k === 'improve' && metricKey.includes('improve')) || (k === 'count' && metricKey.includes('count'))) {
@@ -1333,9 +2103,6 @@
       });
     }
 
-    // ==========================================
-    // VIEW 4 LOGIC: RAW SURVEY RECORDS TABLE
-    // ==========================================
     function initRecordsTable() {
       const g = DATA.genres[selectedGenre];
       if (!g) return;

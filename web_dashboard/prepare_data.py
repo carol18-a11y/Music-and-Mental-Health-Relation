@@ -334,11 +334,233 @@ def process():
         'by_improve_rate': sorted([{'name': g, 'val': genre_data[g]['effects_pct']['Improve'], 'sub': f"n={genre_data[g]['count']}"} for g in genres_list], key=lambda x: x['val'], reverse=True)
     }
 
+    # Load R Statistical Analysis Tables
+    tables_dir = os.path.join(repo_dir, 'R_analysis', 'tables')
+    r_stats = {
+        'descriptive': [],
+        'confidence_intervals': [],
+        't_test': {},
+        'chi_square': {},
+        'correlation': [],
+        'binomial': [],
+        'basic_probability': [],
+        'conditional_probability': [],
+        'contingency_table': [],
+        'bayes': [
+            {'genre': 'Rock', 'prior': 0.2558, 'likelihood': 0.6436, 'posterior': 0.2731, 'pct': '27.3%'},
+            {'genre': 'Pop', 'prior': 0.1551, 'likelihood': 0.6667, 'posterior': 0.1716, 'pct': '17.2%'},
+            {'genre': 'Metal', 'prior': 0.1197, 'likelihood': 0.5682, 'posterior': 0.1129, 'pct': '11.3%'}
+        ],
+        'plots_gallery': [
+            {
+                'id': 'anxiety_histogram',
+                'title': 'Anxiety Score Distribution',
+                'type': 'Frequency Histogram & Density',
+                'file': 'r_plots/anxiety_histogram.png',
+                'x_label': 'Self-Reported Anxiety Score (0 to 10)',
+                'y_label': 'Number of Respondents',
+                'r_code': 'hist(analysis_data$Anxiety, breaks = seq(-0.5, 10.5, by = 1), col = "lightblue", border = "black")',
+                'insight': 'Multimodal distribution with heavy concentration in the high anxiety spectrum (scores 6-8). Mean is 5.83, median is 6.0, standard deviation is 2.79.',
+                'interpretation': 'Shows that over 60.3% of the surveyed sample experiences elevated anxiety (>= 6/10), justifying the binary thresholding for conditional probability models.'
+            },
+            {
+                'id': 'hours_vs_anxiety',
+                'title': 'Listening Hours vs. Anxiety',
+                'type': 'Bivariate Scatter Plot & OLS Regression',
+                'file': 'r_plots/hours_vs_anxiety.png',
+                'x_label': 'Daily Listening Hours',
+                'y_label': 'Anxiety Score (0-10)',
+                'r_code': 'plot(cor_data$Hours.per.day, cor_data$Anxiety, pch = 19, col = "steelblue"); abline(lm(Anxiety ~ Hours.per.day), lwd = 2)',
+                'insight': 'Near-flat linear regression slope. Pearson correlation r = 0.050 (p = 0.179, not statistically significant at alpha = 0.05).',
+                'interpretation': 'Linear regression fails to find evidence that higher daily music consumption directly increases anxiety. However, Spearman rank correlation detects a weak positive monotonic trend (rho = 0.094, p = 0.011).'
+            },
+            {
+                'id': 'anxiety_by_working',
+                'title': 'Anxiety by Work Listening Status',
+                'type': 'Two-Sample Comparative Boxplot',
+                'file': 'r_plots/anxiety_by_working.png',
+                'x_label': 'Listen While Working? (Yes / No)',
+                'y_label': 'Anxiety Score (0-10)',
+                'r_code': 'boxplot(Anxiety ~ While.working, data = test_data, col = c("lightblue", "lightgreen"))',
+                'insight': 'Both groups exhibit an identical median score of 6.0 and closely matching interquartile ranges (IQR).',
+                'interpretation': 'Welch two-sample t-test (t = -0.9791, p = 0.3285) fails to reject the null hypothesis, demonstrating that anxiety does not significantly differ between workplace listeners and non-workplace listeners.'
+            },
+            {
+                'id': 'genre_anxiety_stacked_bar',
+                'title': 'Anxiety Group by Music Genre',
+                'type': 'Stacked Categorical Bar Chart (Contingency)',
+                'file': 'r_plots/genre_anxiety_stacked_bar.png',
+                'x_label': 'Favorite Music Genre',
+                'y_label': 'Number of Respondents',
+                'r_code': 'barplot(t(chi_table), beside = FALSE, legend.text = TRUE, col = c("lightblue", "salmon"))',
+                'insight': 'Compares the counts of High Anxiety (>=6) vs Normal Anxiety across top genres (Classical, EDM, Metal, Pop, Rock, Video game music, Other).',
+                'interpretation': 'Chi-Square test of independence yields X-squared = 6.9182, df = 6, p = 0.3285. We fail to reject H0, meaning music genre preference and high anxiety classification are statistically independent.'
+            },
+            {
+                'id': 'conditional_probability_genre',
+                'title': 'Conditional Probability P(High Anxiety | Genre)',
+                'type': 'Categorical Conditional Probability Bar Chart',
+                'file': 'r_plots/conditional_probability_genre.png',
+                'x_label': 'Music Genre',
+                'y_label': 'P(High Anxiety | Genre)',
+                'r_code': 'barplot(conditional_probability$P_High_Anxiety, names.arg = conditional_probability$Genre, ylim = c(0, 1), col = "skyblue")',
+                'insight': 'Ranks genres by conditional likelihood of reporting high anxiety. Folk (0.767) and Lofi (0.700) lead, followed by Pop (0.667) and Rock (0.644).',
+                'interpretation': 'Useful for Bayesian conditioning: while Folk has highest conditional probability, Rock has far larger sample size, making Rock responsible for the greatest absolute share of high-anxiety listeners.'
+            },
+            {
+                'id': 'binomial_distribution',
+                'title': 'Binomial Probability Distribution PMF',
+                'type': 'Discrete Probability Mass Function (n=10, p=0.6027)',
+                'file': 'r_plots/binomial_distribution.png',
+                'x_label': 'Number of High-Anxiety Respondents (k)',
+                'y_label': 'Probability P(X = k)',
+                'r_code': 'barplot(binomial_results$Probability, names.arg = binomial_results$High_Anxiety_Count, col = "lightgreen", border = "black")',
+                'insight': 'Models random variable X ~ Binomial(n=10, p=0.6027). Expected value E[X] = np = 6.03. Peak probability occurs at k = 6 with P(X = 6) = 0.2508.',
+                'interpretation': 'Demonstrates practical application of the Binomial PMF formula: P(X=k) = C(n,k) * p^k * (1-p)^(n-k). Extremely low probability (< 0.0001) of finding 0 high-anxiety respondents in a random sample of 10.'
+            }
+        ]
+    }
+
+    if os.path.exists(tables_dir):
+        # Descriptive
+        descriptive_file = os.path.join(tables_dir, 'descriptive_statistics.csv')
+        if os.path.exists(descriptive_file):
+            with open(descriptive_file, encoding='utf-8') as f:
+                r_stats['descriptive'] = [
+                    {
+                        'variable': r['Variable'],
+                        'count': int(r['Count']),
+                        'mean': round(float(r['Mean']), 3),
+                        'median': float(r['Median']),
+                        'variance': round(float(r['Variance']), 3),
+                        'std': round(float(r['Standard_Deviation']), 3),
+                        'min': float(r['Minimum']),
+                        'max': float(r['Maximum'])
+                    }
+                    for r in csv.DictReader(f)
+                ]
+
+        # Confidence intervals
+        ci_file = os.path.join(tables_dir, 'confidence_intervals.csv')
+        if os.path.exists(ci_file):
+            with open(ci_file, encoding='utf-8') as f:
+                r_stats['confidence_intervals'] = [
+                    {
+                        'variable': r['Variable'],
+                        'while_working': r['While_Working'],
+                        'count': int(r['Count']),
+                        'mean': round(float(r['Mean']), 3),
+                        'ci_lower': round(float(r['CI_Lower']), 3),
+                        'ci_upper': round(float(r['CI_Upper']), 3),
+                        'margin_of_error': round((float(r['CI_Upper']) - float(r['CI_Lower'])) / 2.0, 3)
+                    }
+                    for r in csv.DictReader(f)
+                ]
+
+        # T-test
+        ttest_file = os.path.join(tables_dir, 't_test_results.csv')
+        if os.path.exists(ttest_file):
+            with open(ttest_file, encoding='utf-8') as f:
+                t_row = next(csv.DictReader(f))
+                r_stats['t_test'] = {
+                    'test': t_row['Test'],
+                    't_stat': round(float(t_row['T_Statistic']), 4),
+                    'df': round(float(t_row['Degrees_of_Freedom']), 2),
+                    'p_val': round(float(t_row['P_Value']), 4),
+                    'ci_lower': round(float(t_row['CI_Lower']), 4),
+                    'ci_upper': round(float(t_row['CI_Upper']), 4),
+                    'h0': 'Mean anxiety is equal between workplace listeners and non-workplace listeners (μ_work - μ_nowork = 0)',
+                    'h1': 'Mean anxiety differs between workplace listeners and non-workplace listeners (μ_work - μ_nowork ≠ 0)',
+                    'alpha': 0.05,
+                    'decision': 'Fail to reject H₀',
+                    'conclusion': 'No statistically significant difference in anxiety scores between respondents who listen while working and those who do not (t = -0.9791, p = 0.3285 > 0.05, 95% CI [-0.7723, 0.2595] contains 0).'
+                }
+
+        # Chi square
+        chi_file = os.path.join(tables_dir, 'chi_square_results.csv')
+        if os.path.exists(chi_file):
+            with open(chi_file, encoding='utf-8') as f:
+                c_row = next(csv.DictReader(f))
+                r_stats['chi_square'] = {
+                    'test': c_row['Test'],
+                    'chi_square': round(float(c_row['Chi_Square']), 4),
+                    'df': int(c_row['Degrees_of_Freedom']),
+                    'p_val': round(float(c_row['P_Value']), 4),
+                    'cramer_v': 0.097,
+                    'h0': 'Favorite music genre and anxiety severity level (High vs Normal) are independent',
+                    'h1': 'Favorite music genre and anxiety severity level are dependent / associated',
+                    'alpha': 0.05,
+                    'decision': 'Fail to reject H₀',
+                    'conclusion': 'There is insufficient evidence to conclude an association between preferred music genre and high anxiety classification (χ² = 6.9182, df = 6, p = 0.3285 > 0.05).'
+                }
+
+        # Chi square contingency table
+        ctable_file = os.path.join(tables_dir, 'chi_square_contingency_table.csv')
+        if os.path.exists(ctable_file):
+            with open(ctable_file, encoding='utf-8') as f:
+                r_stats['contingency_table'] = list(csv.DictReader(f))
+
+        # Correlation
+        cor_file = os.path.join(tables_dir, 'correlation_results.csv')
+        if os.path.exists(cor_file):
+            with open(cor_file, encoding='utf-8') as f:
+                r_stats['correlation'] = [
+                    {
+                        'method': r['Method'],
+                        'correlation': round(float(r['Correlation']), 4),
+                        'p_value': round(float(r['P_Value']), 4),
+                        'significant_05': float(r['P_Value']) < 0.05
+                    }
+                    for r in csv.DictReader(f)
+                ]
+
+        # Binomial
+        bin_file = os.path.join(tables_dir, 'binomial_distribution.csv')
+        if os.path.exists(bin_file):
+            with open(bin_file, encoding='utf-8') as f:
+                r_stats['binomial'] = [
+                    {
+                        'k': int(r['High_Anxiety_Count']),
+                        'prob': round(float(r['Probability']), 5),
+                        'pct': round(float(r['Probability']) * 100, 2)
+                    }
+                    for r in csv.DictReader(f)
+                ]
+
+        # Conditional probability
+        cond_file = os.path.join(tables_dir, 'conditional_probability.csv')
+        if os.path.exists(cond_file):
+            with open(cond_file, encoding='utf-8') as f:
+                r_stats['conditional_probability'] = [
+                    {
+                        'genre': r['Genre'],
+                        'count': int(r['Count']),
+                        'p_high_anxiety': round(float(r['P_High_Anxiety']), 4),
+                        'pct': round(float(r['P_High_Anxiety']) * 100, 1)
+                    }
+                    for r in csv.DictReader(f)
+                ]
+
+        # Basic probability
+        basic_file = os.path.join(tables_dir, 'basic_probability.csv')
+        if os.path.exists(basic_file):
+            with open(basic_file, encoding='utf-8') as f:
+                r_stats['basic_probability'] = [
+                    {
+                        'event': r['Event'],
+                        'count': int(r['Count']),
+                        'prob': round(float(r['Probability']), 4),
+                        'pct': round(float(r['Probability']) * 100, 1)
+                    }
+                    for r in csv.DictReader(f)
+                ]
+
     full_payload = {
         'global': global_data,
         'genres': genre_data,
         'rankings': rankings,
-        'all_genre_names': genres_list
+        'all_genre_names': genres_list,
+        'r_statistics': r_stats
     }
 
     # Save to JSON in the web_dashboard directory

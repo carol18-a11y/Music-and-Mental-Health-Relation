@@ -14440,5 +14440,479 @@
     "Rap",
     "Rock",
     "Video game music"
-  ]
+  ],
+  "r_statistics": {
+    "descriptive": [
+      {
+        "variable": "Age",
+        "count": 735,
+        "mean": 25.207,
+        "median": 21.0,
+        "variance": 145.322,
+        "std": 12.055,
+        "min": 10.0,
+        "max": 89.0
+      },
+      {
+        "variable": "Hours.per.day",
+        "count": 735,
+        "mean": 3.574,
+        "median": 3.0,
+        "variance": 9.182,
+        "std": 3.03,
+        "min": 0.0,
+        "max": 24.0
+      },
+      {
+        "variable": "Anxiety",
+        "count": 735,
+        "mean": 5.833,
+        "median": 6.0,
+        "variance": 7.798,
+        "std": 2.793,
+        "min": 0.0,
+        "max": 10.0
+      },
+      {
+        "variable": "Depression",
+        "count": 735,
+        "mean": 4.799,
+        "median": 5.0,
+        "variance": 9.182,
+        "std": 3.03,
+        "min": 0.0,
+        "max": 10.0
+      },
+      {
+        "variable": "Insomnia",
+        "count": 735,
+        "mean": 3.741,
+        "median": 3.0,
+        "variance": 9.549,
+        "std": 3.09,
+        "min": 0.0,
+        "max": 10.0
+      },
+      {
+        "variable": "OCD",
+        "count": 735,
+        "mean": 2.631,
+        "median": 2.0,
+        "variance": 8.062,
+        "std": 2.839,
+        "min": 0.0,
+        "max": 10.0
+      }
+    ],
+    "confidence_intervals": [
+      {
+        "variable": "Anxiety",
+        "while_working": "Yes",
+        "count": 578,
+        "mean": 5.88,
+        "ci_lower": 5.655,
+        "ci_upper": 6.105,
+        "margin_of_error": 0.225
+      },
+      {
+        "variable": "Anxiety",
+        "while_working": "No",
+        "count": 154,
+        "mean": 5.623,
+        "ci_lower": 5.158,
+        "ci_upper": 6.089,
+        "margin_of_error": 0.465
+      },
+      {
+        "variable": "Depression",
+        "while_working": "Yes",
+        "count": 578,
+        "mean": 4.886,
+        "ci_lower": 4.641,
+        "ci_upper": 5.131,
+        "margin_of_error": 0.245
+      },
+      {
+        "variable": "Depression",
+        "while_working": "No",
+        "count": 154,
+        "mean": 4.468,
+        "ci_lower": 3.974,
+        "ci_upper": 4.961,
+        "margin_of_error": 0.493
+      },
+      {
+        "variable": "Insomnia",
+        "while_working": "Yes",
+        "count": 578,
+        "mean": 3.782,
+        "ci_lower": 3.526,
+        "ci_upper": 4.038,
+        "margin_of_error": 0.256
+      },
+      {
+        "variable": "Insomnia",
+        "while_working": "No",
+        "count": 154,
+        "mean": 3.516,
+        "ci_lower": 3.062,
+        "ci_upper": 3.971,
+        "margin_of_error": 0.455
+      },
+      {
+        "variable": "OCD",
+        "while_working": "Yes",
+        "count": 578,
+        "mean": 2.745,
+        "ci_lower": 2.513,
+        "ci_upper": 2.977,
+        "margin_of_error": 0.232
+      },
+      {
+        "variable": "OCD",
+        "while_working": "No",
+        "count": 154,
+        "mean": 2.179,
+        "ci_lower": 1.733,
+        "ci_upper": 2.624,
+        "margin_of_error": 0.445
+      }
+    ],
+    "t_test": {
+      "test": "Welch two-sample t-test",
+      "t_stat": -0.9791,
+      "df": 230.63,
+      "p_val": 0.3285,
+      "ci_lower": -0.7723,
+      "ci_upper": 0.2595,
+      "h0": "Mean anxiety is equal between workplace listeners and non-workplace listeners (\u03bc_work - \u03bc_nowork = 0)",
+      "h1": "Mean anxiety differs between workplace listeners and non-workplace listeners (\u03bc_work - \u03bc_nowork \u2260 0)",
+      "alpha": 0.05,
+      "decision": "Fail to reject H\u2080",
+      "conclusion": "No statistically significant difference in anxiety scores between respondents who listen while working and those who do not (t = -0.9791, p = 0.3285 > 0.05, 95% CI [-0.7723, 0.2595] contains 0)."
+    },
+    "chi_square": {
+      "test": "Chi-square test of independence",
+      "chi_square": 6.9182,
+      "df": 6,
+      "p_val": 0.3285,
+      "cramer_v": 0.097,
+      "h0": "Favorite music genre and anxiety severity level (High vs Normal) are independent",
+      "h1": "Favorite music genre and anxiety severity level are dependent / associated",
+      "alpha": 0.05,
+      "decision": "Fail to reject H\u2080",
+      "conclusion": "There is insufficient evidence to conclude an association between preferred music genre and high anxiety classification (\u03c7\u00b2 = 6.9182, df = 6, p = 0.3285 > 0.05)."
+    },
+    "correlation": [
+      {
+        "method": "Pearson",
+        "correlation": 0.0497,
+        "p_value": 0.1787,
+        "significant_05": false
+      },
+      {
+        "method": "Spearman",
+        "correlation": 0.0941,
+        "p_value": 0.0107,
+        "significant_05": true
+      }
+    ],
+    "binomial": [
+      {
+        "k": 0,
+        "prob": 0.0001,
+        "pct": 0.01
+      },
+      {
+        "k": 1,
+        "prob": 0.00149,
+        "pct": 0.15
+      },
+      {
+        "k": 2,
+        "prob": 0.01014,
+        "pct": 1.01
+      },
+      {
+        "k": 3,
+        "prob": 0.04104,
+        "pct": 4.1
+      },
+      {
+        "k": 4,
+        "prob": 0.10896,
+        "pct": 10.9
+      },
+      {
+        "k": 5,
+        "prob": 0.19836,
+        "pct": 19.84
+      },
+      {
+        "k": 6,
+        "prob": 0.25078,
+        "pct": 25.08
+      },
+      {
+        "k": 7,
+        "prob": 0.21741,
+        "pct": 21.74
+      },
+      {
+        "k": 8,
+        "prob": 0.12369,
+        "pct": 12.37
+      },
+      {
+        "k": 9,
+        "prob": 0.0417,
+        "pct": 4.17
+      },
+      {
+        "k": 10,
+        "prob": 0.00633,
+        "pct": 0.63
+      }
+    ],
+    "basic_probability": [
+      {
+        "event": "High anxiety",
+        "count": 443,
+        "prob": 0.6027,
+        "pct": 60.3
+      },
+      {
+        "event": "Not high anxiety",
+        "count": 292,
+        "prob": 0.3973,
+        "pct": 39.7
+      }
+    ],
+    "conditional_probability": [
+      {
+        "genre": "Folk",
+        "count": 30,
+        "p_high_anxiety": 0.7667,
+        "pct": 76.7
+      },
+      {
+        "genre": "Lofi",
+        "count": 10,
+        "p_high_anxiety": 0.7,
+        "pct": 70.0
+      },
+      {
+        "genre": "Pop",
+        "count": 114,
+        "p_high_anxiety": 0.6667,
+        "pct": 66.7
+      },
+      {
+        "genre": "Jazz",
+        "count": 20,
+        "p_high_anxiety": 0.65,
+        "pct": 65.0
+      },
+      {
+        "genre": "Hip hop",
+        "count": 34,
+        "p_high_anxiety": 0.6471,
+        "pct": 64.7
+      },
+      {
+        "genre": "Rock",
+        "count": 188,
+        "p_high_anxiety": 0.6436,
+        "pct": 64.4
+      },
+      {
+        "genre": "K pop",
+        "count": 26,
+        "p_high_anxiety": 0.6154,
+        "pct": 61.5
+      },
+      {
+        "genre": "Metal",
+        "count": 88,
+        "p_high_anxiety": 0.5682,
+        "pct": 56.8
+      },
+      {
+        "genre": "Country",
+        "count": 25,
+        "p_high_anxiety": 0.56,
+        "pct": 56.0
+      },
+      {
+        "genre": "Video game music",
+        "count": 44,
+        "p_high_anxiety": 0.5455,
+        "pct": 54.5
+      },
+      {
+        "genre": "EDM",
+        "count": 37,
+        "p_high_anxiety": 0.5405,
+        "pct": 54.1
+      },
+      {
+        "genre": "Classical",
+        "count": 53,
+        "p_high_anxiety": 0.5094,
+        "pct": 50.9
+      },
+      {
+        "genre": "Gospel",
+        "count": 6,
+        "p_high_anxiety": 0.5,
+        "pct": 50.0
+      },
+      {
+        "genre": "R&B",
+        "count": 35,
+        "p_high_anxiety": 0.4571,
+        "pct": 45.7
+      },
+      {
+        "genre": "Rap",
+        "count": 22,
+        "p_high_anxiety": 0.4545,
+        "pct": 45.5
+      },
+      {
+        "genre": "Latin",
+        "count": 3,
+        "p_high_anxiety": 0.3333,
+        "pct": 33.3
+      }
+    ],
+    "contingency_table": [
+      {
+        "": "Classical",
+        "High anxiety": "27",
+        "Not high anxiety": "26"
+      },
+      {
+        "": "EDM",
+        "High anxiety": "20",
+        "Not high anxiety": "17"
+      },
+      {
+        "": "Metal",
+        "High anxiety": "50",
+        "Not high anxiety": "38"
+      },
+      {
+        "": "Other",
+        "High anxiety": "125",
+        "Not high anxiety": "86"
+      },
+      {
+        "": "Pop",
+        "High anxiety": "76",
+        "Not high anxiety": "38"
+      },
+      {
+        "": "Rock",
+        "High anxiety": "121",
+        "Not high anxiety": "67"
+      },
+      {
+        "": "Video game music",
+        "High anxiety": "24",
+        "Not high anxiety": "20"
+      }
+    ],
+    "bayes": [
+      {
+        "genre": "Rock",
+        "prior": 0.2558,
+        "likelihood": 0.6436,
+        "posterior": 0.2731,
+        "pct": "27.3%"
+      },
+      {
+        "genre": "Pop",
+        "prior": 0.1551,
+        "likelihood": 0.6667,
+        "posterior": 0.1716,
+        "pct": "17.2%"
+      },
+      {
+        "genre": "Metal",
+        "prior": 0.1197,
+        "likelihood": 0.5682,
+        "posterior": 0.1129,
+        "pct": "11.3%"
+      }
+    ],
+    "plots_gallery": [
+      {
+        "id": "anxiety_histogram",
+        "title": "Anxiety Score Distribution",
+        "type": "Frequency Histogram & Density",
+        "file": "r_plots/anxiety_histogram.png",
+        "x_label": "Self-Reported Anxiety Score (0 to 10)",
+        "y_label": "Number of Respondents",
+        "r_code": "hist(analysis_data$Anxiety, breaks = seq(-0.5, 10.5, by = 1), col = \"lightblue\", border = \"black\")",
+        "insight": "Multimodal distribution with heavy concentration in the high anxiety spectrum (scores 6-8). Mean is 5.83, median is 6.0, standard deviation is 2.79.",
+        "interpretation": "Shows that over 60.3% of the surveyed sample experiences elevated anxiety (>= 6/10), justifying the binary thresholding for conditional probability models."
+      },
+      {
+        "id": "hours_vs_anxiety",
+        "title": "Listening Hours vs. Anxiety",
+        "type": "Bivariate Scatter Plot & OLS Regression",
+        "file": "r_plots/hours_vs_anxiety.png",
+        "x_label": "Daily Listening Hours",
+        "y_label": "Anxiety Score (0-10)",
+        "r_code": "plot(cor_data$Hours.per.day, cor_data$Anxiety, pch = 19, col = \"steelblue\"); abline(lm(Anxiety ~ Hours.per.day), lwd = 2)",
+        "insight": "Near-flat linear regression slope. Pearson correlation r = 0.050 (p = 0.179, not statistically significant at alpha = 0.05).",
+        "interpretation": "Linear regression fails to find evidence that higher daily music consumption directly increases anxiety. However, Spearman rank correlation detects a weak positive monotonic trend (rho = 0.094, p = 0.011)."
+      },
+      {
+        "id": "anxiety_by_working",
+        "title": "Anxiety by Work Listening Status",
+        "type": "Two-Sample Comparative Boxplot",
+        "file": "r_plots/anxiety_by_working.png",
+        "x_label": "Listen While Working? (Yes / No)",
+        "y_label": "Anxiety Score (0-10)",
+        "r_code": "boxplot(Anxiety ~ While.working, data = test_data, col = c(\"lightblue\", \"lightgreen\"))",
+        "insight": "Both groups exhibit an identical median score of 6.0 and closely matching interquartile ranges (IQR).",
+        "interpretation": "Welch two-sample t-test (t = -0.9791, p = 0.3285) fails to reject the null hypothesis, demonstrating that anxiety does not significantly differ between workplace listeners and non-workplace listeners."
+      },
+      {
+        "id": "genre_anxiety_stacked_bar",
+        "title": "Anxiety Group by Music Genre",
+        "type": "Stacked Categorical Bar Chart (Contingency)",
+        "file": "r_plots/genre_anxiety_stacked_bar.png",
+        "x_label": "Favorite Music Genre",
+        "y_label": "Number of Respondents",
+        "r_code": "barplot(t(chi_table), beside = FALSE, legend.text = TRUE, col = c(\"lightblue\", \"salmon\"))",
+        "insight": "Compares the counts of High Anxiety (>=6) vs Normal Anxiety across top genres (Classical, EDM, Metal, Pop, Rock, Video game music, Other).",
+        "interpretation": "Chi-Square test of independence yields X-squared = 6.9182, df = 6, p = 0.3285. We fail to reject H0, meaning music genre preference and high anxiety classification are statistically independent."
+      },
+      {
+        "id": "conditional_probability_genre",
+        "title": "Conditional Probability P(High Anxiety | Genre)",
+        "type": "Categorical Conditional Probability Bar Chart",
+        "file": "r_plots/conditional_probability_genre.png",
+        "x_label": "Music Genre",
+        "y_label": "P(High Anxiety | Genre)",
+        "r_code": "barplot(conditional_probability$P_High_Anxiety, names.arg = conditional_probability$Genre, ylim = c(0, 1), col = \"skyblue\")",
+        "insight": "Ranks genres by conditional likelihood of reporting high anxiety. Folk (0.767) and Lofi (0.700) lead, followed by Pop (0.667) and Rock (0.644).",
+        "interpretation": "Useful for Bayesian conditioning: while Folk has highest conditional probability, Rock has far larger sample size, making Rock responsible for the greatest absolute share of high-anxiety listeners."
+      },
+      {
+        "id": "binomial_distribution",
+        "title": "Binomial Probability Distribution PMF",
+        "type": "Discrete Probability Mass Function (n=10, p=0.6027)",
+        "file": "r_plots/binomial_distribution.png",
+        "x_label": "Number of High-Anxiety Respondents (k)",
+        "y_label": "Probability P(X = k)",
+        "r_code": "barplot(binomial_results$Probability, names.arg = binomial_results$High_Anxiety_Count, col = \"lightgreen\", border = \"black\")",
+        "insight": "Models random variable X ~ Binomial(n=10, p=0.6027). Expected value E[X] = np = 6.03. Peak probability occurs at k = 6 with P(X = 6) = 0.2508.",
+        "interpretation": "Demonstrates practical application of the Binomial PMF formula: P(X=k) = C(n,k) * p^k * (1-p)^(n-k). Extremely low probability (< 0.0001) of finding 0 high-anxiety respondents in a random sample of 10."
+      }
+    ]
+  }
 }

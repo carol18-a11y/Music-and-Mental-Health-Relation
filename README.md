@@ -123,18 +123,27 @@ The dashboard (`web_dashboard/index.html`) is built using clean modern CSS and v
    - Select any two genres (e.g. *Rock vs. Classical*, *Metal vs. Pop*, or *EDM vs. Lofi*).
    - Dual-layer radar plot overlay and direct metric comparison table with absolute differences and winner badges.
 3. **🏆 Leaderboards & Rankings:**
-   - Rank all 16 genres instantly by:
-     - Highest Anxiety
-     - Highest Depression
-     - Highest Insomnia
-     - Highest OCD
-     - Daily Listening Hours
-     - Mental Health Improvement Rate
-     - Survey Popularity (Sample Size)
+   - Rank all 16 genres instantly by Highest Anxiety, Depression, Insomnia, OCD, Daily Listening Hours, Mental Health Improvement Rate, or Sample Size.
    - Click any leaderboard bar to instantly inspect that genre.
-4. **📋 Raw Survey Data Explorer:**
-   - Searchable, paginated table of raw respondent records for the active genre.
-   - Filter by Music Effect (*Improves*, *No Effect*, *Worsens*) and text search.
+4. **📈 R Plots & Visualizations Gallery (New Tab):**
+   - High-resolution gallery of all 6 graphical plot types generated in base R:
+     - **Frequency Histogram & Density:** Distribution of Anxiety scores.
+     - **Bivariate OLS Scatter Plot:** Daily listening hours vs. Anxiety with linear trendline.
+     - **Two-Sample Tukey Boxplot:** Anxiety distributions for workplace listeners vs. non-listeners.
+     - **Categorical Stacked Bar Plot:** Contingency distribution of anxiety severity across top genres.
+     - **Conditional Probability Bar Chart:** Ranked $P(\text{High Anxiety} \mid \text{Genre})$ with Wilson intervals.
+     - **Discrete Probability Distribution PMF:** Binomial distribution for $n = 10, p = 0.603$.
+   - Interactive zoom modals, academic interpretations, variables plotted ($X$ vs. $Y$), and exact base R code snippets.
+5. **🧪 Inferential Statistics & Hypothesis Testing Suite (New Tab):**
+   - **Executive Decision Matrix:** Complete scorecard of Null ($H_0$), Alternative ($H_1$), test statistics, degrees of freedom, $p$-values, effect sizes (Cohen's $d$, Cramer's $V$, $r^2$), and decisions at $\alpha = 0.05$.
+   - **Welch Two-Sample t-Test:** With an **interactive SVG Student's t-distribution bell curve** displaying shaded two-tailed rejection regions ($\alpha = 0.05$), critical boundaries ($t = \pm 1.970$), and observed statistic marker ($t = -0.9791$) inside the acceptance region.
+   - **95% Confidence Intervals for Means:** Table and error bars for Anxiety, Depression, Insomnia, and OCD partitioned by work status.
+   - **Chi-Square ($\chi^2$) Contingency Table:** Full $7 \times 2$ matrix testing genre and anxiety independence ($\chi^2 = 6.918, p = 0.328$).
+   - **Pearson vs. Spearman Correlation:** Contrasting parametric linear ($r = 0.050, p = 0.179$) vs non-parametric monotonic rank correlation ($\rho = 0.094, p = 0.011$).
+   - **Interactive Discrete Binomial Distribution Calculator:** Dynamic slider for sample size $n$ and target $k$, live updating formulas, expected value $E[X]$, variance, and SVG PMF bar chart.
+   - **Bayes' Theorem Calculations:** Step-by-step posterior calculations for $P(\text{Rock} \mid \text{High Anxiety})$, $P(\text{Pop} \mid \text{High Anxiety})$, and $P(\text{Metal} \mid \text{High Anxiety})$.
+6. **📋 Raw Survey Data Explorer:**
+   - Searchable, paginated table of raw respondent records for the active genre with filtering by music effects.
 
 ---
 
