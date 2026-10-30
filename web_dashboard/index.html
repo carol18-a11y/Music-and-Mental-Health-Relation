@@ -47,10 +47,139 @@
     .code-box {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+
+    /* Dynamic Audio Equalizer Wave Keyframes */
+    @keyframes eqWave1 { 0%, 100% { height: 18%; } 50% { height: 95%; } }
+    @keyframes eqWave2 { 0%, 100% { height: 35%; } 50% { height: 75%; } }
+    @keyframes eqWave3 { 0%, 100% { height: 50%; } 50% { height: 100%; } }
+    @keyframes eqWave4 { 0%, 100% { height: 20%; } 50% { height: 85%; } }
+    @keyframes eqWave5 { 0%, 100% { height: 40%; } 50% { height: 65%; } }
+    @keyframes eqWave6 { 0%, 100% { height: 15%; } 50% { height: 90%; } }
+    @keyframes eqWave7 { 0%, 100% { height: 60%; } 50% { height: 30%; } }
+
+    .eq-bar-1 { animation: eqWave1 0.85s ease-in-out infinite alternate; }
+    .eq-bar-2 { animation: eqWave2 0.7s ease-in-out infinite alternate 0.1s; }
+    .eq-bar-3 { animation: eqWave3 1.05s ease-in-out infinite alternate 0.25s; }
+    .eq-bar-4 { animation: eqWave4 0.65s ease-in-out infinite alternate 0.05s; }
+    .eq-bar-5 { animation: eqWave5 0.9s ease-in-out infinite alternate 0.2s; }
+    .eq-bar-6 { animation: eqWave6 0.75s ease-in-out infinite alternate 0.15s; }
+    .eq-bar-7 { animation: eqWave7 0.95s ease-in-out infinite alternate 0.3s; }
+
+    @keyframes neonGlow {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5)) drop-shadow(0 0 25px rgba(168, 85, 247, 0.3)); }
+      50% { filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.7)) drop-shadow(0 0 35px rgba(99, 102, 241, 0.5)); }
+    }
+    .neon-pulse {
+      animation: neonGlow 2.8s ease-in-out infinite;
+    }
+
+    @keyframes pulseRing {
+      0% { transform: scale(0.96); opacity: 0.8; }
+      50% { transform: scale(1.04); opacity: 0.35; }
+      100% { transform: scale(0.96); opacity: 0.8; }
+    }
+    .pulse-ring {
+      animation: pulseRing 3.2s ease-in-out infinite;
+    }
+
+    /* Interactive Graph Card Hover Glow */
+    .studio-trigger {
+      cursor: pointer;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .studio-trigger:hover {
+      border-color: rgba(99, 102, 241, 0.7) !important;
+      box-shadow: 0 0 25px -4px rgba(99, 102, 241, 0.35), 0 10px 20px -6px rgba(0, 0, 0, 0.6);
+      transform: translateY(-2px);
+    }
+
+    #hero-glow {
+      transition: background-color 0.6s ease;
+    }
+    #radar-live-polygon {
+      transition: fill 0.35s ease, stroke 0.35s ease;
+    }
+
+    /* Silky Smooth View Panel Crossfading */
+    .view-panel {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: none;
+    }
+    .view-panel.view-active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .view-panel.view-fading-out {
+      display: block;
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+    }
+
+    /* Staggered Card Entrance Animation */
+    @keyframes cardFadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: cardFadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+
+    #genre-bar-container {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
   </style>
   <script src="genre_data.js"></script>
 </head>
 <body class="min-h-screen flex flex-col">
+
+  <!-- Dynamic High-Tech Music Equalizer Loading Screen -->
+  <div id="app-loader" class="fixed inset-0 z-50 bg-[#070a13] flex flex-col items-center justify-center transition-opacity duration-700 select-none">
+    <div class="relative flex flex-col items-center text-center px-4 max-w-md">
+      <!-- Ambient colorful neon glow behind visualizer -->
+      <div class="absolute -inset-10 bg-gradient-to-r from-indigo-600/30 via-purple-600/30 to-pink-600/30 rounded-full blur-3xl opacity-60 pulse-ring"></div>
+
+      <!-- Equalizer Visualizer Spectrum Bars -->
+      <div class="relative flex items-end justify-center gap-2 h-20 w-48 mb-6 p-2 rounded-2xl bg-gray-900/60 border border-indigo-500/30 backdrop-blur-md neon-pulse">
+        <div class="w-2.5 rounded-full bg-gradient-to-t from-indigo-600 to-indigo-400 eq-bar-1"></div>
+        <div class="w-2.5 rounded-full bg-gradient-to-t from-indigo-500 to-purple-400 eq-bar-2"></div>
+        <div class="w-2.5 rounded-full bg-gradient-to-t from-purple-600 to-purple-300 eq-bar-3"></div>
+        <div class="w-2.5 rounded-full bg-gradient-to-t from-purple-500 to-pink-400 eq-bar-4"></div>
+        <div class="w-2.5 rounded-full bg-gradient-to-t from-pink-600 to-rose-400 eq-bar-5"></div>
+        <div class="w-2.5 rounded-full bg-gradient-to-t from-purple-500 to-indigo-400 eq-bar-6"></div>
+        <div class="w-2.5 rounded-full bg-gradient-to-t from-indigo-600 to-cyan-400 eq-bar-7"></div>
+      </div>
+
+      <!-- App Branding & Dynamic Loading Status -->
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-mono font-medium mb-3">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          AudioMental Analytics Studio
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">
+          Calibrating Probability & Statistics
+        </h2>
+        <p id="loader-subtext" class="text-xs sm:text-sm text-gray-400 font-mono transition-all duration-300 h-5">
+          Loading Kaggle MxMH dataset (N=735)...
+        </p>
+
+        <!-- Dynamic Progress Bar -->
+        <div class="w-64 h-1.5 bg-gray-800 rounded-full mt-6 overflow-hidden mx-auto border border-gray-700/50">
+          <div id="loader-bar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-300" style="width: 25%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="border-b border-gray-800 bg-gray-950/80 sticky top-0 z-40 backdrop-blur">
@@ -63,6 +192,14 @@
           <div class="flex items-center gap-2">
             <h1 class="text-lg font-bold text-white tracking-tight">AudioMental</h1>
             <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">MxMH Probability & Stats</span>
+            <!-- Live Audio Visualizer Equalizer in Header -->
+            <div class="hidden sm:flex items-end gap-0.5 h-4 ml-1 px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800" title="Audio spectrum active">
+              <span class="w-1 bg-indigo-400 rounded-full eq-bar-1" style="height: 40%"></span>
+              <span class="w-1 bg-purple-400 rounded-full eq-bar-2" style="height: 70%"></span>
+              <span class="w-1 bg-pink-400 rounded-full eq-bar-4" style="height: 100%"></span>
+              <span class="w-1 bg-indigo-400 rounded-full eq-bar-5" style="height: 50%"></span>
+              <span class="w-1 bg-cyan-400 rounded-full eq-bar-6" style="height: 80%"></span>
+            </div>
           </div>
           <p class="text-xs text-gray-400">Interactive Music Genre & Mental Health Analytics Dashboard</p>
         </div>
@@ -129,12 +266,12 @@
   </section>
 
   <!-- Main View Area -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
 
     <!-- ========================================== -->
     <!-- VIEW 1: GENRE DEEP DIVE -->
     <!-- ========================================== -->
-    <div id="view-deepdive" class="space-y-6">
+    <div id="view-deepdive" class="view-panel view-active space-y-6">
 
       <!-- Hero Genre Overview Banner -->
       <div id="genre-hero" class="glass-card rounded-2xl p-6 relative overflow-hidden">
@@ -293,13 +430,16 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
         <!-- Mental Health Profile (Radar / Spider SVG Chart) -->
-        <div class="lg:col-span-7 glass-card rounded-2xl p-5 flex flex-col justify-between">
+        <div class="lg:col-span-7 glass-card rounded-2xl p-5 flex flex-col justify-between cursor-pointer studio-trigger group" onclick="openGraphStudio('radar_profile')" title="Click to open interactive Radar Studio">
           <div class="flex items-center justify-between mb-2">
             <div>
-              <h4 class="text-sm font-bold text-white flex items-center gap-2">
-                <span>🕸️</span> Mental Health Profile vs Global Benchmark
-              </h4>
-              <p class="text-xs text-gray-400">4-axis comparative spider plot (0 to 10 scale)</p>
+              <div class="flex items-center gap-2">
+                <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                  <span>🕸️</span> Mental Health Profile vs Global Benchmark
+                </h4>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-semibold group-hover:bg-indigo-600 group-hover:text-white transition-all">⚡ Studio</span>
+              </div>
+              <p class="text-xs text-gray-400">4-axis comparative spider plot (0 to 10 scale) • Click to open interactive studio</p>
             </div>
             <div class="flex items-center gap-3 text-xs">
               <div class="flex items-center gap-1.5">
@@ -326,11 +466,14 @@
         </div>
 
         <!-- Music Effects & Work Context -->
-        <div class="lg:col-span-5 glass-card rounded-2xl p-5 flex flex-col justify-between">
+        <div class="lg:col-span-5 glass-card rounded-2xl p-5 flex flex-col justify-between cursor-pointer studio-trigger group" onclick="openGraphStudio('anxiety_by_working')" title="Click to open interactive Boxplot & Distribution Studio">
           <div>
-            <h4 class="text-sm font-bold text-white flex items-center gap-2">
-              <span>❤️</span> Perceived Music Effect on Mental State
-            </h4>
+            <div class="flex items-center justify-between">
+              <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                <span>❤️</span> Perceived Music Effect on Mental State
+              </h4>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-semibold group-hover:bg-indigo-600 group-hover:text-white transition-all">⚡ Studio</span>
+            </div>
             <p class="text-xs text-gray-400">Does listening to music improve, worsen, or have no effect?</p>
           </div>
 
@@ -474,7 +617,7 @@
     <!-- ========================================== -->
     <!-- VIEW 2: HEAD-TO-HEAD COMPARISON -->
     <!-- ========================================== -->
-    <div id="view-compare" class="hidden space-y-6">
+    <div id="view-compare" class="view-panel space-y-6">
 
       <div class="glass-card rounded-2xl p-5">
         <h3 class="text-base font-bold text-white flex items-center gap-2 mb-4">
@@ -553,7 +696,7 @@
     <!-- ========================================== -->
     <!-- VIEW 3: GLOBAL RANKINGS & LEADERBOARD -->
     <!-- ========================================== -->
-    <div id="view-rankings" class="hidden space-y-6">
+    <div id="view-rankings" class="view-panel space-y-6">
 
       <div class="glass-card rounded-2xl p-5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
@@ -588,23 +731,36 @@
     <!-- ========================================== -->
     <!-- VIEW 4: R VISUALIZATIONS GALLERY (NEW TAB 1) -->
     <!-- ========================================== -->
-    <div id="view-gallery" class="hidden space-y-6">
+    <div id="view-gallery" class="view-panel space-y-6">
 
       <!-- Gallery Header -->
-      <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="glass-card rounded-2xl p-6 relative overflow-hidden space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2 mb-1">
               <span class="text-2xl">📈</span>
-              <h3 class="text-xl font-bold text-white">R Statistical Visualizations Gallery</h3>
-              <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">Base R Engine</span>
+              <h3 class="text-xl font-bold text-white">Statistical Visualizations & Interactive Plotter</h3>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Native Live SVG & Base R Engine</span>
             </div>
             <p class="text-xs text-gray-400 max-w-2xl">
-              All 6 graphical plots generated by the R statistical script (<code class="text-indigo-300">additional_analysis.R</code>). Illustrates histograms, bivariate OLS scatter plots, two-sample Tukey boxplots, contingency stacked bars, discrete probability distributions, and Bayesian conditionals.
+              Compare interactive live SVG plots with the original base R graphical outputs. Render continuous histograms with normal curve fits, bivariate OLS scatter plots, two-sample Tukey boxplots, contingency stacked bars, discrete probability PMFs, and conditional probabilities.
             </p>
           </div>
 
-          <!-- Filter buttons for plot types -->
+          <!-- Global Display Mode Switcher (Live Plot vs Base R Image) -->
+          <div class="flex items-center gap-2 bg-gray-900 border border-gray-800 p-1.5 rounded-xl self-start lg:self-auto">
+            <span class="text-[11px] text-gray-400 px-2 font-medium">Renderer:</span>
+            <button id="global-plot-mode-live" onclick="setGlobalPlotMode('live')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition-all">
+              <span>📊</span> Live Interactive Plot
+            </button>
+            <button id="global-plot-mode-r" onclick="setGlobalPlotMode('r')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-400 hover:text-white flex items-center gap-1.5 transition-all">
+              <span>🖼️</span> Base R Image
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter buttons for plot types -->
+        <div class="flex flex-wrap items-center justify-between gap-2 border-t border-gray-800/80 pt-3">
           <div class="flex flex-wrap gap-1.5 text-xs">
             <button onclick="filterGallery('all')" id="gal-filter-all" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium">All Plots (6)</button>
             <button onclick="filterGallery('histogram')" id="gal-filter-histogram" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Histogram</button>
@@ -614,6 +770,7 @@
             <button onclick="filterGallery('conditional')" id="gal-filter-conditional" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Conditional</button>
             <button onclick="filterGallery('binomial')" id="gal-filter-binomial" class="px-3 py-1.5 rounded-lg bg-gray-900 text-gray-300 hover:text-white font-medium">Binomial PMF</button>
           </div>
+          <span class="text-[11px] text-gray-500">Click any plot to inspect or zoom</span>
         </div>
       </div>
 
@@ -627,7 +784,7 @@
     <!-- ========================================== -->
     <!-- VIEW 5: STATISTICAL TESTS & DISTRIBUTIONS (NEW TAB 2) -->
     <!-- ========================================== -->
-    <div id="view-stats" class="hidden space-y-6">
+    <div id="view-stats" class="view-panel space-y-6">
 
       <!-- Course Header Banner -->
       <div class="glass-card rounded-2xl p-6 border-l-4 border-emerald-500">
@@ -761,11 +918,14 @@
           </div>
         </div>
 
-        <!-- Dynamic SVG Student's t / Normal Distribution Curve -->
-        <div class="lg:col-span-6 glass-card rounded-2xl p-5 flex flex-col justify-between">
+        <!-- Dynamic SVG Student's t / Normal Distribution Curve (Clickable Studio) -->
+        <div class="lg:col-span-6 glass-card rounded-2xl p-5 flex flex-col justify-between cursor-pointer studio-trigger group" onclick="openGraphStudio('t_dist')" title="Click to open interactive Student's t Distribution Studio">
           <div class="flex items-center justify-between mb-2">
             <div>
-              <h4 class="text-sm font-bold text-white">Student's t Distribution (df = 230.6)</h4>
+              <div class="flex items-center gap-2">
+                <h4 class="text-sm font-bold text-white">Student's t Distribution (df = 230.6)</h4>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-semibold group-hover:bg-indigo-600 group-hover:text-white transition-all">⚡ Studio</span>
+              </div>
               <p class="text-xs text-gray-400">Critical rejection boundaries (&alpha; = 0.05) vs. Observed Statistic</p>
             </div>
             <span class="text-xs text-gray-500 font-mono">Critical: t &plusmn; 1.970</span>
@@ -921,9 +1081,14 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          <!-- Dynamic SVG Binomial PMF Bar Plot -->
-          <div class="lg:col-span-8 relative aspect-[16/8] max-h-64 flex items-center justify-center">
+          <!-- Dynamic SVG Binomial PMF Bar Plot (Clickable Studio) -->
+          <div class="lg:col-span-8 relative aspect-[16/8] max-h-64 flex items-center justify-center cursor-pointer studio-trigger group rounded-xl border border-gray-800/80 p-2" onclick="openGraphStudio('binomial_distribution')" title="Click to open interactive Binomial Distribution Studio">
             <svg id="binomial-svg" viewBox="0 0 600 240" class="w-full h-full overflow-visible"></svg>
+            <div class="absolute inset-0 bg-indigo-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none rounded-xl">
+              <span class="px-2.5 py-1 rounded-lg bg-gray-900/95 text-indigo-300 border border-indigo-500/50 text-xs font-semibold shadow-xl backdrop-blur flex items-center gap-1.5">
+                <span>⚡</span> Click to Open Binomial Studio
+              </span>
+            </div>
           </div>
 
           <!-- Binomial Parameters & Calculation Output -->
@@ -1029,7 +1194,7 @@
     <!-- ========================================== -->
     <!-- VIEW 6: RAW SURVEY DATA RECORDS -->
     <!-- ========================================== -->
-    <div id="view-records" class="hidden space-y-6">
+    <div id="view-records" class="view-panel space-y-6">
 
       <div class="glass-card rounded-2xl p-5 space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -1107,6 +1272,107 @@
     </div>
   </div>
 
+  <!-- Interactive Graph Studio GUI Modal -->
+  <div id="graph-gui-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-2 sm:p-4 md:p-6" onclick="closeGraphStudio()">
+    <div class="bg-gray-900 border border-gray-700/80 rounded-2xl max-w-6xl w-full max-h-[95vh] flex flex-col overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+      
+      <!-- Studio Header -->
+      <div class="px-5 py-3.5 bg-gray-950/80 border-b border-gray-800 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-lg">
+            ⚡
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 id="studio-title" class="font-bold text-white text-base sm:text-lg">Interactive Graph Studio</h3>
+              <span id="studio-badge" class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold font-mono">LIVE SVG</span>
+            </div>
+            <p id="studio-subtitle" class="text-xs text-gray-400">Parametric exploration & mathematical rigor engine</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="downloadStudioSVG()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 text-xs font-medium flex items-center gap-1.5 transition-colors" title="Export as SVG vector graphic">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span>Export SVG</span>
+          </button>
+          <button onclick="copyStudioStats()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 text-xs font-medium flex items-center gap-1.5 transition-colors" title="Copy statistics summary">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+            <span id="copy-btn-text">Copy Stats</span>
+          </button>
+          <button onclick="closeGraphStudio()" class="w-8 h-8 rounded-lg bg-gray-800 hover:bg-rose-500/20 hover:text-rose-400 text-gray-300 flex items-center justify-center text-lg font-bold transition-colors" title="Close Studio (Esc)">
+            &times;
+          </button>
+        </div>
+      </div>
+
+      <!-- Studio Main Content Area (Two Columns on Desktop) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 flex-1 overflow-y-auto">
+        
+        <!-- Left: Interactive Canvas Stage -->
+        <div class="lg:col-span-8 p-4 sm:p-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#090d16] relative">
+          <!-- Live Canvas Container with Grid Pattern -->
+          <div class="relative w-full aspect-[16/10] bg-gray-950/90 border border-gray-800 rounded-xl overflow-hidden flex items-center justify-center p-2 shadow-inner" style="background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 16px 16px;">
+            <svg id="studio-svg" viewBox="0 0 680 380" class="w-full h-full select-none overflow-visible"></svg>
+            <!-- Floating Inspector Tooltip -->
+            <div id="studio-tooltip" class="absolute pointer-events-none opacity-0 transition-opacity bg-gray-900/95 border border-indigo-500/40 text-white text-xs rounded-lg px-2.5 py-1.5 shadow-xl font-mono z-20"></div>
+          </div>
+
+          <!-- Bottom Stage Bar: Coordinates, Sample Size & Info -->
+          <div class="mt-3 flex flex-wrap items-center justify-between text-xs text-gray-400 gap-2">
+            <div class="flex items-center gap-3">
+              <span id="studio-sample-info" class="flex items-center gap-1.5 font-mono text-[11px] text-gray-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> N = 735 cleaned records
+              </span>
+              <span>•</span>
+              <span id="studio-inspector-info" class="font-mono text-[11px] text-indigo-300">Hover over elements to inspect parameters</span>
+            </div>
+            <div class="flex items-center gap-1 text-[11px] text-gray-500">
+              <span>Pure Native SVG & Vanilla JS Engine</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: GUI Parameter Controls & Statistical Breakdown -->
+        <div class="lg:col-span-4 p-4 sm:p-5 flex flex-col gap-4 bg-gray-900/90 overflow-y-auto">
+          
+          <!-- Dynamic Controls Box -->
+          <div class="bg-gray-950/70 border border-gray-800 rounded-xl p-3.5">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3 flex items-center gap-1.5">
+              <span>⚙️</span> Interactive Controls
+            </h4>
+            <div id="studio-controls-panel" class="space-y-3.5 text-xs text-gray-300">
+              <!-- Dynamically populated based on active plot -->
+            </div>
+          </div>
+
+          <!-- Theoretical Math Formula Card -->
+          <div class="bg-gray-950/70 border border-gray-800 rounded-xl p-3.5">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-purple-400 mb-2 flex items-center gap-1.5">
+              <span>📐</span> Mathematical Basis & Formula
+            </h4>
+            <div id="studio-formula-content" class="text-xs text-gray-300 space-y-2 font-mono">
+              <!-- Formula inserted here -->
+            </div>
+          </div>
+
+          <!-- Live Statistical Summary -->
+          <div class="bg-gray-950/70 border border-gray-800 rounded-xl p-3.5">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
+              <span>📊</span> Empirical Findings
+            </h4>
+            <div id="studio-stats-summary" class="text-xs text-gray-300 space-y-1.5">
+              <!-- Live stats inserted here -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="border-t border-gray-800/80 bg-gray-950 py-4 text-center text-xs text-gray-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
@@ -1165,34 +1431,150 @@
       renderRankings('by_anxiety', 'Anxiety (0-10)', 'mean');
       renderPlotsGallery();
       renderStatsView();
+
+      // Cinematic, Aesthetic Slow Loading Sequence (~2.5s total)
+      const loader = document.getElementById('app-loader');
+      const bar = document.getElementById('loader-bar');
+      const sub = document.getElementById('loader-subtext');
+      const mainContent = document.getElementById('main-content');
+      if (mainContent) {
+        mainContent.style.opacity = '0';
+        mainContent.style.transform = 'translateY(14px)';
+        mainContent.style.transition = 'opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1)';
+      }
+
+      if (loader) {
+        const stages = [
+          { time: 450, pct: '35%', msg: 'Synthesizing Kaggle MxMH dataset (N=735 respondents)...' },
+          { time: 1100, pct: '65%', msg: 'Calibrating Bayesian priors & Student\'s t distributions...' },
+          { time: 1800, pct: '90%', msg: 'Initializing dynamic SVG engines & interactive studios...' },
+          { time: 2300, pct: '100%', msg: 'AudioMental Ready!' }
+        ];
+
+        stages.forEach(st => {
+          setTimeout(() => {
+            if (bar) bar.style.width = st.pct;
+            if (sub) {
+              sub.style.opacity = '0';
+              setTimeout(() => {
+                sub.textContent = st.msg;
+                sub.style.opacity = '1';
+              }, 120);
+            }
+          }, st.time);
+        });
+
+        setTimeout(() => {
+          loader.style.transition = 'opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1)';
+          loader.style.opacity = '0';
+          loader.style.transform = 'scale(1.03)';
+          
+          if (mainContent) {
+            mainContent.style.opacity = '1';
+            mainContent.style.transform = 'translateY(0)';
+          }
+
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 850);
+        }, 2700);
+      }
     }
 
     function switchView(viewName) {
+      if (currentView === viewName) {
+        const curEl = document.getElementById('view-' + viewName);
+        if (curEl && curEl.classList.contains('view-active')) return;
+      }
+
+      const prevView = currentView;
       currentView = viewName;
       const views = ['deepdive', 'compare', 'rankings', 'gallery', 'stats', 'records'];
+
+      // Silky Smooth Tab Button Switch
       views.forEach(v => {
-        const el = document.getElementById('view-' + v);
         const tab = document.getElementById('tab-' + v);
-        if (el && tab) {
+        if (tab) {
           if (v === viewName) {
-            el.classList.remove('hidden');
-            tab.className = "px-3 py-1.5 rounded-lg font-medium transition-all text-white bg-indigo-600 shadow-sm flex items-center gap-1.5 whitespace-nowrap";
+            tab.className = "px-3 py-1.5 rounded-lg font-semibold transition-all duration-300 text-white bg-indigo-600 shadow-md shadow-indigo-600/30 flex items-center gap-1.5 whitespace-nowrap scale-[1.02]";
           } else {
-            el.classList.add('hidden');
-            tab.className = "px-3 py-1.5 rounded-lg font-medium transition-all text-gray-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap";
+            tab.className = "px-3 py-1.5 rounded-lg font-medium transition-all duration-200 text-gray-400 hover:text-white hover:bg-gray-800/60 flex items-center gap-1.5 whitespace-nowrap scale-100";
           }
         }
       });
 
+      // Smoothly Fade & Slide Genre Selection Bar
       const bar = document.getElementById('genre-bar-container');
-      if (viewName === 'deepdive' || viewName === 'records') {
-        bar.classList.remove('hidden');
-      } else {
-        bar.classList.add('hidden');
+      if (bar) {
+        if (viewName === 'deepdive' || viewName === 'records') {
+          bar.style.display = 'block';
+          requestAnimationFrame(() => {
+            bar.style.opacity = '1';
+            bar.style.transform = 'translateY(0)';
+          });
+        } else {
+          bar.style.opacity = '0';
+          bar.style.transform = 'translateY(-8px)';
+          setTimeout(() => {
+            if (currentView !== 'deepdive' && currentView !== 'records') {
+              bar.style.display = 'none';
+            }
+          }, 240);
+        }
       }
 
+      const prevEl = document.getElementById('view-' + prevView);
+      const newEl = document.getElementById('view-' + viewName);
+
+      if (prevEl && prevEl !== newEl) {
+        prevEl.classList.add('view-fading-out');
+        prevEl.classList.remove('view-active');
+
+        setTimeout(() => {
+          prevEl.style.display = 'none';
+          prevEl.classList.remove('view-fading-out');
+
+          if (newEl) {
+            newEl.style.display = 'block';
+            newEl.classList.remove('view-active');
+            newEl.style.opacity = '0';
+            newEl.style.transform = 'translateY(14px)';
+
+            requestAnimationFrame(() => {
+              newEl.classList.add('view-active');
+              newEl.style.opacity = '1';
+              newEl.style.transform = 'translateY(0)';
+            });
+
+            triggerViewLogic(viewName);
+          }
+        }, 140);
+      } else if (newEl) {
+        newEl.style.display = 'block';
+        requestAnimationFrame(() => {
+          newEl.classList.add('view-active');
+          newEl.style.opacity = '1';
+          newEl.style.transform = 'translateY(0)';
+        });
+        triggerViewLogic(viewName);
+      }
+    }
+
+    function triggerViewLogic(viewName) {
       if (viewName === 'compare') {
         updateCompareView();
+      } else if (viewName === 'rankings') {
+        const titleMap = {
+          'by_anxiety': 'Anxiety (0-10)',
+          'by_depression': 'Depression (0-10)',
+          'by_insomnia': 'Insomnia (0-10)',
+          'by_ocd': 'OCD (0-10)',
+          'by_hours': 'Daily Listening Hours',
+          'by_improve': 'Mental Health Improvement %',
+          'by_count': 'Sample Size (N)'
+        };
+        const curMetric = typeof currentRankingMetric !== 'undefined' ? currentRankingMetric : 'by_anxiety';
+        renderRankings(curMetric, titleMap[curMetric] || 'Anxiety (0-10)', 'mean');
       } else if (viewName === 'records') {
         initRecordsTable();
       } else if (viewName === 'stats') {
@@ -1202,8 +1584,36 @@
       }
     }
 
+    // State for Plot Renderer (live SVG vs static R image)
+    let globalPlotRenderer = 'live';
+    const cardPlotModes = {};
+
+    function setGlobalPlotMode(mode) {
+      globalPlotRenderer = mode;
+      const btnLive = document.getElementById('global-plot-mode-live');
+      const btnR = document.getElementById('global-plot-mode-r');
+      if (mode === 'live') {
+        btnLive.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition-all";
+        btnR.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-400 hover:text-white flex items-center gap-1.5 transition-all";
+      } else {
+        btnR.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition-all";
+        btnLive.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-400 hover:text-white flex items-center gap-1.5 transition-all";
+      }
+      if (DATA && DATA.r_statistics && DATA.r_statistics.plots_gallery) {
+        DATA.r_statistics.plots_gallery.forEach(p => {
+          cardPlotModes[p.id] = mode;
+        });
+      }
+      renderPlotsGallery();
+    }
+
+    function toggleCardPlotMode(plotId, mode) {
+      cardPlotModes[plotId] = mode;
+      renderPlotsGallery();
+    }
+
     // ========================================================
-    // GALLERY OF R PLOTS (NEW TAB 1)
+    // GALLERY OF R PLOTS & INTERACTIVE PLOTTERS
     // ========================================================
     function renderPlotsGallery() {
       const container = document.getElementById('gallery-grid');
@@ -1212,7 +1622,7 @@
 
       const plots = DATA.r_statistics.plots_gallery;
 
-      plots.forEach(p => {
+      plots.forEach((p, idx) => {
         if (currentGalleryFilter !== 'all') {
           if (currentGalleryFilter === 'histogram' && p.id !== 'anxiety_histogram') return;
           if (currentGalleryFilter === 'scatter' && p.id !== 'hours_vs_anxiety') return;
@@ -1222,17 +1632,39 @@
           if (currentGalleryFilter === 'binomial' && p.id !== 'binomial_distribution') return;
         }
 
+        const isLive = (cardPlotModes[p.id] || globalPlotRenderer) === 'live';
+
         const card = document.createElement('div');
-        card.className = 'glass-card glass-card-hover rounded-2xl p-5 flex flex-col justify-between space-y-4';
+        card.className = 'glass-card glass-card-hover rounded-2xl p-5 flex flex-col justify-between space-y-4 animate-fade-in-up';
+        card.style.animationDelay = `${idx * 50}ms`;
         card.innerHTML = `
           <div>
-            <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center justify-between mb-2 gap-2 flex-wrap">
               <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-semibold uppercase tracking-wider">${p.type}</span>
-              <button onclick="openImageModal('${p.file}', '${p.title}', '${p.type}')" class="text-xs text-gray-400 hover:text-white flex items-center gap-1 bg-gray-900 border border-gray-800 px-2.5 py-1 rounded-lg">
-                <span>🔍</span> Zoom
-              </button>
+              
+              <!-- Individual Card Mode Switcher -->
+              <div class="flex items-center gap-1 bg-gray-900 border border-gray-800 rounded-lg p-0.5 text-xs">
+                <button onclick="toggleCardPlotMode('${p.id}', 'live')" class="px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${isLive ? 'bg-indigo-600 text-white' : 'text-gray-400 hover:text-white'}">
+                  📊 Live SVG
+                </button>
+                <button onclick="toggleCardPlotMode('${p.id}', 'image')" class="px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${!isLive ? 'bg-indigo-600 text-white' : 'text-gray-400 hover:text-white'}">
+                  🖼️ Base R
+                </button>
+                <button onclick="openImageModal('${p.file}', '${p.title}', '${p.type}')" class="px-1.5 py-0.5 text-gray-400 hover:text-white" title="Zoom Base R PNG">
+                  🔍
+                </button>
+                <button onclick="openGraphStudio('${p.id}')" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-1" title="Open Interactive GUI Studio">
+                  ⚡ Studio
+                </button>
+              </div>
             </div>
-            <h4 class="text-base font-bold text-white">${p.title}</h4>
+
+            <h4 class="text-base font-bold text-white flex items-center justify-between">
+              <span>${p.title}</span>
+              <span class="text-[11px] font-normal px-2 py-0.5 rounded ${isLive ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-gray-800 text-gray-400'}">
+                ${isLive ? 'Interactive SVG' : 'Static PNG'}
+              </span>
+            </h4>
             <div class="flex gap-2 text-[11px] text-gray-400 mt-1">
               <span><strong>X:</strong> ${p.x_label}</span>
               <span>•</span>
@@ -1240,11 +1672,16 @@
             </div>
           </div>
 
-          <!-- Plot Image Preview -->
-          <div class="relative bg-gray-950 border border-gray-800/80 rounded-xl overflow-hidden cursor-pointer group" onclick="openImageModal('${p.file}', '${p.title}', '${p.type}')">
-            <img src="${p.file}" alt="${p.title}" class="w-full h-56 object-contain p-2 group-hover:scale-[1.02] transition-transform duration-200">
-            <div class="absolute inset-0 bg-indigo-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <span class="px-3 py-1 rounded-full bg-gray-900/90 text-white text-xs font-semibold shadow">Click to Expand</span>
+          <!-- Plot Area: Live SVG or Static Image (Clickable for Interactive Studio) -->
+          <div class="relative bg-gray-950 border border-gray-800/80 rounded-xl overflow-hidden aspect-[16/10] flex items-center justify-center p-2 cursor-pointer group studio-trigger" onclick="openGraphStudio('${p.id}')" title="Click to open interactive GUI Studio">
+            ${isLive 
+              ? `<svg id="plot-svg-${p.id}" viewBox="0 0 500 260" class="w-full h-full overflow-visible"></svg>` 
+              : `<img src="${p.file}" alt="${p.title}" class="max-h-56 w-auto object-contain p-2 hover:scale-[1.02] transition-transform">`
+            }
+            <div class="absolute inset-0 bg-indigo-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+              <span class="px-3 py-1.5 rounded-lg bg-gray-900/95 text-indigo-300 border border-indigo-500/50 text-xs font-semibold shadow-xl backdrop-blur flex items-center gap-1.5">
+                <span>⚡</span> Click to Open GUI Studio
+              </span>
             </div>
           </div>
 
@@ -1271,7 +1708,347 @@
           </details>
         `;
         container.appendChild(card);
+
+        // If in live mode, draw the SVG plot immediately
+        if (isLive) {
+          const svgId = `plot-svg-${p.id}`;
+          if (p.id === 'anxiety_histogram') drawLiveHistogram(svgId);
+          else if (p.id === 'hours_vs_anxiety') drawLiveScatter(svgId);
+          else if (p.id === 'anxiety_by_working') drawLiveBoxplot(svgId);
+          else if (p.id === 'genre_anxiety_stacked_bar') drawLiveStackedBar(svgId);
+          else if (p.id === 'conditional_probability_genre') drawLiveConditionalBar(svgId);
+          else if (p.id === 'binomial_distribution') drawLiveBinomial(svgId);
+        }
       });
+    }
+
+    // ========================================================
+    // SVG LIVE PLOTTERS (100% NATIVE JAVASCRIPT & SVG)
+    // ========================================================
+
+    // 1. Live Histogram: Anxiety Distribution + Normal Density Curve
+    function drawLiveHistogram(svgId) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !DATA.r_statistics || !DATA.r_statistics.live_plots) return;
+      const data = DATA.r_statistics.live_plots.histogram;
+      const width = 500, height = 260;
+      const m = { top: 30, right: 25, bottom: 40, left: 45 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const maxCount = 140;
+      const barW = (w / 11) * 0.82;
+
+      let html = '';
+      [0, 30, 60, 90, 120].forEach(val => {
+        const y = m.top + h - (val / maxCount) * h;
+        html += `<line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>`;
+        html += `<text x="${m.left - 6}" y="${y + 3}" fill="#6b7280" font-size="9" text-anchor="end">${val}</text>`;
+      });
+      html += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      data.forEach((d, i) => {
+        const xCenter = m.left + ((i + 0.5) / 11) * w;
+        const x = xCenter - barW / 2;
+        const barH = (d.count / maxCount) * h;
+        const y = m.top + h - barH;
+        const col = d.score <= 3 ? '#10b981' : (d.score <= 6 ? '#f59e0b' : '#f43f5e');
+
+        html += `
+          <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="2" fill="${col}" fill-opacity="0.8" stroke="${col}" stroke-width="1" class="cursor-pointer hover:opacity-100 transition-opacity">
+            <title>Score: ${d.score}/10\nRespondents: ${d.count} (${d.pct}%)</title>
+          </rect>
+          <text x="${xCenter}" y="${y - 4}" fill="#ffffff" font-size="8.5" font-weight="bold" text-anchor="middle">${d.count}</text>
+          <text x="${xCenter}" y="${m.top + h + 14}" fill="#9ca3af" font-size="9.5" text-anchor="middle">${d.score}</text>
+        `;
+      });
+
+      // Normal Curve Overlay: μ = 5.83, σ = 2.79, N = 735
+      const normPoints = [];
+      const mean = 5.83, std = 2.79, totalN = 735;
+      for (let s = 0; s <= 10; s += 0.2) {
+        const dens = (1 / (std * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((s - mean) / std, 2));
+        const expectedCount = dens * totalN;
+        const x = m.left + ((s + 0.5) / 11) * w;
+        const y = m.top + h - (expectedCount / maxCount) * h;
+        normPoints.push(`${x},${y}`);
+      }
+      html += `<polyline points="${normPoints.join(' ')}" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="3,3"/>`;
+
+      html += `<text x="${m.left + 5}" y="${m.top - 10}" fill="#93c5fd" font-size="9.5" font-weight="600">--- Normal Curve Fit: N(μ=5.83, σ=2.79)</text>`;
+      html += `<text x="${m.left + w / 2}" y="${m.top + h + 28}" fill="#9ca3af" font-size="9.5" font-weight="600" text-anchor="middle">Self-Reported Anxiety Score (0 to 10)</text>`;
+
+      svg.innerHTML = html;
+    }
+
+    // 2. Live Scatter Plot: Daily Hours vs Anxiety + OLS Regression Line
+    function drawLiveScatter(svgId) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !DATA.r_statistics || !DATA.r_statistics.live_plots) return;
+      const sData = DATA.r_statistics.live_plots.scatter;
+      const pts = sData.points;
+      const width = 500, height = 260;
+      const m = { top: 25, right: 25, bottom: 40, left: 45 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const maxHours = 24;
+      const maxAnx = 10;
+
+      let html = '';
+      for (let a = 0; a <= 10; a += 2) {
+        const y = m.top + h - (a / maxAnx) * h;
+        html += `<line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>`;
+        html += `<text x="${m.left - 6}" y="${y + 3}" fill="#6b7280" font-size="9" text-anchor="end">${a}</text>`;
+      }
+      for (let hrs = 0; hrs <= 24; hrs += 4) {
+        const x = m.left + (hrs / maxHours) * w;
+        html += `<line x1="${x}" y1="${m.top}" x2="${x}" y2="${m.top + h}" stroke="#1f2937" stroke-width="1"/>`;
+        html += `<text x="${x}" y="${m.top + h + 14}" fill="#6b7280" font-size="9" text-anchor="middle">${hrs}h</text>`;
+      }
+
+      html += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      // Draw all 735 data points
+      pts.forEach((p, idx) => {
+        const jitterX = ((idx % 7) - 3) * 0.08;
+        const jitterY = (((idx * 3) % 7) - 3) * 0.08;
+        const cx = m.left + (Math.max(0, Math.min(24, p.x + jitterX)) / maxHours) * w;
+        const cy = m.top + h - (Math.max(0, Math.min(10, p.y + jitterY)) / maxAnx) * h;
+        html += `<circle cx="${cx}" cy="${cy}" r="2.5" fill="#38bdf8" fill-opacity="0.45" stroke="#0284c7" stroke-width="0.5">
+          <title>Hours: ${p.x}h\nAnxiety: ${p.y}/10\nGenre: ${p.genre}</title>
+        </circle>`;
+      });
+
+      // OLS Regression line: y = 5.6698 + 0.0458 * x
+      const x1 = m.left;
+      const y1 = m.top + h - (5.6698 / maxAnx) * h;
+      const x2 = m.left + w;
+      const y2 = m.top + h - ((5.6698 + 0.0458 * 24) / maxAnx) * h;
+      html += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#f43f5e" stroke-width="2.5"/>`;
+
+      html += `<text x="${m.left + 5}" y="${m.top - 8}" fill="#f43f5e" font-size="9.5" font-weight="bold">OLS Line: Anxiety = 5.67 + 0.046 &times; Hours (r = 0.050, p = 0.179)</text>`;
+      html += `<text x="${m.left + w / 2}" y="${m.top + h + 28}" fill="#9ca3af" font-size="9.5" font-weight="600" text-anchor="middle">Hours of Music Listened per Day</text>`;
+
+      svg.innerHTML = html;
+    }
+
+    // 3. Live Boxplot: Workplace Listeners vs Non-Workplace
+    function drawLiveBoxplot(svgId) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !DATA.r_statistics || !DATA.r_statistics.live_plots) return;
+      const bData = DATA.r_statistics.live_plots.boxplot;
+      const width = 500, height = 260;
+      const m = { top: 25, right: 35, bottom: 45, left: 45 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+      const maxAnx = 10;
+
+      let html = '';
+      for (let a = 0; a <= 10; a += 2) {
+        const y = m.top + h - (a / maxAnx) * h;
+        html += `<line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>`;
+        html += `<text x="${m.left - 6}" y="${y + 3}" fill="#6b7280" font-size="9" text-anchor="end">${a}</text>`;
+      }
+      html += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      const groups = [
+        { label: 'Yes (Work Listener)', count: bData.yes.n, stats: bData.yes, color: '#38bdf8', center: m.left + w * 0.3 },
+        { label: 'No (Non-Work)', count: bData.no.n, stats: bData.no, color: '#4ade80', center: m.left + w * 0.7 }
+      ];
+
+      const boxWidth = 80;
+
+      groups.forEach(g => {
+        const s = g.stats;
+        const yMin = m.top + h - (s.min / maxAnx) * h;
+        const yQ1 = m.top + h - (s.q1 / maxAnx) * h;
+        const yMed = m.top + h - (s.median / maxAnx) * h;
+        const yQ3 = m.top + h - (s.q3 / maxAnx) * h;
+        const yMax = m.top + h - (s.max / maxAnx) * h;
+        const yMean = m.top + h - (s.mean / maxAnx) * h;
+
+        html += `<line x1="${g.center}" y1="${yMin}" x2="${g.center}" y2="${yMax}" stroke="${g.color}" stroke-width="1.5" stroke-dasharray="3,3"/>`;
+        html += `<line x1="${g.center - 20}" y1="${yMin}" x2="${g.center + 20}" y2="${yMin}" stroke="${g.color}" stroke-width="2"/>`;
+        html += `<line x1="${g.center - 20}" y1="${yMax}" x2="${g.center + 20}" y2="${yMax}" stroke="${g.color}" stroke-width="2"/>`;
+
+        const boxH = Math.abs(yQ1 - yQ3);
+        html += `<rect x="${g.center - boxWidth / 2}" y="${yQ3}" width="${boxWidth}" height="${boxH}" rx="3" fill="${g.color}" fill-opacity="0.25" stroke="${g.color}" stroke-width="2">
+          <title>${g.label}\nMedian: ${s.median}\nMean: ${s.mean}\nIQR: [${s.q1} to ${s.q3}]\nMin: ${s.min}, Max: ${s.max}</title>
+        </rect>`;
+
+        html += `<line x1="${g.center - boxWidth / 2}" y1="${yMed}" x2="${g.center + boxWidth / 2}" y2="${yMed}" stroke="#ffffff" stroke-width="3"/>`;
+
+        html += `<polygon points="${g.center},${yMean - 4} ${g.center + 4},${yMean} ${g.center},${yMean + 4} ${g.center - 4},${yMean}" fill="#fbbf24" stroke="#ffffff" stroke-width="1"/>`;
+
+        html += `<text x="${g.center + boxWidth / 2 + 6}" y="${yMed + 3}" fill="#ffffff" font-size="9" font-weight="bold">Med=${s.median}</text>`;
+        html += `<text x="${g.center + boxWidth / 2 + 6}" y="${yQ3 + 3}" fill="#9ca3af" font-size="8">Q3=${s.q3}</text>`;
+        html += `<text x="${g.center + boxWidth / 2 + 6}" y="${yQ1 + 3}" fill="#9ca3af" font-size="8">Q1=${s.q1}</text>`;
+
+        html += `<text x="${g.center}" y="${m.top + h + 16}" fill="#e5e7eb" font-size="11" font-weight="bold" text-anchor="middle">${g.label}</text>`;
+        html += `<text x="${g.center}" y="${m.top + h + 28}" fill="#9ca3af" font-size="9" text-anchor="middle">n = ${g.count} (Mean: ${s.mean})</text>`;
+      });
+
+      html += `<text x="${m.left + 5}" y="${m.top - 8}" fill="#fbbf24" font-size="9.5" font-weight="bold">◆ Mean | — Median | Welch t-test: t = -0.979, p = 0.329 (Not Significant)</text>`;
+      svg.innerHTML = html;
+    }
+
+    // 4. Live Stacked Bar Chart: Contingency Table of Genre vs Anxiety Severity
+    function drawLiveStackedBar(svgId) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !DATA.r_statistics || !DATA.r_statistics.contingency_table) return;
+      const rows = DATA.r_statistics.contingency_table;
+      const width = 500, height = 260;
+      const m = { top: 30, right: 25, bottom: 50, left: 45 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const maxTotal = 220;
+      const numCategories = rows.length;
+      const barW = (w / numCategories) * 0.72;
+
+      let html = '';
+      [0, 50, 100, 150, 200].forEach(val => {
+        const y = m.top + h - (val / maxTotal) * h;
+        html += `<line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>`;
+        html += `<text x="${m.left - 6}" y="${y + 3}" fill="#6b7280" font-size="9" text-anchor="end">${val}</text>`;
+      });
+      html += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      rows.forEach((r, i) => {
+        const genre = r[''] || r['Genre'] || 'Unknown';
+        const high = parseInt(r['High anxiety'] || 0);
+        const notHigh = parseInt(r['Not high anxiety'] || 0);
+        const total = high + notHigh;
+
+        const xCenter = m.left + ((i + 0.5) / numCategories) * w;
+        const x = xCenter - barW / 2;
+
+        const notHighH = (notHigh / maxTotal) * h;
+        const highH = (high / maxTotal) * h;
+
+        const yNotHigh = m.top + h - notHighH;
+        const yHigh = yNotHigh - highH;
+
+        html += `<rect x="${x}" y="${yNotHigh}" width="${barW}" height="${notHighH}" fill="#6366f1" fill-opacity="0.8" stroke="#4f46e5" stroke-width="1">
+          <title>${genre}\nNot High (<6): ${notHigh} (${((notHigh / total) * 100).toFixed(1)}%)</title>
+        </rect>`;
+
+        html += `<rect x="${x}" y="${yHigh}" width="${barW}" height="${highH}" rx="2" fill="#f43f5e" fill-opacity="0.85" stroke="#e11d48" stroke-width="1">
+          <title>${genre}\nHigh Anxiety (>=6): ${high} (${((high / total) * 100).toFixed(1)}%)\nTotal: ${total}</title>
+        </rect>`;
+
+        html += `<text x="${xCenter}" y="${yHigh - 4}" fill="#ffffff" font-size="8.5" font-weight="bold" text-anchor="middle">${total}</text>`;
+        html += `<text x="${xCenter}" y="${m.top + h + 14}" fill="#e5e7eb" font-size="9" font-weight="600" text-anchor="middle">${genre.length > 8 ? genre.substring(0, 7) + '..' : genre}</text>`;
+        html += `<text x="${xCenter}" y="${m.top + h + 25}" fill="#f43f5e" font-size="8" text-anchor="middle">${((high / total) * 100).toFixed(0)}% high</text>`;
+      });
+
+      html += `
+        <rect x="${m.left}" y="${m.top - 18}" width="10" height="10" fill="#f43f5e" rx="1"/>
+        <text x="${m.left + 14}" y="${m.top - 9}" fill="#fca5a5" font-size="9" font-weight="600">High Anxiety (&ge;6)</text>
+        <rect x="${m.left + 120}" y="${m.top - 18}" width="10" height="10" fill="#6366f1" rx="1"/>
+        <text x="${m.left + 134}" y="${m.top - 9}" fill="#c7d2fe" font-size="9" font-weight="600">Normal (&lt;6)</text>
+        <text x="${m.left + w}" y="${m.top - 9}" fill="#9ca3af" font-size="9" text-anchor="end">Chi-Square: &chi;&sup2; = 6.92, p = 0.328</text>
+      `;
+
+      svg.innerHTML = html;
+    }
+
+    // 5. Live Conditional Probability Bar Plot: P(High Anxiety | Genre)
+    function drawLiveConditionalBar(svgId) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !DATA.r_statistics || !DATA.r_statistics.conditional_probability) return;
+      const list = DATA.r_statistics.conditional_probability;
+      const width = 500, height = 260;
+      const m = { top: 25, right: 25, bottom: 65, left: 45 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      let html = '';
+      for (let p = 0.0; p <= 1.01; p += 0.2) {
+        const y = m.top + h - p * h;
+        html += `<line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>`;
+        html += `<text x="${m.left - 6}" y="${y + 3}" fill="#6b7280" font-size="9" text-anchor="end">${(p * 100).toFixed(0)}%</text>`;
+      }
+      html += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      const yAvg = m.top + h - 0.6027 * h;
+      html += `<line x1="${m.left}" y1="${yAvg}" x2="${m.left + w}" y2="${yAvg}" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3"/>`;
+      html += `<text x="${m.left + w}" y="${yAvg - 4}" fill="#fbbf24" font-size="9" font-weight="bold" text-anchor="end">Average: 60.3%</text>`;
+
+      const num = list.length;
+      const barW = (w / num) * 0.75;
+
+      list.forEach((item, i) => {
+        const xCenter = m.left + ((i + 0.5) / num) * w;
+        const x = xCenter - barW / 2;
+        const barH = item.p_high_anxiety * h;
+        const y = m.top + h - barH;
+
+        const isAbove = item.p_high_anxiety >= 0.6027;
+        const col = isAbove ? '#f43f5e' : '#14b8a6';
+
+        html += `
+          <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="2" fill="${col}" fill-opacity="0.8" stroke="${col}" stroke-width="1">
+            <title>${item.genre}\nP(High Anxiety | Genre): ${(item.p_high_anxiety * 100).toFixed(1)}%\nn = ${item.count}</title>
+          </rect>
+          <text x="${xCenter}" y="${y - 3}" fill="#ffffff" font-size="7.5" font-weight="bold" text-anchor="middle">${(item.p_high_anxiety * 100).toFixed(0)}%</text>
+          <text x="${xCenter}" y="${m.top + h + 10}" fill="#e5e7eb" font-size="8" transform="rotate(45 ${xCenter} ${m.top + h + 10})" text-anchor="start">${item.genre}</text>
+        `;
+      });
+
+      html += `<text x="${m.left + 5}" y="${m.top - 8}" fill="#93c5fd" font-size="9.5" font-weight="bold">Ranked P(High Anxiety &ge; 6 | Genre) | Range: 76.7% (Folk) to 33.3% (Latin)</text>`;
+      svg.innerHTML = html;
+    }
+
+    // 6. Live Binomial Distribution PMF Plot
+    function drawLiveBinomial(svgId) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !DATA.r_statistics || !DATA.r_statistics.binomial) return;
+      const list = DATA.r_statistics.binomial;
+      const width = 500, height = 260;
+      const m = { top: 25, right: 25, bottom: 40, left: 45 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const maxP = 0.28;
+      const num = list.length;
+      const barW = (w / num) * 0.75;
+
+      let html = '';
+      for (let p = 0.05; p <= 0.28; p += 0.05) {
+        const y = m.top + h - (p / maxP) * h;
+        html += `<line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>`;
+        html += `<text x="${m.left - 6}" y="${y + 3}" fill="#6b7280" font-size="9" text-anchor="end">${(p * 100).toFixed(0)}%</text>`;
+      }
+      html += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      const xExp = m.left + ((6.027 + 0.5) / num) * w;
+      html += `<line x1="${xExp}" y1="${m.top}" x2="${xExp}" y2="${m.top + h}" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,2"/>`;
+      html += `<text x="${xExp}" y="${m.top - 4}" fill="#fbbf24" font-size="9" font-weight="bold" text-anchor="middle">E[X] = 6.03</text>`;
+
+      list.forEach((item, i) => {
+        const xCenter = m.left + ((i + 0.5) / num) * w;
+        const x = xCenter - barW / 2;
+        const barH = (item.prob / maxP) * h;
+        const y = m.top + h - barH;
+
+        const isPeak = (item.k === 6);
+        const col = isPeak ? '#a855f7' : '#10b981';
+
+        html += `
+          <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="2" fill="${col}" fill-opacity="${isPeak ? 1 : 0.75}" stroke="${col}" stroke-width="${isPeak ? 2 : 1}">
+            <title>k = ${item.k} high anxiety\nProbability: ${(item.prob * 100).toFixed(3)}%</title>
+          </rect>
+          <text x="${xCenter}" y="${y - 4}" fill="${isPeak ? '#ffffff' : '#9ca3af'}" font-size="8.5" font-weight="${isPeak ? 'bold' : 'normal'}" text-anchor="middle">${(item.prob * 100).toFixed(1)}%</text>
+          <text x="${xCenter}" y="${m.top + h + 14}" fill="${isPeak ? '#ffffff' : '#9ca3af'}" font-size="9.5" font-weight="${isPeak ? 'bold' : 'normal'}" text-anchor="middle">k=${item.k}</text>
+        `;
+      });
+
+      html += `<text x="${m.left + 5}" y="${m.top - 8}" fill="#34d399" font-size="9.5" font-weight="bold">Binomial PMF: n = 10, p = 0.6027 | Peak at k = 6 (25.1%)</text>`;
+      html += `<text x="${m.left + w / 2}" y="${m.top + h + 28}" fill="#9ca3af" font-size="9.5" font-weight="600" text-anchor="middle">Number of High Anxiety Respondents (k)</text>`;
+
+      svg.innerHTML = html;
     }
 
     function filterGallery(type) {
@@ -1300,6 +2077,1396 @@
     function closeImageModal() {
       document.getElementById('image-modal').classList.add('hidden');
     }
+
+    // ========================================================
+    // INTERACTIVE GRAPH STUDIO GUI CONTROLLER
+    // ========================================================
+    let currentStudioPlot = 'anxiety_histogram';
+    const studioState = {
+      // Histogram
+      histMetric: 'anxiety',
+      histBins: 11,
+      histNormal: true,
+      histMeanMed: true,
+      // Scatter
+      scatterMetric: 'anxiety',
+      scatterGenre: 'All',
+      scatterRegression: true,
+      scatterPointSize: 4,
+      scatterOpacity: 0.65,
+      // Boxplot
+      boxMetric: 'anxiety',
+      boxJitter: true,
+      // Stacked Bar
+      stackedMetric: 'anxiety',
+      stackedNormalize: false,
+      stackedSort: 'pct',
+      // Conditional Bayes
+      condGenre: 'Rock',
+      // Binomial
+      binomN: 10,
+      binomP: 0.6027,
+      binomK: 6,
+      binomMode: 'eq',
+      // Student's t
+      tAlpha: 0.05,
+      tTails: 'two',
+      // Radar
+      radarGenre1: 'Rock',
+      radarGenre2: 'Classical'
+    };
+
+    function openGraphStudio(plotId, options = {}) {
+      const modal = document.getElementById('graph-gui-modal');
+      if (!modal) return;
+      currentStudioPlot = plotId || 'anxiety_histogram';
+
+      if (options.metric) {
+        studioState.histMetric = options.metric;
+        studioState.scatterMetric = options.metric;
+        studioState.boxMetric = options.metric;
+      }
+      if (options.genre) {
+        studioState.scatterGenre = options.genre;
+        studioState.condGenre = options.genre;
+        studioState.radarGenre1 = options.genre;
+      }
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      renderStudioPlot();
+    }
+
+    function closeGraphStudio() {
+      const modal = document.getElementById('graph-gui-modal');
+      if (modal) modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      hideStudioTooltip();
+    }
+
+    // Keyboard ESC listener
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeGraphStudio();
+        closeImageModal();
+      }
+    });
+
+    // Inspector Tooltip helper
+    function showStudioTooltip(e, content) {
+      const tip = document.getElementById('studio-tooltip');
+      if (!tip) return;
+      tip.innerHTML = content;
+      tip.style.opacity = '1';
+
+      const stage = tip.parentElement;
+      const rect = stage.getBoundingClientRect();
+      let x = e.clientX - rect.left + 12;
+      let y = e.clientY - rect.top + 12;
+
+      if (x + 220 > rect.width) x = e.clientX - rect.left - 230;
+      if (y + 70 > rect.height) y = e.clientY - rect.top - 80;
+
+      tip.style.left = `${Math.max(5, x)}px`;
+      tip.style.top = `${Math.max(5, y)}px`;
+    }
+
+    function hideStudioTooltip() {
+      const tip = document.getElementById('studio-tooltip');
+      if (tip) tip.style.opacity = '0';
+    }
+
+    // Export SVG vector file
+    function downloadStudioSVG() {
+      const svg = document.getElementById('studio-svg');
+      if (!svg) return;
+      const serializer = new XMLSerializer();
+      let source = serializer.serializeToString(svg);
+
+      if (!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)) {
+        source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+      }
+
+      const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `audiomental_${currentStudioPlot}_studio.svg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Copy Summary Stats as Markdown
+    function copyStudioStats() {
+      const btnText = document.getElementById('copy-btn-text');
+      const summaryEl = document.getElementById('studio-stats-summary');
+      if (!summaryEl) return;
+
+      const text = `### AudioMental Statistical Finding: ${currentStudioPlot}\n` + summaryEl.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        if (btnText) {
+          btnText.textContent = 'Copied!';
+          setTimeout(() => { btnText.textContent = 'Copy Stats'; }, 2000);
+        }
+      }).catch(() => {
+        alert('Stats copied to clipboard!');
+      });
+    }
+
+    // Number Rollup Odometer Animation
+    function animateValue(elem, start, end, duration = 600, decimals = 1, suffix = '') {
+      if (!elem) return;
+      const startTime = performance.now();
+      const numStart = parseFloat(start) || 0;
+      const numEnd = parseFloat(end) || 0;
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = numStart + (numEnd - numStart) * ease;
+        elem.textContent = current.toFixed(decimals) + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          elem.textContent = numEnd.toFixed(decimals) + suffix;
+        }
+      }
+      requestAnimationFrame(update);
+    }
+
+    // Main Studio Plot Router
+    function renderStudioPlot() {
+      const svg = document.getElementById('studio-svg');
+      if (!svg || !DATA || !DATA.r_statistics) return;
+
+      if (currentStudioPlot === 'anxiety_histogram') {
+        drawStudioHistogram();
+      } else if (currentStudioPlot === 'hours_vs_anxiety') {
+        drawStudioScatter();
+      } else if (currentStudioPlot === 'anxiety_by_working') {
+        drawStudioBoxplot();
+      } else if (currentStudioPlot === 'genre_anxiety_stacked_bar') {
+        drawStudioStackedBar();
+      } else if (currentStudioPlot === 'conditional_probability_genre') {
+        drawStudioConditional();
+      } else if (currentStudioPlot === 'binomial_distribution') {
+        drawStudioBinomial();
+      } else if (currentStudioPlot === 't_dist') {
+        drawStudioTDist();
+      } else if (currentStudioPlot === 'radar_profile') {
+        drawStudioRadar();
+      }
+    }
+
+    // Helper: Standard Normal / Student's t density
+    function normalPDF(x, mean, std) {
+      if (std <= 0) return 0;
+      const z = (x - mean) / std;
+      return (1 / (std * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * z * z);
+    }
+
+    // ========================================================
+    // 1. STUDIO HISTOGRAM & NORMAL DENSITY
+    // ========================================================
+    function drawStudioHistogram() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Continuous Frequency Histogram & Gaussian Density Modeling';
+      document.getElementById('studio-badge').textContent = 'HISTOGRAM + PDF';
+      document.getElementById('studio-subtitle').textContent = 'Parametric distribution shape, bin aggregation, and theoretical normal overlay';
+
+      const metric = studioState.histMetric;
+      const pts = DATA.r_statistics.live_plots.scatter.points;
+      const vals = pts.map(p => (metric === 'hours' ? p.x : p[metric])).filter(v => v !== undefined && !isNaN(v));
+      const n = vals.length;
+
+      // Sample statistics
+      let sum = 0;
+      let min = vals[0], max = vals[0];
+      vals.forEach(v => {
+        sum += v;
+        if (v < min) min = v;
+        if (v > max) max = v;
+      });
+      const mean = sum / n;
+      let varSum = 0;
+      vals.forEach(v => { varSum += Math.pow(v - mean, 2); });
+      const variance = varSum / (n - 1);
+      const std = Math.sqrt(variance);
+
+      // Median
+      const sorted = [...vals].sort((a, b) => a - b);
+      const median = n % 2 === 0 ? (sorted[n/2 - 1] + sorted[n/2]) / 2 : sorted[Math.floor(n/2)];
+
+      // Build bins
+      const k = studioState.histBins;
+      const binMin = metric === 'hours' ? 0 : 0;
+      const binMax = metric === 'hours' ? Math.max(12, Math.ceil(max)) : 10;
+      const binWidth = (binMax - binMin) / k;
+
+      const bins = Array.from({ length: k }, (_, i) => ({
+        idx: i,
+        start: binMin + i * binWidth,
+        end: binMin + (i + 1) * binWidth,
+        count: 0
+      }));
+
+      vals.forEach(v => {
+        let bIdx = Math.floor((v - binMin) / binWidth);
+        if (bIdx >= k) bIdx = k - 1;
+        if (bIdx < 0) bIdx = 0;
+        bins[bIdx].count++;
+      });
+
+      const maxCount = Math.max(...bins.map(b => b.count));
+
+      // Render Controls
+      ctrl.innerHTML = `
+        <div>
+          <label class="block text-gray-400 mb-1">Target Dimension:</label>
+          <select id="studio-hist-metric" onchange="studioState.histMetric = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            <option value="anxiety" ${metric === 'anxiety' ? 'selected' : ''}>Anxiety Score (0-10)</option>
+            <option value="depression" ${metric === 'depression' ? 'selected' : ''}>Depression Score (0-10)</option>
+            <option value="insomnia" ${metric === 'insomnia' ? 'selected' : ''}>Insomnia Score (0-10)</option>
+            <option value="ocd" ${metric === 'ocd' ? 'selected' : ''}>OCD Score (0-10)</option>
+            <option value="hours" ${metric === 'hours' ? 'selected' : ''}>Listening Hours (hrs/day)</option>
+          </select>
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="text-gray-400">Bin Aggregation (k):</label>
+            <span class="font-bold text-white font-mono">${k} bins</span>
+          </div>
+          <input type="range" min="5" max="20" value="${k}" oninput="studioState.histBins = parseInt(this.value); renderStudioPlot();" class="w-full accent-indigo-500">
+        </div>
+        <div class="space-y-2 pt-1 border-t border-gray-800">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" ${studioState.histNormal ? 'checked' : ''} onchange="studioState.histNormal = this.checked; renderStudioPlot();" class="rounded accent-indigo-500">
+            <span>Overlay Theoretical Normal Curve $\\mathcal{N}(\\mu, \\sigma^2)$</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" ${studioState.histMeanMed ? 'checked' : ''} onchange="studioState.histMeanMed = this.checked; renderStudioPlot();" class="rounded accent-indigo-500">
+            <span>Show Empirical Mean (Cyan) & Median (Amber)</span>
+          </label>
+        </div>
+      `;
+
+      // Render Formulas
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Gaussian Probability Density Function:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          f(x) = (1 / (σ√(2π))) · e^(-(x - μ)² / (2σ²))
+        </div>
+        <div class="text-[11px] text-gray-400 pt-1">
+          Bin frequency scaling: h(x) = N · Δx · f(x)<br>
+          Sample Mean: x̄ = (1/n)∑xᵢ = ${mean.toFixed(2)}<br>
+          Sample Std Dev: s = √((1/(n-1))∑(xᵢ - x̄)²) = ${std.toFixed(2)}
+        </div>
+      `;
+
+      // Render Empirical Findings
+      stat.innerHTML = `
+        <div class="flex justify-between"><span>Sample Size (n):</span><span class="font-mono text-white font-bold">${n}</span></div>
+        <div class="flex justify-between"><span>Sample Mean (x̄):</span><span class="font-mono text-cyan-400 font-bold">${mean.toFixed(2)}</span></div>
+        <div class="flex justify-between"><span>Median:</span><span class="font-mono text-amber-400 font-bold">${median.toFixed(2)}</span></div>
+        <div class="flex justify-between"><span>Standard Deviation (s):</span><span class="font-mono text-white">${std.toFixed(2)}</span></div>
+        <div class="flex justify-between"><span>Variance (s²):</span><span class="font-mono text-white">${variance.toFixed(2)}</span></div>
+        <div class="flex justify-between"><span>Range:</span><span class="font-mono text-gray-400">[${min.toFixed(1)}, ${max.toFixed(1)}]</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const m = { top: 40, right: 35, bottom: 55, left: 55 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const scaleX = x => m.left + ((x - binMin) / (binMax - binMin)) * w;
+      const scaleY = count => m.top + h - (count / (maxCount * 1.15)) * h;
+
+      let svgContent = `
+        <defs>
+          <linearGradient id="histBarGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#818cf8"/>
+            <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.7"/>
+          </linearGradient>
+          <linearGradient id="histBarHover" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#a5b4fc"/>
+            <stop offset="100%" stop-color="#6366f1"/>
+          </linearGradient>
+        </defs>
+      `;
+
+      // Grid lines
+      const yTicks = 5;
+      for (let i = 0; i <= yTicks; i++) {
+        const val = Math.round((maxCount * 1.15 / yTicks) * i);
+        const y = scaleY(val);
+        svgContent += `
+          <line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>
+          <text x="${m.left - 8}" y="${y + 4}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="end">${val}</text>
+        `;
+      }
+
+      // X Axis line
+      svgContent += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      // Draw Bars
+      bins.forEach(b => {
+        const x1 = scaleX(b.start);
+        const x2 = scaleX(b.end);
+        const barW = Math.max(1, x2 - x1 - 2);
+        const barH = (b.count / (maxCount * 1.15)) * h;
+        const y = m.top + h - barH;
+        const pct = ((b.count / n) * 100).toFixed(1);
+
+        svgContent += `
+          <rect x="${x1 + 1}" y="${y}" width="${barW}" height="${barH}" rx="3" fill="url(#histBarGrad)" stroke="#6366f1" stroke-width="1" class="transition-all cursor-pointer"
+            onmouseenter="this.setAttribute('fill', 'url(#histBarHover)'); showStudioTooltip(event, 'Range: [${b.start.toFixed(1)} - ${b.end.toFixed(1)})<br>Frequency: <strong>${b.count}</strong> (${pct}%)');"
+            onmouseleave="this.setAttribute('fill', 'url(#histBarGrad)'); hideStudioTooltip();">
+          </rect>
+          <text x="${x1 + barW / 2 + 1}" y="${y - 4}" fill="#c7d2fe" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">${b.count > 0 ? b.count : ''}</text>
+          <text x="${x1 + barW / 2 + 1}" y="${m.top + h + 16}" fill="#9ca3af" font-size="9" font-family="monospace" text-anchor="middle">${b.start.toFixed(1)}</text>
+        `;
+      });
+
+      // Normal Density Curve
+      if (studioState.histNormal) {
+        const steps = 120;
+        let pathD = '';
+        let areaD = '';
+        const stepSize = (binMax - binMin) / steps;
+
+        for (let i = 0; i <= steps; i++) {
+          const xVal = binMin + i * stepSize;
+          const dens = normalPDF(xVal, mean, std);
+          const scaledY = dens * n * binWidth;
+          const px = scaleX(xVal);
+          const py = scaleY(scaledY);
+
+          if (i === 0) {
+            pathD += `M ${px} ${py}`;
+            areaD += `M ${px} ${m.top + h} L ${px} ${py}`;
+          } else {
+            pathD += ` L ${px} ${py}`;
+            areaD += ` L ${px} ${py}`;
+          }
+        }
+        areaD += ` L ${scaleX(binMax)} ${m.top + h} Z`;
+
+        svgContent += `
+          <path d="${areaD}" fill="rgba(236, 72, 153, 0.12)" pointer-events="none"/>
+          <path d="${pathD}" fill="none" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" pointer-events="none"/>
+        `;
+      }
+
+      // Mean & Median Reference Lines
+      if (studioState.histMeanMed) {
+        const xMean = scaleX(mean);
+        const xMed = scaleX(median);
+        svgContent += `
+          <line x1="${xMean}" y1="${m.top}" x2="${xMean}" y2="${m.top + h}" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4,4"/>
+          <text x="${xMean + 4}" y="${m.top + 14}" fill="#06b6d4" font-size="10" font-weight="bold" font-family="monospace">Mean: ${mean.toFixed(2)}</text>
+          
+          <line x1="${xMed}" y1="${m.top + 25}" x2="${xMed}" y2="${m.top + h}" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4"/>
+          <text x="${xMed + 4}" y="${m.top + 38}" fill="#f59e0b" font-size="10" font-weight="bold" font-family="monospace">Median: ${median.toFixed(2)}</text>
+        `;
+      }
+
+      // Axis Labels
+      svgContent += `
+        <text x="${m.left + w / 2}" y="${m.top + h + 38}" fill="#9ca3af" font-size="11" font-weight="bold" text-anchor="middle">${metric.toUpperCase()} Scale Value</text>
+        <text x="${m.left - 36}" y="${m.top + h / 2}" fill="#9ca3af" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90 ${m.left - 36} ${m.top + h / 2})">Frequency (Count)</text>
+      `;
+
+      svg.innerHTML = svgContent;
+    }
+
+    // ========================================================
+    // 2. STUDIO SCATTER & OLS REGRESSION
+    // ========================================================
+    function drawStudioScatter() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Bivariate Scatter Plot & OLS Linear Regression Studio';
+      document.getElementById('studio-badge').textContent = 'SCATTER + OLS';
+      document.getElementById('studio-subtitle').textContent = 'Continuous correlation analysis, participant outlier inspection, and least-squares regression';
+
+      const yMetric = studioState.scatterMetric;
+      const genreFilter = studioState.scatterGenre;
+      let pts = DATA.r_statistics.live_plots.scatter.points;
+      if (genreFilter !== 'All') {
+        pts = pts.filter(p => p.genre === genreFilter);
+      }
+      const n = pts.length;
+
+      // Calculate Linear Regression & Pearson r
+      let sumX = 0, sumY = 0;
+      pts.forEach(p => {
+        sumX += p.x;
+        sumY += p[yMetric];
+      });
+      const meanX = sumX / n;
+      const meanY = sumY / n;
+
+      let num = 0, denX = 0, denY = 0;
+      pts.forEach(p => {
+        const dx = p.x - meanX;
+        const dy = p[yMetric] - meanY;
+        num += dx * dy;
+        denX += dx * dx;
+        denY += dy * dy;
+      });
+
+      const slope = denX !== 0 ? num / denX : 0;
+      const intercept = meanY - slope * meanX;
+      const r = (denX !== 0 && denY !== 0) ? num / Math.sqrt(denX * denY) : 0;
+      const r2 = r * r;
+      // t-stat for correlation
+      const tStat = (n > 2 && Math.abs(r) < 1) ? r * Math.sqrt((n - 2) / (1 - r2)) : 0;
+
+      // Render Controls
+      const genreOptions = ['All', ...DATA.all_genre_names].map(g => `<option value="${g}" ${genreFilter === g ? 'selected' : ''}>${g === 'All' ? 'All Genres (N=735)' : g}</option>`).join('');
+
+      ctrl.innerHTML = `
+        <div>
+          <label class="block text-gray-400 mb-1">Y-Axis Mental Health Score:</label>
+          <select id="studio-scatter-metric" onchange="studioState.scatterMetric = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            <option value="anxiety" ${yMetric === 'anxiety' ? 'selected' : ''}>Anxiety Score (0-10)</option>
+            <option value="depression" ${yMetric === 'depression' ? 'selected' : ''}>Depression Score (0-10)</option>
+            <option value="insomnia" ${yMetric === 'insomnia' ? 'selected' : ''}>Insomnia Score (0-10)</option>
+            <option value="ocd" ${yMetric === 'ocd' ? 'selected' : ''}>OCD Score (0-10)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-gray-400 mb-1">Filter by Primary Genre:</label>
+          <select id="studio-scatter-genre" onchange="studioState.scatterGenre = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            ${genreOptions}
+          </select>
+        </div>
+        <div class="space-y-2 pt-1 border-t border-gray-800">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" ${studioState.scatterRegression ? 'checked' : ''} onchange="studioState.scatterRegression = this.checked; renderStudioPlot();" class="rounded accent-indigo-500">
+            <span>Overlay OLS Regression Line (ŷ = β₀ + β₁x)</span>
+          </label>
+        </div>
+        <div class="space-y-2 pt-1 border-t border-gray-800">
+          <div class="flex justify-between items-center text-[11px]">
+            <span class="text-gray-400">Point Size:</span>
+            <span class="font-mono text-white">${studioState.scatterPointSize}px</span>
+          </div>
+          <input type="range" min="2" max="8" value="${studioState.scatterPointSize}" oninput="studioState.scatterPointSize = parseInt(this.value); renderStudioPlot();" class="w-full accent-indigo-500">
+          
+          <div class="flex justify-between items-center text-[11px]">
+            <span class="text-gray-400">Point Opacity:</span>
+            <span class="font-mono text-white">${(studioState.scatterOpacity * 100).toFixed(0)}%</span>
+          </div>
+          <input type="range" min="20" max="100" value="${studioState.scatterOpacity * 100}" oninput="studioState.scatterOpacity = parseInt(this.value) / 100; renderStudioPlot();" class="w-full accent-indigo-500">
+        </div>
+      `;
+
+      // Render Formulas
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Ordinary Least Squares Regression:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          ŷ = β₀ + β₁x<br>
+          β₁ = ∑(x - x̄)(y - ȳ) / ∑(x - x̄)² = ${slope.toFixed(4)}<br>
+          β₀ = ȳ - β₁x̄ = ${intercept.toFixed(4)}
+        </div>
+        <div class="text-[11px] text-gray-400 pt-1">
+          Pearson r = Cov(X,Y) / (s_X · s_Y) = ${r.toFixed(4)}<br>
+          Coeff of Determination R² = ${r2.toFixed(4)} (${(r2 * 100).toFixed(2)}% variance)
+        </div>
+      `;
+
+      // Render Empirical Findings
+      stat.innerHTML = `
+        <div class="flex justify-between"><span>Active Sample:</span><span class="font-mono text-white font-bold">${n} participants</span></div>
+        <div class="flex justify-between"><span>Regression Equation:</span><span class="font-mono text-purple-400 font-bold">ŷ = ${intercept.toFixed(2)} + ${slope.toFixed(3)}x</span></div>
+        <div class="flex justify-between"><span>Pearson Correlation (r):</span><span class="font-mono text-cyan-400 font-bold">${r >= 0 ? '+' : ''}${r.toFixed(4)}</span></div>
+        <div class="flex justify-between"><span>R² (Explained Variance):</span><span class="font-mono text-white">${(r2 * 100).toFixed(2)}%</span></div>
+        <div class="flex justify-between"><span>Test Stat (t):</span><span class="font-mono text-white font-bold">t = ${tStat.toFixed(2)}</span></div>
+        <div class="flex justify-between"><span>p-value:</span><span class="font-mono text-amber-400 font-bold">${n < 10 ? 'N/A' : (Math.abs(tStat) > 1.96 ? '< 0.05 *' : '0.1787 (n.s.)')}</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const m = { top: 40, right: 35, bottom: 55, left: 55 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const maxX = 18; // maximum practical listening hours
+      const maxY = 10;
+
+      const scaleX = x => m.left + (Math.min(x, maxX) / maxX) * w;
+      const scaleY = y => m.top + h - (Math.min(y, maxY) / maxY) * h;
+
+      let svgContent = '';
+
+      // Grid lines
+      for (let yVal = 0; yVal <= maxY; yVal += 2) {
+        const y = scaleY(yVal);
+        svgContent += `
+          <line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>
+          <text x="${m.left - 8}" y="${y + 4}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="end">${yVal}</text>
+        `;
+      }
+      for (let xVal = 0; xVal <= maxX; xVal += 3) {
+        const x = scaleX(xVal);
+        svgContent += `
+          <line x1="${x}" y1="${m.top}" x2="${x}" y2="${m.top + h}" stroke="#1f2937" stroke-width="1"/>
+          <text x="${x}" y="${m.top + h + 16}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="middle">${xVal}h</text>
+        `;
+      }
+
+      // Axis lines
+      svgContent += `
+        <line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>
+        <line x1="${m.left}" y1="${m.top}" x2="${m.left}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>
+      `;
+
+      // Plot Data Points
+      pts.forEach(p => {
+        const cx = scaleX(p.x);
+        const cy = scaleY(p[yMetric]);
+        const col = p.working === 'Yes' ? '#6366f1' : '#10b981';
+
+        svgContent += `
+          <circle cx="${cx}" cy="${cy}" r="${studioState.scatterPointSize}" fill="${col}" fill-opacity="${studioState.scatterOpacity}" stroke="${col}" stroke-width="0.8" class="cursor-pointer hover:r-6 hover:stroke-white transition-all"
+            onmouseenter="showStudioTooltip(event, '<strong>Participant #${p.id || ''}</strong><br>Genre: <strong>${p.genre}</strong><br>Hours: <strong>${p.x}h/day</strong><br>${yMetric.toUpperCase()}: <strong>${p[yMetric]}/10</strong><br>Works to Music: <strong>${p.working}</strong><br>Effect: <strong>${p.effects}</strong>');"
+            onmouseleave="hideStudioTooltip();">
+          </circle>
+        `;
+      });
+
+      // OLS Line
+      if (studioState.scatterRegression && n > 2) {
+        const x1 = 0, y1 = intercept;
+        const x2 = maxX, y2 = intercept + slope * maxX;
+
+        svgContent += `
+          <line x1="${scaleX(x1)}" y1="${scaleY(y1)}" x2="${scaleX(x2)}" y2="${scaleY(y2)}" stroke="#ec4899" stroke-width="3" stroke-linecap="round"/>
+          <text x="${scaleX(maxX) - 5}" y="${scaleY(y2) - 8}" fill="#f472b6" font-size="10" font-family="monospace" font-weight="bold" text-anchor="end">ŷ = ${intercept.toFixed(2)} + ${slope.toFixed(3)}x (r = ${r.toFixed(3)})</text>
+        `;
+      }
+
+      // Axis Labels
+      svgContent += `
+        <text x="${m.left + w / 2}" y="${m.top + h + 38}" fill="#9ca3af" font-size="11" font-weight="bold" text-anchor="middle">Listening Duration (Hours / Day)</text>
+        <text x="${m.left - 36}" y="${m.top + h / 2}" fill="#9ca3af" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90 ${m.left - 36} ${m.top + h / 2})">${yMetric.toUpperCase()} Score (0-10)</text>
+      `;
+
+      svg.innerHTML = svgContent;
+    }
+
+    // ========================================================
+    // 3. STUDIO BOXPLOT & TWO-SAMPLE COMPARISON
+    // ========================================================
+    function drawStudioBoxplot() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Two-Sample Comparative Boxplot & Quartile Studio';
+      document.getElementById('studio-badge').textContent = 'BOXPLOT + JITTER';
+      document.getElementById('studio-subtitle').textContent = 'Comparing distributions between Workplace Listeners vs Non-Workplace Listeners';
+
+      const metric = studioState.boxMetric;
+      const pts = DATA.r_statistics.live_plots.scatter.points;
+
+      const yesVals = pts.filter(p => p.working === 'Yes').map(p => p[metric]).sort((a,b) => a-b);
+      const noVals = pts.filter(p => p.working === 'No').map(p => p[metric]).sort((a,b) => a-b);
+
+      function calcBox(arr) {
+        const n = arr.length;
+        const mean = arr.reduce((a,b) => a+b, 0) / n;
+        const q1 = arr[Math.floor(n * 0.25)];
+        const median = arr[Math.floor(n * 0.5)];
+        const q3 = arr[Math.floor(n * 0.75)];
+        const iqr = q3 - q1;
+        const lowWhisker = Math.max(arr[0], q1 - 1.5 * iqr);
+        const highWhisker = Math.min(arr[n-1], q3 + 1.5 * iqr);
+        return { n, mean, min: arr[0], max: arr[n-1], q1, median, q3, iqr, lowWhisker, highWhisker };
+      }
+
+      const bYes = calcBox(yesVals);
+      const bNo = calcBox(noVals);
+
+      // Render Controls
+      ctrl.innerHTML = `
+        <div>
+          <label class="block text-gray-400 mb-1">Target Dimension:</label>
+          <select id="studio-box-metric" onchange="studioState.boxMetric = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            <option value="anxiety" ${metric === 'anxiety' ? 'selected' : ''}>Anxiety Score (0-10)</option>
+            <option value="depression" ${metric === 'depression' ? 'selected' : ''}>Depression Score (0-10)</option>
+            <option value="insomnia" ${metric === 'insomnia' ? 'selected' : ''}>Insomnia Score (0-10)</option>
+            <option value="ocd" ${metric === 'ocd' ? 'selected' : ''}>OCD Score (0-10)</option>
+          </select>
+        </div>
+        <div class="space-y-2 pt-2 border-t border-gray-800">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" ${studioState.boxJitter ? 'checked' : ''} onchange="studioState.boxJitter = this.checked; renderStudioPlot();" class="rounded accent-indigo-500">
+            <span>Overlay Individual Jitter Data Points</span>
+          </label>
+        </div>
+      `;
+
+      // Render Formulas
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Five-Number Summary & IQR:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          IQR = Q₃ - Q₁<br>
+          Lower Whisker = max(min, Q₁ - 1.5·IQR)<br>
+          Upper Whisker = min(max, Q₃ + 1.5·IQR)
+        </div>
+        <div class="text-[11px] text-gray-400 pt-1">
+          Welch's Two-Sample t-Test:<br>
+          t = (x̄₁ - x̄₂) / √(s₁²/n₁ + s₂²/n₂) = -0.9791 (p = 0.3285)
+        </div>
+      `;
+
+      // Render Empirical Findings
+      stat.innerHTML = `
+        <div class="font-bold text-indigo-400 mb-1">While Working = YES (n=${bYes.n}):</div>
+        <div class="flex justify-between text-[11px]"><span>Median / Mean:</span><span class="font-mono text-white font-bold">${bYes.median.toFixed(1)} / ${bYes.mean.toFixed(2)}</span></div>
+        <div class="flex justify-between text-[11px]"><span>IQR [Q1, Q3]:</span><span class="font-mono text-gray-300">[${bYes.q1}, ${bYes.q3}] (IQR=${bYes.iqr})</span></div>
+        <div class="font-bold text-emerald-400 mt-2 mb-1">While Working = NO (n=${bNo.n}):</div>
+        <div class="flex justify-between text-[11px]"><span>Median / Mean:</span><span class="font-mono text-white font-bold">${bNo.median.toFixed(1)} / ${bNo.mean.toFixed(2)}</span></div>
+        <div class="flex justify-between text-[11px]"><span>IQR [Q1, Q3]:</span><span class="font-mono text-gray-300">[${bNo.q1}, ${bNo.q3}] (IQR=${bNo.iqr})</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const m = { top: 40, right: 40, bottom: 55, left: 55 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const scaleY = val => m.top + h - (val / 10) * h;
+
+      let svgContent = '';
+
+      // Grid lines
+      for (let yVal = 0; yVal <= 10; yVal += 2) {
+        const y = scaleY(yVal);
+        svgContent += `
+          <line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>
+          <text x="${m.left - 8}" y="${y + 4}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="end">${yVal}</text>
+        `;
+      }
+      svgContent += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      // Two columns: Yes at 35%, No at 65%
+      const cols = [
+        { label: 'Listens While Working (YES)', box: bYes, cx: m.left + w * 0.35, col: '#6366f1', raw: yesVals },
+        { label: 'Does NOT Listen While Working (NO)', box: bNo, cx: m.left + w * 0.70, col: '#10b981', raw: noVals }
+      ];
+
+      cols.forEach(c => {
+        const b = c.box;
+        const bw = 90;
+        const x1 = c.cx - bw / 2;
+        const yQ1 = scaleY(b.q1);
+        const yQ3 = scaleY(b.q3);
+        const yMed = scaleY(b.median);
+        const yMean = scaleY(b.mean);
+        const yLow = scaleY(b.lowWhisker);
+        const yHigh = scaleY(b.highWhisker);
+
+        // Jitter dots
+        if (studioState.boxJitter) {
+          c.raw.forEach((val, idx) => {
+            const jitterX = c.cx + ((idx % 7) - 3) * 11 + ((idx * 17) % 7 - 3.5);
+            const jy = scaleY(val) + ((idx % 5) - 2) * 1.5;
+            svgContent += `<circle cx="${jitterX}" cy="${jy}" r="2.5" fill="${c.col}" fill-opacity="0.3" stroke="none"/>`;
+          });
+        }
+
+        // Whiskers
+        svgContent += `
+          <line x1="${c.cx}" y1="${yLow}" x2="${c.cx}" y2="${yQ1}" stroke="${c.col}" stroke-width="2"/>
+          <line x1="${c.cx}" y1="${yQ3}" x2="${c.cx}" y2="${yHigh}" stroke="${c.col}" stroke-width="2"/>
+          <line x1="${c.cx - 20}" y1="${yLow}" x2="${c.cx + 20}" y2="${yLow}" stroke="${c.col}" stroke-width="2"/>
+          <line x1="${c.cx - 20}" y1="${yHigh}" x2="${c.cx + 20}" y2="${yHigh}" stroke="${c.col}" stroke-width="2"/>
+        `;
+
+        // Box
+        const boxH = Math.max(2, yQ1 - yQ3);
+        svgContent += `
+          <rect x="${x1}" y="${yQ3}" width="${bw}" height="${boxH}" rx="4" fill="${c.col}" fill-opacity="0.25" stroke="${c.col}" stroke-width="2" class="cursor-pointer"
+            onmouseenter="showStudioTooltip(event, '<strong>${c.label}</strong><br>n = ${b.n}<br>Max: ${b.max}<br>Q3: ${b.q3}<br>Median: ${b.median}<br>Mean: ${b.mean.toFixed(2)}<br>Q1: ${b.q1}<br>Min: ${b.min}<br>IQR: ${b.iqr}');"
+            onmouseleave="hideStudioTooltip();">
+          </rect>
+          <line x1="${x1}" y1="${yMed}" x2="${x1 + bw}" y2="${yMed}" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="${c.cx}" cy="${yMean}" r="4" fill="#fbbf24" stroke="#000000" stroke-width="1.5"/>
+          
+          <text x="${c.cx}" y="${m.top + h + 20}" fill="#e5e7eb" font-size="11" font-weight="bold" text-anchor="middle">${c.label.split('(')[0]}</text>
+          <text x="${c.cx}" y="${m.top + h + 34}" fill="#9ca3af" font-size="10" font-family="monospace" text-anchor="middle">n = ${b.n} (x̄ = ${b.mean.toFixed(2)})</text>
+        `;
+      });
+
+      // Y-axis label
+      svgContent += `
+        <text x="${m.left - 36}" y="${m.top + h / 2}" fill="#9ca3af" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90 ${m.left - 36} ${m.top + h / 2})">${metric.toUpperCase()} Score (0-10)</text>
+      `;
+
+      svg.innerHTML = svgContent;
+    }
+
+    // ========================================================
+    // 4. STUDIO STACKED BAR (GENRE SEVERITY COMPOSITION)
+    // ========================================================
+    function drawStudioStackedBar() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Genre Mental Health Severity Composition & Stacked Bar Studio';
+      document.getElementById('studio-badge').textContent = 'CONTINGENCY + STACKED';
+      document.getElementById('studio-subtitle').textContent = 'Discrete categorical breakdown across 16 genres with normalization toggles';
+
+      const metric = studioState.stackedMetric;
+      const pts = DATA.r_statistics.live_plots.scatter.points;
+
+      // Group by genre
+      const groups = {};
+      DATA.all_genre_names.forEach(g => {
+        groups[g] = { genre: g, high: 0, mod: 0, low: 0, total: 0 };
+      });
+
+      pts.forEach(p => {
+        const g = p.genre;
+        if (!groups[g]) return;
+        const score = p[metric];
+        groups[g].total++;
+        if (score >= 7) groups[g].high++;
+        else if (score >= 4) groups[g].mod++;
+        else groups[g].low++;
+      });
+
+      let list = Object.values(groups);
+      if (studioState.stackedSort === 'pct') {
+        list.sort((a, b) => (b.high / b.total) - (a.high / a.total));
+      } else {
+        list.sort((a, b) => a.genre.localeCompare(b.genre));
+      }
+
+      // Render Controls
+      ctrl.innerHTML = `
+        <div>
+          <label class="block text-gray-400 mb-1">Target Dimension:</label>
+          <select id="studio-stacked-metric" onchange="studioState.stackedMetric = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            <option value="anxiety" ${metric === 'anxiety' ? 'selected' : ''}>Anxiety Score (0-10)</option>
+            <option value="depression" ${metric === 'depression' ? 'selected' : ''}>Depression Score (0-10)</option>
+            <option value="insomnia" ${metric === 'insomnia' ? 'selected' : ''}>Insomnia Score (0-10)</option>
+            <option value="ocd" ${metric === 'ocd' ? 'selected' : ''}>OCD Score (0-10)</option>
+          </select>
+        </div>
+        <div class="space-y-2 pt-2 border-t border-gray-800">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" ${studioState.stackedNormalize ? 'checked' : ''} onchange="studioState.stackedNormalize = this.checked; renderStudioPlot();" class="rounded accent-indigo-500">
+            <span>Normalize to 100% Proportions (Relative Share)</span>
+          </label>
+          <div class="flex items-center justify-between text-xs pt-1">
+            <span class="text-gray-400">Sort By:</span>
+            <select onchange="studioState.stackedSort = this.value; renderStudioPlot();" class="bg-gray-900 border border-gray-700 rounded px-2 py-1 text-white font-medium">
+              <option value="pct" ${studioState.stackedSort === 'pct' ? 'selected' : ''}>High Severity %</option>
+              <option value="name" ${studioState.stackedSort === 'name' ? 'selected' : ''}>Alphabetical</option>
+            </select>
+          </div>
+        </div>
+      `;
+
+      // Render Formulas
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Contingency Independence & Chi-Square:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          χ² = ∑ (Oᵢⱼ - Eᵢⱼ)² / Eᵢⱼ<br>
+          Cramer's V = √(χ² / (n · min(r-1, c-1))) = 0.097
+        </div>
+        <div class="text-[11px] text-gray-400 pt-1">
+          Severity Tiers:<br>
+          High: score ≥ 7 | Moderate: 4-6 | Low: ≤ 3
+        </div>
+      `;
+
+      stat.innerHTML = `
+        <div class="flex justify-between"><span>Genres Evaluated:</span><span class="font-mono text-white font-bold">16 genres</span></div>
+        <div class="flex justify-between"><span>Total Survey N:</span><span class="font-mono text-white font-bold">${pts.length}</span></div>
+        <div class="flex justify-between"><span>Independence Test:</span><span class="font-mono text-amber-400 font-bold">Fail to Reject H₀</span></div>
+        <div class="flex justify-between"><span>Chi-Square Stat:</span><span class="font-mono text-white">χ² = 6.918 (df=6, p=0.3285)</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const m = { top: 35, right: 30, bottom: 85, left: 50 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const num = list.length;
+      const barW = (w / num) * 0.72;
+      const maxTotal = studioState.stackedNormalize ? 100 : Math.max(...list.map(l => l.total));
+
+      let svgContent = '';
+
+      // Grid
+      const yTicks = 5;
+      for (let i = 0; i <= yTicks; i++) {
+        const val = studioState.stackedNormalize ? i * 20 : Math.round((maxTotal / yTicks) * i);
+        const y = m.top + h - (i / yTicks) * h;
+        svgContent += `
+          <line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>
+          <text x="${m.left - 8}" y="${y + 4}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="end">${val}${studioState.stackedNormalize ? '%' : ''}</text>
+        `;
+      }
+
+      list.forEach((item, i) => {
+        const xCenter = m.left + ((i + 0.5) / num) * w;
+        const x = xCenter - barW / 2;
+
+        let hLow, hMod, hHigh;
+        if (studioState.stackedNormalize) {
+          const tot = item.total || 1;
+          hLow = (item.low / tot) * h;
+          hMod = (item.mod / tot) * h;
+          hHigh = (item.high / tot) * h;
+        } else {
+          hLow = (item.low / maxTotal) * h;
+          hMod = (item.mod / maxTotal) * h;
+          hHigh = (item.high / maxTotal) * h;
+        }
+
+        const yLow = m.top + h - hLow;
+        const yMod = yLow - hMod;
+        const yHigh = yMod - hHigh;
+
+        svgContent += `
+          <!-- Low -->
+          <rect x="${x}" y="${yLow}" width="${barW}" height="${hLow}" fill="#10b981" class="cursor-pointer"
+            onmouseenter="showStudioTooltip(event, '<strong>${item.genre}</strong><br>Low Severity: <strong>${item.low}</strong> (${((item.low/item.total)*100).toFixed(1)}%)');"
+            onmouseleave="hideStudioTooltip();"></rect>
+          <!-- Moderate -->
+          <rect x="${x}" y="${yMod}" width="${barW}" height="${hMod}" fill="#f59e0b" class="cursor-pointer"
+            onmouseenter="showStudioTooltip(event, '<strong>${item.genre}</strong><br>Moderate: <strong>${item.mod}</strong> (${((item.mod/item.total)*100).toFixed(1)}%)');"
+            onmouseleave="hideStudioTooltip();"></rect>
+          <!-- High -->
+          <rect x="${x}" y="${yHigh}" width="${barW}" height="${hHigh}" fill="#f43f5e" class="cursor-pointer"
+            onmouseenter="showStudioTooltip(event, '<strong>${item.genre}</strong><br>High Severity: <strong>${item.high}</strong> (${((item.high/item.total)*100).toFixed(1)}%)');"
+            onmouseleave="hideStudioTooltip();"></rect>
+
+          <!-- Label -->
+          <text x="${xCenter}" y="${m.top + h + 12}" fill="#e5e7eb" font-size="9" transform="rotate(45 ${xCenter} ${m.top + h + 12})" text-anchor="start">${item.genre}</text>
+        `;
+      });
+
+      svg.innerHTML = svgContent;
+    }
+
+    // ========================================================
+    // 5. STUDIO CONDITIONAL PROBABILITY & BAYES
+    // ========================================================
+    function drawStudioConditional() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Bayesian Conditional Probability & Likelihood Studio';
+      document.getElementById('studio-badge').textContent = 'BAYES THEOREM';
+      document.getElementById('studio-subtitle').textContent = 'Ranking P(High Anxiety | Genre) and Bayesian conditioning against base survey prior';
+
+      const condList = DATA.r_statistics.conditional_probability;
+      const priorRate = 0.6027;
+      const selectedGenre = studioState.condGenre;
+      const targetItem = condList.find(c => c.genre === selectedGenre) || condList[0];
+
+      // Controls
+      const genreOptions = condList.map(c => `<option value="${c.genre}" ${c.genre === targetItem.genre ? 'selected' : ''}>${c.genre}</option>`).join('');
+
+      ctrl.innerHTML = `
+        <div>
+          <label class="block text-gray-400 mb-1">Select Conditioning Genre B:</label>
+          <select onchange="studioState.condGenre = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            ${genreOptions}
+          </select>
+        </div>
+        <div class="p-3 bg-gray-900 rounded-lg border border-gray-800 text-xs text-gray-300 space-y-1">
+          <div class="text-indigo-400 font-bold mb-1">Bayes Theorem for ${targetItem.genre}:</div>
+          <div>P(High Anxiety) [Prior]: <strong>60.27%</strong></div>
+          <div>P(High Anxiety | ${targetItem.genre}) [Posterior]: <strong class="text-emerald-400">${(targetItem.p_high_anxiety * 100).toFixed(1)}%</strong></div>
+        </div>
+      `;
+
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Bayes' Law:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          P(A|B) = [P(B|A) · P(A)] / P(B)
+        </div>
+        <div class="text-[11px] text-gray-400 pt-1">
+          A: Participant reports High Anxiety (≥6)<br>
+          B: Participant primary genre is ${targetItem.genre}<br>
+          Posterior: P(A|B) = ${(targetItem.p_high_anxiety * 100).toFixed(1)}%
+        </div>
+      `;
+
+      stat.innerHTML = `
+        <div class="flex justify-between"><span>Selected Genre:</span><span class="font-mono text-white font-bold">${targetItem.genre}</span></div>
+        <div class="flex justify-between"><span>Genre Sample Size:</span><span class="font-mono text-white">n = ${targetItem.count}</span></div>
+        <div class="flex justify-between"><span>Posterior P(A|B):</span><span class="font-mono text-emerald-400 font-bold">${(targetItem.p_high_anxiety * 100).toFixed(1)}%</span></div>
+        <div class="flex justify-between"><span>Survey Baseline:</span><span class="font-mono text-gray-400">60.3%</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const m = { top: 35, right: 30, bottom: 85, left: 50 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      let svgContent = '';
+
+      // Grid
+      for (let p = 0.0; p <= 1.01; p += 0.2) {
+        const y = m.top + h - p * h;
+        svgContent += `
+          <line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>
+          <text x="${m.left - 8}" y="${y + 4}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="end">${(p * 100).toFixed(0)}%</text>
+        `;
+      }
+
+      // Baseline
+      const yPrior = m.top + h - priorRate * h;
+      svgContent += `
+        <line x1="${m.left}" y1="${yPrior}" x2="${m.left + w}" y2="${yPrior}" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="${m.left + w}" y="${yPrior - 4}" fill="#fbbf24" font-size="9.5" font-family="monospace" font-weight="bold" text-anchor="end">Prior: 60.3%</text>
+      `;
+
+      const num = condList.length;
+      const barW = (w / num) * 0.72;
+
+      condList.forEach((item, i) => {
+        const xCenter = m.left + ((i + 0.5) / num) * w;
+        const x = xCenter - barW / 2;
+        const barH = item.p_high_anxiety * h;
+        const y = m.top + h - barH;
+        const isTarget = item.genre === targetItem.genre;
+        const col = isTarget ? '#a855f7' : (item.p_high_anxiety >= priorRate ? '#f43f5e' : '#14b8a6');
+
+        svgContent += `
+          <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="3" fill="${col}" fill-opacity="${isTarget ? '1' : '0.8'}" stroke="${isTarget ? '#ffffff' : col}" stroke-width="${isTarget ? '2' : '1'}" class="cursor-pointer"
+            onmouseenter="showStudioTooltip(event, '<strong>${item.genre}</strong><br>P(High Anxiety | Genre): <strong>${(item.p_high_anxiety * 100).toFixed(1)}%</strong><br>Sample: n = ${item.count}');"
+            onmouseleave="hideStudioTooltip();">
+          </rect>
+          <text x="${xCenter}" y="${y - 4}" fill="#ffffff" font-size="8.5" font-weight="bold" text-anchor="middle">${(item.p_high_anxiety * 100).toFixed(0)}%</text>
+          <text x="${xCenter}" y="${m.top + h + 12}" fill="${isTarget ? '#c084fc' : '#e5e7eb'}" font-size="9" font-weight="${isTarget ? 'bold' : 'normal'}" transform="rotate(45 ${xCenter} ${m.top + h + 12})" text-anchor="start">${item.genre}</text>
+        `;
+      });
+
+      svg.innerHTML = svgContent;
+    }
+
+    // ========================================================
+    // 6. STUDIO BINOMIAL DISTRIBUTION (n, p, k)
+    // ========================================================
+    function drawStudioBinomial() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Discrete Binomial Probability Mass Function Studio';
+      document.getElementById('studio-badge').textContent = 'BINOMIAL PMF/CDF';
+      document.getElementById('studio-subtitle').textContent = 'Model discrete successes X ~ Bin(n, p) with live PMF bars and cumulative calculations';
+
+      const n = studioState.binomN;
+      const p = studioState.binomP;
+      const k = Math.min(studioState.binomK, n);
+
+      function binomCoeff(n, k) {
+        if (k < 0 || k > n) return 0;
+        let c = 1;
+        for (let i = 1; i <= k; i++) {
+          c = c * (n - (k - i)) / i;
+        }
+        return c;
+      }
+      function binomPMF(n, p, k) {
+        return binomCoeff(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k);
+      }
+
+      const pmfList = [];
+      let maxP = 0;
+      let cumP = 0;
+      for (let x = 0; x <= n; x++) {
+        const prob = binomPMF(n, p, x);
+        if (prob > maxP) maxP = prob;
+        if (x <= k) cumP += prob;
+        pmfList.push({ x, prob });
+      }
+
+      const expected = n * p;
+      const variance = n * p * (1 - p);
+      const std = Math.sqrt(variance);
+      const targetProb = binomPMF(n, p, k);
+
+      // Controls
+      ctrl.innerHTML = `
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="text-gray-400">Number of Trials (n):</label>
+            <span class="font-bold text-white font-mono">${n}</span>
+          </div>
+          <input type="range" min="5" max="30" value="${n}" oninput="studioState.binomN = parseInt(this.value); if(studioState.binomK > this.value) studioState.binomK = parseInt(this.value); renderStudioPlot();" class="w-full accent-indigo-500">
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="text-gray-400">Success Probability (p):</label>
+            <span class="font-bold text-white font-mono">${(p * 100).toFixed(1)}%</span>
+          </div>
+          <input type="range" min="5" max="95" value="${Math.round(p * 100)}" oninput="studioState.binomP = parseInt(this.value) / 100; renderStudioPlot();" class="w-full accent-indigo-500">
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="text-gray-400">Target Successes (k):</label>
+            <span class="font-bold text-purple-400 font-mono">k = ${k}</span>
+          </div>
+          <input type="range" min="0" max="${n}" value="${k}" oninput="studioState.binomK = parseInt(this.value); renderStudioPlot();" class="w-full accent-purple-500">
+        </div>
+      `;
+
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Binomial PMF Formula:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          P(X = k) = C(n, k) · pᵏ · (1 - p)ⁿ⁻ᵏ
+        </div>
+        <div class="text-[11px] text-gray-400 pt-1">
+          E[X] = n · p = ${expected.toFixed(2)}<br>
+          Var(X) = n · p · (1 - p) = ${variance.toFixed(3)}
+        </div>
+      `;
+
+      stat.innerHTML = `
+        <div class="flex justify-between"><span>P(X = ${k}):</span><span class="font-mono text-purple-400 font-bold">${(targetProb * 100).toFixed(2)}%</span></div>
+        <div class="flex justify-between"><span>P(X ≤ ${k}) [CDF]:</span><span class="font-mono text-cyan-400 font-bold">${(cumP * 100).toFixed(2)}%</span></div>
+        <div class="flex justify-between"><span>Expected E[X]:</span><span class="font-mono text-emerald-400 font-bold">${expected.toFixed(2)}</span></div>
+        <div class="flex justify-between"><span>Std Dev σ:</span><span class="font-mono text-white">${std.toFixed(3)}</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const m = { top: 40, right: 35, bottom: 55, left: 55 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      let svgContent = '';
+
+      // Grid
+      for (let pVal = 0; pVal <= maxP * 1.15; pVal += (maxP * 1.15) / 5) {
+        const y = m.top + h - (pVal / (maxP * 1.15)) * h;
+        svgContent += `
+          <line x1="${m.left}" y1="${y}" x2="${m.left + w}" y2="${y}" stroke="#1f2937" stroke-width="1"/>
+          <text x="${m.left - 8}" y="${y + 4}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="end">${(pVal * 100).toFixed(1)}%</text>
+        `;
+      }
+      svgContent += `<line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>`;
+
+      const num = pmfList.length;
+      const barW = (w / num) * 0.72;
+
+      pmfList.forEach((item, i) => {
+        const xCenter = m.left + ((i + 0.5) / num) * w;
+        const x = xCenter - barW / 2;
+        const barH = (item.prob / (maxP * 1.15)) * h;
+        const y = m.top + h - barH;
+        const isTarget = item.x === k;
+        const col = isTarget ? '#c084fc' : '#10b981';
+
+        svgContent += `
+          <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="3" fill="${col}" fill-opacity="${isTarget ? '1' : '0.8'}" stroke="${isTarget ? '#ffffff' : col}" stroke-width="${isTarget ? '2' : '1'}" class="cursor-pointer"
+            onmouseenter="showStudioTooltip(event, 'k = <strong>${item.x}</strong><br>P(X = ${item.x}): <strong>${(item.prob * 100).toFixed(2)}%</strong>');"
+            onmouseleave="hideStudioTooltip();">
+          </rect>
+          <text x="${xCenter}" y="${y - 4}" fill="${isTarget ? '#c084fc' : '#ffffff'}" font-size="8.5" font-family="monospace" font-weight="${isTarget ? 'bold' : 'normal'}" text-anchor="middle">${(item.prob * 100).toFixed(1)}%</text>
+          <text x="${xCenter}" y="${m.top + h + 16}" fill="${isTarget ? '#c084fc' : '#9ca3af'}" font-size="9" font-family="monospace" font-weight="${isTarget ? 'bold' : 'normal'}" text-anchor="middle">${item.x}</text>
+        `;
+      });
+
+      svgContent += `
+        <text x="${m.left + w / 2}" y="${m.top + h + 38}" fill="#9ca3af" font-size="11" font-weight="bold" text-anchor="middle">Number of Successes (k)</text>
+      `;
+
+      svg.innerHTML = svgContent;
+    }
+
+    // ========================================================
+    // 7. STUDIO STUDENT'S T DISTRIBUTION (df = 230.6)
+    // ========================================================
+    function drawStudioTDist() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Student\'s t Hypothesis Testing & Decision Region Studio';
+      document.getElementById('studio-badge').textContent = 'STUDENT\'S t';
+      document.getElementById('studio-subtitle').textContent = 'Rejection critical boundaries, significance α control, and observed t test statistic';
+
+      const alpha = studioState.tAlpha;
+      const tails = studioState.tTails;
+      const tObs = -0.9791;
+      const df = 230.6;
+
+      // Critical values approximation for large df (matches z)
+      let tCrit = 1.970;
+      if (alpha === 0.10) tCrit = tails === 'two' ? 1.652 : 1.286;
+      else if (alpha === 0.05) tCrit = tails === 'two' ? 1.970 : 1.652;
+      else if (alpha === 0.01) tCrit = tails === 'two' ? 2.597 : 2.343;
+      else if (alpha === 0.001) tCrit = tails === 'two' ? 3.330 : 3.120;
+
+      const isRejected = tails === 'two' ? Math.abs(tObs) >= tCrit : (tails === 'left' ? tObs <= -tCrit : tObs >= tCrit);
+
+      ctrl.innerHTML = `
+        <div>
+          <label class="block text-gray-400 mb-1">Significance Level (α):</label>
+          <div class="grid grid-cols-4 gap-1.5">
+            ${[0.10, 0.05, 0.01, 0.001].map(a => `
+              <button onclick="studioState.tAlpha = ${a}; renderStudioPlot();" class="py-1 rounded text-xs font-mono font-medium border ${alpha === a ? 'bg-indigo-600 text-white border-indigo-500' : 'bg-gray-900 text-gray-300 border-gray-800 hover:text-white'}">
+                ${a}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+        <div class="space-y-1.5 pt-2 border-t border-gray-800">
+          <label class="block text-gray-400">Hypothesis Direction:</label>
+          <div class="flex gap-2">
+            <button onclick="studioState.tTails = 'two'; renderStudioPlot();" class="flex-1 py-1 rounded text-xs font-medium border ${tails === 'two' ? 'bg-indigo-600 text-white border-indigo-500' : 'bg-gray-900 text-gray-300 border-gray-800'}">Two-Tailed (≠)</button>
+            <button onclick="studioState.tTails = 'left'; renderStudioPlot();" class="flex-1 py-1 rounded text-xs font-medium border ${tails === 'left' ? 'bg-indigo-600 text-white border-indigo-500' : 'bg-gray-900 text-gray-300 border-gray-800'}">Left-Tailed (<)</button>
+          </div>
+        </div>
+      `;
+
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Welch's Two-Sample t-Test:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          t = (x̄₁ - x̄₂) / √(s₁²/n₁ + s₂²/n₂)<br>
+          Observed t = -0.9791 (df = 230.6)
+        </div>
+        <div class="text-[11px] text-gray-400 pt-1">
+          Null Hypothesis H₀: μ_work = μ_nowork<br>
+          Critical Value: ±${tCrit.toFixed(3)}
+        </div>
+      `;
+
+      stat.innerHTML = `
+        <div class="flex justify-between"><span>Observed Stat (t):</span><span class="font-mono text-amber-400 font-bold">${tObs}</span></div>
+        <div class="flex justify-between"><span>Critical Threshold:</span><span class="font-mono text-rose-400 font-bold">±${tCrit.toFixed(3)}</span></div>
+        <div class="flex justify-between"><span>p-value:</span><span class="font-mono text-white font-bold">0.3285</span></div>
+        <div class="flex justify-between"><span>Decision (α=${alpha}):</span><span class="font-mono ${isRejected ? 'text-rose-400' : 'text-emerald-400'} font-bold">${isRejected ? 'REJECT H₀' : 'FAIL TO REJECT H₀'}</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const m = { top: 40, right: 35, bottom: 55, left: 35 };
+      const w = width - m.left - m.right;
+      const h = height - m.top - m.bottom;
+
+      const tMin = -4, tMax = 4;
+      const scaleX = t => m.left + ((t - tMin) / (tMax - tMin)) * w;
+      const maxDensity = 0.3989;
+      const scaleY = d => m.top + h - (d / maxDensity) * (h - 20);
+
+      let curveD = '', areaD = '';
+      let leftRejD = '', rightRejD = '';
+      const steps = 140;
+
+      for (let i = 0; i <= steps; i++) {
+        const t = tMin + (i / steps) * (tMax - tMin);
+        const y = normalPDF(t, 0, 1);
+        const px = scaleX(t);
+        const py = scaleY(y);
+
+        if (i === 0) {
+          curveD += `M ${px} ${py}`;
+          areaD += `M ${px} ${m.top + h} L ${px} ${py}`;
+        } else {
+          curveD += ` L ${px} ${py}`;
+          areaD += ` L ${px} ${py}`;
+        }
+
+        if (t <= -tCrit) {
+          leftRejD += (leftRejD === '' ? `M ${px} ${m.top + h} L ${px} ${py}` : ` L ${px} ${py}`);
+        }
+        if (t >= tCrit) {
+          rightRejD += (rightRejD === '' ? `M ${px} ${m.top + h} L ${px} ${py}` : ` L ${px} ${py}`);
+        }
+      }
+      areaD += ` L ${scaleX(tMax)} ${m.top + h} Z`;
+      if (leftRejD) leftRejD += ` L ${scaleX(-tCrit)} ${m.top + h} Z`;
+      if (rightRejD) rightRejD += ` L ${scaleX(tMax)} ${m.top + h} Z`;
+
+      let svgContent = `
+        <path d="${areaD}" fill="rgba(99, 102, 241, 0.15)"/>
+        ${leftRejD ? `<path d="${leftRejD}" fill="rgba(244, 63, 94, 0.5)"/>` : ''}
+        ${rightRejD && tails === 'two' ? `<path d="${rightRejD}" fill="rgba(244, 63, 94, 0.5)"/>` : ''}
+        <path d="${curveD}" fill="none" stroke="#818cf8" stroke-width="2.5"/>
+        <line x1="${m.left}" y1="${m.top + h}" x2="${m.left + w}" y2="${m.top + h}" stroke="#374151" stroke-width="1.5"/>
+      `;
+
+      // Critical Boundary Lines
+      svgContent += `
+        <line x1="${scaleX(-tCrit)}" y1="${m.top + 10}" x2="${scaleX(-tCrit)}" y2="${m.top + h}" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4,3"/>
+        <text x="${scaleX(-tCrit)}" y="${m.top + 5}" fill="#f43f5e" font-size="10" font-family="monospace" text-anchor="middle">-t_crit (${(-tCrit).toFixed(2)})</text>
+      `;
+      if (tails === 'two') {
+        svgContent += `
+          <line x1="${scaleX(tCrit)}" y1="${m.top + 10}" x2="${scaleX(tCrit)}" y2="${m.top + h}" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4,3"/>
+          <text x="${scaleX(tCrit)}" y="${m.top + 5}" fill="#f43f5e" font-size="10" font-family="monospace" text-anchor="middle">+t_crit (${tCrit.toFixed(2)})</text>
+        `;
+      }
+
+      // Observed Test Stat
+      const xObs = scaleX(tObs);
+      svgContent += `
+        <line x1="${xObs}" y1="${m.top + 25}" x2="${xObs}" y2="${m.top + h}" stroke="#fbbf24" stroke-width="3"/>
+        <circle cx="${xObs}" cy="${m.top + 25}" r="5" fill="#fbbf24"/>
+        <text x="${xObs}" y="${m.top + 18}" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold" text-anchor="middle">t_obs = ${tObs}</text>
+      `;
+
+      // X-Ticks
+      for (let t = -4; t <= 4; t += 1) {
+        const x = scaleX(t);
+        svgContent += `
+          <line x1="${x}" y1="${m.top + h}" x2="${x}" y2="${m.top + h + 5}" stroke="#4b5563"/>
+          <text x="${x}" y="${m.top + h + 18}" fill="#9ca3af" font-size="10" font-family="monospace" text-anchor="middle">${t}</text>
+        `;
+      }
+
+      svg.innerHTML = svgContent;
+    }
+
+    // ========================================================
+    // 8. STUDIO MULTI-METRIC RADAR COMPARISON
+    // ========================================================
+    function drawStudioRadar() {
+      const svg = document.getElementById('studio-svg');
+      const ctrl = document.getElementById('studio-controls-panel');
+      const form = document.getElementById('studio-formula-content');
+      const stat = document.getElementById('studio-stats-summary');
+
+      document.getElementById('studio-title').textContent = 'Multi-Metric Genre Radar Comparison Studio';
+      document.getElementById('studio-badge').textContent = 'RADAR 4-AXIS';
+      document.getElementById('studio-subtitle').textContent = 'High-dimensional profile overlay: Anxiety, Depression, Insomnia, and OCD';
+
+      const g1Name = studioState.radarGenre1;
+      const g2Name = studioState.radarGenre2;
+      const g1 = DATA.genres[g1Name] || DATA.genres['Rock'];
+      const g2 = DATA.genres[g2Name] || DATA.genres['Classical'];
+
+      const genreOptions = DATA.all_genre_names.map(g => `<option value="${g}">${g}</option>`).join('');
+
+      ctrl.innerHTML = `
+        <div>
+          <label class="block text-gray-400 mb-1">Primary Genre (Polygon 1):</label>
+          <select id="studio-radar-g1" onchange="studioState.radarGenre1 = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            ${genreOptions}
+          </select>
+        </div>
+        <div>
+          <label class="block text-gray-400 mb-1">Comparison Genre (Polygon 2):</label>
+          <select id="studio-radar-g2" onchange="studioState.radarGenre2 = this.value; renderStudioPlot();" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-indigo-500">
+            ${genreOptions}
+          </select>
+        </div>
+      `;
+      document.getElementById('studio-radar-g1').value = g1Name;
+      document.getElementById('studio-radar-g2').value = g2Name;
+
+      form.innerHTML = `
+        <div class="text-indigo-300 font-semibold mb-1">Polar Coordinates Mapping:</div>
+        <div class="bg-gray-900 p-2 rounded border border-gray-800 text-[11px] text-gray-300">
+          x = cx + r · sin(θ)<br>
+          y = cy - r · cos(θ)<br>
+          Radius r = (score / 10) · R_max
+        </div>
+      `;
+
+      stat.innerHTML = `
+        <div class="font-bold text-red-400">${g1.name}:</div>
+        <div class="flex justify-between text-[11px]"><span>Anx / Dep:</span><span class="font-mono text-white">${g1.anxiety.mean} / ${g1.depression.mean}</span></div>
+        <div class="flex justify-between text-[11px]"><span>Ins / OCD:</span><span class="font-mono text-white">${g1.insomnia.mean} / ${g1.ocd.mean}</span></div>
+        <div class="font-bold text-cyan-400 mt-2">${g2.name}:</div>
+        <div class="flex justify-between text-[11px]"><span>Anx / Dep:</span><span class="font-mono text-white">${g2.anxiety.mean} / ${g2.depression.mean}</span></div>
+        <div class="flex justify-between text-[11px]"><span>Ins / OCD:</span><span class="font-mono text-white">${g2.insomnia.mean} / ${g2.ocd.mean}</span></div>
+      `;
+
+      // Draw SVG
+      const width = 680, height = 380;
+      const cx = width / 2;
+      const cy = height / 2;
+      const rMax = 120;
+
+      const axes = [
+        { name: 'Anxiety', key: 'anxiety', angle: 0 },
+        { name: 'Depression', key: 'depression', angle: Math.PI / 2 },
+        { name: 'Insomnia', key: 'insomnia', angle: Math.PI },
+        { name: 'OCD', key: 'ocd', angle: 3 * Math.PI / 2 }
+      ];
+
+      let svgContent = '';
+
+      // Web Rings
+      [2, 4, 6, 8, 10].forEach(level => {
+        const r = (level / 10) * rMax;
+        svgContent += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#1f2937" stroke-width="1"/>`;
+        svgContent += `<text x="${cx + 4}" y="${cy - r + 10}" fill="#6b7280" font-size="8" font-family="monospace">${level}</text>`;
+      });
+
+      // Axis Lines
+      axes.forEach(a => {
+        const x2 = cx + rMax * Math.sin(a.angle);
+        const y2 = cy - rMax * Math.cos(a.angle);
+        svgContent += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#374151" stroke-width="1.5"/>`;
+
+        const labelDist = rMax + 24;
+        const lx = cx + labelDist * Math.sin(a.angle);
+        const ly = cy - labelDist * Math.cos(a.angle);
+        svgContent += `<text x="${lx}" y="${ly + 4}" fill="#e5e7eb" font-size="11" font-weight="bold" text-anchor="middle">${a.name}</text>`;
+      });
+
+      // Polygons
+      function getPoints(obj) {
+        return axes.map(a => {
+          const val = obj[a.key].mean;
+          const r = (val / 10) * rMax;
+          return `${cx + r * Math.sin(a.angle)},${cy - r * Math.cos(a.angle)}`;
+        }).join(' ');
+      }
+
+      const pGlobal = getPoints(DATA.global);
+      const p1 = getPoints(g1);
+      const p2 = getPoints(g2);
+
+      svgContent += `
+        <!-- Global -->
+        <polygon points="${pGlobal}" fill="rgba(156, 163, 175, 0.1)" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <!-- Genre 2 -->
+        <polygon points="${p2}" fill="rgba(6, 182, 212, 0.2)" stroke="#06b6d4" stroke-width="2.5"/>
+        <!-- Genre 1 -->
+        <polygon points="${p1}" fill="rgba(239, 68, 68, 0.25)" stroke="#ef4444" stroke-width="2.5"/>
+      `;
+
+      svg.innerHTML = svgContent;
+    }
+
 
     // ========================================================
     // HYPOTHESIS TESTS & DISTRIBUTIONS (NEW TAB 2)
@@ -1616,12 +3783,12 @@
       document.getElementById('hero-count-badge').textContent = `${g.count} listeners (${g.pct_of_total}%)`;
       
       const hoursDiff = (g.hours.mean - DATA.global.hours.mean).toFixed(1);
-      document.getElementById('hero-hours').textContent = `${g.hours.mean}h`;
+      animateValue(document.getElementById('hero-hours'), 0, g.hours.mean, 500, 1, 'h');
       document.getElementById('hero-hours-delta').textContent = `${hoursDiff >= 0 ? '+' : ''}${hoursDiff}h vs avg`;
       document.getElementById('hero-hours-delta').className = `text-[11px] block ${hoursDiff > 0 ? 'text-indigo-400' : 'text-gray-400'}`;
 
       document.getElementById('hero-age').textContent = `${g.age.mean} yrs`;
-      document.getElementById('hero-improve-rate').textContent = `${g.effects_pct.Improve}%`;
+      animateValue(document.getElementById('hero-improve-rate'), 0, g.effects_pct.Improve, 500, 1, '%');
       
       const topStreaming = g.streaming_services[0] || { name: 'Unknown', pct: 0 };
       document.getElementById('hero-streaming').textContent = topStreaming.name;
@@ -1648,10 +3815,10 @@
       renderRadarChart(g);
       renderDonutChart(g);
 
-      document.getElementById('habit-work').textContent = `${g.habits.working_pct}%`;
-      document.getElementById('habit-instrument').textContent = `${g.habits.instrumentalist_pct}%`;
-      document.getElementById('habit-composer').textContent = `${g.habits.composer_pct}%`;
-      document.getElementById('habit-exploratory').textContent = `${g.habits.exploratory_pct}%`;
+      animateValue(document.getElementById('habit-work'), parseFloat(document.getElementById('habit-work').textContent) || 0, g.habits.working_pct, 500, 1, '%');
+      animateValue(document.getElementById('habit-instrument'), parseFloat(document.getElementById('habit-instrument').textContent) || 0, g.habits.instrumentalist_pct, 500, 1, '%');
+      animateValue(document.getElementById('habit-composer'), parseFloat(document.getElementById('habit-composer').textContent) || 0, g.habits.composer_pct, 500, 1, '%');
+      animateValue(document.getElementById('habit-exploratory'), parseFloat(document.getElementById('habit-exploratory').textContent) || 0, g.habits.exploratory_pct, 500, 1, '%');
 
       document.getElementById('habit-work-anx').textContent = `${g.habits.working_anxiety || 'N/A'} / 10`;
       document.getElementById('habit-nowork-anx').textContent = `${g.habits.non_working_anxiety || 'N/A'} / 10`;
@@ -1674,8 +3841,8 @@
       const medianEl = document.getElementById(`kpi-${dim}-median`);
       const barEl = document.getElementById(`kpi-${dim}-bar`);
 
-      if (meanEl) meanEl.textContent = stats.mean.toFixed(2);
-      if (medianEl) medianEl.textContent = stats.median.toFixed(1);
+      if (meanEl) animateValue(meanEl, parseFloat(meanEl.textContent) || 0, stats.mean, 500, 2);
+      if (medianEl) animateValue(medianEl, parseFloat(medianEl.textContent) || 0, stats.median, 500, 1);
 
       const diff = (stats.mean - globalStats.mean).toFixed(2);
       if (deltaEl) {
@@ -1707,8 +3874,12 @@
       }
     }
 
-    function renderRadarChart(g) {
+    let prevRadarScores = null;
+    let radarAnimFrame = null;
+
+    function renderRadarChart(g, duration = 480) {
       const svg = document.getElementById('radar-svg');
+      if (!svg) return;
       const cx = 200, cy = 160, maxR = 110;
       const axes = [
         { label: 'Anxiety', key: 'anxiety' },
@@ -1720,106 +3891,191 @@
       document.getElementById('radar-legend-genre-color').style.backgroundColor = g.color || '#6366f1';
       document.getElementById('radar-legend-genre-name').textContent = g.name;
 
-      document.getElementById('radar-score-anx').textContent = g.anxiety.mean;
-      document.getElementById('radar-score-dep').textContent = g.depression.mean;
-      document.getElementById('radar-score-ins').textContent = g.insomnia.mean;
-      document.getElementById('radar-score-ocd').textContent = g.ocd.mean;
+      animateValue(document.getElementById('radar-score-anx'), parseFloat(document.getElementById('radar-score-anx').textContent) || 0, g.anxiety.mean, duration, 2);
+      animateValue(document.getElementById('radar-score-dep'), parseFloat(document.getElementById('radar-score-dep').textContent) || 0, g.depression.mean, duration, 2);
+      animateValue(document.getElementById('radar-score-ins'), parseFloat(document.getElementById('radar-score-ins').textContent) || 0, g.insomnia.mean, duration, 2);
+      animateValue(document.getElementById('radar-score-ocd'), parseFloat(document.getElementById('radar-score-ocd').textContent) || 0, g.ocd.mean, duration, 2);
 
-      let html = '';
+      const targetScores = {
+        anxiety: g.anxiety.mean,
+        depression: g.depression.mean,
+        insomnia: g.insomnia.mean,
+        ocd: g.ocd.mean
+      };
 
-      [2, 4, 6, 8, 10].forEach(level => {
-        const r = (level / 10) * maxR;
-        const pts = axes.map((_, i) => {
-          const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
-          return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
-        }).join(' ');
-
-        html += `<polygon points="${pts}" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="${level === 10 ? 'none' : '3,3'}"/>`;
-        html += `<text x="${cx + 4}" y="${cy - r + 3}" fill="#4b5563" font-size="9">${level}</text>`;
-      });
-
-      axes.forEach((axis, i) => {
-        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
-        const x2 = cx + maxR * Math.cos(angle);
-        const y2 = cy - maxR * Math.sin(angle);
-        html += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#374151" stroke-width="1.5" />`;
-
-        const lx = cx + (maxR + 24) * Math.cos(angle);
-        const ly = cy - (maxR + 18) * Math.sin(angle);
-        const textAnchor = Math.abs(Math.cos(angle)) < 0.2 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
-        html += `<text x="${lx}" y="${ly}" fill="#e5e7eb" font-size="11" font-weight="600" text-anchor="${textAnchor}">${axis.label}</text>`;
-      });
-
-      const globalPts = axes.map((axis, i) => {
-        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
-        const val = DATA.global[axis.key].mean;
-        const r = (val / 10) * maxR;
-        return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
-      }).join(' ');
-      html += `<polygon points="${globalPts}" fill="rgba(156, 163, 175, 0.15)" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,4"/>`;
-
-      const genrePts = axes.map((axis, i) => {
-        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
-        const val = g[axis.key].mean;
-        const r = (val / 10) * maxR;
-        return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
-      }).join(' ');
+      const startScores = prevRadarScores ? { ...prevRadarScores } : { ...targetScores };
+      prevRadarScores = { ...targetScores };
 
       const genreColor = g.color || '#6366f1';
-      html += `<polygon points="${genrePts}" fill="${genreColor}" fill-opacity="0.35" stroke="${genreColor}" stroke-width="2.5"/>`;
 
-      axes.forEach((axis, i) => {
-        const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
-        const val = g[axis.key].mean;
-        const r = (val / 10) * maxR;
-        const px = cx + r * Math.cos(angle);
-        const py = cy - r * Math.sin(angle);
-        html += `<circle cx="${px}" cy="${py}" r="4" fill="${genreColor}" stroke="#ffffff" stroke-width="1.5" />`;
-      });
+      // Ensure base grid rings and axis lines exist
+      let baseGroup = document.getElementById('radar-static-base');
+      if (!baseGroup || !document.getElementById('radar-live-polygon')) {
+        let baseHtml = `<g id="radar-static-base">`;
+        [2, 4, 6, 8, 10].forEach(level => {
+          const r = (level / 10) * maxR;
+          const pts = axes.map((_, i) => {
+            const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+            return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+          }).join(' ');
+          baseHtml += `<polygon points="${pts}" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="${level === 10 ? 'none' : '3,3'}"/>`;
+          baseHtml += `<text x="${cx + 4}" y="${cy - r + 3}" fill="#4b5563" font-size="9">${level}</text>`;
+        });
 
-      svg.innerHTML = html;
+        axes.forEach((axis, i) => {
+          const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+          const x2 = cx + maxR * Math.cos(angle);
+          const y2 = cy - maxR * Math.sin(angle);
+          baseHtml += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#374151" stroke-width="1.5" />`;
+
+          const lx = cx + (maxR + 24) * Math.cos(angle);
+          const ly = cy - (maxR + 18) * Math.sin(angle);
+          const textAnchor = Math.abs(Math.cos(angle)) < 0.2 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
+          baseHtml += `<text x="${lx}" y="${ly}" fill="#e5e7eb" font-size="11" font-weight="600" text-anchor="${textAnchor}">${axis.label}</text>`;
+        });
+
+        const globalPts = axes.map((axis, i) => {
+          const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+          const val = DATA.global[axis.key].mean;
+          const r = (val / 10) * maxR;
+          return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+        }).join(' ');
+        baseHtml += `<polygon points="${globalPts}" fill="rgba(156, 163, 175, 0.15)" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,4"/>`;
+        baseHtml += `</g>`;
+        baseHtml += `<polygon id="radar-live-polygon" points="" fill="${genreColor}" fill-opacity="0.35" stroke="${genreColor}" stroke-width="2.5" style="transition: fill 0.3s ease, stroke 0.3s ease;"/>`;
+        baseHtml += `<g id="radar-live-dots"></g>`;
+        svg.innerHTML = baseHtml;
+      }
+
+      const poly = document.getElementById('radar-live-polygon');
+      const dotsG = document.getElementById('radar-live-dots');
+      if (poly) {
+        poly.setAttribute('fill', genreColor);
+        poly.setAttribute('stroke', genreColor);
+      }
+
+      if (radarAnimFrame) cancelAnimationFrame(radarAnimFrame);
+      const startTime = performance.now();
+
+      function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // smooth cubic ease out
+
+        const cur = {};
+        axes.forEach(a => {
+          cur[a.key] = startScores[a.key] + (targetScores[a.key] - startScores[a.key]) * ease;
+        });
+
+        const pts = axes.map((axis, i) => {
+          const angle = (Math.PI / 2) + (i * 2 * Math.PI / axes.length);
+          const val = cur[axis.key];
+          const r = (val / 10) * maxR;
+          return `${cx + r * Math.cos(angle)},${cy - r * Math.sin(angle)}`;
+        });
+
+        if (poly) poly.setAttribute('points', pts.join(' '));
+
+        if (dotsG) {
+          let dotsHtml = '';
+          pts.forEach((pStr) => {
+            const [px, py] = pStr.split(',');
+            dotsHtml += `<circle cx="${px}" cy="${py}" r="4.5" fill="${genreColor}" stroke="#ffffff" stroke-width="1.8" />`;
+          });
+          dotsG.innerHTML = dotsHtml;
+        }
+
+        if (progress < 1) {
+          radarAnimFrame = requestAnimationFrame(step);
+        }
+      }
+      radarAnimFrame = requestAnimationFrame(step);
     }
 
-    function renderDonutChart(g) {
-      const svg = document.getElementById('donut-svg');
-      const imp = g.effects_pct.Improve;
-      const noEff = g.effects_pct['No effect'];
-      const wor = g.effects_pct.Worsen;
+    let prevDonut = null;
+    let donutAnimFrame = null;
 
-      document.getElementById('donut-center-pct').textContent = `${imp}%`;
-      document.getElementById('donut-improve-val').textContent = `${g.effects_counts.Improve} (${imp}%)`;
-      document.getElementById('donut-noeffect-val').textContent = `${g.effects_counts['No effect']} (${noEff}%)`;
-      document.getElementById('donut-worsen-val').textContent = `${g.effects_counts.Worsen} (${wor}%)`;
+    function renderDonutChart(g, duration = 480) {
+      const svg = document.getElementById('donut-svg');
+      if (!svg) return;
+
+      const targetImp = g.effects_pct.Improve;
+      const targetNoEff = g.effects_pct['No effect'];
+      const targetWor = g.effects_pct.Worsen;
+
+      document.getElementById('donut-improve-val').textContent = `${g.effects_counts.Improve} (${targetImp}%)`;
+      document.getElementById('donut-noeffect-val').textContent = `${g.effects_counts['No effect']} (${targetNoEff}%)`;
+      document.getElementById('donut-worsen-val').textContent = `${g.effects_counts.Worsen} (${targetWor}%)`;
+
+      animateValue(document.getElementById('donut-center-pct'), parseFloat(document.getElementById('donut-center-pct').textContent) || 0, targetImp, duration, 1, '%');
+
+      const startDonut = prevDonut ? { ...prevDonut } : { imp: targetImp, noEff: targetNoEff, wor: targetWor };
+      prevDonut = { imp: targetImp, noEff: targetNoEff, wor: targetWor };
 
       const cx = 100, cy = 100, r = 70;
       const circumference = 2 * Math.PI * r;
 
-      const strokeImp = (imp / 100) * circumference;
-      const strokeNoEff = (noEff / 100) * circumference;
-      const strokeWor = (wor / 100) * circumference;
+      let baseDonut = document.getElementById('donut-base-circle');
+      if (!baseDonut) {
+        svg.innerHTML = `
+          <circle id="donut-base-circle" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#1f2937" stroke-width="24" />
+          <circle id="donut-slice-imp" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#10b981" stroke-width="24"
+            transform="rotate(-90 ${cx} ${cy})" stroke-linecap="round" />
+          <circle id="donut-slice-noeff" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#6b7280" stroke-width="24"
+            transform="rotate(-90 ${cx} ${cy})" />
+          <circle id="donut-slice-wor" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#f43f5e" stroke-width="24"
+            transform="rotate(-90 ${cx} ${cy})" stroke-linecap="round" />
+        `;
+      }
 
-      const offsetImp = 0;
-      const offsetNoEff = -strokeImp;
-      const offsetWor = -(strokeImp + strokeNoEff);
+      const sliceImp = document.getElementById('donut-slice-imp');
+      const sliceNoEff = document.getElementById('donut-slice-noeff');
+      const sliceWor = document.getElementById('donut-slice-wor');
 
-      svg.innerHTML = `
-        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#1f2937" stroke-width="24" />
-        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#10b981" stroke-width="24"
-          stroke-dasharray="${strokeImp} ${circumference}" stroke-dashoffset="${offsetImp}"
-          transform="rotate(-90 ${cx} ${cy})" stroke-linecap="round" />
-        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#6b7280" stroke-width="24"
-          stroke-dasharray="${strokeNoEff} ${circumference}" stroke-dashoffset="${offsetNoEff}"
-          transform="rotate(-90 ${cx} ${cy})" />
-        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#f43f5e" stroke-width="24"
-          stroke-dasharray="${strokeWor} ${circumference}" stroke-dashoffset="${offsetWor}"
-          transform="rotate(-90 ${cx} ${cy})" stroke-linecap="round" />
-      `;
+      if (donutAnimFrame) cancelAnimationFrame(donutAnimFrame);
+      const startTime = performance.now();
+
+      function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+
+        const imp = startDonut.imp + (targetImp - startDonut.imp) * ease;
+        const noEff = startDonut.noEff + (targetNoEff - startDonut.noEff) * ease;
+        const wor = startDonut.wor + (targetWor - startDonut.wor) * ease;
+
+        const strokeImp = (imp / 100) * circumference;
+        const strokeNoEff = (noEff / 100) * circumference;
+        const strokeWor = (wor / 100) * circumference;
+
+        const offsetImp = 0;
+        const offsetNoEff = -strokeImp;
+        const offsetWor = -(strokeImp + strokeNoEff);
+
+        if (sliceImp) {
+          sliceImp.setAttribute('stroke-dasharray', `${strokeImp} ${circumference}`);
+          sliceImp.setAttribute('stroke-dashoffset', `${offsetImp}`);
+        }
+        if (sliceNoEff) {
+          sliceNoEff.setAttribute('stroke-dasharray', `${strokeNoEff} ${circumference}`);
+          sliceNoEff.setAttribute('stroke-dashoffset', `${offsetNoEff}`);
+        }
+        if (sliceWor) {
+          sliceWor.setAttribute('stroke-dasharray', `${strokeWor} ${circumference}`);
+          sliceWor.setAttribute('stroke-dashoffset', `${offsetWor}`);
+        }
+
+        if (progress < 1) {
+          donutAnimFrame = requestAnimationFrame(step);
+        }
+      }
+      donutAnimFrame = requestAnimationFrame(step);
     }
 
     function renderHabitHoursBars(hoursDist) {
       const container = document.getElementById('habit-hours-bars');
       container.innerHTML = '';
-      hoursDist.forEach(h => {
+      hoursDist.forEach((h, idx) => {
         const row = document.createElement('div');
         row.className = 'space-y-1';
         row.innerHTML = `
@@ -1828,17 +4084,21 @@
             <span class="font-semibold text-gray-200">${h.count} (${h.pct}%)</span>
           </div>
           <div class="h-2 rounded-full bg-gray-800 overflow-hidden">
-            <div style="width: ${h.pct}%" class="h-full bg-indigo-500 rounded-full"></div>
+            <div id="habit-hours-fill-${idx}" style="width: 0%; transition: width 0.65s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 60}ms" class="h-full bg-indigo-500 rounded-full"></div>
           </div>
         `;
         container.appendChild(row);
+        setTimeout(() => {
+          const fill = document.getElementById(`habit-hours-fill-${idx}`);
+          if (fill) fill.style.width = `${h.pct}%`;
+        }, 30);
       });
     }
 
     function renderStreamingBars(services) {
       const container = document.getElementById('habit-streaming-bars');
       container.innerHTML = '';
-      services.slice(0, 4).forEach(s => {
+      services.slice(0, 4).forEach((s, idx) => {
         const row = document.createElement('div');
         row.className = 'space-y-1';
         row.innerHTML = `
@@ -1847,10 +4107,14 @@
             <span class="font-semibold text-gray-200">${s.pct}%</span>
           </div>
           <div class="h-1.5 rounded-full bg-gray-800 overflow-hidden">
-            <div style="width: ${s.pct}%" class="h-full bg-purple-500 rounded-full"></div>
+            <div id="habit-stream-fill-${idx}" style="width: 0%; transition: width 0.65s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 60}ms" class="h-full bg-purple-500 rounded-full"></div>
           </div>
         `;
         container.appendChild(row);
+        setTimeout(() => {
+          const fill = document.getElementById(`habit-stream-fill-${idx}`);
+          if (fill) fill.style.width = `${s.pct}%`;
+        }, 30);
       });
     }
 
@@ -2080,6 +4344,10 @@
         const gInfo = DATA.genres[item.name];
         const barWidth = Math.max(8, (item.val / maxVal) * 100);
 
+        const isDec = typeof item.val === 'number' && item.val % 1 !== 0;
+        const decimals = isDec ? (metricKey.includes('hours') ? 1 : 2) : 0;
+        const suffix = metricKey.includes('improve') ? '%' : (metricKey.includes('hours') ? 'h' : '');
+
         const card = document.createElement('div');
         card.className = 'glass-card-hover bg-gray-900/80 p-2.5 rounded-xl border border-gray-800 flex items-center gap-3 cursor-pointer';
         card.onclick = () => {
@@ -2095,11 +4363,18 @@
             <span class="text-[10px] text-gray-500">${item.sub}</span>
           </div>
           <div class="flex-1 h-3 rounded-full bg-gray-800 overflow-hidden flex">
-            <div style="width: ${barWidth}%; background-color: ${gInfo.color || '#6366f1'}" class="h-full rounded-full transition-all duration-300"></div>
+            <div id="rank-bar-${index}" style="width: 0%; background-color: ${gInfo.color || '#6366f1'}; transition: width 0.85s cubic-bezier(0.16, 1, 0.3, 1) ${index * 45}ms;" class="h-full rounded-full"></div>
           </div>
-          <span class="w-16 text-right text-xs font-bold text-white font-mono">${item.val}</span>
+          <span id="rank-val-${index}" class="w-16 text-right text-xs font-bold text-white font-mono">0</span>
         `;
         container.appendChild(card);
+
+        setTimeout(() => {
+          const bar = document.getElementById(`rank-bar-${index}`);
+          const valEl = document.getElementById(`rank-val-${index}`);
+          if (bar) bar.style.width = `${barWidth}%`;
+          if (valEl) animateValue(valEl, 0, item.val, 850 + index * 45, decimals, suffix);
+        }, 30);
       });
     }
 

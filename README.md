@@ -125,15 +125,15 @@ The dashboard (`web_dashboard/index.html`) is built using clean modern CSS and v
 3. **🏆 Leaderboards & Rankings:**
    - Rank all 16 genres instantly by Highest Anxiety, Depression, Insomnia, OCD, Daily Listening Hours, Mental Health Improvement Rate, or Sample Size.
    - Click any leaderboard bar to instantly inspect that genre.
-4. **📈 R Plots & Visualizations Gallery (New Tab):**
-   - High-resolution gallery of all 6 graphical plot types generated in base R:
-     - **Frequency Histogram & Density:** Distribution of Anxiety scores.
-     - **Bivariate OLS Scatter Plot:** Daily listening hours vs. Anxiety with linear trendline.
-     - **Two-Sample Tukey Boxplot:** Anxiety distributions for workplace listeners vs. non-listeners.
-     - **Categorical Stacked Bar Plot:** Contingency distribution of anxiety severity across top genres.
-     - **Conditional Probability Bar Chart:** Ranked $P(\text{High Anxiety} \mid \text{Genre})$ with Wilson intervals.
-     - **Discrete Probability Distribution PMF:** Binomial distribution for $n = 10, p = 0.603$.
-   - Interactive zoom modals, academic interpretations, variables plotted ($X$ vs. $Y$), and exact base R code snippets.
+4. **📈 Statistical Visualizations & Interactive Live Plotter:**
+   - The website now **actively plots all 6 graph types live** using a responsive, native client-side SVG plotting engine (with zero external dependencies) AND lets you toggle to the original base R static `.png` images for side-by-side comparison:
+     - **Frequency Histogram & Normal Fit:** Plots the exact discrete frequencies across anxiety scores (0–10) with an overlaid continuous Normal density curve $N(\mu=5.83, \sigma=2.79)$.
+     - **Bivariate OLS Scatter Plot:** Plots all 735 real data points $(x = \text{hours}, y = \text{anxiety})$ with the fitted regression line $\hat{y} = 5.67 + 0.0458 x$ ($r = 0.050, p = 0.179$).
+     - **Two-Sample Tukey Boxplot:** Plots side-by-side box-and-whisker plots comparing workplace listeners ($n=578$) vs. non-listeners ($n=154$), highlighting Medians, IQRs, and Mean markers.
+     - **Contingency Stacked Bar Plot:** Plots stacked categorical distributions of High Anxiety vs. Normal Anxiety across all top genres.
+     - **Conditional Probability Bar Chart:** Plots ranked $P(\text{High Anxiety} \mid \text{Genre})$ bars with a horizontal benchmark line for the global sample average ($60.3\%$).
+     - **Discrete Binomial PMF Bar Plot:** Plots $P(X = k)$ probabilities for $k = 0, \dots, 10$ with expected value marker $E[X] = 6.03$.
+   - Interactive zoom modals, hover tooltips, mathematical interpretations, and base R code snippets for every plot.
 5. **🧪 Inferential Statistics & Hypothesis Testing Suite (New Tab):**
    - **Executive Decision Matrix:** Complete scorecard of Null ($H_0$), Alternative ($H_1$), test statistics, degrees of freedom, $p$-values, effect sizes (Cohen's $d$, Cramer's $V$, $r^2$), and decisions at $\alpha = 0.05$.
    - **Welch Two-Sample t-Test:** With an **interactive SVG Student's t-distribution bell curve** displaying shaded two-tailed rejection regions ($\alpha = 0.05$), critical boundaries ($t = \pm 1.970$), and observed statistic marker ($t = -0.9791$) inside the acceptance region.

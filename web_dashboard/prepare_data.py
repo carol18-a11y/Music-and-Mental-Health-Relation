@@ -555,6 +555,68 @@ def process():
                     for r in csv.DictReader(f)
                 ]
 
+    # Pre-calculated data specifically for client-side live SVG rendering of all 6 graphs
+    anx_counts = Counter(int(r['anxiety']) for r in cleaned)
+    hist_list = [{'score': s, 'count': anx_counts.get(s, 0), 'pct': round((anx_counts.get(s, 0) / total_n) * 100, 1)} for s in range(11)]
+
+    # Boxplot calculations
+    def compute_box(vals):
+        s = sorted(vals)
+        n = len(s)
+        def q_val(p):
+            idx = p * (n - 1)
+            i = int(idx)
+            rem = idx - i
+            return s[i] + rem * (s[i+1] - s[i]) if i < n - 1 else s[i]
+        q1 = round(q_val(0.25), 2)
+        med = round(q_val(0.50), 2)
+        q3 = round(q_val(0.75), 2)
+        iqr = q3 - q1
+        low = round(max(s[0], q1 - 1.5 * iqr), 2)
+        high = round(min(s[-1], q3 + 1.5 * iqr), 2)
+        mean_val = round(sum(s) / n, 2)
+        return {'n': n, 'min': s[0], 'q1': q1, 'median': med, 'q3': q3, 'max': s[-1], 'mean': mean_val, 'lower_whisker': low, 'upper_whisker': high}
+
+    # Boxplot calculations for all 4 clinical dimensions (Anxiety, Depression, Insomnia, OCD)
+    box_metrics = {}
+    for m_key in ['anxiety', 'depression', 'insomnia', 'ocd']:
+        w_yes = [r[m_key] for r in cleaned if r['working'] == 'Yes']
+        w_no = [r[m_key] for r in cleaned if r['working'] == 'No']
+        box_metrics[m_key] = {
+            'yes': compute_box(w_yes),
+            'no': compute_box(w_no)
+        }
+
+    # Rich scatter points with all dimensions for interactive GUI controls
+    scatter_pts = [
+        {
+            'id': r['id'],
+            'age': r['age'],
+            'x': round(r['hours'], 2),
+            'anxiety': round(r['anxiety'], 1),
+            'depression': round(r['depression'], 1),
+            'insomnia': round(r['insomnia'], 1),
+            'ocd': round(r['ocd'], 1),
+            'genre': r['genre'],
+            'working': r['working'],
+            'effects': r['effects']
+        }
+        for r in cleaned
+    ]
+
+    r_stats['live_plots'] = {
+        'histogram': hist_list,
+        'boxplot': box_metrics['anxiety'], # default anxiety
+        'box_metrics': box_metrics,
+        'scatter': {
+            'slope': 0.0458,
+            'intercept': 5.6698,
+            'r': 0.0497,
+            'p': 0.1787,
+            'points': scatter_pts
+        }
+    }
+
     full_payload = {
         'global': global_data,
         'genres': genre_data,
